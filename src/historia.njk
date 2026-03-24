@@ -1,0 +1,165 @@
+---
+layout: layouts/base.njk
+title: Historia
+bodyClass: page-light
+---
+
+<article class="history-page">
+  
+  <header class="page-header wrap">
+    <span class="pre-title">Crónica de la Hermandad</span>
+    <h1>Nuestra Historia</h1>
+    <div class="header-line"></div>
+  </header>
+
+  <section class="history-section wrap">
+    <div class="history-grid">
+      <div class="history-text">
+        <h2>Orígenes y Nobleza (1852)</h2>
+        <p>La <strong>Hermandad de Caballeros del Santo Sepulcro de Elche</strong> hunde sus raíces en el ecuador del siglo XIX. Fundada oficialmente en <strong>1852</strong>, nació bajo el amparo de las familias de mayor linaje de la ciudad, quienes asumieron el compromiso de escoltar la imagen de Cristo Yacente en la noche del Viernes Santo.</p>
+        <p>Desde su fundación, la Hermandad se ha distinguido por un carácter austero y riguroso, manteniendo viva la tradición de la guardia de honor al cuerpo inerte del Redentor.</p>
+      </div>
+      <div class="history-image">
+        <img src="/img/historia-1.jpg" alt="Antigua procesión del Santo Sepulcro" class="img-fluid">
+      </div>
+    </div>
+  </section>
+
+  <section class="history-timeline">
+    <div class="wrap">
+      <div class="timeline-item">
+        <span class="year">1852</span>
+        <div class="timeline-content">
+          <h3>Fundación Oficial</h3>
+          <p>Se establecen las primeras constituciones de la Hermandad, vinculando la institución a la nobleza local e ilicitana.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <span class="year">1936 - 1939</span>
+        <div class="timeline-content">
+          <h3>Guerra Civil y Pérdida</h3>
+          <p>Durante el conflicto, se pierde la imagen original y parte del patrimonio documental, un golpe que marcó profundamente a la cofradía.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <span class="year">1940</span>
+        <div class="timeline-content">
+          <h3>La Reorganización</h3>
+          <p>Tras la guerra, los caballeros se reorganizan para recuperar la procesión, encargando una nueva imagen que devolviera el fervor al Raval.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="history-section wrap">
+    <div class="identity-box">
+      <h2>La Túnica y la Estética</h2>
+      <p>El color negro y la capa blanca de los Caballeros no son solo una elección estética; representan el luto universal y la pureza del alma que custodia al Señor. La procesión de Viernes Santo desde la <strong>Parroquia de San José</strong> es considerada uno de los momentos de mayor recogimiento de la Semana Santa de Elche.</p>
+    </div>
+  </section>
+
+</article>
+
+<style>
+  /* Estilos específicos para la página de Historia */
+  .history-page {
+    padding-top: 160px; /* Espacio para el header fijo */
+    padding-bottom: 80px;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .pre-title {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    color: #000;
+  }
+
+  .header-line {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 20px auto;
+  }
+
+  .history-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+
+  .history-text p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #444;
+  }
+
+  .history-image img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+
+  .history-timeline {
+    background: #f9f9f9;
+    padding: 80px 0;
+    margin: 60px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .timeline-item .year {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--gold);
+    min-width: 120px;
+    font-weight: bold;
+  }
+
+  .timeline-content h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
+    color: #000;
+  }
+
+  .identity-box {
+    background: #000;
+    color: #fff;
+    padding: 60px;
+    text-align: center;
+    border-radius: 2px;
+  }
+
+  .identity-box h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .history-grid { grid-template-columns: 1fr; }
+    .timeline-item { flex-direction: column; gap: 10px; }
+  }
+</style>
