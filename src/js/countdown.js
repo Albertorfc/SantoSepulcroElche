@@ -1,10 +1,21 @@
 function updateCountdown() {
-    // Fecha objetivo: Viernes Santo 2026 (3 de Abril)
-    const targetDate = new Date('April 3, 2026 00:00:00').getTime();
+    // 1. Fuente de verdad: Si cambias esta fecha, cambia todo en la web
+    const targetDateStr = 'April 3, 2026 00:00:00';
+    const targetDate = new Date(targetDateStr).getTime();
     const now = new Date().getTime();
     const diff = targetDate - now;
 
-    // Si los elementos no existen en esta página, salimos de la función
+    // --- NUEVO: ESTO ESCRIBE LA FECHA AUTOMÁTICA EN EL TEXTO ---
+    const dateDisplay = document.getElementById('target-date-display');
+    if (dateDisplay) {
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        // Convierte "April 3, 2026" en "3 de abril de 2026"
+        const formattedDate = new Date(targetDateStr).toLocaleDateString('es-ES', options);
+        dateDisplay.innerText = formattedDate;
+    }
+    // ---------------------------------------------------------
+
+    // Si los elementos no existen en esta página (como en Historia), salimos
     if (!document.getElementById('days')) return;
 
     if (diff <= 0) {
@@ -29,7 +40,7 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// Script adicional para el año del footer (siempre presente)
+// Script para el año del footer
 window.addEventListener('load', () => {
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
