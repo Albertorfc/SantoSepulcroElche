@@ -192,3 +192,32 @@ body.page-light {
   filter: grayscale(0) brightness(1); /* Se ilumina al pasar el ratón */
   opacity: 1;
 }
+
+/* --- SECCIÓN SOCIAL --- */
+.social-section {
+  padding: 80px 0;
+  background-color: #050505; /* Un gris casi negro para separar secciones */
+  text-align: center;
+}
+
+.social-section .section-title h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.social-section .section-title p {
+  color: #888;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.instagram-container {
+  width: 100%;
+  max-width: 1000px; /* Evita que en pantallas enormes se vea gigante */
+  margin: 0 auto;
+  min-height: 400px; /* Reserva espacio mientras carga el script */
+  border-radius: 8px;
+  overflow: hidden;
+}
