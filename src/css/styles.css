@@ -229,3 +229,30 @@ body.page-light {
   border-radius: 8px;
   overflow: hidden;
 }
+
+.number {
+  background: linear-gradient(to bottom, #222 50%, #111 50%); /* Efecto de corte */
+  color: #fff;
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 800;
+  padding: 20px 10px;
+  border-radius: 6px;
+  min-width: 100px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* La línea que "corta" la ficha por la mitad */
+.number::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(0,0,0,0.6);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.1);
+  transform: translateY(-50%);
+}
