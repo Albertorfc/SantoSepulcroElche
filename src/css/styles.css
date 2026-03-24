@@ -167,3 +167,17 @@ body.page-light {
 .number { background: #fff; color: #000; display: block; font-size: 3rem; font-weight: 700; padding: 15px; border-radius: 8px; min-width: 90px; position: relative; }
 .label { display: block; margin-top: 10px; font-size: 12px; text-transform: uppercase; color: var(--gold); }
 .site-footer { padding: 60px 0; text-align: center; border-top: 1px solid var(--line); background: #000; }
+
+.footer-shield { 
+  width: 80px; /* Ajusta el tamaño a tu gusto */
+  height: auto;
+  filter: grayscale(1) brightness(0.7); /* Esto lo vuelve gris y un poco oscuro */
+  opacity: 0.6; 
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+.footer-shield:hover {
+  filter: grayscale(0) brightness(1); /* Se ilumina al pasar el ratón */
+  opacity: 1;
+}
