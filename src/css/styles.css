@@ -230,6 +230,13 @@ body.page-light {
   overflow: hidden;
 }
 
+/* Intento de ocultar el branding del widget gratuito */
+.sk_instagram_feed_link, .sk-branding {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
 .number {
   background: linear-gradient(to bottom, #222 50%, #111 50%); /* Efecto de corte */
   color: #fff;
