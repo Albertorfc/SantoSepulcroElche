@@ -8,7 +8,7 @@
   --text-light: #ffffff;
 }
 
-* { margin: 0; padding: 0; box-box: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: 'Lato', sans-serif;
