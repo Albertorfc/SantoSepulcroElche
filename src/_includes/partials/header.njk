@@ -1,0 +1,73 @@
+<header class="site-header" id="siteHeader">
+  <div class="header-bar wrap">
+    
+    {# Logo y Título con enlace a la raíz #}
+    <a href="/" class="brand" aria-label="Ir al inicio">
+      <div class="brand-shield">
+        <img src="/img/escudo.png" alt="Escudo de la Hermandad">
+      </div>
+      <div class="brand-text">
+        <span class="brand-top">Hermandad · 1852 · Elche</span>
+        <strong>Caballeros del Santo Sepulcro</strong>
+      </div>
+    </a>
+
+    <div class="header-actions">
+      {# Buscador (opcional, lo mantenemos por si lo activas luego) #}
+      <button class="icon-button search-toggle" type="button" aria-label="Abrir buscador">
+        <span class="icon-search"></span>
+      </button>
+
+      {# Redes Sociales #}
+      <div class="header-social">
+        <a href="https://www.facebook.com/SantoSepulcroElche/" target="_blank" class="social-link">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/hermandadsantosepulcroelche/" target="_blank" class="social-link">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://x.com/santo_elche" target="_blank" class="social-link">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X">
+        </a>
+      </div>
+
+      {# Botón Menú Móvil #}
+      <button class="menu-toggle" type="button" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  {# Panel de Búsqueda #}
+  <div class="search-panel" id="searchPanel">
+    <div class="wrap search-inner">
+      <input type="search" placeholder="Buscar en la web" aria-label="Buscar en la web">
+    </div>
+  </div>
+
+  {# Menú de Escritorio #}
+  <nav class="desktop-nav wrap" aria-label="Menú principal">
+    <a href="/">Inicio</a>
+    <a href="/hermandad/">Hermandad</a>
+    <a href="/historia/">Historia</a>
+    <a href="/cultos/">Cultos</a>
+    <a href="/patrimonio/">Patrimonio</a>
+    <a href="/contacto/">Contacto</a>
+  </nav>
+
+  {# Menú Móvil Desplegable #}
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+    <div class="mobile-menu-inner">
+      <nav class="mobile-nav">
+        <a href="/">Inicio</a>
+        <a href="/hermandad/">Hermandad</a>
+        <a href="/historia/">Historia</a>
+        <a href="/cultos/">Cultos</a>
+        <a href="/patrimonio/">Patrimonio</a>
+        <a href="/contacto/">Contacto</a>
+      </nav>
+    </div>
+  </nav>
+</header>
