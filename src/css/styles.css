@@ -196,8 +196,16 @@ body.page-light {
 /* --- SECCIÓN SOCIAL --- */
 .social-section {
   padding: 80px 0;
-  background-color: #050505; /* Un gris casi negro para separar secciones */
+  background-color: #000000; /* Un gris casi negro para separar secciones */
   text-align: center;
+}
+
+/* Forzamos que el contenedor del widget no tenga márgenes blancos */
+.instagram-container {
+  background: #000;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
 }
 
 .social-section .section-title h2 {
