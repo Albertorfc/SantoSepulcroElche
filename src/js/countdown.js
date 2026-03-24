@@ -24,12 +24,14 @@ function updateCountdown() {
     }
 
     // Cálculos de tiempo
+    const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44));
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
     // Inyectar en el HTML con formato de dos dígitos
+    if(document.getElementById('months')) document.getElementById('months').innerText = months.toString().padStart(2, '0');
     document.getElementById('days').innerText = days.toString().padStart(2, '0');
     document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
     document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
