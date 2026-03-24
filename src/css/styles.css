@@ -156,6 +156,17 @@ body.page-light {
 .page-light .brand, .page-light .desktop-nav a, .page-light .menu-toggle { color: #000; }
 .page-light .social-link img { filter: invert(0); }
 
+.desktop-nav a {
+  color: inherit; /* Hereda blanco en home y negro en historia */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Este hover funcionará en AMBAS versiones (negra y blanca) */
+.desktop-nav a:hover {
+  color: var(--gold) !important;
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
   .desktop-nav, .header-social { display: none; }
