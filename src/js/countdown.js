@@ -1,21 +1,16 @@
 function updateCountdown() {
-    // 1. Fuente de verdad: Si cambias esta fecha, cambia todo en la web
     const targetDateStr = 'April 3, 2026 00:00:00';
     const targetDate = new Date(targetDateStr).getTime();
     const now = new Date().getTime();
     const diff = targetDate - now;
 
-    // --- NUEVO: ESTO ESCRIBE LA FECHA AUTOMÁTICA EN EL TEXTO ---
+    // Actualizar texto de la fecha
     const dateDisplay = document.getElementById('target-date-display');
     if (dateDisplay) {
         const options = { day: 'numeric', month: 'long', year: 'numeric' };
-        // Convierte "April 3, 2026" en "3 de abril de 2026"
-        const formattedDate = new Date(targetDateStr).toLocaleDateString('es-ES', options);
-        dateDisplay.innerText = formattedDate;
+        dateDisplay.innerText = new Date(targetDateStr).toLocaleDateString('es-ES', options);
     }
-    // ---------------------------------------------------------
 
-    // Si los elementos no existen en esta página (como en Historia), salimos
     if (!document.getElementById('days')) return;
 
     if (diff <= 0) {
@@ -23,14 +18,14 @@ function updateCountdown() {
         return;
     }
 
-    // Cálculos de tiempo
+    // CÁLCULOS
     const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44));
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-    // Inyectar en el HTML con formato de dos dígitos
+    // INYECTAR EN HTML
     if(document.getElementById('months')) document.getElementById('months').innerText = months.toString().padStart(2, '0');
     document.getElementById('days').innerText = days.toString().padStart(2, '0');
     document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
