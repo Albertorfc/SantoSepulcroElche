@@ -174,7 +174,36 @@ body.page-light {
 }
 
 /* --- FOOTER Y CONTADOR (Se mantienen igual) --- */
-.countdown-container { display: flex; justify-content: center; gap: 20px; margin-top: 40px; }
+.countdown-container {
+    display: grid;
+    /* Creamos 6 columnas invisibles para repartir el espacio */
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 25px 10px; /* 25px de separación entre filas, 10px entre columnas */
+    justify-items: center;
+    max-width: 500px;
+    margin: 40px auto 0;
+  }
+
+  /* Meses y Días ocupan 3 columnas cada uno (ocupan toda la fila 1) */
+  .countdown-item:nth-child(1),
+  .countdown-item:nth-child(2) {
+    grid-column: span 3;
+  }
+
+  /* Horas, Minutos y Segundos ocupan 2 columnas cada uno (ocupan toda la fila 2) */
+  .countdown-item:nth-child(3),
+  .countdown-item:nth-child(4),
+  .countdown-item:nth-child(5) {
+    grid-column: span 2;
+  }
+
+  /* Ajustamos el tamaño del número para que no se peguen */
+  .number {
+    font-size: 2.5rem;
+    min-width: 80px;
+    padding: 15px 5px;
+  }
+
 .number { background: #fff; color: #000; display: block; font-size: 3rem; font-weight: 700; padding: 15px; border-radius: 8px; min-width: 90px; position: relative; }
 .label { display: block; margin-top: 10px; font-size: 12px; text-transform: uppercase; color: var(--gold); }
 .site-footer { padding: 60px 0; text-align: center; border-top: 1px solid var(--line); background: #000; }
