@@ -175,14 +175,12 @@ body.page-light {
 
 /* --- FOOTER Y CONTADOR (Se mantienen igual) --- */
 .countdown-container {
-    display: grid;
-    /* Creamos 6 columnas invisibles para repartir el espacio */
-    grid-template-columns: repeat(6, 1fr); 
-    gap: 25px 10px; /* 25px de separación entre filas, 10px entre columnas */
-    justify-items: center;
-    max-width: 500px;
-    margin: 40px auto 0;
-  }
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Espacio entre fichas */
+  margin-top: 40px;
+  flex-wrap: nowrap; /* Fuerza una sola línea en PC */
+}
 
   /* Meses y Días ocupan 3 columnas cada uno (ocupan toda la fila 1) */
   .countdown-item:nth-child(1),
@@ -198,11 +196,27 @@ body.page-light {
   }
 
   /* Ajustamos el tamaño del número para que no se peguen */
-  .number {
-    font-size: 2.5rem;
-    min-width: 80px;
-    padding: 15px 5px;
-  }
+.number {
+  background: linear-gradient(to bottom, #222 50%, #111 50%);
+  color: #fff;
+  display: block;
+  font-size: 2.8rem; /* Tamaño más contenido para PC */
+  font-weight: 800;
+  padding: 15px 5px;
+  border-radius: 6px;
+  min-width: 85px; /* Un poco más estrechas */
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.number::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 0; width: 100%; height: 1px;
+  background: rgba(0,0,0,0.6);
+  transform: translateY(-50%);
+}
 
 .number { background: #fff; color: #000; display: block; font-size: 3rem; font-weight: 700; padding: 15px; border-radius: 8px; min-width: 90px; position: relative; }
 .label { display: block; margin-top: 10px; font-size: 12px; text-transform: uppercase; color: var(--gold); }
@@ -280,15 +294,31 @@ body.page-light {
   border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* La línea que "corta" la ficha por la mitad */
-.number::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: rgba(0,0,0,0.6);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.1);
-  transform: translateY(-50%);
+/* --- RESPONSIVE (Móvil: Dos líneas y más pequeño) --- */
+@media (max-width: 768px) {
+  .countdown-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px 8px;
+    max-width: 360px; /* Estrechamos el contenedor para que no se vea gigante */
+    margin: 30px auto 0;
+  }
+
+  .countdown-item:nth-child(1),
+  .countdown-item:nth-child(2) { grid-column: span 3; }
+  
+  .countdown-item:nth-child(3),
+  .countdown-item:nth-child(4),
+  .countdown-item:nth-child(5) { grid-column: span 2; }
+
+  .number {
+    font-size: 2rem; /* Tamaño reducido para móvil */
+    min-width: 65px;
+    padding: 10px 5px;
+  }
+
+  .label {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
 }
