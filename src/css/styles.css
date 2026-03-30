@@ -322,3 +322,68 @@ body.page-light {
     letter-spacing: 1px;
   }
 }
+
+
+.site-footer {
+    background-color: #000000; /* Negro puro como en la imagen */
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: sans-serif; /* Ajusta a tu tipografía principal */
+}
+
+/* Contenedor principal */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo del Escudo y Efecto HOVER */
+.footer-shield {
+    width: 80px; /* Ajusta el tamaño según necesites */
+    height: auto;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(100%) brightness(0.8); /* Empieza un poco apagado */
+}
+
+.footer-shield:hover {
+    transform: scale(1.1); /* Se agranda un poquito */
+    filter: grayscale(0%) brightness(1.2); /* Recupera color o brilla */
+    cursor: pointer;
+}
+
+/* Textos Centrales */
+.footer-title {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.footer-location {
+    font-size: 1.1rem;
+    color: #a0a0a0; /* Grisáceo como en la captura */
+    margin-bottom: 30px;
+}
+
+/* Línea divisoria */
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #1a1a1a; /* Línea muy sutil */
+    margin: 20px auto;
+    width: 80%;
+}
+
+/* Textos Inferiores */
+.footer-bottom {
+    font-size: 0.9rem;
+    color: #888888;
+}
+
+.footer-credit {
+    font-style: italic;
+    margin-top: 10px;
+    color: #555555;
+}
