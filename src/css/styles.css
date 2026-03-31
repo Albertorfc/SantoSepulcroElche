@@ -400,3 +400,23 @@ body.page-light {
     font-size: 1.1rem;
     margin-bottom: 20px;
 }
+
+.footer-location a {
+    color: inherit;         /* Hereda el color gris/blanco de su padre */
+    text-decoration: none;  /* Quita el subrayado por defecto */
+    transition: opacity 0.3s ease; /* Para un efecto suave al tocarlo */
+}
+
+/* Esto asegura que no cambie al hacer clic o haberlo visitado antes */
+.footer-location a:visited, 
+.footer-location a:active, 
+.footer-location a:focus {
+    color: inherit; 
+    outline: none;
+}
+
+/* Opcional: Un pequeño cambio al pasar el ratón para que el usuario sepa que es un link */
+.footer-location a:hover {
+    color: #ffffff; /* Se ilumina un poco más al pasar el ratón */
+    text-decoration: underline; /* Opcional: si prefieres que se subraye solo al pasar el ratón */
+}
