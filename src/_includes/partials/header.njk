@@ -50,27 +50,24 @@
     </div>
   </div>
 
-  {# Menú de Escritorio #}
-  <nav class="desktop-nav wrap" aria-label="Menú principal">
-    <a href="/">Inicio</a>
-    <a href="/hermandad/">Hermandad</a>
-    <a href="/historia/">Historia</a>
-    <a href="/cultos/">Cultos</a>
-    <a href="/patrimonio/">Patrimonio</a>
-    <a href="/contacto/">Contacto</a>
-  </nav>
+{# Menú de Escritorio #}
+<nav class="desktop-nav wrap" aria-label="Menú principal">
+  <a href="/" class="{% if page.url == '/' %}active{% endif %}">Inicio</a>
+  <a href="/hermandad/" class="{% if page.url == '/hermandad/' %}active{% endif %}">Hermandad</a>
+  <a href="/historia/" class="{% if page.url == '/historia/' %}active{% endif %}">Historia</a>
+  <a href="/cultos/" class="{% if page.url == '/cultos/' %}active{% endif %}">Cultos</a>
+  <a href="/patrimonio/" class="{% if page.url == '/patrimonio/' %}active{% endif %}">Patrimonio</a>
+  <a href="/contacto/" class="{% if page.url == '/contacto/' %}active{% endif %}">Contacto</a>
+</nav>
 
-  {# Menú Móvil Desplegable #}
-  <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
-    <div class="mobile-menu-inner">
-      <nav class="mobile-nav">
-        <a href="/">Inicio</a>
-        <a href="/hermandad/">Hermandad</a>
-        <a href="/historia/">Historia</a>
-        <a href="/cultos/">Cultos</a>
-        <a href="/patrimonio/">Patrimonio</a>
-        <a href="/contacto/">Contacto</a>
-      </nav>
-    </div>
-  </nav>
+{# Menú Móvil #}
+<nav class="mobile-nav">
+  <a href="/" class="{% if page.url == '/' %}active{% endif %}">Inicio</a>
+  <a href="/hermandad/" class="{% if page.url == '/hermandad/' %}active{% endif %}">Hermandad</a>
+  <a href="/historia/" class="{% if page.url == '/historia/' %}active{% endif %}">Historia</a>
+  <a href="/cultos/" class="{% if page.url == '/cultos/' %}active{% endif %}">Cultos</a>
+  <a href="/patrimonio/" class="{% if page.url == '/patrimonio/' %}active{% endif %}">Patrimonio</a>
+  <a href="/contacto/" class="{% if page.url == '/contacto/' %}active{% endif %}">Contacto</a>
+</nav>
+
 </header>
