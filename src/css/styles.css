@@ -387,3 +387,16 @@ body.page-light {
     margin-top: 10px;
     color: #555555;
 }
+
+.footer-motto {
+    color: #ffffff; /* Blanco puro */
+    font-weight: bold;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.footer-location {
+    color: #a0a0a0; /* Gris claro */
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
