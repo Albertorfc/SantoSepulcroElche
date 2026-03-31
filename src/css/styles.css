@@ -420,3 +420,58 @@ body.page-light {
     color: #ffffff; /* Se ilumina un poco más al pasar el ratón */
     text-decoration: underline; /* Opcional: si prefieres que se subraye solo al pasar el ratón */
 }
+
+
+/* --- ARREGLO DE BOTONES HERO (RESPONSIVE) --- */
+
+/* 1. Contenedor de los botones */
+.hero-actions, .hero-buttons { 
+    display: flex;
+    flex-direction: column; /* En móvil: uno debajo del otro */
+    gap: 15px;
+    align-items: center;
+    margin-top: 30px;
+    padding: 0 20px;
+}
+
+/* 2. Estilo base de los botones para que no se monten */
+.hero-actions a, .btn-primary, .btn-secondary {
+    width: 100%;           /* Ocupan todo el ancho en móvil */
+    max-width: 280px;      /* Pero con un límite para que no sean gigantes */
+    text-align: center;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 14px;
+    display: inline-block;
+    box-sizing: border-box; /* Crucial para que el padding no rompa el ancho */
+}
+
+/* El botón dorado */
+.btn-primary, a[href*="historia"] {
+    background-color: var(--gold);
+    color: #000;
+    border: 1px solid var(--gold);
+}
+
+/* El botón transparente con borde */
+.btn-secondary, a[href*="cultos"] {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+/* 3. CAMBIO A HORIZONTAL (Para tablets y PC) */
+@media (min-width: 768px) {
+    .hero-actions, .hero-buttons {
+        flex-direction: row;    /* En PC: uno al lado del otro */
+        justify-content: flex-start; /* Alineados a la izquierda o center según prefieras */
+        gap: 20px;
+    }
+
+    .hero-actions a, .btn-primary, .btn-secondary {
+        width: auto;            /* En PC el ancho depende del texto */
+    }
+}
