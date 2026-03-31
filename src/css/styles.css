@@ -112,8 +112,28 @@ body.page-light {
   letter-spacing: 0.15em;
 }
 
-.desktop-nav a { color: inherit; text-decoration: none; transition: 0.3s; }
-.desktop-nav a:hover { color: var(--gold); }
+/* Estado normal: hereda el color (blanco en dark, negro en light) */
+.desktop-nav a { 
+  color: inherit; 
+  text-decoration: none; 
+  transition: 0.3s;
+  padding: 5px 10px;
+  opacity: 0.8;
+}
+
+/* Estado Activo y Hover: Dorado y sin opacidad */
+.desktop-nav a:hover,
+.desktop-nav a.active { 
+  color: var(--gold) !important; 
+  opacity: 1;
+  background-color: rgba(197, 160, 89, 0.08); /* Fondo sutil que se ve en tu captura */
+  border-radius: 2px;
+}
+
+/* Ajuste específico para modo claro si fuera necesario */
+.page-light .desktop-nav a.active {
+  background-color: rgba(197, 160, 89, 0.15);
+}
 
 /* --- MENÚ MÓVIL Y HAMBURGUESA --- */
 .menu-toggle {
