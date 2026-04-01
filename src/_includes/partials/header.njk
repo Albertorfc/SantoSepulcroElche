@@ -1,7 +1,7 @@
 <header class="site-header" id="siteHeader">
   <div class="header-bar wrap">
     
-    {# Logo y Título con enlace a la raíz #}
+    {# Logo y Título #}
     <a href="/" class="brand" aria-label="Ir al inicio">
       <div class="brand-shield">
         <img src="/img/escudo.png" alt="Escudo de la Hermandad">
@@ -13,7 +13,7 @@
     </a>
 
     <div class="header-actions">
-      {# Buscador (opcional, lo mantenemos por si lo activas luego) #}
+      {# Buscador #}
       <button class="icon-button search-toggle" type="button" aria-label="Abrir buscador">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"></circle>
@@ -34,7 +34,7 @@
         </a>
       </div>
 
-      {# Botón Menú Móvil #}
+      {# Botón Menú Móvil (Hamburguesa) #}
       <button class="menu-toggle" type="button" aria-label="Abrir menú">
         <span></span>
         <span></span>
@@ -50,24 +50,27 @@
     </div>
   </div>
 
-{# Menú de Escritorio #}
-<nav class="desktop-nav wrap" aria-label="Menú principal">
-  <a href="/" class="{% if page.url == '/' %}active{% endif %}">Inicio</a>
-  <a href="/hermandad/" class="{% if page.url == '/hermandad/' %}active{% endif %}">Hermandad</a>
-  <a href="/historia/" class="{% if page.url == '/historia/' %}active{% endif %}">Historia</a>
-  <a href="/cultos/" class="{% if page.url == '/cultos/' %}active{% endif %}">Cultos</a>
-  <a href="/patrimonio/" class="{% if page.url == '/patrimonio/' %}active{% endif %}">Patrimonio</a>
-  <a href="/contacto/" class="{% if page.url == '/contacto/' %}active{% endif %}">Contacto</a>
-</nav>
+  {# NAVEGACIÓN ESCRITORIO #}
+  <nav class="desktop-nav wrap" aria-label="Menú principal">
+    <a href="/" class="{% if page.url == '/' %}active{% endif %}">Inicio</a>
+    <a href="/hermandad/" class="{% if page.url == '/hermandad/' %}active{% endif %}">Hermandad</a>
+    <a href="/historia/" class="{% if page.url == '/historia/' %}active{% endif %}">Historia</a>
+    <a href="/cultos/" class="{% if page.url == '/cultos/' %}active{% endif %}">Cultos</a>
+    <a href="/patrimonio/" class="{% if page.url == '/patrimonio/' %}active{% endif %}">Patrimonio</a>
+    <a href="/contacto/" class="{% if page.url == '/contacto/' %}active{% endif %}">Contacto</a>
+  </nav>
 
-{# Menú Móvil #}
-<nav class="mobile-nav">
-  <a href="/" class="{% if page.url == '/' %}active{% endif %}">Inicio</a>
-  <a href="/hermandad/" class="{% if page.url == '/hermandad/' %}active{% endif %}">Hermandad</a>
-  <a href="/historia/" class="{% if page.url == '/historia/' %}active{% endif %}">Historia</a>
-  <a href="/cultos/" class="{% if page.url == '/cultos/' %}active{% endif %}">Cultos</a>
-  <a href="/patrimonio/" class="{% if page.url == '/patrimonio/' %}active{% endif %}">Patrimonio</a>
-  <a href="/contacto/" class="{% if page.url == '/contacto/' %}active{% endif %}">Contacto</a>
-</nav>
-
+  {# NAVEGACIÓN MÓVIL (Restaurado el contenedor id="mobileMenu") #}
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+    <div class="mobile-menu-inner">
+      <div class="mobile-nav">
+        <a href="/" class="{% if page.url == '/' %}active{% endif %}">Inicio</a>
+        <a href="/hermandad/" class="{% if page.url == '/hermandad/' %}active{% endif %}">Hermandad</a>
+        <a href="/historia/" class="{% if page.url == '/historia/' %}active{% endif %}">Historia</a>
+        <a href="/cultos/" class="{% if page.url == '/cultos/' %}active{% endif %}">Cultos</a>
+        <a href="/patrimonio/" class="{% if page.url == '/patrimonio/' %}active{% endif %}">Patrimonio</a>
+        <a href="/contacto/" class="{% if page.url == '/contacto/' %}active{% endif %}">Contacto</a>
+      </div>
+    </div>
+  </nav>
 </header>
