@@ -4,29 +4,68 @@ title: Patrimonio Devocional
 bodyClass: page-light
 ---
 
-<section class="page-section">
+<article class="history-page">
+  
+  {# --- CABECERA (Consistente con el resto de la web) --- #}
+  <header class="page-header wrap">
+    <span class="pre-title">Legado y Arte</span>
+    <h1>Nuestro Patrimonio</h1>
+    <div class="header-line"></div>
+  </header>
+
+  {# --- SECCIÓN DE ELEMENTOS (Usando la rejilla de Historia) --- #}
   <div class="wrap">
-    <h1 class="section-title">Patrimonio</h1>
     
-    <div class="patrimonio-item">
-      <div class="patrimonio-text">
-        <h2>Cristo Yacente</h2>
-        <p>Nuestra imagen titular representa el cuerpo inerte de Jesús tras el descendimiento. Una obra de profunda carga teológica que invita al silencio y la reflexión.</p>
+    {# Elemento 1: Cristo Yacente #}
+    <section class="history-section">
+      <div class="history-grid">
+        <div class="history-text">
+          <h2>Cristo Yacente</h2>
+          <p>Nuestra imagen titular representa el cuerpo inerte de Jesús tras el descendimiento. Es una obra de profunda carga teológica que invita al silencio, la reflexión y el respeto absoluto ante el misterio de la muerte del Señor.</p>
+          <p>Custodiada durante todo el año en la <strong>Parroquia de San José</strong>, la imagen es el epicentro de nuestra devoción y el motivo de nuestra guardia de honor.</p>
+        </div>
+        <div class="history-image">
+          <img src="/img/cristo-yacente.jpg" alt="Imagen de Cristo Yacente" class="img-fluid">
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="patrimonio-item reverse">
-      <div class="patrimonio-text">
-        <h2>El Trono-Sepulcro</h2>
-        <p>Tallado con la sobriedad que requiere el entierro de Cristo, el trono es el altar itinerante sobre el que procesionamos cada Viernes Santo por las calles de Elche.</p>
+    {# Elemento 2: El Trono-Sepulcro (Efecto Invertido) #}
+    <section class="history-section">
+      <div class="history-grid" style="direction: rtl;"> {# Hack rápido para invertir orden en desktop #}
+        <div class="history-text" style="direction: ltr;">
+          <h2>El Trono-Sepulcro</h2>
+          <p>Tallado con la sobriedad que requiere el entierro de Cristo, el trono es el altar itinerante sobre el que procesionamos cada Viernes Santo por las calles de Elche.</p>
+          <p>Su diseño busca resaltar la figura del Señor, evitando ornamentos superfluos que distraigan del recogimiento y la austeridad que define a nuestra Hermandad.</p>
+        </div>
+        <div class="history-image" style="direction: ltr;">
+          <img src="/img/trono-sepulcro.jpg" alt="Trono del Santo Sepulcro" class="img-fluid">
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="patrimonio-item">
-      <div class="patrimonio-text">
-        <h2>El Estandarte Guía</h2>
-        <p>Nuestra insignia principal, que abre paso a la sección de caballeros, portando el escudo bordado de la Hermandad sobre terciopelo negro.</p>
+    {# Elemento 3: El Estandarte #}
+    <section class="history-section">
+      <div class="history-grid">
+        <div class="history-text">
+          <h2>El Estandarte Guía</h2>
+          <p>Nuestra insignia principal, que abre paso a la sección de caballeros, portando el escudo bordado de la Hermandad sobre terciopelo negro.</p>
+          <p>Es el símbolo que nos identifica en la calle y representa la unión de todos los hermanos bajo un mismo emblema de fe.</p>
+        </div>
+        <div class="history-image">
+          <img src="/img/estandarte.jpg" alt="Estandarte de la Hermandad" class="img-fluid">
+        </div>
       </div>
-    </div>
+    </section>
+
   </div>
-</section>
+
+  {# --- CAJA FINAL DE CIERRE --- #}
+  <section class="history-section wrap">
+    <div class="identity-box">
+      <h2>Conservación del Legado</h2>
+      <p>El patrimonio de la Hermandad es fruto del esfuerzo de generaciones de caballeros y damas. Su cuidado y mantenimiento es un deber sagrado para asegurar que este testimonio de fe perdure en el tiempo.</p>
+    </div>
+  </section>
+
+</article>
