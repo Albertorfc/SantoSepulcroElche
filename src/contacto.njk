@@ -1,0 +1,70 @@
+---
+layout: layouts/base.njk
+title: Contacto y Ubicación
+bodyClass: page-light
+---
+
+<article class="history-page">
+  
+  {# --- CABECERA --- #}
+  <header class="page-header wrap">
+    <span class="pre-title">Atención al Hermano</span>
+    <h1>Contacto</h1>
+    <div class="header-line"></div>
+  </header>
+
+  <section class="history-section wrap">
+    <div class="history-grid">
+      
+      {# Bloque de Información #}
+      <div class="history-text">
+        <h2>Sede y Secretaría</h2>
+        <p>Para cualquier gestión administrativa, alta de nuevos hermanos o información sobre la Hermandad, puede visitarnos en nuestra Casa de Hermandad o contactar a través de nuestros canales oficiales.</p>
+        
+        <div style="margin-top: 30px;">
+          <p><strong>Sede Social (Casa de Hermandad):</strong><br>
+          C/ Conrado del Campo, 36<br>
+          03204 Elche (Alicante)</p>
+
+          <p><strong>Sede Canónica:</strong><br>
+          Parroquia de San José<br>
+          Plaza Reyes Católicos, s/n</p>
+
+          <p><strong>Correo Electrónico:</strong><br>
+          <a href="mailto:info@santosepulcroelche.com" style="color: var(--gold); text-decoration: none;">[TU EMAIL AQUÍ]</a></p>
+        </div>
+      </div>
+
+      {# Formulario Estilizado #}
+      <div class="contact-form-container" style="background: #f9f9f9; padding: 40px; border-radius: 4px; border: 1px solid #eee;">
+        <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
+          <div>
+            <label style="display: block; font-size: 12px; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px;">Nombre Completo</label>
+            <input type="text" name="name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 2px;">
+          </div>
+          <div>
+            <label style="display: block; font-size: 12px; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px;">Correo Electrónico</label>
+            <input type="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 2px;">
+          </div>
+          <div>
+            <label style="display: block; font-size: 12px; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px;">Mensaje / Consulta</label>
+            <textarea name="message" rows="5" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 2px; resize: vertical;"></textarea>
+          </div>
+          <button type="submit" style="background: var(--gold); color: #000; border: none; padding: 15px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s;">
+            Enviar Mensaje
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  {# --- MAPA (OPCIONAL) --- #}
+  <section class="history-section wrap">
+    <div class="identity-box" style="padding: 0; overflow: hidden; height: 400px;">
+      {# He puesto un placeholder, puedes sustituirlo por un iframe de Google Maps si lo deseas #}
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3131.7828004128524!2d-0.706176323425032!3d38.25997238407421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b4696c21e643%3A0xe67140e6c55989e2!2sC.%20Conrado%20del%20Campo%2C%2036%2C%2003204%20Elche%2C%20Alicante!5e0!3m2!1ses!2ses!4v1710000000000!5m2!1ses!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+</article>
