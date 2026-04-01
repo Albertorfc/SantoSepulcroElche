@@ -497,3 +497,125 @@ body.page-light {
     height: auto;
     transition: content 0.3s ease;
 }
+
+
+/* --- ESTILOS PARA PÁGINAS INTERIORES (HERMANDAD, HISTORIA, ETC.) --- */
+
+/* Solo se aplican si el body tiene la clase .page-light */
+.page-light .history-page {
+  padding-top: 160px;
+  padding-bottom: 80px;
+}
+
+.page-light .page-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.page-light .pre-title {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 13px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.page-light .page-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 50px;
+  color: #000;
+}
+
+.page-light .header-line {
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px auto;
+}
+
+.page-light .history-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.page-light .history-text h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 20px;
+  font-size: 32px;
+  color: #000;
+}
+
+.page-light .history-text p {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #444;
+}
+
+.page-light .history-image img {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Timeline y Secciones de contenido */
+.page-light .history-timeline {
+  background: #f9f9f9;
+  padding: 80px 0;
+  margin: 60px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.page-light .timeline-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.page-light .timeline-item {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.page-light .timeline-item .year {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--gold);
+  min-width: 160px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.page-light .timeline-content h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+/* Caja de identidad negra (el contraste final) */
+.page-light .identity-box {
+  background: #000;
+  color: #fff;
+  padding: 60px;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.page-light .identity-box h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+/* Responsive para interiores */
+@media (max-width: 768px) {
+  .page-light .history-grid { grid-template-columns: 1fr; }
+  .page-light .timeline-item { flex-direction: column; gap: 10px; }
+  .page-light .timeline-item .year { min-width: auto; }
+  .page-light .page-header h1 { font-size: 32px; }
+}
