@@ -482,3 +482,18 @@ body.page-light {
         width: auto;            /* En PC el ancho depende del texto */
     }
 }
+
+
+/* --- CAMBIO DINÁMICO DE LOGO --- */
+
+/* Cuando la página es blanca (Historia, Hermandad, etc.) */
+.page-light .logo-img {
+    content: url("/img/sepulcro-n.png");
+}
+
+/* Opcional: Asegura que el tamaño se mantenga constante */
+.logo-img {
+    width: 45px;
+    height: auto;
+    transition: content 0.3s ease;
+}
