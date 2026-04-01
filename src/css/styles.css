@@ -619,3 +619,27 @@ body.page-light {
   .page-light .timeline-item .year { min-width: auto; }
   .page-light .page-header h1 { font-size: 32px; }
 }
+
+
+/* --- AJUSTE MAPA CONTACTO --- */
+.page-light .map-container {
+  width: 100%;
+  height: 450px; /* Altura fija para que respire bien */
+  background: #eee; /* Fondo gris neutro mientras carga */
+  border: 1px solid #eee;
+  border-radius: 4px;
+  overflow: hidden;
+  line-height: 0; /* Elimina espacios fantasma debajo del iframe */
+}
+
+.page-light .map-container iframe {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .page-light .map-container {
+    height: 300px; /* Un poco más bajo en móvil */
+  }
+}
