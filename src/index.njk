@@ -4,6 +4,7 @@ title: Inicio
 bodyClass: home
 ---
 
+{# --- SECCIÓN HERO --- #}
 <section class="hero-section">
   <div class="hero-content wrap">
     <div class="hero-text">
@@ -18,7 +19,7 @@ bodyClass: home
   </div>
 </section>
 
-{# --- NUEVA SECCIÓN: GALERÍA EDITORIAL --- #}
+{# --- SECCIÓN 2: GALERÍA EDITORIAL (Tríptico) --- #}
 <section class="home-gallery">
   <div class="wrap">
     <div class="section-title">
@@ -29,27 +30,105 @@ bodyClass: home
     
     <div class="triptico-container">
       <div class="triptico-item">
-        <img src="/img/image_baa629.jpg" alt="Detalle del Cristo Yacente en la Urna">
+        <img src="/img/image_baa629.jpg" alt="Detalle del Cristo Yacente">
         <div class="img-caption">La Imagen Titular</div>
       </div>
       <div class="triptico-item featured">
-        <img src="/img/image_baa381.jpg" alt="Procesión del Santo Entierro en Elche">
+        <img src="/img/image_baa381.jpg" alt="Procesión General">
         <div class="img-caption">Santo Entierro</div>
       </div>
       <div class="triptico-item">
-        <img src="/img/image_baa643.jpg" alt="El Trono Sepulcro en Santa María">
+        <img src="/img/image_baa643.jpg" alt="Trono en Santa María">
         <div class="img-caption">El Trono-Sepulcro</div>
       </div>
     </div>
   </div>
 </section>
 
+{# --- SECCIÓN 3: CUENTA ATRÁS --- #}
 <section class="countdown-wrapper">
-  {# ... (resto de tu código de cuenta atrás igual) ... #}
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Próxima Estación de Penitencia</h2>
+      <p>Viernes Santo · <span id="target-date-display">Cargando fecha...</span></p>
+    </div>
+
+    <div class="countdown-container">
+      <div class="countdown-item">
+        <span id="months" class="number">00</span>
+        <span class="label">Meses</span>
+      </div>
+      <div class="countdown-item">
+        <span id="days" class="number">00</span>
+        <span class="label">Días</span>
+      </div>
+      <div class="countdown-item">
+        <span id="hours" class="number">00</span>
+        <span class="label">Horas</span>
+      </div>
+      <div class="countdown-item">
+        <span id="minutes" class="number">00</span>
+        <span class="label">Minutos</span>
+      </div>
+      <div class="countdown-item">
+        <span id="seconds" class="number">00</span>
+        <span class="label">Segundos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# --- SECCIÓN 4: REDES SOCIALES --- #}
+<section class="social-section">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Sigue nuestra actualidad</h2>
+      <p>@hermandadsantosepulcroelche en Instagram</p>
+    </div>
+    
+    <div class="instagram-container">
+      <div class="sk-instagram-feed" data-embed-id="25665614"></div>
+      <script src="https://widgets.sociablekit.com/instagram-feed/widget.js" defer></script>
+    </div>
+  </div>
 </section>
 
 <style>
-  /* --- ESTILOS DE LA NUEVA GALERÍA --- */
+  /* --- ESTILOS UNIFICADOS --- */
+  
+  /* Hero */
+  .hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/img/image_baa381.jpg') center/cover no-repeat;
+    text-align: left;
+  }
+
+  .hero-subtitle {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 8vw, 80px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .hero-text p {
+    max-width: 500px;
+    font-size: 18px;
+    opacity: 0.8;
+    margin-bottom: 35px;
+  }
+
+  /* Nueva Galería Tríptico */
   .home-gallery {
     padding: 100px 0;
     background: #050505;
@@ -58,7 +137,7 @@ bodyClass: home
 
   .triptico-container {
     display: grid;
-    grid-template-columns: 1fr 1.2fr 1fr; /* La imagen central es ligeramente más ancha */
+    grid-template-columns: 1fr 1.2fr 1fr;
     gap: 20px;
     margin-top: 50px;
     align-items: center;
@@ -69,20 +148,13 @@ bodyClass: home
     overflow: hidden;
     height: 500px;
     border: 1px solid rgba(255,255,255,0.1);
-    transition: transform 0.5s ease;
   }
 
   .triptico-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: sepia(20%) contrast(110%); /* Toque sutil para unificar colores */
     transition: all 0.6s ease;
-  }
-
-  .triptico-item:hover img {
-    transform: scale(1.05);
-    filter: sepia(0%) contrast(100%);
   }
 
   .img-caption {
@@ -96,18 +168,44 @@ bodyClass: home
     color: var(--gold);
     background: linear-gradient(transparent, rgba(0,0,0,0.8));
     padding: 20px 0;
-    opacity: 0.8;
   }
 
-  /* Responsive para móvil */
+  /* Countdown & Social */
+  .countdown-wrapper {
+    padding: 100px 0;
+    background: #000;
+    text-align: center;
+  }
+
+  .social-section {
+    padding: 100px 0;
+    background: #0a0a0a;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: #000;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-right: 10px;
+  }
+
+  .btn-secondary {
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
   @media (max-width: 768px) {
-    .triptico-container {
-      grid-template-columns: 1fr;
-    }
-    .triptico-item {
-      height: 350px;
-    }
+    .triptico-container { grid-template-columns: 1fr; }
+    .triptico-item { height: 350px; }
   }
-
-  /* ... (tus estilos anteriores del Hero y Countdown) ... */
 </style>
