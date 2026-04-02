@@ -29,11 +29,12 @@ body.page-light {
   padding: 0 20px;
 }
 
-/* --- HEADER --- */
 .site-header {
   position: fixed;
-  top: 0; width: 100%; z-index: 1000;
-  background: rgba(0, 0, 0, 0.8);
+  top: 0; 
+  width: 100%; 
+  z-index: 9999; /* Aumentamos para que siempre esté por encima de TODO */
+  background: rgba(0, 0, 0, 0.95); /* Más opaco para evitar transparencias raras */
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -172,7 +173,11 @@ body.page-light {
 .mobile-nav a { color: white; text-decoration: none; font-size: 24px; font-family: 'Playfair Display', serif; }
 
 /* --- PÁGINAS CLARAS --- */
-.page-light .site-header { background: #fff; border-bottom: 1px solid #eee; }
+/* En páginas blancas, fondo blanco puro para que no se vea el texto debajo al subir */
+.page-light .site-header { 
+  background: #ffffff !important; 
+  border-bottom: 1px solid #eee; 
+}
 .page-light .brand, .page-light .desktop-nav a, .page-light .menu-toggle { color: #000; }
 .page-light .social-link img { filter: invert(0); }
 
