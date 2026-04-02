@@ -6,33 +6,32 @@ bodyClass: page-light
 
 <article class="agenda-page">
   
-  {# --- CABECERA (RECUPERANDO ESTILO ORIGINAL DE HISTORIA) --- #}
+  {# --- CABECERA ESTILO HISTORIA --- #}
   <header class="page-header wrap">
-    <span class="pre-title">Crónica de la Hermandad</span>
+    <span class="pre-title">Vida Espiritual</span>
     <h1>Cultos y Actos</h1>
     <div class="header-line"></div>
   </header>
 
-  {# --- INTRODUCCIÓN BREVE (MANTENIENDO TU TEXTO) --- #}
+  {# --- SECCIÓN INTRODUCTORIA --- #}
   <section class="agenda-intro wrap">
     <div class="intro-grid">
       <div class="intro-text">
         <h2>Presencia y Oración</h2>
         <p>La actividad de la <strong>Hermandad de Caballeros del Santo Sepulcro</strong> no se limita a la estación de penitencia del Viernes Santo.</p>
-        <p>A lo largo del año, y especialmente durante el tiempo de Cuaresma, se celebran diferentes actos encaminados a reforzar nuestra fe y la fraternidad cristiana.</p>
-        <p>Nuestra sede canónica, la <strong>Parroquia de San José</strong>, es el escenario principal de estos encuentros donde la contemplación de la imagen de Cristo Yacente marca la dirección de nuestra vida espiritual.</p>
+        <p>A lo largo del año, se celebran actos para reforzar nuestra fe y la fraternidad cristiana.</p>
+        <p>Nuestra sede, la <strong>Parroquia de San José</strong>, es el escenario principal de estos encuentros espirituales.</p>
       </div>
       <div class="intro-image">
-        <img src="/img/image_baa629.jpg" alt="Cristo Yacente" class="img-fluid">
+        <img src="/img/image_baa643.jpg" alt="Interior San José" class="img-fluid">
       </div>
     </div>
   </section>
 
-  {# --- GRID DE EVENTOS (NUEVA ESTRUCTURA QUE TE GUSTA, CON TUS FOTOS) --- #}
+  {# --- CALENDARIO DE EVENTOS EN TARJETAS --- #}
   <section class="events-gallery wrap">
     <div class="events-grid">
       
-      {# Cuaresma #}
       <div class="event-card">
         <div class="event-image">
           <img src="/img/image_baa629.jpg" alt="Cristo Yacente">
@@ -40,11 +39,10 @@ bodyClass: page-light
         <div class="event-info">
           <span class="event-date">Cuaresma</span>
           <h3>Misa e Imposición de Medallas</h3>
-          <p>Solemne celebración eucarística en la Parroquia de San José donde se bendicen e imponen las medallas a los nuevos miembros.</p>
+          <p>Solemne celebración eucarística donde se bendicen e imponen las medallas a los nuevos miembros.</p>
         </div>
       </div>
 
-      {# Viernes Santo Mañana #}
       <div class="event-card">
         <div class="event-image">
           <img src="/img/image_baa643.jpg" alt="Trono Sepulcro">
@@ -52,11 +50,10 @@ bodyClass: page-light
         <div class="event-info">
           <span class="event-date">Viernes Santo (Mañana)</span>
           <h3>Traslado a la Basílica</h3>
-          <p>Traslado de la imagen y el trono-sepulcro. A la llegada, participamos en la última estación del Vía Crucis con la Hermandad de la Reconciliación.</p>
+          <p>Traslado de la imagen y el trono-sepulcro. Participación en la última estación del Vía Crucis oficial.</p>
         </div>
       </div>
 
-      {# Viernes Santo Noche (Destacado) #}
       <div class="event-card highlighted">
         <div class="event-image">
           <img src="/img/image_baa381.jpg" alt="Procesión Santo Entierro">
@@ -64,160 +61,49 @@ bodyClass: page-light
         <div class="event-info">
           <span class="event-date">Viernes Santo (Noche)</span>
           <h3>Procesión del Santo Entierro</h3>
-          <p>Estación de Penitencia oficial. El momento cumbre de nuestro año, escoltando al Señor en riguroso silencio por la ciudad.</p>
+          <p>Estación de Penitencia oficial de la Hermandad escoltando al Señor en riguroso silencio.</p>
         </div>
       </div>
 
-      {# Noviembre #}
       <div class="event-card">
         <div class="event-image">
-          <img src="/img/image_baa629.jpg" alt="Difuntos" style="filter: grayscale(1) brightness(0.7);">
+          <img src="/img/pilar.jpg" alt="Regreso">
         </div>
         <div class="event-info">
-          <span class="event-date">Noviembre</span>
-          <h3>Misa por los Difuntos</h3>
-          <p>Eucaristía solemne por el alma de todos los caballeros, damas y pilares que ya descansan en la paz del Señor.</p>
+          <span class="event-date">Viernes Santo (Madrugada)</span>
+          <h3>Traslado de Regreso</h3>
+          <p>Retorno solemne de nuestra imagen titular a la Parroquia de San José.</p>
         </div>
       </div>
 
-    </div>
-  </section>
-
-  {# --- CAJA DE IDENTIDAD FINAL (MANTENIENDO TU TEXTO) --- #}
-  <section class="history-section wrap">
-    <div class="identity-box">
-      <h2>Asistencia y Compromiso</h2>
-      <p>Se recuerda a todos los hermanos que la asistencia a los cultos es un deber fundamental recogido en nuestros estatutos. La hermandad se construye en la oración común ante la imagen de Cristo Yacente.</p>
     </div>
   </section>
 
 </article>
 
 <style>
-  /* --- ESTILOS ADAPTADOS PARA MANTENER LA CABECERA IGUAL QUE HISTORIA --- */
+  .page-header { text-align: center; padding: 100px 0 60px; }
+  .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(40px, 8vw, 60px); margin: 10px 0; }
+  .pre-title { color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-size: 13px; }
+  .header-line { width: 60px; height: 1px; background: var(--gold); margin: 20px auto 0; }
+
+  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 80px; }
+  .intro-image img { width: 100%; height: 400px; object-fit: cover; }
+
+  .events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+  .event-card { background: #fff; border: 1px solid #eee; display: flex; flex-direction: column; }
+  .event-image { height: 250px; overflow: hidden; }
+  .event-image img { width: 100%; height: 100%; object-fit: cover; }
+  .event-info { padding: 25px; }
+  .event-date { color: var(--gold); font-size: 11px; font-weight: bold; letter-spacing: 2px; }
   
-  /* Cabecera (como en la screenshot) */
-  .page-header {
-    text-align: center;
-    padding: 100px 0 60px;
-  }
-  .page-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(40px, 8vw, 60px);
-    margin: 10px 0;
-  }
-  .pre-title {
-    color: var(--gold);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 13px;
-  }
-  .header-line {
-    width: 60px;
-    height: 1px;
-    background: var(--gold);
-    margin: 20px auto 0;
-  }
-
-  /* Introducción (manteniendo el layout) */
-  .agenda-intro {
-    padding-bottom: 80px;
-  }
-  .intro-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    align-items: center;
-  }
-  @media (min-width: 768px) {
-    .intro-grid {
-      grid-template-columns: 1.2fr 1fr;
-    }
-  }
-
-  /* Grid de Eventos con Imágenes (NUEVA ESTRUCTURA QUE TE GUSTA, CON TUS FOTOS) */
-  .events-gallery {
-    padding-bottom: 80px;
-  }
-  .events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
-    margin-top: 50px;
-  }
-
-  .event-card {
-    background: #fff;
-    border: 1px solid rgba(0,0,0,0.05);
-    transition: all 0.4s ease;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .event-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-  }
-
-  .event-image {
-    height: 300px;
-    overflow: hidden;
-  }
-
-  .event-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-  }
-
-  .event-card:hover .event-image img {
-    transform: scale(1.1);
-  }
-
-  .event-info {
-    padding: 30px;
-  }
-
-  .event-date {
-    color: var(--gold);
-    text-transform: uppercase;
-    font-size: 11px;
-    letter-spacing: 3px;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  .event-info h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: #1a1a1a;
-  }
-
-  /* Destacado para la Procesión principal */
   @media (min-width: 992px) {
-    .event-card.highlighted {
-      grid-column: span 2;
-      flex-direction: row;
-      align-items: center;
-    }
-    .event-card.highlighted .event-image {
-      flex: 1.2;
-      height: 450px;
-    }
-    .event-card.highlighted .event-info {
-      flex: 1;
-      padding: 50px;
-    }
+    .event-card.highlighted { grid-column: span 2; flex-direction: row; }
+    .event-card.highlighted .event-image { flex: 1.5; height: auto; }
+    .event-card.highlighted .event-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
   }
 
-  /* Pie de página (como en Historia) */
-  .identity-box {
-    background: #f9f9f9;
-    padding: 60px;
-    text-align: center;
-    border: 1px solid #eee;
+  @media (max-width: 768px) {
+    .intro-grid { grid-template-columns: 1fr; }
   }
 </style>
