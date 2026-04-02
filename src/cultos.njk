@@ -1,97 +1,185 @@
 ---
 layout: layouts/base.njk
-title: Agenda de Cultos
+title: Cultos y Actos
 bodyClass: page-light
 ---
 
-<article class="history-page">
+<article class="agenda-page">
   
-  {# --- CABECERA DE PÁGINA --- #}
+  {# Cabecera #}
   <header class="page-header wrap">
     <span class="pre-title">Vida Espiritual</span>
     <h1>Cultos y Actos</h1>
     <div class="header-line"></div>
   </header>
 
-  {# --- INTRODUCCIÓN BREVE --- #}
-  <section class="history-section wrap">
-    <div class="history-grid">
-      <div class="history-text">
+  {# Introducción #}
+  <section class="agenda-intro wrap">
+    <div class="intro-grid">
+      <div class="intro-text">
         <h2>Presencia y Oración</h2>
         <p>La actividad de la <strong>Hermandad de Caballeros del Santo Sepulcro</strong> no se limita a la estación de penitencia del Viernes Santo.</p>
-        <p>A lo largo del año, y especialmente durante el tiempo de Cuaresma, se celebran diferentes actos encaminados a reforzar nuestra fe y la fraternidad cristiana.</p>
-        <p>Nuestra sede canónica, la <strong>Parroquia de San José</strong>, es el escenario principal de estos encuentros donde la contemplación de la imagen de Cristo Yacente marca el dirección de nuestra vida espiritual.</p>
-      </div>
-      <div class="history-image">
-        <img src="/img/cultos-intro.jpg" alt="Actos de la Hermandad" class="img-fluid">
+        <p>Nuestra sede canónica, la <strong>Parroquia de San José</strong>, es el escenario principal de estos encuentros donde la oración marca nuestra vida espiritual.</p>
       </div>
     </div>
   </section>
 
-  {# --- TIMELINE DE EVENTOS (Usando tu estructura centralizada) --- #}
-  <section class="history-timeline">
-    <div class="wrap">
-      <div class="timeline-header">
-        <h2>Calendario de Fe</h2>
-        <p class="timeline-subtitle">Principales hitos litúrgicos y procesionales de nuestra corporación.</p>
-      </div>
-
-      {# Evento 1 #}
-      <div class="timeline-item">
-        <span class="year">Cuaresma</span>
-        <div class="timeline-content">
-          <h3>Misa de Hermandad e Imposición de Medallas</h3>
-          <p>Solemne celebración eucarística en la <p>Iglesia parroquial de San José</p> donde se bendicen e imponen las medallas a las nuevas damas, caballeros y pilares.</p>
+  {# Grid de Eventos con Imágenes #}
+  <section class="events-gallery wrap">
+    <div class="events-grid">
+      
+      {# Cuaresma #}
+      <div class="event-card">
+        <div class="event-image">
+          <img src="/img/image_baa629.jpg" alt="Cristo Yacente">
+        </div>
+        <div class="event-info">
+          <span class="event-date">Cuaresma</span>
+          <h3>Misa e Imposición de Medallas</h3>
+          <p>Solemne celebración eucarística en la Parroquia de San José donde se bendicen e imponen las medallas a los nuevos miembros.</p>
         </div>
       </div>
 
-      {# Evento 2 #}
-      <div class="timeline-item">
-        <span class="year">Viernes Santo (Mañana)</span>
-        <div class="timeline-content">
+      {# Viernes Santo Mañana #}
+      <div class="event-card">
+        <div class="event-image">
+          <img src="/img/image_baa643.jpg" alt="Trono Sepulcro">
+        </div>
+        <div class="event-info">
+          <span class="event-date">Viernes Santo (Mañana)</span>
           <h3>Traslado a la Basílica</h3>
-          <p>Traslado de la imagen y el trono-sepulcro desde la Parroquia de San José hasta la Basílica de Santa María, en un acto que preludia la gran noche del entierro.</p>
-          <p></p>
-          <p>A la llegada a la Basílica, la Hermandad participa en la última estación del Vía Crucis organizado por la <strong>Penitencial Hermandad del Santísimo Cristo de la Reconciliación y Nuestra Santísima Mater Desolata</strong>, uniendo a ambas corporaciones en la oración ante el altar del templo mayor de la ciudad.</p>
+          <p>Traslado de la imagen y el trono-sepulcro. A la llegada, participamos en la última estación del Vía Crucis con la Hermandad de la Reconciliación.</p>
         </div>
       </div>
 
-      {# Evento 3 #}
-      <div class="timeline-item">
-        <span class="year">Viernes Santo (Noche)</span>
-        <div class="timeline-content">
+      {# Viernes Santo Noche (Destacado) #}
+      <div class="event-card highlighted">
+        <div class="event-image">
+          <img src="/img/image_baa381.jpg" alt="Procesión Santo Entierro">
+        </div>
+        <div class="event-info">
+          <span class="event-date">Viernes Santo (Noche)</span>
           <h3>Procesión del Santo Entierro</h3>
-          <p>Estación de Penitencia oficial de la Hermandad. El momento cumbre de nuestro año, escoltando al Señor en riguroso silencio por el itinerario oficial de la ciudad.</p>
+          <p>Estación de Penitencia oficial. El momento cumbre de nuestro año, escoltando al Señor en riguroso silencio por la ciudad.</p>
         </div>
       </div>
 
-      {# Evento 4 #}
-      <div class="timeline-item">
-        <span class="year">Viernes Santo (Madrugada)</span>
-        <div class="timeline-content">
-          <h3>Traslado de Regreso</h3>
-          <p>Retorno solemne de nuestra imagen titular a su altar en la Iglesia de San José, tras la Procesión del Santo Entierro por las calles de la ciudad de Elche.</p>
+      {# Noviembre #}
+      <div class="event-card">
+        <div class="event-image">
+          <img src="/img/image_baa629.jpg" alt="Difuntos" style="filter: grayscale(1) brightness(0.7);">
+        </div>
+        <div class="event-info">
+          <span class="event-date">Noviembre</span>
+          <h3>Misa por los Difuntos</h3>
+          <p>Eucaristía solemne por el alma de todos los caballeros, damas y pilares que ya descansan en la paz del Señor.</p>
         </div>
       </div>
-
-      {# Evento 4 #}
-      <div class="timeline-item">
-        <span class="year">Noviembre</span>
-        <div class="timeline-content">
-         <h3>Misa por los Hermanos Difuntos</h3>
-         <p>Coincidiendo con el mes dedicado a los fieles difuntos, celebramos en nuestra sede canónica una Eucaristía solemne en por el alma de todos los caballeros, damas y pilares que ya descansan en la paz del Señor.</p>
-        </div>
-       </div>
 
     </div>
   </section>
 
-  {# --- CAJA DE IDENTIDAD FINAL --- #}
-  <section class="history-section wrap">
+  {# Pie de página de compromiso #}
+  <section class="identity-footer wrap">
     <div class="identity-box">
       <h2>Asistencia y Compromiso</h2>
-      <p>Se recuerda a todos los hermanos que la asistencia a los cultos es un deber fundamental recogido en nuestros estatutos. La hermandad se construye en la oración común ante la imagen de Cristo Yacente.</p>
+      <p>La asistencia a los cultos es un deber fundamental. La hermandad se construye en la oración común ante la imagen de Cristo Yacente.</p>
     </div>
   </section>
 
 </article>
+
+<style>
+  /* Estilos para el nuevo layout de tarjetas */
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+  }
+
+  .event-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  }
+
+  .event-image {
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .event-card:hover .event-image img {
+    transform: scale(1.1);
+  }
+
+  .event-info {
+    padding: 30px;
+  }
+
+  .event-date {
+    color: var(--gold);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .event-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+  }
+
+  .event-info p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+  }
+
+  /* Destacado para la Procesión principal */
+  @media (min-width: 992px) {
+    .event-card.highlighted {
+      grid-column: span 2;
+      flex-direction: row;
+      align-items: center;
+    }
+    .event-card.highlighted .event-image {
+      flex: 1.2;
+      height: 450px;
+    }
+    .event-card.highlighted .event-info {
+      flex: 1;
+      padding: 50px;
+    }
+  }
+
+  .identity-footer {
+    padding: 80px 0;
+  }
+
+  .identity-box {
+    background: #f9f9f9;
+    padding: 60px;
+    text-align: center;
+    border: 1px solid #eee;
+  }
+</style>
