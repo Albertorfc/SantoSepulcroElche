@@ -643,3 +643,71 @@ body.page-light {
     height: 300px; /* Un poco más bajo en móvil */
   }
 }
+
+
+/* --- ESTILOS PROPIOS DE LA GALERÍA DE CULTOS --- */
+
+.events-gallery {
+    padding: 60px 0;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.event-card {
+    background: #fff;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-image {
+    height: 250px;
+    overflow: hidden;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-info {
+    padding: 25px;
+}
+
+.event-date {
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Tarjeta destacada (Viernes Santo Noche) */
+@media (min-width: 992px) {
+    .event-card.highlighted {
+        grid-column: span 2;
+        flex-direction: row;
+    }
+    .event-card.highlighted .event-image {
+        flex: 1.5;
+        height: auto;
+    }
+    .event-card.highlighted .event-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
