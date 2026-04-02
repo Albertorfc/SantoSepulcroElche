@@ -1,30 +1,34 @@
 ---
 layout: layouts/base.njk
-title: Cultos y Actos
+title: Agenda de Cultos
 bodyClass: page-light
 ---
 
 <article class="agenda-page">
   
-  {# Cabecera #}
+  {# --- CABECERA (RECUPERANDO ESTILO ORIGINAL DE HISTORIA) --- #}
   <header class="page-header wrap">
-    <span class="pre-title">Vida Espiritual</span>
+    <span class="pre-title">Crónica de la Hermandad</span>
     <h1>Cultos y Actos</h1>
     <div class="header-line"></div>
   </header>
 
-  {# Introducción #}
+  {# --- INTRODUCCIÓN BREVE (MANTENIENDO TU TEXTO) --- #}
   <section class="agenda-intro wrap">
     <div class="intro-grid">
       <div class="intro-text">
         <h2>Presencia y Oración</h2>
         <p>La actividad de la <strong>Hermandad de Caballeros del Santo Sepulcro</strong> no se limita a la estación de penitencia del Viernes Santo.</p>
-        <p>Nuestra sede canónica, la <strong>Parroquia de San José</strong>, es el escenario principal de estos encuentros donde la oración marca nuestra vida espiritual.</p>
+        <p>A lo largo del año, y especialmente durante el tiempo de Cuaresma, se celebran diferentes actos encaminados a reforzar nuestra fe y la fraternidad cristiana.</p>
+        <p>Nuestra sede canónica, la <strong>Parroquia de San José</strong>, es el escenario principal de estos encuentros donde la contemplación de la imagen de Cristo Yacente marca la dirección de nuestra vida espiritual.</p>
+      </div>
+      <div class="intro-image">
+        <img src="/img/image_baa629.jpg" alt="Cristo Yacente" class="img-fluid">
       </div>
     </div>
   </section>
 
-  {# Grid de Eventos con Imágenes #}
+  {# --- GRID DE EVENTOS (NUEVA ESTRUCTURA QUE TE GUSTA, CON TUS FOTOS) --- #}
   <section class="events-gallery wrap">
     <div class="events-grid">
       
@@ -79,18 +83,62 @@ bodyClass: page-light
     </div>
   </section>
 
-  {# Pie de página de compromiso #}
-  <section class="identity-footer wrap">
+  {# --- CAJA DE IDENTIDAD FINAL (MANTENIENDO TU TEXTO) --- #}
+  <section class="history-section wrap">
     <div class="identity-box">
       <h2>Asistencia y Compromiso</h2>
-      <p>La asistencia a los cultos es un deber fundamental. La hermandad se construye en la oración común ante la imagen de Cristo Yacente.</p>
+      <p>Se recuerda a todos los hermanos que la asistencia a los cultos es un deber fundamental recogido en nuestros estatutos. La hermandad se construye en la oración común ante la imagen de Cristo Yacente.</p>
     </div>
   </section>
 
 </article>
 
 <style>
-  /* Estilos para el nuevo layout de tarjetas */
+  /* --- ESTILOS ADAPTADOS PARA MANTENER LA CABECERA IGUAL QUE HISTORIA --- */
+  
+  /* Cabecera (como en la screenshot) */
+  .page-header {
+    text-align: center;
+    padding: 100px 0 60px;
+  }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 8vw, 60px);
+    margin: 10px 0;
+  }
+  .pre-title {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+  }
+  .header-line {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 20px auto 0;
+  }
+
+  /* Introducción (manteniendo el layout) */
+  .agenda-intro {
+    padding-bottom: 80px;
+  }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .intro-grid {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+
+  /* Grid de Eventos con Imágenes (NUEVA ESTRUCTURA QUE TE GUSTA, CON TUS FOTOS) */
+  .events-gallery {
+    padding-bottom: 80px;
+  }
   .events-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -101,7 +149,6 @@ bodyClass: page-light
   .event-card {
     background: #fff;
     border: 1px solid rgba(0,0,0,0.05);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
     transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
@@ -149,12 +196,6 @@ bodyClass: page-light
     color: #1a1a1a;
   }
 
-  .event-info p {
-    font-size: 15px;
-    line-height: 1.6;
-    color: #555;
-  }
-
   /* Destacado para la Procesión principal */
   @media (min-width: 992px) {
     .event-card.highlighted {
@@ -172,10 +213,7 @@ bodyClass: page-light
     }
   }
 
-  .identity-footer {
-    padding: 80px 0;
-  }
-
+  /* Pie de página (como en Historia) */
   .identity-box {
     background: #f9f9f9;
     padding: 60px;
