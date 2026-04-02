@@ -676,26 +676,42 @@ body.page-light {
     text-transform: uppercase;
 }
 
-/* Tarjeta destacada mejorada para evitar descuadres */
+/* --- ESTILOS MEJORADOS PARA LA TARJETA DESTACADA --- */
 @media (min-width: 992px) {
-    .event-card.highlighted {
+    /* Forzamos a la tarjeta a ocupar dos columnas y comportarse simétricamente */
+    .events-grid .event-card.highlighted {
         grid-column: span 2;
+        display: flex !important; /* Asegura el layout horizontal */
         flex-direction: row;
-        min-height: 400px; /* Forzamos una altura mínima para que no baile */
-        align-items: stretch; /* Estira ambos lados para que midan lo mismo */
+        min-height: 450px; /* Estabiliza la altura de la tarjeta */
+        align-items: stretch; /* Estira ambos lados por igual */
+        overflow: hidden;
     }
-    
-    .event-card.highlighted .event-image {
-        flex: 1; /* Mitad para la imagen */
-        height: auto; /* Deja que el contenedor mande */
-        min-height: 100%;
+
+    /* La imagen se convierte en el fondo simétrico de la mitad izquierda */
+    .events-grid .event-card.highlighted .event-image {
+        flex: 1; /* Mitad exacta (50%) */
+        height: auto; 
+        min-height: 100%; /* Forzamos a que siempre llegue hasta abajo */
+        position: relative;
     }
-    
-    .event-card.highlighted .event-info {
-        flex: 1; /* Mitad para el texto */
+
+    .events-grid .event-card.highlighted .event-image img {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Recorta la imagen para que llene el hueco */
+        object-position: center; /* Centra el encuadre de la procesión */
+    }
+
+    /* El texto ocupa la mitad exacta de la derecha, centrado verticalmente */
+    .events-grid .event-card.highlighted .event-info {
+        flex: 1; /* Mitad exacta (50%) */
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Centra el texto verticalmente */
-        padding: 40px;
+        justify-content: center; /* Centrado vertical perfecto del texto */
+        padding: 50px; /* Más aire para que respire el texto principal */
+        background: #fff; /* Asegura el fondo blanco */
     }
 }
