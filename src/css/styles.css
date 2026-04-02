@@ -676,20 +676,26 @@ body.page-light {
     text-transform: uppercase;
 }
 
-/* Tarjeta destacada (Viernes Santo Noche) */
+/* Tarjeta destacada mejorada para evitar descuadres */
 @media (min-width: 992px) {
     .event-card.highlighted {
         grid-column: span 2;
         flex-direction: row;
+        min-height: 400px; /* Forzamos una altura mínima para que no baile */
+        align-items: stretch; /* Estira ambos lados para que midan lo mismo */
     }
+    
     .event-card.highlighted .event-image {
-        flex: 1.5;
-        height: auto;
+        flex: 1; /* Mitad para la imagen */
+        height: auto; /* Deja que el contenedor mande */
+        min-height: 100%;
     }
+    
     .event-card.highlighted .event-info {
-        flex: 1;
+        flex: 1; /* Mitad para el texto */
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: center; /* Centra el texto verticalmente */
+        padding: 40px;
     }
 }
