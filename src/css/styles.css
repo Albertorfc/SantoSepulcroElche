@@ -508,13 +508,17 @@ body.page-light {
 
 /* Solo se aplican si el body tiene la clase .page-light */
 .page-light .history-page {
-  padding-top: 160px;
+  padding-top: 200px; /* Aumentado de 160px a 200px para dar margen real */
   padding-bottom: 80px;
+  position: relative;
+  z-index: 1; /* Asegura que el contenido esté en una capa inferior al menú */
 }
 
 .page-light .page-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
+  /* Eliminamos posibles márgenes negativos que puedan causar el salto */
+  margin-top: 0; 
 }
 
 .page-light .pre-title {
