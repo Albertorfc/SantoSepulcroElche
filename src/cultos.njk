@@ -4,31 +4,30 @@ title: Agenda de Cultos
 bodyClass: page-light
 ---
 
-<article class="agenda-page">
+<article class="history-page">
   
-  {# --- CABECERA ESTILO HISTORIA --- #}
+  {# Usa las clases estándar que ya funcionan en Historia o Patrimonio #}
   <header class="page-header wrap">
     <span class="pre-title">Vida Espiritual</span>
     <h1>Cultos y Actos</h1>
     <div class="header-line"></div>
   </header>
 
-  {# --- SECCIÓN INTRODUCTORIA --- #}
-  <section class="agenda-intro wrap">
-    <div class="intro-grid">
-      <div class="intro-text">
+  <section class="history-section wrap">
+    <div class="history-grid">
+      <div class="history-text">
         <h2>Presencia y Oración</h2>
         <p>La actividad de la <strong>Hermandad de Caballeros del Santo Sepulcro</strong> no se limita a la estación de penitencia del Viernes Santo.</p>
         <p>A lo largo del año, se celebran actos para reforzar nuestra fe y la fraternidad cristiana.</p>
         <p>Nuestra sede, la <strong>Parroquia de San José</strong>, es el escenario principal de estos encuentros espirituales.</p>
       </div>
-      <div class="intro-image">
+      <div class="history-image">
         <img src="/img/image_baa643.jpg" alt="Interior San José" class="img-fluid">
       </div>
     </div>
   </section>
 
-  {# --- CALENDARIO DE EVENTOS EN TARJETAS --- #}
+  {# Nueva sección de galería que tirará del CSS que has añadido al archivo global #}
   <section class="events-gallery wrap">
     <div class="events-grid">
       
@@ -80,30 +79,3 @@ bodyClass: page-light
   </section>
 
 </article>
-
-<style>
-  .page-header { text-align: center; padding: 100px 0 60px; }
-  .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(40px, 8vw, 60px); margin: 10px 0; }
-  .pre-title { color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-size: 13px; }
-  .header-line { width: 60px; height: 1px; background: var(--gold); margin: 20px auto 0; }
-
-  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 80px; }
-  .intro-image img { width: 100%; height: 400px; object-fit: cover; }
-
-  .events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-  .event-card { background: #fff; border: 1px solid #eee; display: flex; flex-direction: column; }
-  .event-image { height: 250px; overflow: hidden; }
-  .event-image img { width: 100%; height: 100%; object-fit: cover; }
-  .event-info { padding: 25px; }
-  .event-date { color: var(--gold); font-size: 11px; font-weight: bold; letter-spacing: 2px; }
-  
-  @media (min-width: 992px) {
-    .event-card.highlighted { grid-column: span 2; flex-direction: row; }
-    .event-card.highlighted .event-image { flex: 1.5; height: auto; }
-    .event-card.highlighted .event-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-  }
-
-  @media (max-width: 768px) {
-    .intro-grid { grid-template-columns: 1fr; }
-  }
-</style>
