@@ -220,33 +220,6 @@ body.page-light {
     grid-column: span 2;
   }
 
-  /* Ajustamos el tamaño del número para que no se peguen */
-.number {
-  background: linear-gradient(to bottom, #222 50%, #111 50%);
-  color: #fff;
-  display: block;
-  font-size: 2.8rem; /* Tamaño más contenido para PC */
-  font-weight: 800;
-  padding: 15px 5px;
-  border-radius: 6px;
-  min-width: 85px; /* Un poco más estrechas */
-  position: relative;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.number::after {
-  content: '';
-  position: absolute;
-  top: 50%; left: 0; width: 100%; height: 1px;
-  background: rgba(0,0,0,0.6);
-  transform: translateY(-50%);
-}
-
-.number { background: #fff; color: #000; display: block; font-size: 3rem; font-weight: 700; padding: 15px; border-radius: 8px; min-width: 90px; position: relative; }
-.label { display: block; margin-top: 10px; font-size: 12px; text-transform: uppercase; color: var(--gold); }
-.site-footer { padding: 60px 0; text-align: center; border-top: 1px solid var(--line); background: #000; }
-
 .footer-shield { 
   width: 80px; /* Ajusta el tamaño a tu gusto */
   height: auto;
