@@ -978,32 +978,56 @@ input[type="password"] {
     filter: brightness(1.1);
 }
 
-/* --- ESTILO BOTÓN ACCESO HERMANOS --- */
+/* --- BOTÓN ACCESO HERMANOS (VERSIÓN DISCRETA Y SÓLIDA) --- */
 
-/* Escritorio: Botón con borde elegante */
-.nav-button-alt {
-    border: 1px solid #bfa15f !important; /* Dorado corporativo */
-    padding: 8px 18px !important;
-    margin-left: 15px;
+/* 1. Estilo General (Desktop) */
+.desktop-nav .nav-button-alt {
+    background-color: #bfa15f !important; /* Dorado sólido */
+    color: #ffffff !important;
+    padding: 6px 15px !important; /* Más pequeño y discreto */
+    margin-left: 20px;
     border-radius: 2px;
-    transition: all 0.3s ease;
+    font-size: 0.75rem; /* Fuente pequeña para elegancia */
     font-weight: 600;
-}
-
-.nav-button-alt:hover {
-    background-color: #bfa15f; /* Se rellena de dorado */
-    color: white !important;
-}
-
-/* Móvil: Bloque destacado */
-.mobile-nav-button {
-    margin-top: 25px;
-    background-color: rgba(191, 161, 95, 0.1); /* Fondo sutil dorado */
-    border: 1px solid #bfa15f;
-    text-align: center;
-    padding: 15px !important;
-    color: #bfa15f !important;
-    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 1px solid #bfa15f;
+    display: inline-flex;
+    align-items: center;
+    opacity: 1 !important; /* Que no tenga la opacidad de los otros enlaces */
+}
+
+.desktop-nav .nav-button-alt:hover {
+    background-color: #a3894f !important; /* Dorado más oscuro al pasar el ratón */
+    border-color: #a3894f;
+    transform: translateY(-1px);
+}
+
+/* 2. Excepción para la Home (Fondo transparente con borde dorado) */
+/* Esto se activará solo si estás en la página principal */
+body:not(.page-light) .desktop-nav .nav-button-alt {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: 1px solid #bfa15f !important;
+}
+
+body:not(.page-light) .desktop-nav .nav-button-alt:hover {
+    background-color: #bfa15f !important;
+}
+
+/* 3. Versión Móvil (Compacta y centrada) */
+.mobile-nav-button {
+    margin: 25px 0 10px 0;
+    background-color: #bfa15f !important;
+    color: white !important;
+    text-align: center;
+    padding: 12px !important; 
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    display: block;
+    border: none;
 }
