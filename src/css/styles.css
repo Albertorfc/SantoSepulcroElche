@@ -816,3 +816,37 @@ input[type="password"] {
         padding-top: 120px;
     }
 }
+
+/* --- BOTÓN DORADO PORTAL --- */
+
+.modern-form .btn-primary {
+    background-color: #bfa15f; /* Tu dorado corporativo */
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-family: 'Montserrat', sans-serif; /* O la que uses para botones */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 0; /* Si prefieres el estilo cuadrado de tu web */
+    box-shadow: 0 4px 15px rgba(191, 161, 95, 0.2);
+}
+
+.modern-form .btn-primary:hover {
+    background-color: #a3894f; /* Un dorado un pelín más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Pequeño levante */
+    box-shadow: 0 6px 20px rgba(191, 161, 95, 0.4);
+}
+
+/* Asegurar que el contenedor del botón lo centre */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.modern-form:focus-within .btn-primary {
+    filter: brightness(1.1);
+}
