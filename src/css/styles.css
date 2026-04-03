@@ -599,6 +599,42 @@ body:not(.page-light) #closeMenu {
     box-sizing: border-box; /* Crucial para que el padding no rompa el ancho */
 }
 
+/* --- AJUSTE CENTRADO HERO --- */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra horizontalmente el contenido */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/img/image_baa381.jpg') center/cover no-repeat;
+    text-align: center; /* Asegura que el texto y los inline-blocks se centren */
+}
+
+.hero-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos hijos (h1, p, botones) */
+}
+
+.hero-text p {
+    margin-left: auto;  /* Centra el párrafo que tiene max-width */
+    margin-right: auto;
+    font-size: 18px;
+    opacity: 0.8;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px; /* Espacio uniforme entre botones */
+    justify-content: center;
+    flex-wrap: wrap; /* Para que en móviles se apilen si no caben */
+}
+
+/* Quitamos el margin-right del botón para que el gap del padre controle el espacio */
+.btn-primary {
+    margin-right: 0 !important; 
+}
 
 /* 3. CAMBIO A HORIZONTAL (Para tablets y PC) */
 @media (min-width: 768px) {
