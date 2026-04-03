@@ -53,7 +53,7 @@
     </div>
   </div>
 
-  {# NAVEGACIÓN ESCRITORIO #}
+{# NAVEGACIÓN ESCRITORIO #}
   <nav class="desktop-nav wrap" aria-label="Menú principal">
     <a href="/" class="{% if page.url == '/' %}active{% endif %}">Inicio</a>
     <a href="/hermandad/" class="{% if page.url == '/hermandad/' %}active{% endif %}">Hermandad</a>
@@ -61,6 +61,11 @@
     <a href="/cultos/" class="{% if page.url == '/cultos/' %}active{% endif %}">Cultos</a>
     <a href="/patrimonio/" class="{% if page.url == '/patrimonio/' %}active{% endif %}">Patrimonio</a>
     <a href="/contacto/" class="{% if page.url == '/contacto/' %}active{% endif %}">Contacto</a>
+    
+    {# Botón de Acceso Diferenciado #}
+    <a href="/miembros/" class="nav-button-alt {% if page.url == '/miembros/' %}active{% endif %}">
+      Acceso Hermanos
+    </a>
   </nav>
 
   {# NAVEGACIÓN MÓVIL #}
@@ -73,6 +78,11 @@
         <a href="/cultos/" class="{% if page.url == '/cultos/' %}active{% endif %}">Cultos</a>
         <a href="/patrimonio/" class="{% if page.url == '/patrimonio/' %}active{% endif %}">Patrimonio</a>
         <a href="/contacto/" class="{% if page.url == '/contacto/' %}active{% endif %}">Contacto</a>
+        
+        {# Botón Acceso en Móvil #}
+        <a href="/miembros/" class="mobile-nav-button {% if page.url == '/miembros/' %}active{% endif %}">
+          Acceso Hermanos
+        </a>
       </div>
 
       {# Hilera de redes sociales para móvil #}
@@ -83,5 +93,6 @@
         <a href="https://threads.net/@santosepulcroelche" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/threads.svg" alt="Threads"></a>
       </div>
     </div>
-   </nav>
+  </nav>
+  
 </header>
