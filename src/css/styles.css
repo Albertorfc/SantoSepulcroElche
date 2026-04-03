@@ -154,11 +154,11 @@ body.page-light {
   transition: 0.3s;
 }
 
-/* --- NUEVO MENÚ MÓVIL TRANSLÚCIDO Y ADAPTATIVO --- */
+/* --- MENÚ MÓVIL "ESTILO ANTIGUO" (MODERNO Y TRANSLÚCIDO) --- */
 .mobile-menu {
     position: fixed;
     top: 0; 
-    right: -100%; /* Empieza fuera */
+    right: -100%; 
     width: 100%; 
     height: 100vh;
     z-index: 99999;
@@ -166,94 +166,63 @@ body.page-light {
     display: flex;
     flex-direction: column;
     padding: 40px 30px;
-    
-    /* --- EFECTO CRISTAL (TRANSLÚCIDO) --- */
-    backdrop-filter: blur(15px); /* Desenfoque del contenido de detrás */
-    -webkit-backdrop-filter: blur(15px); /* Soporte Safari */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 }
 
-/* --- MODO OSCURO (POR DEFECTO - HOME) --- */
+/* MODO OSCURO (HOME) */
 body:not(.page-light) .mobile-menu {
-    background: rgba(0, 0, 0, 0.85); /* Fondo negro translúcido */
-    color: #ffffff;
+    background: rgba(0, 0, 0, 0.94); /* Negro profundo como en tu código antiguo */
 }
-
-body:not(.page-light) .mobile-nav a { 
-    color: #ffffff; 
-}
-
-body:not(.page-light) .mobile-socials a img {
-    filter: invert(1); /* Iconos sociales blancos */
-}
-
+body:not(.page-light) .mobile-nav a, 
 body:not(.page-light) #closeMenu {
     color: #ffffff;
 }
 
-/* --- MODO CLARO (ADAPTATIVO - CULTOS, HISTORIA, ETC.) --- */
+/* MODO CLARO (CULTOS / HISTORIA) */
 .page-light .mobile-menu {
-    background: rgba(255, 255, 255, 0.90); /* Fondo blanco translúcido */
-    color: #000000;
-    border-left: 1px solid rgba(0,0,0,0.05); /* Separación sutil */
+    background: rgba(255, 255, 255, 0.95);
 }
-
-.page-light .mobile-nav a { 
-    color: #000000; /* Letras negras */
-}
-
-.page-light .mobile-socials a img {
-    filter: invert(0); /* Iconos sociales negros originales */
-}
-
+.page-light .mobile-nav a, 
 .page-light #closeMenu {
-    color: #000000; /* Botón cerrar negro */
+    color: #000000;
 }
 
-/* --- ESTILOS COMUNES DE INTERIOR (SIN CAMBIOS) --- */
-.mobile-menu.active { 
-    right: 0; 
-}
-
-.mobile-menu-header {
-    display: flex;
-    justify-content: flex-end; /* Botón cerrar a la derecha */
-    margin-bottom: 50px;
-}
-
+/* TIPOGRAFÍA CUADRADA Y MODERNA */
 .mobile-nav { 
     display: flex; 
     flex-direction: column; 
-    gap: 25px; 
+    gap: 20px; /* Reducimos el gap como en la versión antigua */
+    margin-top: 20px;
 }
 
 .mobile-nav a { 
     text-decoration: none; 
-    font-size: 32px; 
-    font-family: 'Playfair Display', serif; 
-    font-weight: 500;
-    transition: 0.3s ease;
+    font-family: Arial, Helvetica, sans-serif; /* EL CAMBIO CLAVE */
+    font-size: 24px; /* Tamaño exacto de tu código antiguo */
+    font-weight: 400;
+    text-transform: none; /* Sin mayúsculas forzadas para ese look moderno */
+    letter-spacing: normal;
 }
 
-.mobile-nav a:hover {
-    color: var(--gold);
-    padding-left: 10px;
-}
-
+/* REDES SOCIALES AL PIE */
 .mobile-socials {
     margin-top: auto; 
     display: flex;
-    gap: 20px;
-    padding-bottom: 20px;
+    gap: 22px; /* Un poco más de aire entre iconos */
+    padding-bottom: 40px;
+    align-items: center;
 }
 
 .mobile-socials a img {
-    width: 24px;
-    height: 24px;
-    transition: opacity 0.3s ease;
+    width: 26px; /* Tamaño ligeramente mayor para facilitar el toque */
+    height: 26px;
+    transition: transform 0.2s ease;
 }
 
-.mobile-socials a:hover img {
-    opacity: 0.7;
+/* En el modo oscuro invertimos para que sean blancos */
+body:not(.page-light) .mobile-socials a img {
+    filter: invert(1);
 }
 
 /* --- PÁGINAS CLARAS --- */
