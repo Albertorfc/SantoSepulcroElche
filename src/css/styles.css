@@ -151,13 +151,31 @@ body.page-light {
   z-index: 100000; /* Por encima del header */
 }
 
-/* Las tres rayitas */
+/* --- ANIMACIÓN HAMBURGUESA A X --- */
+
+/* 1. Aseguramos que las rayas tengan una transición suave */
 .menu-toggle span {
   display: block;
   width: 22px;
   height: 2px;
-  background-color: currentColor; /* Usa el color del texto del header */
-  transition: 0.3s;
+  background-color: currentColor;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1); /* Movimiento más orgánico */
+  transform-origin: center;
+}
+
+/* 2. Cuando el botón (o el body) tenga la clase 'active' o 'is-open' */
+/* (Ajusta '.menu-toggle.active' según cómo lo gestione tu JS) */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0; /* La raya del medio desaparece */
+  transform: translateX(-10px);
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 @media (max-width: 768px) {
