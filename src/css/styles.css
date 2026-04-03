@@ -103,6 +103,7 @@ body.page-light {
 
 /* --- NAVEGACIÓN DESKTOP --- */
 .desktop-nav {
+  position: relative; /* <--- AÑADE ESTA LÍNEA (Crucial para el movimiento) */
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -978,24 +979,35 @@ input[type="password"] {
     filter: brightness(1.1);
 }
 
-/* --- BOTÓN ACCESO HERMANOS (VERSIÓN DISCRETA Y SÓLIDA) --- */
-
-/* 1. Estilo General (Desktop) */
+/* --- BOTÓN MIEMBROS: POSICIÓN JUNTO A RRSS --- */
 .desktop-nav .nav-button-alt {
-    background-color: #bfa15f !important; /* Dorado sólido */
+    position: absolute;
+    top: -48px;        /* Sube el botón al hueco de las redes sociales */
+    right: 145px;      /* Se coloca a la izquierda de los iconos */
+    
+    background-color: #bfa15f !important;
     color: #ffffff !important;
-    padding: 6px 15px !important; /* Más pequeño y discreto */
-    margin-left: 20px;
+    padding: 4px 12px !important; /* Más pequeño y discreto */
     border-radius: 2px;
-    font-size: 0.75rem; /* Fuente pequeña para elegancia */
-    font-weight: 600;
+    font-size: 10px;             /* Fuente mini para no estorbar */
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
     border: 1px solid #bfa15f;
     display: inline-flex;
     align-items: center;
-    opacity: 1 !important; /* Que no tenga la opacidad de los otros enlaces */
+    opacity: 1 !important;
+}
+
+/* Efecto para la Home (Fondo transparente) */
+body:not(.page-light) .desktop-nav .nav-button-alt {
+    background-color: transparent !important;
+}
+
+/* Efecto para la Home (Borde dorado, fondo transparente) */
+body:not(.page-light) .desktop-nav .nav-button-alt {
+    background-color: transparent !important;
 }
 
 .desktop-nav .nav-button-alt:hover {
@@ -1016,18 +1028,18 @@ body:not(.page-light) .desktop-nav .nav-button-alt:hover {
     background-color: #bfa15f !important;
 }
 
-/* 3. Versión Móvil (Compacta y centrada) */
+/* --- BOTÓN MÓVIL DISCRETO --- */
 .mobile-nav-button {
-    margin: 25px 0 10px 0;
+    display: inline-block; /* Ya no ocupa todo el ancho */
+    align-self: center;    /* Se centra horizontalmente */
+    margin: 20px auto;     /* Espaciado equilibrado */
     background-color: #bfa15f !important;
     color: white !important;
-    text-align: center;
-    padding: 12px !important; 
-    font-size: 0.85rem;
+    padding: 8px 16px !important; /* Tamaño reducido */
+    font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 2px;
-    display: block;
-    border: none;
+    text-decoration: none;
 }
