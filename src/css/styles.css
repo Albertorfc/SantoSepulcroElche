@@ -29,11 +29,12 @@ body.page-light {
   padding: 0 20px;
 }
 
-/* --- HEADER --- */
 .site-header {
   position: fixed;
-  top: 0; width: 100%; z-index: 1000;
-  background: rgba(0, 0, 0, 0.8);
+  top: 0; 
+  width: 100%; 
+  z-index: 9999; /* Aumentamos para que siempre esté por encima de TODO */
+  background: rgba(0, 0, 0, 0.95); /* Más opaco para evitar transparencias raras */
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -172,7 +173,11 @@ body.page-light {
 .mobile-nav a { color: white; text-decoration: none; font-size: 24px; font-family: 'Playfair Display', serif; }
 
 /* --- PÁGINAS CLARAS --- */
-.page-light .site-header { background: #fff; border-bottom: 1px solid #eee; }
+/* En páginas blancas, fondo blanco puro para que no se vea el texto debajo al subir */
+.page-light .site-header { 
+  background: #ffffff !important; 
+  border-bottom: 1px solid #eee; 
+}
 .page-light .brand, .page-light .desktop-nav a, .page-light .menu-toggle { color: #000; }
 .page-light .social-link img { filter: invert(0); }
 
@@ -214,33 +219,6 @@ body.page-light {
   .countdown-item:nth-child(5) {
     grid-column: span 2;
   }
-
-  /* Ajustamos el tamaño del número para que no se peguen */
-.number {
-  background: linear-gradient(to bottom, #222 50%, #111 50%);
-  color: #fff;
-  display: block;
-  font-size: 2.8rem; /* Tamaño más contenido para PC */
-  font-weight: 800;
-  padding: 15px 5px;
-  border-radius: 6px;
-  min-width: 85px; /* Un poco más estrechas */
-  position: relative;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.number::after {
-  content: '';
-  position: absolute;
-  top: 50%; left: 0; width: 100%; height: 1px;
-  background: rgba(0,0,0,0.6);
-  transform: translateY(-50%);
-}
-
-.number { background: #fff; color: #000; display: block; font-size: 3rem; font-weight: 700; padding: 15px; border-radius: 8px; min-width: 90px; position: relative; }
-.label { display: block; margin-top: 10px; font-size: 12px; text-transform: uppercase; color: var(--gold); }
-.site-footer { padding: 60px 0; text-align: center; border-top: 1px solid var(--line); background: #000; }
 
 .footer-shield { 
   width: 80px; /* Ajusta el tamaño a tu gusto */
@@ -503,13 +481,17 @@ body.page-light {
 
 /* Solo se aplican si el body tiene la clase .page-light */
 .page-light .history-page {
-  padding-top: 160px;
+  padding-top: 200px; /* Aumentado de 160px a 200px para dar margen real */
   padding-bottom: 80px;
+  position: relative;
+  z-index: 1; /* Asegura que el contenido esté en una capa inferior al menú */
 }
 
 .page-light .page-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
+  /* Eliminamos posibles márgenes negativos que puedan causar el salto */
+  margin-top: 0; 
 }
 
 .page-light .pre-title {
@@ -642,4 +624,94 @@ body.page-light {
   .page-light .map-container {
     height: 300px; /* Un poco más bajo en móvil */
   }
+}
+
+
+/* --- ESTILOS PROPIOS DE LA GALERÍA DE CULTOS --- */
+
+.events-gallery {
+    padding: 60px 0;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.event-card {
+    background: #fff;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-image {
+    height: 250px;
+    overflow: hidden;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-info {
+    padding: 25px;
+}
+
+.event-date {
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* --- ESTILOS MEJORADOS PARA LA TARJETA DESTACADA --- */
+@media (min-width: 992px) {
+    /* Forzamos a la tarjeta a ocupar dos columnas y comportarse simétricamente */
+    .events-grid .event-card.highlighted {
+        grid-column: span 2;
+        display: flex !important; /* Asegura el layout horizontal */
+        flex-direction: row;
+        min-height: 450px; /* Estabiliza la altura de la tarjeta */
+        align-items: stretch; /* Estira ambos lados por igual */
+        overflow: hidden;
+    }
+
+    /* La imagen se convierte en el fondo simétrico de la mitad izquierda */
+    .events-grid .event-card.highlighted .event-image {
+        flex: 1; /* Mitad exacta (50%) */
+        height: auto; 
+        min-height: 100%; /* Forzamos a que siempre llegue hasta abajo */
+        position: relative;
+    }
+
+    .events-grid .event-card.highlighted .event-image img {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Recorta la imagen para que llene el hueco */
+        object-position: center; /* Centra el encuadre de la procesión */
+    }
+
+    /* El texto ocupa la mitad exacta de la derecha, centrado verticalmente */
+    .events-grid .event-card.highlighted .event-info {
+        flex: 1; /* Mitad exacta (50%) */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centrado vertical perfecto del texto */
+        padding: 50px; /* Más aire para que respire el texto principal */
+        background: #fff; /* Asegura el fondo blanco */
+    }
 }
