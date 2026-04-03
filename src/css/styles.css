@@ -178,8 +178,31 @@ body.page-light {
   transform: translateY(-7px) rotate(-45deg);
 }
 
+/* --- CORRECCIÓN X EN MÓVIL --- */
+
 @media (max-width: 768px) {
-  .menu-toggle { display: flex; } /* Aparece en móvil */
+    /* Forzamos que el botón esté por encima de TODO cuando el menú se abre */
+    .menu-toggle.active {
+        position: fixed; /* Se queda quieto aunque el menú tenga scroll */
+        right: 20px;     /* Ajusta a la misma distancia que el margen de tu wrap */
+        top: 18px;       /* Ajusta para que quede centrado verticalmente en el header */
+        z-index: 1000000; /* Un número ridículamente alto para que nada lo tape */
+    }
+
+    /* Aseguramos que el color de la X sea visible sobre el fondo blanco del menú */
+    .page-light .menu-toggle.active span {
+        background-color: #000000 !important;
+    }
+    
+    /* Si el menú móvil es oscuro (home), la X debe ser blanca */
+    body:not(.page-light) .menu-toggle.active span {
+        background-color: #ffffff !important;
+    }
+}
+
+/* Ajuste de precisión para la rotación */
+.menu-toggle span {
+    backface-visibility: hidden; /* Evita micro-saltos en móviles */
 }
 
 .menu-toggle:hover span:nth-child(1) {
