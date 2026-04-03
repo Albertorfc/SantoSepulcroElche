@@ -136,22 +136,32 @@ body.page-light {
   background-color: rgba(197, 160, 89, 0.15);
 }
 
-/* --- MENÚ MÓVIL Y HAMBURGUESA --- */
+/* --- CORRECCIÓN BOTÓN HAMBURGUESA --- */
 .menu-toggle {
-  display: none;
+  display: none; /* Se oculta en PC */
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
-  background: none;
+  width: 44px;
+  height: 44px;
+  background: transparent;
   border: none;
   cursor: pointer;
-  color: white;
+  z-index: 100000; /* Por encima del header */
 }
 
+/* Las tres rayitas */
 .menu-toggle span {
-  width: 25px;
+  display: block;
+  width: 22px;
   height: 2px;
-  background: currentColor;
+  background-color: currentColor; /* Usa el color del texto del header */
   transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle { display: flex; } /* Aparece en móvil */
 }
 
 /* --- MENÚ MÓVIL "ESTILO ANTIGUO" (MODERNO Y TRANSLÚCIDO) --- */
