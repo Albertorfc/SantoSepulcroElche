@@ -154,23 +154,107 @@ body.page-light {
   transition: 0.3s;
 }
 
+/* --- NUEVO MENÚ MÓVIL TRANSLÚCIDO Y ADAPTATIVO --- */
 .mobile-menu {
-  position: fixed;
-  top: 0; right: -100%;
-  width: 100%; height: 100vh;
-  background: #000;
-  z-index: 2000;
-  transition: 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    position: fixed;
+    top: 0; 
+    right: -100%; /* Empieza fuera */
+    width: 100%; 
+    height: 100vh;
+    z-index: 99999;
+    transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 40px 30px;
+    
+    /* --- EFECTO CRISTAL (TRANSLÚCIDO) --- */
+    backdrop-filter: blur(15px); /* Desenfoque del contenido de detrás */
+    -webkit-backdrop-filter: blur(15px); /* Soporte Safari */
 }
 
-.mobile-menu.active { right: 0; }
+/* --- MODO OSCURO (POR DEFECTO - HOME) --- */
+body:not(.page-light) .mobile-menu {
+    background: rgba(0, 0, 0, 0.85); /* Fondo negro translúcido */
+    color: #ffffff;
+}
 
-.mobile-nav { display: flex; flex-direction: column; gap: 20px; text-align: center; }
-.mobile-nav a { color: white; text-decoration: none; font-size: 24px; font-family: 'Playfair Display', serif; }
+body:not(.page-light) .mobile-nav a { 
+    color: #ffffff; 
+}
+
+body:not(.page-light) .mobile-socials a img {
+    filter: invert(1); /* Iconos sociales blancos */
+}
+
+body:not(.page-light) #closeMenu {
+    color: #ffffff;
+}
+
+/* --- MODO CLARO (ADAPTATIVO - CULTOS, HISTORIA, ETC.) --- */
+.page-light .mobile-menu {
+    background: rgba(255, 255, 255, 0.90); /* Fondo blanco translúcido */
+    color: #000000;
+    border-left: 1px solid rgba(0,0,0,0.05); /* Separación sutil */
+}
+
+.page-light .mobile-nav a { 
+    color: #000000; /* Letras negras */
+}
+
+.page-light .mobile-socials a img {
+    filter: invert(0); /* Iconos sociales negros originales */
+}
+
+.page-light #closeMenu {
+    color: #000000; /* Botón cerrar negro */
+}
+
+/* --- ESTILOS COMUNES DE INTERIOR (SIN CAMBIOS) --- */
+.mobile-menu.active { 
+    right: 0; 
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: flex-end; /* Botón cerrar a la derecha */
+    margin-bottom: 50px;
+}
+
+.mobile-nav { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 25px; 
+}
+
+.mobile-nav a { 
+    text-decoration: none; 
+    font-size: 32px; 
+    font-family: 'Playfair Display', serif; 
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.mobile-nav a:hover {
+    color: var(--gold);
+    padding-left: 10px;
+}
+
+.mobile-socials {
+    margin-top: auto; 
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.mobile-socials a img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-socials a:hover img {
+    opacity: 0.7;
+}
 
 /* --- PÁGINAS CLARAS --- */
 /* En páginas blancas, fondo blanco puro para que no se vea el texto debajo al subir */
