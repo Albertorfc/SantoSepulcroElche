@@ -182,6 +182,22 @@ body.page-light {
   .menu-toggle { display: flex; } /* Aparece en móvil */
 }
 
+.menu-toggle:hover span:nth-child(1) {
+  transform: translateY(-2px);
+}
+
+.menu-toggle:hover span:nth-child(3) {
+  transform: translateY(2px);
+}
+
+/* Si ya está convertido en X, que no haga el baile de arriba */
+.menu-toggle.active:hover span {
+  transform: scale(1.1) rotate(45deg); /* Un pequeño pulso si es una X */
+}
+.menu-toggle.active:hover span:nth-child(3) {
+  transform: scale(1.1) rotate(-45deg);
+}
+
 /* --- MENÚ MÓVIL CORREGIDO --- */
 .mobile-menu {
     position: fixed;
