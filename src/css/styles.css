@@ -164,11 +164,11 @@ body.page-light {
   .menu-toggle { display: flex; } /* Aparece en móvil */
 }
 
-/* --- MENÚ MÓVIL "ESTILO ANTIGUO" (MODERNO Y TRANSLÚCIDO) --- */
+/* --- MENÚ MÓVIL CORREGIDO --- */
 .mobile-menu {
     position: fixed;
     top: 0; 
-    right: -100%; 
+    right: -100%; /* Escondido a la derecha */
     width: 100%; 
     height: 100vh;
     z-index: 99999;
@@ -178,11 +178,19 @@ body.page-light {
     padding: 40px 30px;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
+    visibility: hidden; /* Evita que se pueda clickar mientras está cerrado */
+}
+
+/* LA CLAVE: Cuando el menú está activo */
+.mobile-menu.active {
+    right: 0;
+    visibility: visible;
 }
 
 /* MODO OSCURO (HOME) */
 body:not(.page-light) .mobile-menu {
-    background: rgba(0, 0, 0, 0.94); /* Negro profundo como en tu código antiguo */
+    background: rgba(0, 0, 0, 0.94);
+    color: #ffffff;
 }
 body:not(.page-light) .mobile-nav a, 
 body:not(.page-light) #closeMenu {
@@ -192,48 +200,46 @@ body:not(.page-light) #closeMenu {
 /* MODO CLARO (CULTOS / HISTORIA) */
 .page-light .mobile-menu {
     background: rgba(255, 255, 255, 0.95);
+    color: #000000;
 }
 .page-light .mobile-nav a, 
 .page-light #closeMenu {
     color: #000000;
 }
 
-/* TIPOGRAFÍA CUADRADA Y MODERNA */
+/* TIPOGRAFÍA CUADRADA (ESTILO ANTIGUO) */
 .mobile-nav { 
     display: flex; 
     flex-direction: column; 
-    gap: 20px; /* Reducimos el gap como en la versión antigua */
-    margin-top: 20px;
+    gap: 20px;
+    margin-top: 40px; /* Más espacio arriba */
 }
 
 .mobile-nav a { 
     text-decoration: none; 
-    font-family: Arial, Helvetica, sans-serif; /* EL CAMBIO CLAVE */
-    font-size: 24px; /* Tamaño exacto de tu código antiguo */
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 24px;
     font-weight: 400;
-    text-transform: none; /* Sin mayúsculas forzadas para ese look moderno */
-    letter-spacing: normal;
 }
 
 /* REDES SOCIALES AL PIE */
 .mobile-socials {
     margin-top: auto; 
     display: flex;
-    gap: 22px; /* Un poco más de aire entre iconos */
+    gap: 22px;
     padding-bottom: 40px;
     align-items: center;
 }
 
 .mobile-socials a img {
-    width: 26px; /* Tamaño ligeramente mayor para facilitar el toque */
+    width: 26px;
     height: 26px;
-    transition: transform 0.2s ease;
 }
 
-/* En el modo oscuro invertimos para que sean blancos */
-body:not(.page-light) .mobile-socials a img {
-    filter: invert(1);
-}
+/* Inversión de color de iconos según fondo */
+body:not(.page-light) .mobile-socials a img { filter: invert(1); }
+.page-light .mobile-socials a img { filter: invert(0); }
+
 
 /* --- PÁGINAS CLARAS --- */
 /* En páginas blancas, fondo blanco puro para que no se vea el texto debajo al subir */
