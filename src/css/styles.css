@@ -842,3 +842,138 @@ body:not(.page-light) #closeMenu {
         background: #fff; /* Asegura el fondo blanco */
     }
 }
+
+/* --- ÁREA DE MIEMBROS (REVISADO) --- */
+
+/* Estructura de cabecera igual que el resto de la web */
+.section-hero {
+    padding-top: 160px; /* Espacio para que el menú no tape el título */
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.login-section {
+    padding-bottom: 100px;
+}
+
+/* Contenedor estrecho para que el formulario no sea infinito en Desktop */
+.wrap--narrow {
+    max-width: 450px !important;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.login-intro {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* El formulario moderno de "Dos Líneas" */
+.modern-form {
+    text-align: left;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    outline: none;
+    transition: all 0.3s;
+}
+
+/* La línea dorada que se expande al hacer foco */
+.form-group .line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #bfa15f; /* Dorado corporativo */
+    transition: width 0.4s ease;
+}
+
+.form-group input:focus ~ .line {
+    width: 100%;
+}
+
+/* Efecto de etiqueta flotante */
+.form-group label {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    color: #999;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+    top: -15px;
+    font-size: 0.75rem;
+    color: #bfa15f;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Puntos gorditos para la contraseña */
+input[type="password"] {
+    letter-spacing: 0.4em;
+}
+
+/* Centrado del botón */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Ajuste Responsive */
+@media (max-width: 768px) {
+    .section-hero {
+        padding-top: 120px;
+    }
+}
+
+/* --- BOTÓN DORADO PORTAL --- */
+
+.modern-form .btn-primary {
+    background-color: #bfa15f; /* Tu dorado corporativo */
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-family: 'Montserrat', sans-serif; /* O la que uses para botones */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 0; /* Si prefieres el estilo cuadrado de tu web */
+    box-shadow: 0 4px 15px rgba(191, 161, 95, 0.2);
+}
+
+.modern-form .btn-primary:hover {
+    background-color: #a3894f; /* Un dorado un pelín más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Pequeño levante */
+    box-shadow: 0 6px 20px rgba(191, 161, 95, 0.4);
+}
+
+/* Asegurar que el contenedor del botón lo centre */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.modern-form:focus-within .btn-primary {
+    filter: brightness(1.1);
+}
