@@ -222,24 +222,25 @@ body:not(.page-light) #closeMenu {
     font-weight: 400;
 }
 
-/* REDES SOCIALES AL PIE */
+/* Espaciado para los iconos en el menú móvil */
 .mobile-socials {
-    margin-top: auto; 
-    display: flex;
-    gap: 22px;
-    padding-bottom: 40px;
-    align-items: center;
+  margin-top: 40px;
+  display: flex;
+  gap: 25px;
+  padding-left: 10px; /* Alineado un poco con el texto */
 }
 
-.mobile-socials a img {
-    width: 26px;
-    height: 26px;
+.mobile-socials img {
+  width: 24px;
+  height: 24px;
+  /* Esto hace que los iconos del CDN (que son negros) se vean blancos */
+  filter: invert(1); 
 }
 
-/* Inversión de color de iconos según fondo */
-body:not(.page-light) .mobile-socials a img { filter: invert(1); }
-.page-light .mobile-socials a img { filter: invert(0); }
-
+/* Si entras en una página clara (historia), los iconos del menú deben ser negros */
+.page-light .mobile-menu .mobile-socials img {
+  filter: invert(0);
+}
 
 /* --- PÁGINAS CLARAS --- */
 /* En páginas blancas, fondo blanco puro para que no se vea el texto debajo al subir */
