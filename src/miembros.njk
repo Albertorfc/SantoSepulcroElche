@@ -3,23 +3,33 @@ layout: layouts/base.njk
 title: Área de Miembros
 bodyClass: page-light
 ---
-<div class="wrap" style="padding: 120px 0; text-align: center;">
-  <div id="logged-out-content">
-    <span class="pre-title">Privado</span>
-    <h1>Acceso Hermandad</h1>
-    <p>Esta sección es exclusiva para los hermanos.</p>
-    <br>
-    <button class="btn-primary" data-netlify-identity-button>Iniciar Sesión</button>
+<div class="members-hero wrap">
+  <span class="pre-title">Privacidad y Seguridad</span>
+  <h1>Acceso Hermandad</h1>
+  <div class="hero-line"></div>
+
+  <div id="logged-out-content" class="login-container">
+    <p class="login-intro">Introduzca sus credenciales para acceder al contenido exclusivo de hermanos.</p>
+    
+    <form id="login-form" class="modern-form">
+      <div class="form-group">
+        <input type="email" id="email" name="email" required placeholder=" ">
+        <label for="email">Correo Electrónico</label>
+        <div class="line"></div>
+      </div>
+      
+      <div class="form-group">
+        <input type="password" id="password" name="password" required placeholder=" ">
+        <label for="password">Contraseña</label>
+        <div class="line"></div>
+      </div>
+      
+      <button type="submit" class="btn-primary">Entrar en el Portal</button>
+    </form>
   </div>
 
-  <div id="logged-in-content" style="display: none;">
-    <span class="pre-title">Bienvenido</span>
-    <h1>Portal del Hermano</h1>
-    <div class="identity-box">
-      <p>Aquí puedes incluir documentos internos, circulares o calendarios privados.</p>
-      <a href="/descargas/estatutos.pdf" class="btn-secondary">Descargar Estatutos</a>
-    </div>
-    <br>
+  <div id="logged-in-content" style="display: none;" class="portal-content">
+    <p>Bienvenido, Hermano.</p>
     <button class="btn-secondary" onclick="netlifyIdentity.logout()">Cerrar Sesión</button>
   </div>
 </div>
