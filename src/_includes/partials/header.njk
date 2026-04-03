@@ -23,18 +23,17 @@
 
       {# Redes Sociales #}
       <div class="header-social">
-        <a href="https://www.facebook.com/SantoSepulcroElche/" target="_blank" class="social-link">
+        <a href="https://www.facebook.com/SantoSepulcroElche/" target="_blank" class="social-link" aria-label="Facebook">
           <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook">
         </a>
-        <a href="https://www.instagram.com/hermandadsantosepulcroelche/" target="_blank" class="social-link">
+        <a href="https://www.instagram.com/hermandadsantosepulcroelche/" target="_blank" class="social-link" aria-label="Instagram">
           <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram">
         </a>
-        <a href="https://x.com/santo_elche" target="_blank" class="social-link">
+        <a href="https://x.com/santo_elche" target="_blank" class="social-link" aria-label="X">
           <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X">
         </a>
-        </a>
-        <a href="https://threads.net/@santosepulcroelche" target="_blank" class="social-link">
-          <img src="/img/threads.png" alt="Threads">
+        <a href="https://threads.net/@santosepulcroelche" target="_blank" class="social-link" aria-label="Threads">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/threads.svg" alt="Threads">
         </a>
       </div>
 
@@ -64,7 +63,7 @@
     <a href="/contacto/" class="{% if page.url == '/contacto/' %}active{% endif %}">Contacto</a>
   </nav>
 
-  {# NAVEGACIÓN MÓVIL (Restaurado el contenedor id="mobileMenu") #}
+  {# NAVEGACIÓN MÓVIL #}
   <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
     <div class="mobile-menu-inner">
       <div class="mobile-nav">
@@ -75,6 +74,14 @@
         <a href="/patrimonio/" class="{% if page.url == '/patrimonio/' %}active{% endif %}">Patrimonio</a>
         <a href="/contacto/" class="{% if page.url == '/contacto/' %}active{% endif %}">Contacto</a>
       </div>
+
+      {# Hilera de redes sociales para móvil #}
+      <div class="mobile-socials">
+        <a href="https://www.facebook.com/SantoSepulcroElche/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook"></a>
+        <a href="https://www.instagram.com/hermandadsantosepulcroelche/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram"></a>
+        <a href="https://x.com/santo_elche" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X"></a>
+        <a href="https://threads.net/@santosepulcroelche" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/threads.svg" alt="Threads"></a>
+      </div>
     </div>
-  </nav>
+   </nav>
 </header>
