@@ -716,21 +716,34 @@ body.page-light {
     }
 }
 
+/* --- ÁREA DE MIEMBROS (REVISADO) --- */
 
-/* Estilos Área de Miembros */
-.members-hero {
-    padding: 100px 0;
+/* Estructura de cabecera igual que el resto de la web */
+.section-hero {
+    padding-top: 160px; /* Espacio para que el menú no tape el título */
+    padding-bottom: 40px;
     text-align: center;
-    max-width: 500px !important; /* Más estrecho para que el formulario quede bien */
+}
+
+.login-section {
+    padding-bottom: 100px;
+}
+
+/* Contenedor estrecho para que el formulario no sea infinito en Desktop */
+.wrap--narrow {
+    max-width: 450px !important;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .login-intro {
-    margin-bottom: 40px;
+    text-align: center;
+    margin-bottom: 50px;
     color: #666;
     font-size: 0.95rem;
 }
 
-/* El formulario moderno */
+/* El formulario moderno de "Dos Líneas" */
 .modern-form {
     text-align: left;
 }
@@ -742,13 +755,13 @@ body.page-light {
 
 .form-group input {
     width: 100%;
-    padding: 10px 0;
+    padding: 12px 0;
     font-size: 1.1rem;
     border: none;
     border-bottom: 1px solid #ddd;
     background: transparent;
     outline: none;
-    transition: border-color 0.3s;
+    transition: all 0.3s;
 }
 
 /* La línea dorada que se expande al hacer foco */
@@ -758,7 +771,7 @@ body.page-light {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #bfa15f; /* El dorado de tu web */
+    background-color: #bfa15f; /* Dorado corporativo */
     transition: width 0.4s ease;
 }
 
@@ -769,7 +782,7 @@ body.page-light {
 /* Efecto de etiqueta flotante */
 .form-group label {
     position: absolute;
-    top: 10px;
+    top: 12px;
     left: 0;
     color: #999;
     pointer-events: none;
@@ -779,13 +792,27 @@ body.page-light {
 .form-group input:focus + label,
 .form-group input:not(:placeholder-shown) + label {
     top: -15px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #bfa15f;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 }
 
-/* Puntos gorditos para el password */
+/* Puntos gorditos para la contraseña */
 input[type="password"] {
-    letter-spacing: 0.3em;
+    letter-spacing: 0.4em;
+}
+
+/* Centrado del botón */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Ajuste Responsive */
+@media (max-width: 768px) {
+    .section-hero {
+        padding-top: 120px;
+    }
 }
