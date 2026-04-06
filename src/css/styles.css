@@ -1106,3 +1106,36 @@ body:not(.page-light) .desktop-nav .nav-button-alt:hover {
     text-decoration: none;
     border: 1px solid #bfa15f;
 }
+
+
+/* Estilos del Preloader */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* Asegúrate de que sea el número más alto */
+  transition: opacity 0.8s ease-in-out, visibility 0.8s;
+}
+
+.preloader-logo img {
+  width: 120px; /* Tamaño solemne para la entrada */
+  height: auto;
+  transition: all 1.2s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+/* Animación: El escudo se mueve al rincón superior izquierdo */
+#preloader.shrink-logo .preloader-logo img {
+  transform: translate(-45vw, -45vh) scale(0.4);
+  opacity: 0; /* Se desvanece al llegar para que parezca que "se convierte" en el logo real */
+}
+
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
