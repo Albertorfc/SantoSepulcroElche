@@ -1108,34 +1108,38 @@ body:not(.page-light) .desktop-nav .nav-button-alt:hover {
 }
 
 
-/* Estilos del Preloader */
+/* --- PRELOADER ACTUALIZADO (LOGO MÁS GRANDE Y SÓLIDO) --- */
 #preloader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background: #000;
+  background: #000; /* Fondo negro puro */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10000; /* Asegúrate de que sea el número más alto */
-  transition: opacity 0.8s ease-in-out, visibility 0.8s;
+  z-index: 10000; /* Por encima de todo */
+  transition: opacity 1.2s ease-in-out, visibility 1.2s; /* Desvanecimiento más lento del fondo negro */
 }
 
+/* 1. El escudo grande inicial en el centro */
 .preloader-logo img {
-  width: 120px; /* Tamaño solemne para la entrada */
+  width: 220px; /* <--- AUMENTADO un 50% más grande (de 150px a 220px) */
   height: auto;
-  transition: all 1.2s cubic-bezier(0.7, 0, 0.3, 1);
+  transition: all 1.8s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Animación más lenta y fluida */
+  opacity: 1; /* Aseguramos que sea totalmente opaco */
 }
 
-/* Animación: El escudo se mueve al rincón superior izquierdo */
-#preloader.shrink-logo .preloader-logo img {
-  transform: translate(-45vw, -45vh) scale(0.4);
-  opacity: 0; /* Se desvanece al llegar para que parezca que "se convierte" en el logo real */
-}
-
+/* 2. El fondo negro se desvanece al final */
 #preloader.fade-out {
   opacity: 0;
   visibility: hidden;
+}
+
+/* 3. Animación de viaje y encogimiento */
+/* Coordenadas para viajar exactamente a donde está el logo definitivo en el menú superior izquierdo */
+#preloader.shrink-logo .preloader-logo img {
+  transform: translate(-45vw, -45vh) scale(0.25); /* Se encoge para coincidir con el tamaño final del menú */
+  /* <--- ELIMINADO: Ya no tiene 'opacity: 0'. Se mantiene opaco. */
 }
