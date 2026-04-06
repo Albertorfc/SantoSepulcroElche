@@ -37,22 +37,21 @@
 
   <script>
   window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
+  const preloader = document.getElementById('preloader');
+  
+  // 1. Solo medio segundo de pausa inicial para que no aburra
+  setTimeout(() => {
+    // 2. El viaje dura 0.8s (definido en el CSS)
+    preloader.classList.add('shrink-logo');
     
-    // TIEMPO 1: El usuario ve el escudo grande en el centro de forma solemne
+    // 3. Justo cuando el logo está llegando, desvanecemos el fondo negro
     setTimeout(() => {
-      // TIEMPO 2: Empieza el viaje y encogimiento. El fondo negro sigue ahí.
-      preloader.classList.add('shrink-logo');
-      
-      // TIEMPO 3: Justo cuando el escudo está a punto de llegar a su posición final,
-      // desvanecemos el fondo negro para revelar la web y el menú definitivo.
-      setTimeout(() => {
-        preloader.classList.add('fade-out');
-      }, 1600); // Ralentizamos el desvanecimiento final
-      
-    }, 1500); // Damos un poco más de tiempo para que se vea el logo
+      preloader.classList.add('fade-out');
+    }, 600); // Se solapa con el final del movimiento para mayor fluidez
+    
+   }, 500); 
   });
-</script>
+  </script>
 
 </body>
 </html>
