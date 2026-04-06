@@ -18,19 +18,39 @@
 
 <body class="{{ bodyClass }}">
 
-  {# Incluimos el header que crearemos en partials #}
+  <div id="preloader">
+    <div class="preloader-logo">
+      <img src="/img/logo-sepulcro.png" alt="Escudo Hermandad" id="loading-logo">
+    </div>
+  </div>
+
   {% include "partials/header.njk" %}
 
   <main>
-    {# Aquí es donde Eleventy inyectará el contenido de index.njk, historia.njk, etc. #}
     {{ content | safe }}
   </main>
 
-  {# Incluimos el footer que crearemos en partials #}
   {% include "partials/footer.njk" %}
 
   <script src="/js/menu.js"></script>
   <script src="/js/countdown.js"></script>
+
+  <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      
+      // Esperamos un segundo de solemnidad
+      setTimeout(() => {
+        preloader.classList.add('shrink-logo');
+        
+        // Desvanecemos el fondo negro poco después
+        setTimeout(() => {
+          preloader.classList.add('fade-out');
+        }, 700);
+        
+      }, 1200);
+    });
+  </script>
 
 </body>
 </html>
