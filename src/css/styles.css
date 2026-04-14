@@ -1108,7 +1108,7 @@ body:not(.page-light) .desktop-nav .nav-button-alt:hover {
 }
 
 
-/* --- PRELOADER REFINADO --- */
+/* --- PRELOADER: SOLUCIÓN DEFINITIVA --- */
 #preloader {
   position: fixed;
   top: 0; left: 0;
@@ -1118,21 +1118,27 @@ body:not(.page-light) .desktop-nav .nav-button-alt:hover {
   justify-content: center;
   align-items: center;
   z-index: 10000;
-  transition: opacity 0.5s ease; /* Desvanecimiento del fondo más rápido */
+  transition: opacity 0.5s ease;
+  pointer-events: all; 
+}
+
+/* Esta es la clave para que no se quede en negro */
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .preloader-logo img {
   width: 220px;
   height: auto;
-  /* Transición más lineal para evitar trayectorias raras */
-  transition: transform 0.8s ease-in-out; 
+  /* Usamos una transición más rápida para que no sea pesado */
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Ajuste de posición final */
+/* COORDENADAS AJUSTADAS SEGÚN TU PREVIEW */
 #preloader.shrink-logo .preloader-logo img {
-  /* Ajusta estos valores según tu logo real:
-     -44vw suele ser el borde izquierdo.
-     -42vh suele ser la altura de la cabecera.
-  */
-  transform: translate(-44vw, -42vh) scale(0.25); 
+  /* He reducido un poco el desplazamiento a la izquierda y arriba 
+     para que encaje con el logo de tu menú */
+  transform: translate(-42vw, -41vh) scale(0.25);
 }
