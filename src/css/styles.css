@@ -103,15 +103,15 @@ body.page-light {
 
 /* --- NAVEGACIÓN DESKTOP --- */
 .desktop-nav {
-  position: relative; /* <--- AÑADE ESTA LÍNEA (Crucial para el movimiento) */
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 15px 0;
-  border-top: 1px solid var(--line);
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px 0;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    /* Asegúrate de que NO tenga un position: absolute que lo rompa */
 }
 
 /* Estado normal: hereda el color (blanco en dark, negro en light) */
@@ -1085,113 +1085,78 @@ body:not(.page-light) .desktop-nav .nav-button-alt:hover {
     border: 1px solid #bfa15f;
 }
 
-/* --- PRELOADER: CONFIGURACIÓN PARA SOLO HOME --- */
-#preloader {
-  display: none; /* Oculto por defecto en todas las páginas */
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100vh;
-  background: #000;
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-  transition: opacity 0.4s ease;
-}
+/* ==========================================================================
+   NUEVA ESTRUCTURA: CABECERA DERECHA (UNIFICADO)
+   ========================================================================== */
 
-/* Solo se muestra si añadimos esta clase vía JavaScript */
-#preloader.active {
-  display: flex;
-}
-
-#preloader.fade-out {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.preloader-logo img {
-  width: 200px;
-  height: auto;
-  /* Transición rápida para que salga disparado */
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-#preloader.shrink-logo .preloader-logo img {
-  transform: translate(-41vw, -40vh) scale(0.28);
-}
-
-/* --- NUEVA ESTRUCTURA CABECERA DERECHA --- */
+/* 1. Contenedor de la derecha: Alinea Iconos + Botón */
 .header-right {
     display: flex;
-    align-items: center; /* Alineación vertical perfecta */
-    gap: 20px;
-    margin-left: auto;
+    align-items: center;
+    gap: 25px; /* Espacio entre el grupo de iconos y el botón */
 }
 
-/* Agrupamos iconos (RRSS + Lupa) */
+/* 2. Grupo de Iconos: Lupa + Redes Sociales */
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 15px;
-    order: 1; /* Los iconos van primero */
+    gap: 15px; /* Espacio entre la lupa y los iconos de redes */
 }
 
-/* El botón ACCESO HERMANOS a la derecha del todo */
+/* 3. Estilo del Botón "Acceso Hermanos" */
 .nav-button-alt {
-    order: 2; 
+    display: inline-block;
     background-color: #bfa15f;
-    color: #ffffff !important;
-    padding: 6px 15px;
+    color: #fff !important;
+    padding: 8px 18px;
     border-radius: 2px;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     text-decoration: none;
-    border: 1px solid #bfa15f;
-    display: inline-flex;
-    align-items: center;
     transition: all 0.3s ease;
+    white-space: nowrap;
+    border: 1px solid #bfa15f;
 }
 
-/* --- VISIBILIDAD EN PÁGINAS CLARAS --- */
-/* Esto afectará a Historia, Cultos, Hermandad, etc. */
-.page-light .header-actions .icon-button,
-.page-light .header-actions .social-link img {
-    color: #000 !important; 
-    filter: invert(0) !important; /* Lupa y RRSS en negro */
-}
+/* --- COMPORTAMIENTO SEGÚN LA PÁGINA --- */
 
-/* Botón transparente en Home, pero con borde dorado */
+/* MODO DARK (Home): Botón transparente con borde dorado */
 body:not(.page-light) .nav-button-alt {
     background-color: transparent !important;
-    border: 1px solid #bfa15f;
 }
 
-body:not(.page-light) .nav-button-alt:hover {
-    background-color: #bfa15f !important;
-}
-/* Ajuste específico para separar el botón de la lupa */
-.btn-acceso {
-    margin-right: 15px; /* Añade espacio extra a la derecha del botón antes de la lupa */
-    display: inline-flex;
-    align-items: center;
+/* MODO LIGHT (Historia/Cultos): Botón negro y lupa negra */
+.page-light .nav-button-alt {
+    background-color: #000;
+    border-color: #000;
 }
 
-/* Iconos de redes sociales */
-.social-icons {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Espacio entre los iconos de Facebook, Instagram, etc. */
+.page-light .icon-button svg {
+    stroke: #000 !important; /* Lupa negra */
 }
 
-/* Si tu página de acceso tiene una clase específica en el body como 'pagina-miembros' */
-.pagina-miembros .header-right .search-icon,
-.pagina-miembros .header-right .social-icons i {
-    color: #000; /* Cambia iconos a negro para que se vean sobre el fondo blanco */
+.page-light .header-social img {
+    filter: invert(0) !important; /* Iconos RRSS negros */
 }
 
-/* Alternativamente, si usas una imagen SVG para la lupa */
-.pagina-miembros .search-icon {
-    filter: invert(1); /* Invierte el color de blanco a negro */
+/* Hover general del botón */
+.nav-button-alt:hover {
+    background-color: #a3894f !important;
+    border-color: #a3894f;
+    transform: translateY(-1px);
+}
+
+/* --- AJUSTE RESPONSIVE MÓVIL --- */
+@media (max-width: 768px) {
+    /* Escondemos iconos y botón de la fila superior en móvil */
+    .header-actions, .nav-button-alt {
+        display: none;
+    }
+    
+    /* Solo mostramos la hamburguesa */
+    .menu-toggle {
+        display: flex;
+    }
 }
