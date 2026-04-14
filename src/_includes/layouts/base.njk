@@ -38,19 +38,28 @@
   <script>
   window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
-  
-  // 1. Solo medio segundo de pausa inicial para que no aburra
+  if (!preloader) return;
+
+  // 1. Pausa de impacto (0.6s es suficiente, 1.5s era demasiado)
   setTimeout(() => {
-    // 2. El viaje dura 0.8s (definido en el CSS)
+    
+    // 2. Inicia el viaje
     preloader.classList.add('shrink-logo');
     
-    // 3. Justo cuando el logo está llegando, desvanecemos el fondo negro
+    // 3. El viaje dura 0.6s. A los 0.4s empezamos a quitar el negro
+    // para que la transición sea suave y el usuario vea la web pronto.
     setTimeout(() => {
       preloader.classList.add('fade-out');
-    }, 600); // Se solapa con el final del movimiento para mayor fluidez
+      
+      // Borrado físico del elemento para que no de problemas
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 500);
+      
+    }, 400); 
     
-   }, 500); 
-  });
+  }, 600); 
+});
   </script>
 
 </body>
