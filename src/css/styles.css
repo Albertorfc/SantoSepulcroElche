@@ -1141,3 +1141,35 @@ body:not(.page-light) .desktop-nav .nav-button-alt:hover {
 #preloader.shrink-logo .preloader-logo img {
   transform: translate(-41vw, -40vh) scale(0.28);
 }
+
+/* Contenedor de la derecha en la cabecera */
+.header-right {
+    display: flex;
+    align-items: center; /* Alinea perfectamente todos los elementos al centro vertical */
+    gap: 20px; /* Espacio general entre elementos */
+}
+
+/* Ajuste específico para separar el botón de la lupa */
+.btn-acceso {
+    margin-right: 15px; /* Añade espacio extra a la derecha del botón antes de la lupa */
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Iconos de redes sociales */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre los iconos de Facebook, Instagram, etc. */
+}
+
+/* Si tu página de acceso tiene una clase específica en el body como 'pagina-miembros' */
+.pagina-miembros .header-right .search-icon,
+.pagina-miembros .header-right .social-icons i {
+    color: #000; /* Cambia iconos a negro para que se vean sobre el fondo blanco */
+}
+
+/* Alternativamente, si usas una imagen SVG para la lupa */
+.pagina-miembros .search-icon {
+    filter: invert(1); /* Invierte el color de blanco a negro */
+}
