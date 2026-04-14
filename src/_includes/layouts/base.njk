@@ -40,25 +40,29 @@
   const preloader = document.getElementById('preloader');
   if (!preloader) return;
 
-  // 1. Pausa de impacto (0.6s es suficiente, 1.5s era demasiado)
-  setTimeout(() => {
-    
-    // 2. Inicia el viaje
-    preloader.classList.add('shrink-logo');
-    
-    // 3. El viaje dura 0.6s. A los 0.4s empezamos a quitar el negro
-    // para que la transición sea suave y el usuario vea la web pronto.
+  // Condición: Solo ejecutamos la animación si estamos en la Home
+  const isHome = document.body.classList.contains('home');
+
+  if (isHome) {
+    // 1. Espera mínima (100ms) para que el navegador procese la carga
     setTimeout(() => {
-      preloader.classList.add('fade-out');
+      // 2. Inicia el viaje hacia la esquina de inmediato
+      preloader.classList.add('shrink-logo');
       
-      // Borrado físico del elemento para que no de problemas
+      // 3. El fondo desaparece mientras el logo viaja
       setTimeout(() => {
-        preloader.style.display = 'none';
-      }, 500);
-      
-    }, 400); 
-    
-  }, 600); 
+        preloader.classList.add('fade-out');
+        
+        // 4. Limpieza final
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 500);
+      }, 400); 
+    }, 100); 
+  } else {
+    // Si NO es la home, quitamos el preloader de golpe sin animación
+    preloader.style.display = 'none';
+  }
 });
   </script>
 
