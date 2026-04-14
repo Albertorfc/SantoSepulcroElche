@@ -1106,3 +1106,38 @@ body:not(.page-light) .desktop-nav .nav-button-alt:hover {
     text-decoration: none;
     border: 1px solid #bfa15f;
 }
+
+/* --- PRELOADER: CONFIGURACIÓN PARA SOLO HOME --- */
+#preloader {
+  display: none; /* Oculto por defecto en todas las páginas */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100vh;
+  background: #000;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  transition: opacity 0.4s ease;
+}
+
+/* Solo se muestra si añadimos esta clase vía JavaScript */
+#preloader.active {
+  display: flex;
+}
+
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-logo img {
+  width: 200px;
+  height: auto;
+  /* Transición rápida para que salga disparado */
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#preloader.shrink-logo .preloader-logo img {
+  transform: translate(-41vw, -40vh) scale(0.28);
+}
