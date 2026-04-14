@@ -1,10 +1,10 @@
 <header class="site-header" id="siteHeader">
   <div class="header-bar wrap">
     
-    {# Logo y Título #}
+    {# 1. Logo y Título (Izquierda) #}
     <a href="/" class="brand" aria-label="Ir al inicio">
       <div class="brand-shield">
-       <img src="/img/escudo.png" alt="Escudo de la Hermandad" class="logo-img">
+        <img src="/img/escudo.png" alt="Escudo de la Hermandad" class="logo-img">
       </div>
       <div class="brand-text">
         <span class="brand-top">Hermandad · 1852 · Elche</span>
@@ -12,30 +12,39 @@
       </div>
     </a>
 
-    <div class="header-actions">
-      {# Buscador #}
-      <button class="icon-button search-toggle" type="button" aria-label="Abrir buscador">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-      </button>
+    {# 2. Bloque de la Derecha (Agrupa Buscador, RRSS y Botón) #}
+    <div class="header-right">
+      
+      <div class="header-actions">
+        {# Buscador #}
+        <button class="icon-button search-toggle" type="button" aria-label="Abrir buscador">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
 
-      {# Redes Sociales #}
-      <div class="header-social">
-        <a href="https://www.facebook.com/SantoSepulcroElche/" target="_blank" class="social-link" aria-label="Facebook">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook">
-        </a>
-        <a href="https://www.instagram.com/hermandadsantosepulcroelche/" target="_blank" class="social-link" aria-label="Instagram">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram">
-        </a>
-        <a href="https://x.com/santo_elche" target="_blank" class="social-link" aria-label="X">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X">
-        </a>
-        <a href="https://threads.net/@santosepulcroelche" target="_blank" class="social-link" aria-label="Threads">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/threads.svg" alt="Threads">
-        </a>
+        {# Redes Sociales #}
+        <div class="header-social">
+          <a href="https://www.facebook.com/SantoSepulcroElche/" target="_blank" class="social-link" aria-label="Facebook">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/hermandadsantosepulcroelche/" target="_blank" class="social-link" aria-label="Instagram">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram">
+          </a>
+          <a href="https://x.com/santo_elche" target="_blank" class="social-link" aria-label="X">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X">
+          </a>
+          <a href="https://threads.net/@santosepulcroelche" target="_blank" class="social-link" aria-label="Threads">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/threads.svg" alt="Threads">
+          </a>
+        </div>
       </div>
+
+      {# Botón de Acceso (Ahora en la fila superior, a la derecha del todo) #}
+      <a href="/miembros/" class="nav-button-alt {% if page.url == '/miembros/' %}active{% endif %}">
+        Acceso Hermanos
+      </a>
 
       {# Botón Menú Móvil (Hamburguesa) #}
       <button class="menu-toggle" type="button" aria-label="Abrir menú">
@@ -53,7 +62,7 @@
     </div>
   </div>
 
-{# NAVEGACIÓN ESCRITORIO #}
+  {# NAVEGACIÓN ESCRITORIO (Segunda fila) #}
   <nav class="desktop-nav wrap" aria-label="Menú principal">
     <a href="/" class="{% if page.url == '/' %}active{% endif %}">Inicio</a>
     <a href="/hermandad/" class="{% if page.url == '/hermandad/' %}active{% endif %}">Hermandad</a>
@@ -61,11 +70,6 @@
     <a href="/cultos/" class="{% if page.url == '/cultos/' %}active{% endif %}">Cultos</a>
     <a href="/patrimonio/" class="{% if page.url == '/patrimonio/' %}active{% endif %}">Patrimonio</a>
     <a href="/contacto/" class="{% if page.url == '/contacto/' %}active{% endif %}">Contacto</a>
-    
-    {# Botón de Acceso Diferenciado #}
-    <a href="/miembros/" class="nav-button-alt {% if page.url == '/miembros/' %}active{% endif %}">
-      Acceso Hermanos
-    </a>
   </nav>
 
   {# NAVEGACIÓN MÓVIL #}
@@ -79,13 +83,11 @@
         <a href="/patrimonio/" class="{% if page.url == '/patrimonio/' %}active{% endif %}">Patrimonio</a>
         <a href="/contacto/" class="{% if page.url == '/contacto/' %}active{% endif %}">Contacto</a>
         
-        {# Botón Acceso en Móvil #}
         <a href="/miembros/" class="mobile-nav-button {% if page.url == '/miembros/' %}active{% endif %}">
           Acceso Hermanos
         </a>
       </div>
 
-      {# Hilera de redes sociales para móvil #}
       <div class="mobile-socials">
         <a href="https://www.facebook.com/SantoSepulcroElche/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook"></a>
         <a href="https://www.instagram.com/hermandadsantosepulcroelche/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram"></a>
