@@ -725,10 +725,22 @@ body:not(.page-light) #closeMenu {
   color: #444;
 }
 
+/* Busca esta sección en tu CSS y añade las dos líneas de abajo */
 .page-light .history-image img {
-  width: 100%;
-  border-radius: 4px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    width: 100%;
+    max-height: 550px;    /* Limita la altura para que no ocupe más de media pantalla */
+    object-fit: cover;    /* Si la imagen es muy larga, la recorta elegantemente */
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Y añade este para que el texto y la imagen siempre rimen en altura */
+.page-light .history-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center; /* Esto hace que el texto se centre verticalmente respecto a la foto */
+    margin-bottom: 80px;
 }
 
 /* Timeline y Secciones de contenido */
