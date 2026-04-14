@@ -36,34 +36,38 @@
   <script src="/js/countdown.js"></script>
 
   <script>
-  window.addEventListener('load', () => {
+   // Este script debe ir al final, antes del </body>
+(function() {
   const preloader = document.getElementById('preloader');
   if (!preloader) return;
 
-  // Condición: Solo ejecutamos la animación si estamos en la Home
+  // Verificamos si es la Home
   const isHome = document.body.classList.contains('home');
 
   if (isHome) {
-    // 1. Espera mínima (100ms) para que el navegador procese la carga
+    // Lo hacemos visible inmediatamente
+    preloader.classList.add('active');
+
+    // 1. Pausa mínima casi imperceptible (100ms)
     setTimeout(() => {
-      // 2. Inicia el viaje hacia la esquina de inmediato
+      // 2. Inicia el viaje a la esquina
       preloader.classList.add('shrink-logo');
       
-      // 3. El fondo desaparece mientras el logo viaja
+      // 3. Empezamos a desvanecer el fondo muy rápido
       setTimeout(() => {
         preloader.classList.add('fade-out');
         
-        // 4. Limpieza final
         setTimeout(() => {
           preloader.style.display = 'none';
-        }, 500);
-      }, 400); 
+        }, 400);
+      }, 300); // El fondo empieza a irse antes de que termine el viaje
+      
     }, 100); 
   } else {
-    // Si NO es la home, quitamos el preloader de golpe sin animación
-    preloader.style.display = 'none';
+    // En cualquier otra página, nos aseguramos de que no exista
+    preloader.remove(); 
   }
-});
+})();
   </script>
 
 </body>
