@@ -122,11 +122,22 @@ bodyClass: page-light
     </div>
   </section>
 
-  {# --- CAJA FINAL --- #}
-  <section class="history-section wrap">
-    <div class="identity-box">
-      <h2>Insignia y Medalla</h2>
-      <p>La medalla es el símbolo de nuestra pertenencia a la Hermandad. Se porta con orgullo y reverencia, sirviendo como recordatorio del Santo Sacrificio de Cristo y de los tres días que su Cuerpo Santísimo reposó en el Santo Sepulcro.</p>
+{# --- CAJA FINAL: INSIGNIA Y MEDALLA (Grid unificado) --- #}
+  <section class="history-section wrap" style="margin-top: 100px; margin-bottom: 100px;">
+    <div class="identity-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; text-align: left; background: #000; color: #fff; padding: 60px; border-radius: 4px;">
+      
+      {# Columna Izquierda: Imagen #}
+      <div class="identity-image" style="direction: ltr;">
+        <img src="/img/medalla.png" alt="Medalla de la Hermandad" class="img-fluid" style="max-height: 450px; width: auto; margin: 0 auto; display: block; border-radius: 2px;">
+      </div>
+
+      {# Columna Derecha: Texto #}
+      <div class="identity-text" style="direction: ltr;">
+        <h2 style="font-family: 'Playfair Display', serif; color: var(--gold); margin-bottom: 20px; font-size: 32px;">Insignia y Medalla</h2>
+        <p style="font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.85); margin-bottom: 15px;">La medalla es el símbolo de nuestra pertenencia a la Hermandad. Se porta con orgullo y reverencia, sirviendo como recordatorio del Santo Sacrificio de Cristo y de los tres días que su Cuerpo Santísimo reposó en el Santo Sepulcro.</p>
+        <p style="font-size: 15px; color: rgba(255,255,255,0.7);">El cordón, trenzado en rojo y negro, representa la sangre y el luto, colores identitarios de nuestra penitencia.</p>
+      </div>
+
     </div>
   </section>
 
