@@ -365,15 +365,22 @@ body:not(.page-light) #closeMenu {
 @media (max-width: 768px) {
   .desktop-nav, .header-social { display: none; }
   .menu-toggle { display: flex; }
-  .header-right { gap: 10px; } /* Estrecha el grupo de la derecha */
+  .header-right { gap: 8px; } /* Estrecha el grupo de la derecha */
 
     .nav-button-alt {
         display: inline-block !important; /* Lo hacemos visible */
-        padding: 5px 10px !important;    /* Más pequeño */
-        font-size: 9px !important;       /* Letra mini */
-        letter-spacing: 0.5px;
+        text-transform: none !important;
+        letter-spacing: 0px;
+        font-weight: 600 !important;
+        
+        /* AJUSTE DE TAMAÑO */
+        padding: 4px 10px !important;
+        font-size: 13px !important; /* Al ser minúsculas, podemos subir un pelín la fuente para que sea legible */
+        
+        width: auto !important;
+        min-width: auto !important;
     }
-}
+  }
 
 /* --- FOOTER Y CONTADOR (Se mantienen igual) --- */
 .countdown-container {
