@@ -158,53 +158,41 @@ body.page-light {
   color: #000000;
 }
 
-/* Forzar que las rayas hereden el color del padre (el botón) */
-.menu-toggle span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background-color: currentColor; /* <--- IMPORTANTE: toma el color del texto del botón */
-  transition: all 0.3s ease;
-}
+/* --- ANIMACIÓN HAMBURGUESA A X (CORREGIDA) --- */
 
-/* Color de la X cuando el menú está abierto */
-.menu-toggle.active span {
-  background-color: #ffffff !important; /* Blanca en Home activa */
-}
-
-.page-light .menu-toggle.active span {
-  background-color: #000000 !important; /* Negra en páginas claras activa */
-}
-
-/* --- ANIMACIÓN HAMBURGUESA A X --- */
-
-/* 1. Aseguramos que las rayas tengan una transición suave */
 .menu-toggle span {
   display: block;
   width: 22px;
   height: 2px;
   background-color: currentColor;
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1); /* Movimiento más orgánico */
+  /* Transición limpia sin rebotes extraños */
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
   transform-origin: center;
 }
 
-/* 2. Cuando el botón (o el body) tenga la clase 'active' o 'is-open' */
-/* (Ajusta '.menu-toggle.active' según cómo lo gestione tu JS) */
+/* Estado Activo: La X perfecta */
 .menu-toggle.active span:nth-child(1) {
+  /* Bajamos la raya superior y la rotamos */
   transform: translateY(7px) rotate(45deg);
 }
 
 .menu-toggle.active span:nth-child(2) {
-  opacity: 0; /* La raya del medio desaparece */
-  transform: translateX(-10px);
+  /* Desaparece la del medio */
+  opacity: 0;
+  transform: translateX(10px);
 }
 
 .menu-toggle.active span:nth-child(3) {
+  /* Subimos la raya inferior y la rotamos al revés */
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* --- CORRECCIÓN X EN MÓVIL --- */
+/* Evitamos cualquier movimiento en el hover cuando está el menú abierto */
+.menu-toggle.active:hover span {
+  /* Se queda estático como X, sin deformarse */
+}
 
+/* --- CORRECCIÓN X EN MÓVIL --- */
 @media (max-width: 768px) {
     /* Forzamos que el botón esté por encima de TODO cuando el menú se abre */
     .menu-toggle.active {
@@ -228,22 +216,6 @@ body.page-light {
 /* Ajuste de precisión para la rotación */
 .menu-toggle span {
     backface-visibility: hidden; /* Evita micro-saltos en móviles */
-}
-
-.menu-toggle:hover span:nth-child(1) {
-  transform: translateY(-2px);
-}
-
-.menu-toggle:hover span:nth-child(3) {
-  transform: translateY(2px);
-}
-
-/* Si ya está convertido en X, que no haga el baile de arriba */
-.menu-toggle.active:hover span {
-  transform: scale(1.1) rotate(45deg); /* Un pequeño pulso si es una X */
-}
-.menu-toggle.active:hover span:nth-child(3) {
-  transform: scale(1.1) rotate(-45deg);
 }
 
 /* --- MENÚ MÓVIL CORREGIDO --- */
