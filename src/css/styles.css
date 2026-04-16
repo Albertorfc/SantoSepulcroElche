@@ -1199,3 +1199,63 @@ body:not(.page-light) .nav-button-alt {
         transform: translate(-34vw, -43vh) scale(0.25);
     }
 }
+
+
+/* --- ESTILO BOX MEDALLA --- */
+.identity-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas en escritorio */
+    gap: 60px;
+    align-items: center;
+    background: #000;
+    color: #fff;
+    padding: 60px;
+    border-radius: 4px;
+}
+
+.identity-image img {
+    max-height: 450px;
+    width: auto;
+    max-width: 100%; /* Evita que se salga de su sitio */
+    margin: 0 auto;
+    display: block;
+    border-radius: 2px;
+    object-fit: contain; /* Clave para evitar deformación */
+}
+
+.identity-text h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.identity-text .text-main {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 15px;
+}
+
+.identity-text .text-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+}
+
+/* --- AJUSTE PARA MÓVIL (Responsive) --- */
+@media (max-width: 768px) {
+    .identity-box {
+        grid-template-columns: 1fr; /* Una sola columna: todo se apila */
+        gap: 30px;
+        padding: 40px 20px;
+        text-align: center; /* Centramos el texto en móvil para que luzca mejor */
+    }
+
+    .identity-text h2 {
+        font-size: 28px;
+    }
+
+    .identity-image img {
+        max-height: 300px; /* Reducimos un poco el tamaño en móvil */
+    }
+}
