@@ -56,7 +56,12 @@
 }
 
 /* Iconos y Redes */
-.header-actions { display: flex; align-items: center; gap: 15px; }
+.header-social {
+    display: flex;
+    align-items: center;
+    gap: 18px; /* Aumentamos de 15px a 18px para que respiren */
+}
+.header-actions { display: flex; align-items: center; gap: 20px; }
 .icon-button { background: none; border: none; color: white; font-size: 20px; cursor: pointer; transition: 0.3s; }
 .page-light .icon-button { color: #000000; }
 
