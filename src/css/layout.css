@@ -157,16 +157,42 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
 .mobile-menu.active { right: 0; visibility: visible; }
 
 .mobile-nav a {
-    color: white !important;
-    font-size: 24px;
-    font-family: sans-serif; /* Volvemos al estilo limpio original */
-    text-transform: uppercase;
+    color: white;
+    font-size: 22px;
+    font-family: 'Playfair Display', serif; /* Volvemos al estilo limpio original */
     letter-spacing: 2px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     display: block;
     text-decoration: none;
+    transition:0.3s;
 }
 .page-light .mobile-nav a { color: #000 !important; }
+
+/* --- 4. MENÚ MÓVIL --- */
+.mobile-nav a {
+    color: white !important;
+    font-size: 22px; /* Un pelín más pequeño para que no agobie */
+    font-family: 'Playfair Display', serif; /* O la que prefieras, pero sin gritar */
+    text-transform: capitalize; /* Solo la primera en mayúscula */
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    display: block;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.mobile-menu .header-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.mobile-menu .social-link img {
+    width: 24px; /* Tamaño controlado */
+    height: 24px;
+    filter: invert(1);
+}
 
 /* --- 5. PRELOADER --- */
 #preloader {
