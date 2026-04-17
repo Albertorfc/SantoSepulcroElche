@@ -187,3 +187,91 @@
   .page-light .page-header h1 { font-size: 32px; }
   .page-light .map-container { height: 300px; }
 }
+
+/* ==========================================================================
+   GALERÍA DE CULTOS / EVENTOS
+   ========================================================================== */
+
+.events-gallery {
+    padding: 60px 0;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.event-card {
+    background: #fff;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-image {
+    height: 250px;
+    overflow: hidden;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-info {
+    padding: 25px;
+}
+
+.event-date {
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* --- TARJETA DESTACADA (HIGHLIGHTED) --- */
+@media (min-width: 992px) {
+    .events-grid .event-card.highlighted {
+        grid-column: span 2;
+        display: flex !important;
+        flex-direction: row;
+        min-height: 450px;
+        align-items: stretch;
+        overflow: hidden;
+    }
+
+    .events-grid .event-card.highlighted .event-image {
+        flex: 1;
+        height: auto;
+        min-height: 100%;
+        position: relative;
+    }
+
+    .events-grid .event-card.highlighted .event-image img {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .events-grid .event-card.highlighted .event-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 50px;
+        background: #fff;
+    }
+}
