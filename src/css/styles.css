@@ -676,12 +676,36 @@ body:not(.page-light) #closeMenu {
   margin: 20px auto;
 }
 
+/* Rejilla estándar para secciones de Historia/Cultos en páginas claras */
 .page-light .history-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; /* Dos columnas en PC */
   gap: 60px;
   align-items: center;
   margin-bottom: 80px;
+}
+
+/* Control de la imagen dentro de la rejilla */
+.page-light .history-image img {
+  width: 100%;
+  max-height: 550px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  display: block; /* Asegura que no queden márgenes fantasma debajo */
+}
+
+/* --- AJUSTE VITAL PARA MÓVILES --- */
+@media (max-width: 768px) {
+  .page-light .history-grid {
+    grid-template-columns: 1fr; /* Pasa a 1 sola columna en móvil */
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  
+  .page-light .history-image {
+    order: -1; /* Opcional: Hace que la imagen aparezca ARRIBA del texto en móvil */
+  }
 }
 
 .page-light .history-text h2 {
