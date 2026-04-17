@@ -42,7 +42,18 @@
 
 .brand-shield img { width: 45px; height: auto; }
 .brand-top { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.7; }
-.brand-text strong { font-family: 'Playfair Display', serif; font-size: 18px; letter-spacing: 1px; }
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.brand-text strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px; /* Un punto más grande */
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
 
 /* Iconos y Redes */
 .header-actions { display: flex; align-items: center; gap: 15px; }
@@ -203,4 +214,43 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
     .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     #preloader.shrink-logo .preloader-logo img { transform: translate(-34vw, -43vh) scale(0.25); }
+}
+
+/* --- BUSCADOR (Panel Oculto por defecto) --- */
+.search-panel {
+    position: absolute;
+    top: 80px; /* Justo debajo del header-bar */
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 20px 0;
+    border-bottom: 2px solid var(--gold);
+    display: none; /* Oculto */
+    z-index: 9998;
+}
+
+.search-panel.active {
+    display: block; /* Se muestra cuando el JS activa la clase */
+}
+
+.search-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.search-inner input {
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    font-size: 24px;
+    padding: 10px 0;
+    font-family: 'Playfair Display', serif;
+}
+
+.search-inner input:focus {
+    outline: none;
+    border-bottom-color: var(--gold);
 }
