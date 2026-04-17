@@ -160,7 +160,6 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
     color: white !important;
     font-size: 22px;
     text-transform: capitalize; 
-    letter-spacing: 1px;
     margin-bottom: 25px;
     display: block;
     text-decoration: none;
