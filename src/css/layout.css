@@ -118,25 +118,24 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
 
 /* --- 4. MENÚ MÓVIL --- */
 .menu-toggle {
-  display: none; 
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 44px;
-  height: 44px;
-  z-index: 100001;
-  color: white;
-  border: none; background: transparent; cursor: pointer;
+    display: none; 
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    z-index: 100001;
+    color: white;
+    border: none; background: transparent; cursor: pointer;
 }
 .page-light .menu-toggle { color: #000; }
 
 .menu-toggle span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background-color: currentColor;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-  backface-visibility: hidden;
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: currentColor;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
 }
 
 .mobile-menu {
@@ -157,42 +156,36 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
 .mobile-menu.active { right: 0; visibility: visible; }
 
 .mobile-nav a {
-    color: white;
-    font-size: 22px;
-    font-family: 'Playfair Display', serif; /* Volvemos al estilo limpio original */
-    letter-spacing: 2px;
-    margin-bottom: 25px;
-    display: block;
-    text-decoration: none;
-    transition:0.3s;
-}
-.page-light .mobile-nav a { color: #000 !important; }
-
-/* --- 4. MENÚ MÓVIL --- */
-.mobile-nav a {
     color: white !important;
-    font-size: 22px; /* Un pelín más pequeño para que no agobie */
-    font-family: 'Playfair Display', serif; /* O la que prefieras, pero sin gritar */
-    text-transform: capitalize; /* Solo la primera en mayúscula */
+    font-size: 22px;
+    font-family: 'Playfair Display', serif;
+    text-transform: capitalize; 
     letter-spacing: 1px;
     margin-bottom: 25px;
     display: block;
     text-decoration: none;
     transition: 0.3s;
 }
+.page-light .mobile-nav a { color: #000 !important; }
 
+/* AQUÍ EL ARREGLO DE LAS RRSS DENTRO DEL MENÚ */
 .mobile-menu .header-actions {
     margin-top: 30px;
-    display: flex;
+    display: flex !important; /* Forzamos que se vea aquí dentro */
     gap: 20px;
     justify-content: flex-start;
 }
 
+.mobile-menu .social-link {
+    display: block !important; /* Forzamos que se vea aquí dentro */
+}
+
 .mobile-menu .social-link img {
-    width: 24px; /* Tamaño controlado */
-    height: 24px;
+    width: 24px !important; /* Tamaño normal, no gigante */
+    height: 24px !important;
     filter: invert(1);
 }
+.page-light .mobile-menu .social-link img { filter: invert(0); }
 
 /* --- 5. PRELOADER --- */
 #preloader {
