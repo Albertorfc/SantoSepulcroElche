@@ -1,1 +1,122 @@
+/* --- 1. BOTONES (Base y Hero) --- */
+.hero-actions, .hero-buttons { 
+    display: flex;
+    flex-direction: column; 
+    gap: 15px;
+    align-items: center;
+    margin-top: 30px;
+}
 
+.btn-primary, .btn-secondary, .hero-actions a {
+    width: 100%;           
+    max-width: 280px;      
+    text-align: center;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 14px;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--gold);
+    color: #000;
+    border: 1px solid var(--gold);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+/* --- 2. CONTADOR (COUNTDOWN) --- */
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.number {
+    background: linear-gradient(to bottom, #222 50%, #111 50%);
+    color: #fff;
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 800;
+    padding: 20px 10px;
+    border-radius: 6px;
+    min-width: 100px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 10px;
+}
+
+/* --- 3. SECCIÓN SOCIAL (INSTAGRAM) --- */
+.social-section {
+    padding: 80px 0;
+    background-color: #000;
+    text-align: center;
+}
+
+.instagram-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 400px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+}
+
+/* Ocultar branding del widget */
+.sk_instagram_feed_link, .sk-branding {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* --- 4. CAMBIO DINÁMICO DE LOGO (Helper) --- */
+.logo-img {
+    width: 45px;
+    height: auto;
+    transition: content 0.3s ease;
+}
+
+.page-light .logo-img {
+    content: url("/img/sepulcro-n.png");
+}
+
+/* --- 5. RESPONSIVE DE COMPONENTES --- */
+@media (max-width: 768px) {
+    /* Botones a horizontal en PC, pero aquí forzamos lógica móvil */
+    .hero-actions, .hero-buttons { flex-direction: column; }
+
+    /* Grid del contador en móvil */
+    .countdown-container {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px 8px;
+        max-width: 360px;
+        margin: 30px auto 0;
+    }
+    .countdown-item:nth-child(1), .countdown-item:nth-child(2) { grid-column: span 3; }
+    .countdown-item:nth-child(3), .countdown-item:nth-child(4), .countdown-item:nth-child(5) { grid-column: span 2; }
+    
+    .number { font-size: 2rem; min-width: 65px; padding: 10px 5px; }
+}
+
+@media (min-width: 768px) {
+    .hero-actions, .hero-buttons { flex-direction: row; justify-content: center; }
+    .btn-primary, .btn-secondary { width: auto; }
+}
