@@ -33,7 +33,11 @@
 /* Acciones (Buscador y Redes) */
 .header-actions { display: flex; align-items: center; gap: 20px; }
 .icon-button { background: none; border: none; color: white; font-size: 20px; cursor: pointer; }
-.header-social { display: flex; gap: 15px; }
+.header-social .social-link img {
+    width: 18px !important;
+    height: 18px !important;
+    display: block;
+}
 .social-link img { width: 18px; height: 18px; filter: invert(1); }
 
 /* --- 3. NAVEGACIÓN DESKTOP --- */
@@ -127,6 +131,12 @@
 }
 
 .mobile-menu.active { right: 0; visibility: visible; }
+
+.mobile-socials img {
+    width: 24px !important;
+    height: 24px !important;
+    display: block;
+}
 
 /* --- 6. SECCIÓN HERO (Estructura de entrada) --- */
 .hero-section {
