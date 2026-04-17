@@ -13,11 +13,11 @@
   z-index: 9999;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
-  transition: all 0.3s ease; /* Transición suave para el cambio de color */
+  transition: background 0.3s ease, border 0.3s ease;
 }
 
-/* CAMBIO A BLANCO: Si la página es clara */
 .page-light .site-header {
     background: rgba(255, 255, 255, 0.98);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -30,26 +30,47 @@
   height: 80px;
 }
 
-/* Branding / Logo */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Branding */
 .brand { display: flex; align-items: center; gap: 15px; text-decoration: none; color: white; }
-.page-light .brand { color: #000000; } /* Texto negro en páginas claras */
+.page-light .brand { color: #000000; }
 
 .brand-shield img { width: 45px; height: auto; }
 .brand-top { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.7; }
 .brand-text strong { font-family: 'Playfair Display', serif; font-size: 18px; letter-spacing: 1px; }
 
-/* Acciones (Buscador y Redes) */
-.header-actions { display: flex; align-items: center; gap: 20px; }
-.icon-button { background: none; border: none; color: white; font-size: 20px; cursor: pointer; }
-.page-light .icon-button { color: #000000; } /* Iconos negros */
+/* Iconos y Redes */
+.header-actions { display: flex; align-items: center; gap: 15px; }
+.icon-button { background: none; border: none; color: white; font-size: 20px; cursor: pointer; transition: 0.3s; }
+.page-light .icon-button { color: #000000; }
 
-.header-social .social-link img {
-    width: 18px !important;
-    height: 18px !important;
-    display: block;
+.social-link img { width: 18px; height: 18px; filter: invert(1); transition: 0.3s; }
+.page-light .social-link img { filter: invert(0); }
+
+/* Botón Acceso Hermanos (Desktop) */
+.nav-button-alt {
+    display: inline-block;
+    background-color: var(--gold);
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid var(--gold);
 }
-.social-link img { width: 18px; height: 18px; filter: invert(1); }
-.page-light .social-link img { filter: invert(0); } /* Iconos sociales negros */
+
+body:not(.page-light) .nav-button-alt { background-color: transparent; }
+.page-light .nav-button-alt { background-color: #000; border-color: #000; }
+.nav-button-alt:hover { background-color: #a3894f !important; transform: translateY(-1px); }
 
 /* --- 3. NAVEGACIÓN DESKTOP --- */
 .desktop-nav {
@@ -63,9 +84,7 @@
     letter-spacing: 0.15em;
 }
 
-.page-light .desktop-nav {
-    border-top: 1px solid rgba(0, 0, 0, 0.1); /* Línea sutil en modo claro */
-}
+.page-light .desktop-nav { border-top: 1px solid rgba(0, 0, 0, 0.1); }
 
 .desktop-nav a { 
   color: inherit; 
@@ -75,10 +94,7 @@
   opacity: 0.8;
 }
 
-/* Color negro para los links en páginas claras */
-.page-light .desktop-nav a {
-    color: #000000;
-}
+.page-light .desktop-nav a { color: #000000; }
 
 .desktop-nav a:hover,
 .desktop-nav a.active { 
@@ -88,177 +104,103 @@
   border-radius: 2px;
 }
 
-/* --- 4. BUSCADOR (Panel) --- */
-.search-panel {
-  display: none;
-  position: absolute;
-  top: 80px;
-  left: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.95);
-  padding: 20px 0;
-  border-bottom: 1px solid var(--gold);
-}
-.search-panel.active { display: block; }
-.search-inner input {
-  width: 100%;
-  background: none;
-  border: none;
-  border-bottom: 1px solid white;
-  color: white;
-  padding: 10px;
-  font-size: 18px;
-}
+.page-light .desktop-nav a.active { background-color: rgba(197, 160, 89, 0.15); }
 
-/* --- 5. MENÚ MÓVIL Y HAMBURGUESA --- */
+/* --- 4. MENÚ MÓVIL --- */
 .menu-toggle {
   display: none; 
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   gap: 5px;
   width: 44px;
   height: 44px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
   z-index: 100001;
   color: white;
+  border: none; background: none;
 }
-
-.page-light .menu-toggle { color: #000 !important; }
+.page-light .menu-toggle { color: #000; }
 
 .menu-toggle span {
   display: block;
   width: 22px;
-  height: 1px; /* Más fina */
+  height: 2px;
   background-color: currentColor;
-  transition: all 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  backface-visibility: hidden;
 }
 
 .mobile-menu {
     position: fixed;
-    top: 0; 
-    right: -100%;
-    width: 100%; 
-    height: 100vh;
+    top: 0; right: -100%;
+    width: 100%; height: 100vh;
     z-index: 99999;
     transition: right 0.6s cubic-bezier(0.77, 0, 0.175, 1);
     display: flex;
     flex-direction: column;
-    padding: 120px 40px 40px; 
-    background: rgba(0, 0, 0, 0.8); /* Transparencia negra */
-    backdrop-filter: blur(15px); /* Efecto cristal */
+    padding: 120px 40px; 
+    background: rgba(0, 0, 0, 0.94);
+    backdrop-filter: blur(15px);
     visibility: hidden;
 }
 
-/* MENÚ BLANCO para páginas claras */
-.page-light .mobile-menu {
-    background: rgba(255, 255, 255, 0.85); /* Transparencia blanca */
-    color: #000;
-}
-
+.page-light .mobile-menu { background: rgba(255, 255, 255, 0.95); color: #000; }
 .mobile-menu.active { right: 0; visibility: visible; }
-
-.mobile-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
 
 .mobile-nav a {
     color: white !important;
-    text-decoration: none !important;
-    font-size: 22px; /* Un poco más pequeña */
-    font-family: 'Playfair Display', serif;
-    font-weight: 400; /* Tipografía más ligera */
+    font-size: 24px;
+    font-family: sans-serif; /* Volvemos al estilo limpio original */
     text-transform: uppercase;
-    letter-spacing: 3px;
-    transition: opacity 0.3s;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    display: block;
+    text-decoration: none;
 }
-
 .page-light .mobile-nav a { color: #000 !important; }
 
-/* El botón de Acceso Hermanos dentro del menú móvil */
-.mobile-nav .btn-acceso-mobile {
-    margin-top: 20px;
-    background: var(--gold);
-    color: #000 !important;
-    padding: 15px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.mobile-socials {
-    margin-top: auto;
-    display: flex;
-    gap: 25px;
-}
-
-.mobile-socials img {
-    width: 20px !important;
-    height: 20px !important;
-    filter: invert(1);
-}
-
-.page-light .mobile-socials img { filter: invert(0); }
-
-/* --- 6. SECCIÓN HERO --- */
-.hero-section {
-    height: 100vh;
-    display: flex;
-    align-items: center;
+/* --- 5. PRELOADER --- */
+#preloader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background: #000;
+    display: none;
     justify-content: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/img/image_baa381.jpg') center/cover no-repeat;
-    text-align: center;
-}
-
-.hero-text {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    z-index: 1000000;
+    transition: opacity 1.2s ease-in-out;
+}
+#preloader.active { display: flex; }
+#preloader.fade-out { opacity: 0; visibility: hidden; transition-delay: 0.8s; }
+
+.preloader-logo img {
+    width: 180px; height: auto;
+    transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+#preloader.shrink-logo .preloader-logo img {
+    transform: translate(-41vw, -42vh) scale(0.25);
 }
 
-/* --- 7. PIE DE PÁGINA (FOOTER) --- */
-.site-footer {
-    background-color: #000000;
-    color: #ffffff;
-    padding: 40px 20px;
-    text-align: center;
+/* --- 6. FOOTER --- */
+.site-footer { background: #000; color: #fff; padding: 60px 20px; text-align: center; }
+.footer-shield { 
+    width: 80px; margin-bottom: 20px; transition: 0.3s; 
+    filter: grayscale(1) brightness(0.8);
 }
-
-.footer-container { max-width: 1200px; margin: 0 auto; }
-
-.footer-shield {
-    width: 80px;
-    height: auto;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    filter: grayscale(100%) brightness(0.8);
-}
-
-.footer-motto { font-size: 1.6rem; font-weight: bold; color: #ffffff; margin-bottom: 5px; }
-.footer-location { color: #a0a0a0; font-size: 1.1rem; margin-bottom: 20px; }
+.footer-shield:hover { transform: scale(1.1); filter: grayscale(0) brightness(1.2); }
+.footer-motto { font-size: 1.6rem; font-weight: bold; margin-bottom: 5px; }
+.footer-location { color: #a0a0a0; margin-bottom: 20px; }
 .footer-location a { color: inherit; text-decoration: none; }
-.footer-divider { border: 0; border-top: 1px solid #1a1a1a; margin: 20px auto; width: 80%; }
-.footer-bottom { font-size: 0.9rem; color: #888888; }
 
-/* --- 8. RESPONSIVE LAYOUT --- */
+/* --- 7. RESPONSIVE --- */
 @media (max-width: 768px) {
-    .desktop-nav, .header-social { display: none; }
+    .header-right, .desktop-nav { display: none; }
     .menu-toggle { display: flex; }
     
-    .menu-toggle.active {
-        position: fixed;
-        right: 20px;
-        top: 18px;
-        z-index: 1000000;
-    }
-
+    .menu-toggle.active { position: fixed; right: 20px; top: 18px; }
     .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .menu-toggle.active span:nth-child(2) { opacity: 0; transform: translateX(10px); }
     .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    #preloader.shrink-logo .preloader-logo img { transform: translate(-34vw, -43vh) scale(0.25); }
 }
