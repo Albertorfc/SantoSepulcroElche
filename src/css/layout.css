@@ -226,6 +226,34 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
 .footer-location { color: #a0a0a0; margin-bottom: 20px; }
 .footer-location a { color: inherit; text-decoration: none; }
 
+/* Contenedor del emblema final */
+.footer-credit-emblem {
+    margin-top: 20px; /* Espacio con el texto de copyright */
+    display: flex;
+    justify-content: center; /* Centra la imagen */
+}
+
+/* Estilos para la imagen del emblema */
+.footer-credit-emblem img {
+    height: 60px; /* Ajusta esta altura a tu gusto */
+    width: auto; /* Mantiene la proporción */
+    
+    /* Opcional: Un efecto sutil para que no brille tanto en el fondo negro */
+    opacity: 0.6; 
+    transition: opacity 0.3s ease;
+}
+
+/* Efecto al pasar el ratón (opcional) */
+.footer-credit-emblem img:hover {
+    opacity: 1;
+}
+
+/* Ajuste para móvil: un poco más pequeño */
+@media (max-width: 768px) {
+    .footer-credit-emblem img {
+        height: 45px;
+    }
+}
 /* --- 7. RESPONSIVE --- */
 @media (max-width: 768px) {
     .desktop-nav { 
