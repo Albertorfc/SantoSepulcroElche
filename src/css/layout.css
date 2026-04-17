@@ -159,7 +159,6 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
 .mobile-nav a {
     color: white !important;
     font-size: 22px;
-    font-family: 'Playfair Display', serif;
     text-transform: capitalize; 
     letter-spacing: 1px;
     margin-bottom: 25px;
