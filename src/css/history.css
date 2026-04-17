@@ -323,3 +323,63 @@
         text-align: left;
     }
 }
+
+/* Cuadrícula en Desktop (2 por fila) */
+.vestimenta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px 40px;
+    margin-top: 40px;
+}
+
+.history-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.history-grid .history-image img {
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Versión Móvil */
+@media (max-width: 768px) {
+    .vestimenta-grid {
+        grid-template-columns: 1fr; /* Uno por fila */
+        gap: 0; /* Quitamos gap para usar la línea */
+    }
+
+    .history-grid {
+        padding: 40px 0;
+        position: relative;
+    }
+
+    /* La línea divisoria que pediste */
+    .history-grid:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 20%;
+        width: 60%;
+        height: 1px;
+        background: rgba(0,0,0,0.1); /* Línea sutil */
+    }
+
+    .history-text {
+        text-align: center;
+    }
+
+    .timeline-list {
+        list-style: none;
+        padding: 0;
+        display: inline-block;
+        text-align: left;
+    }
+}
+
+/* Espaciado de la medalla final */
+.identity-section {
+    padding: 100px 0;
+}
