@@ -204,14 +204,35 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
 
 /* --- 7. RESPONSIVE --- */
 @media (max-width: 768px) {
-    .header-right, .desktop-nav { display: none; }
-    .menu-toggle { display: flex !important; }
+    /* 1. Escondemos la navegación larga de escritorio */
+    .desktop-nav { 
+        display: none !important; 
+    }
+
+    /* 2. ¡OJO AQUÍ! No escondemos header-right, lo usamos para alinear Lupa + Menú */
+    .header-right {
+        display: flex !important;
+        align-items: center;
+        gap: 5px; /* Espacio entre lupa y hamburguesa */
+    }
+
+    /* 3. Escondemos redes sociales y el botón de hermanos para ganar espacio */
+    .social-link, .nav-button-alt {
+        display: none !important;
+    }
+
+    /* 4. Forzamos que la hamburguesa se vea */
+    .menu-toggle { 
+        display: flex !important; 
+    }
     
+    /* 5. TUS ANIMACIONES ORIGINALES (No las tocamos) */
     .menu-toggle.active { position: fixed; right: 20px; top: 18px; }
     .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .menu-toggle.active span:nth-child(2) { opacity: 0; transform: translateX(10px); }
     .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+    /* 6. TU PRELOADER (Se queda igual) */
     #preloader.shrink-logo .preloader-logo img { transform: translate(-34vw, -43vh) scale(0.25); }
 }
 
