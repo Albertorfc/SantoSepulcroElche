@@ -275,3 +275,51 @@
         background: #fff;
     }
 }
+
+/* Espaciado general para escritorio */
+.history-grid {
+    margin-bottom: 80px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* --- AJUSTES PARA MÓVIL --- */
+@media (max-width: 768px) {
+    .history-grid {
+        margin-bottom: 40px; /* Menos espacio en móvil */
+        padding-bottom: 40px;
+        position: relative;
+        flex-direction: column !important; /* Forzamos orden vertical */
+    }
+
+    /* La pequeña línea separadora que pediste */
+    .history-grid:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%; /* Para que no vaya de lado a lado */
+        width: 50%;
+        height: 1px;
+        background: rgba(197, 160, 89, 0.3); /* Color oro suave */
+    }
+
+    /* Clase para invertir orden en móvil si fuera necesario */
+    .invert-mobile {
+        flex-direction: column-reverse !important;
+    }
+
+    .history-text {
+        text-align: center;
+    }
+
+    /* Estilo para las listas de las vestas */
+    .timeline-list {
+        list-style: none;
+        padding: 0;
+        font-size: 14px;
+        color: #666;
+        display: inline-block;
+        text-align: left;
+    }
+}
