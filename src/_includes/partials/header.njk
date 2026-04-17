@@ -12,7 +12,7 @@
       </div>
     </a>
 
-    {# 2. Bloque de la Derecha (Agrupa Buscador, RRSS y Botón) #}
+    {# 2. Bloque de la Derecha #}
     <div class="header-right">
       
       <div class="header-actions">
@@ -41,8 +41,8 @@
         </div>
       </div>
 
-      {# Botón de Acceso (Ahora en la fila superior, a la derecha del todo) #}
-      <a href="/miembros/" class="nav-button-alt {% if page.url == '/miembros/' %}active{% endif %}">
+      {# Botón de Acceso en Desktop (Añadida clase desktop-only) #}
+      <a href="/miembros/" class="nav-button-alt desktop-only {% if page.url == '/miembros/' %}active{% endif %}">
         Acceso Hermanos
       </a>
 
@@ -62,7 +62,7 @@
     </div>
   </div>
 
-  {# NAVEGACIÓN ESCRITORIO (Segunda fila) #}
+  {# NAVEGACIÓN ESCRITORIO #}
   <nav class="desktop-nav wrap" aria-label="Menú principal">
     <a href="/" class="{% if page.url == '/' %}active{% endif %}">Inicio</a>
     <a href="/hermandad/" class="{% if page.url == '/hermandad/' %}active{% endif %}">Hermandad</a>
@@ -83,6 +83,7 @@
         <a href="/patrimonio/" class="{% if page.url == '/patrimonio/' %}active{% endif %}">Patrimonio</a>
         <a href="/contacto/" class="{% if page.url == '/contacto/' %}active{% endif %}">Contacto</a>
         
+        {# Botón Acceso Hermanos dentro del menú móvil #}
         <a href="/miembros/" class="mobile-nav-button {% if page.url == '/miembros/' %}active{% endif %}">
           Acceso Hermanos
         </a>
@@ -96,5 +97,4 @@
       </div>
     </div>
   </nav>
-  
 </header>
