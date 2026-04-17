@@ -103,14 +103,19 @@
   border: none;
   cursor: pointer;
   z-index: 100001;
-  color: white;
+  color: white; /* Color por defecto (Home) */
+}
+
+/* Forzamos color negro en la hamburguesa cuando estemos en páginas claras */
+.page-light .menu-toggle {
+  color: #000000 !important;
 }
 
 .menu-toggle span {
   display: block;
   width: 22px;
   height: 2px;
-  background-color: currentColor;
+  background-color: currentColor; /* Esto hace que el span use el color del padre (.menu-toggle) */
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
   transform-origin: center;
 }
@@ -125,19 +130,48 @@
     transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     display: flex;
     flex-direction: column;
-    padding: 40px 30px;
+    padding: 100px 30px; /* Más padding arriba para que no lo tape el header */
+    background: rgba(0, 0, 0, 0.98); /* Fondo casi opaco para que no se mezcle con el contenido de atrás */
     backdrop-filter: blur(15px);
     visibility: hidden;
 }
 
-.mobile-menu.active { right: 0; visibility: visible; }
+/* En páginas claras, el fondo del menú podría ser blanco si prefieres, 
+   pero si lo dejamos negro, los links deben ser siempre blancos */
+.mobile-menu.active { 
+    right: 0; 
+    visibility: visible; 
+}
+
+/* ESTILO DE LOS ENLACES DENTRO DEL MENÚ MÓVIL */
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.mobile-nav a {
+    color: white !important; /* Evita el azul por defecto */
+    text-decoration: none !important;
+    font-size: 24px;
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.mobile-socials {
+    display: flex;
+    gap: 20px;
+    margin-top: auto; /* Empuja los iconos al final */
+}
 
 .mobile-socials img {
     width: 24px !important;
     height: 24px !important;
     display: block;
+    filter: invert(1); /* Si el fondo es negro, invertimos para que sean blancos */
 }
-
 /* --- 6. SECCIÓN HERO (Estructura de entrada) --- */
 .hero-section {
     height: 100vh;
