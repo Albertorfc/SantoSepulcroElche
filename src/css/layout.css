@@ -50,8 +50,9 @@
 
 .brand-text strong {
     font-family: 'Playfair Display', serif;
-    font-size: 19px; /* Un punto más grande */
+    font-size: 19px;
     letter-spacing: 1.5px;
+    text-transform: none; /* Cambiado a Title Case para ganar espacio */
 }
 
 /* Iconos y Redes */
@@ -168,20 +169,20 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
 }
 .page-light .mobile-nav a { color: #000 !important; }
 
-/* AQUÍ EL ARREGLO DE LAS RRSS DENTRO DEL MENÚ */
+/* Redes sociales dentro del menú móvil */
 .mobile-menu .header-actions {
     margin-top: 30px;
-    display: flex !important; /* Forzamos que se vea aquí dentro */
+    display: flex !important;
     gap: 20px;
     justify-content: flex-start;
 }
 
 .mobile-menu .social-link {
-    display: block !important; /* Forzamos que se vea aquí dentro */
+    display: block !important;
 }
 
 .mobile-menu .social-link img {
-    width: 24px !important; /* Tamaño normal, no gigante */
+    width: 24px !important; /* Arreglo para que no sea gigante */
     height: 24px !important;
     filter: invert(1);
 }
@@ -223,53 +224,49 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
 
 /* --- 7. RESPONSIVE --- */
 @media (max-width: 768px) {
-    /* 1. Escondemos la navegación larga de escritorio */
     .desktop-nav { 
         display: none !important; 
     }
 
-    /* 2. ¡OJO AQUÍ! No escondemos header-right, lo usamos para alinear Lupa + Menú */
-    .header-right {
-        display: flex !important;
-        align-items: center;
-        gap: 5px; /* Espacio entre lupa y hamburguesa */
-    }
-
-    /* 3. Escondemos redes sociales y el botón de hermanos para ganar espacio */
-    .social-link, .nav-button-alt {
+    /* Ocultamos RRSS y botón solo en la barra principal del header */
+    .header-bar .social-link, 
+    .header-bar .nav-button-alt {
         display: none !important;
     }
 
-    /* 4. Forzamos que la hamburguesa se vea */
+    .header-right {
+        display: flex !important;
+        align-items: center;
+        gap: 10px; /* Espacio entre lupa y hamburguesa */
+    }
+
     .menu-toggle { 
         display: flex !important; 
     }
     
-    /* 5. TUS ANIMACIONES ORIGINALES (No las tocamos) */
     .menu-toggle.active { position: fixed; right: 20px; top: 18px; }
     .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .menu-toggle.active span:nth-child(2) { opacity: 0; transform: translateX(10px); }
     .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* 6. TU PRELOADER (Se queda igual) */
     #preloader.shrink-logo .preloader-logo img { transform: translate(-34vw, -43vh) scale(0.25); }
 }
 
-/* --- BUSCADOR (Panel Oculto por defecto) --- */
+/* --- BUSCADOR --- */
 .search-panel {
     position: absolute;
-    top: 80px; /* Justo debajo del header-bar */
+    top: 80px; 
     left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.95);
     padding: 20px 0;
     border-bottom: 2px solid var(--gold);
-    display: none; /* Oculto */
+    display: none;
     z-index: 9998;
 }
 
 .search-panel.active {
-    display: block; /* Se muestra cuando el JS activa la clase */
+    display: block;
 }
 
 .search-inner {
