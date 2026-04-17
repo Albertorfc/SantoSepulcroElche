@@ -1,1 +1,29 @@
+/* --- VARIABLES GLOBALES --- */
+:root {
+  --line: rgba(255, 255, 255, 0.15);
+  --gold: #c5a059;
+  --bg-dark: #000000;
+  --bg-light: #ffffff;
+  --text-dark: #333333;
+  --text-light: #ffffff;
+}
 
+/* --- RESET Y BASE --- */
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.page-light {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
