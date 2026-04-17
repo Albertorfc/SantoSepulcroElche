@@ -339,9 +339,13 @@
 }
 
 .history-grid .history-image img {
-    max-width: 300px;
+    width: 100%;       /* Ocupa todo el ancho de su columna */
+    max-width: 450px;  /* Aumentamos el límite de 300px a 450px */
+    height: auto;
     margin: 0 auto;
     display: block;
+    border-radius: 8px; /* Opcional: suaviza las esquinas */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Opcional: añade profundidad */
 }
 
 /* Versión Móvil */
