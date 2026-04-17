@@ -127,7 +127,7 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
   height: 44px;
   z-index: 100001;
   color: white;
-  border: none; background: none;
+  border: none; background: transparent; cursor: pointer;
 }
 .page-light .menu-toggle { color: #000; }
 
@@ -206,7 +206,7 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
 /* --- 7. RESPONSIVE --- */
 @media (max-width: 768px) {
     .header-right, .desktop-nav { display: none; }
-    .menu-toggle { display: flex; }
+    .menu-toggle { display: flex !important; }
     
     .menu-toggle.active { position: fixed; right: 20px; top: 18px; }
     .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
