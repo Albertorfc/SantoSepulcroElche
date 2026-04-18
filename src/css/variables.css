@@ -1,0 +1,59 @@
+/* --- 1. VARIABLES GLOBALES --- */
+:root {
+  /* Colores */
+  --gold: #c5a059;
+  --gold-dark: #a3894f;
+  --line: rgba(255, 255, 255, 0.15);
+  --line-light: rgba(0, 0, 0, 0.1);
+  
+  --bg-dark: #000000;
+  --bg-light: #ffffff;
+  
+  --text-dark: #333333;
+  --text-main: #444444; /* Para párrafos en páginas claras */
+  --text-light: #ffffff;
+  
+  /* Animaciones (VITAL: la que faltaba en components) */
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- 2. RESET Y BASE --- */
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+/* Evitamos scroll horizontal accidental en móviles */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased; /* Para que la letra se vea más fina */
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Base para enlaces: nos ahorra mucho código luego */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+/* --- 3. MODO CLARO (Páginas Interiores) --- */
+body.page-light {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* --- 4. SELECCIÓN DE TEXTO --- */
+::selection {
+  background: var(--gold);
+  color: #000;
+}

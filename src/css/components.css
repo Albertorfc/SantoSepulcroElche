@@ -1,0 +1,199 @@
+/* ==========================================================================
+   1. BOTONES (Base, Hero y Navegación)
+   ========================================================================== */
+
+/* Contenedor de los botones */
+.hero-actions, .hero-buttons { 
+    display: flex;
+    flex-direction: column; 
+    gap: 15px;
+    align-items: center;
+    margin-top: 30px;
+    padding: 0 20px; /* Recuperado: evita que toquen los bordes en móvil */
+}
+
+/* Estilos base para todos los botones */
+.btn-primary, .btn-secondary, .hero-actions a, .btn-acceso-mobile {
+    width: 100%;            
+    max-width: 280px;      
+    text-align: center;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 14px;
+    display: inline-block;
+    transition: var(--transition, 0.3s ease);
+    box-sizing: border-box; /* VITAL: evita que el padding rompa el ancho del 100% */
+}
+
+.btn-primary, .btn-acceso-mobile {
+    background-color: var(--gold);
+    color: #000 !important; 
+    border: 1px solid var(--gold);
+}
+
+.btn-primary {
+    margin-right: 0 !important; /* Recuperado: limpieza de márgenes */
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+/* Botón "Acceso Hermanos" específico para el menú móvil */
+.btn-acceso-mobile {
+    padding: 10px 20px; 
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+/* El botón mini discreto que tenías antes (opcional si prefieres el anterior) */
+.mobile-nav-button {
+    display: block;
+    width: fit-content;    
+    margin: 15px auto;     
+    background-color: var(--gold) !important;
+    color: white !important;
+    padding: 6px 14px !important; 
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   2. CONTADOR (COUNTDOWN)
+   ========================================================================== */
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+    flex-wrap: nowrap; /* Recuperado: evita saltos de línea en PC */
+}
+
+.number {
+    background: linear-gradient(to bottom, #222 50%, #111 50%);
+    color: #fff;
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 800;
+    padding: 20px 10px;
+    border-radius: 6px;
+    min-width: 100px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 10px;
+}
+
+/* ==========================================================================
+   3. SECCIÓN SOCIAL (INSTAGRAM)
+   ========================================================================== */
+
+.social-section {
+    padding: 80px 0;
+    background-color: #000;
+    text-align: center;
+}
+
+/* Recuperado: Estilos de los títulos de la sección social */
+.social-section .section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.social-section .section-title p {
+    color: #888;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.instagram-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 400px;
+    padding: 20px; /* Recuperado */
+    background: #000; /* Recuperado */
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+}
+
+/* Ocultar branding del widget */
+.sk_instagram_feed_link, .sk-branding {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important; /* Recuperado */
+}
+
+/* ==========================================================================
+   4. HELPERS Y LOGO
+   ========================================================================== */
+
+.logo-img {
+    width: 45px;
+    height: auto;
+    transition: content 0.3s ease;
+}
+
+.page-light .logo-img {
+    content: url("/img/sepulcro-n.png");
+}
+
+/* ==========================================================================
+   5. RESPONSIVE DE COMPONENTES
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .hero-actions, .hero-buttons { 
+        flex-direction: column; 
+    }
+
+    .countdown-container {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px 8px;
+        max-width: 360px;
+        margin: 30px auto 0;
+    }
+    
+    .countdown-item:nth-child(1), .countdown-item:nth-child(2) { grid-column: span 3; }
+    .countdown-item:nth-child(3), .countdown-item:nth-child(4), .countdown-item:nth-child(5) { grid-column: span 2; }
+    
+    .number { font-size: 2rem; min-width: 65px; padding: 10px 5px; }
+
+    /* Recuperado: ajuste de etiquetas en móvil */
+    .label {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-actions, .hero-buttons { 
+        flex-direction: row; 
+        justify-content: center; 
+        gap: 20px; /* Recuperado */
+    }
+    .btn-primary, .btn-secondary { 
+        width: auto; 
+    }
+}
