@@ -3,46 +3,58 @@ layout: layouts/base.njk
 title: Área de Miembros
 bodyClass: page-light
 ---
-{# Usamos inline styles para no tocar el CSS y asegurar que se vea en blanco #}
 <section style="padding: 160px 20px 100px; text-align: center; background-color: #ffffff;">
   <div class="wrap">
     
-    <div id="logged-out-content" style="max-width: 400px; margin: 0 auto;">
-      <span style="color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: bold;">Privacidad</span>
-      <h1 style="color: #000; font-family: 'Playfair Display', serif; margin: 10px 0 30px; font-size: 32px;">Acceso Hermandad</h1>
+    <div id="logged-out-content" style="max-width: 450px; margin: 0 auto;">
+      <span style="color: #c4a459; text-transform: uppercase; letter-spacing: 3px; font-size: 11px; font-weight: bold; display: block; margin-bottom: 10px;">Privacidad</span>
+      <h1 style="color: #000; font-family: 'Playfair Display', serif; margin: 0 0 40px; font-size: 36px; font-weight: 400;">Acceso Hermandad</h1>
       
-      <form id="login-form" style="text-align: left;">
-        <div style="margin-bottom: 20px;">
-          <label style="display: block; color: #666; font-size: 11px; text-transform: uppercase; margin-bottom: 5px;">Correo Electrónico</label>
+      <form id="login-form" style="text-align: center;">
+        <div style="margin-bottom: 35px; position: relative;">
+          <label style="display: block; color: #999; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; text-align: left;">Correo Electrónico</label>
           <input type="email" id="email" name="email" required 
-                 style="width: 100%; padding: 12px; border: 1px solid #ddd; background: #fff; color: #000;">
+                 style="width: 100%; padding: 10px 0; border: none; border-bottom: 1px solid #c4a459; background: transparent; color: #c4a459; font-family: 'Playfair Display', serif; font-size: 18px; outline: none; text-align: left;">
         </div>
         
-        <div style="margin-bottom: 30px;">
-          <label style="display: block; color: #666; font-size: 11px; text-transform: uppercase; margin-bottom: 5px;">Contraseña</label>
+        <div style="margin-bottom: 45px; position: relative;">
+          <label style="display: block; color: #999; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; text-align: left;">Contraseña</label>
           <input type="password" id="password" name="password" required 
-                 style="width: 100%; padding: 12px; border: 1px solid #ddd; background: #fff; color: #000;">
+                 style="width: 100%; padding: 10px 0; border: none; border-bottom: 1px solid #c4a459; background: transparent; color: #c4a459; font-size: 24px; outline: none; text-align: left; letter-spacing: 3px;">
         </div>
         
-        {# Usamos tu clase btn-primary que ya existe en components.css #}
-        <button type="submit" class="btn-primary" style="width: 100%; cursor: pointer; border: none;">
-          Entrar
-        </button>
+        <div style="display: flex; justify-content: center;">
+          <button type="submit" class="btn-primary" 
+                  style="padding: 15px 50px; background-color: #c4a459; color: #fff; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: bold; transition: opacity 0.3s;">
+            Entrar
+          </button>
+        </div>
       </form>
     </div>
 
     <div id="logged-in-content" style="display: none;">
-      <h2 style="color: #000; font-family: 'Playfair Display', serif;">Bienvenido, Hermano</h2>
-      <p style="color: #666; margin-bottom: 20px;">Ya puedes acceder a los documentos internos.</p>
-      <button class="btn-primary" onclick="netlifyIdentity.logout()" style="background: #000; border-color: #000;">Cerrar Sesión</button>
+      <h2 style="color: #000; font-family: 'Playfair Display', serif; font-size: 28px;">Bienvenido, Hermano</h2>
+      <p style="color: #666; margin-bottom: 30px; font-family: 'Playfair Display', serif;">Ya puede acceder a los documentos internos.</p>
+      <button class="btn-primary" onclick="netlifyIdentity.logout()" style="background: #000; border-color: #000; padding: 12px 30px;">Cerrar Sesión</button>
     </div>
 
   </div>
 </section>
 
+<style>
+  /* Este pequeño ajuste asegura que los puntos de la contraseña sean dorados */
+  input#password {
+    -webkit-text-fill-color: #c4a459; /* Para navegadores modernos */
+  }
+  /* Quitamos el estilo cutre de autocompletado de los navegadores */
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: #c4a459 !important;
+  }
+</style>
+
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
-  // El script se queda igual que lo tenías, es perfecto.
   const form = document.getElementById('login-form');
   if(form) {
     form.addEventListener('submit', e => {
