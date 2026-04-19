@@ -66,31 +66,36 @@ bodyClass: page-light
 
   
   {# --- CAJA FINAL DE CIERRE --- #}
+
 <section class="history-section wrap identity-section" style="margin-top: 100px;">
   <div class="identity-box">
     
-    {# Columna de Imagen #}
+    {# Columna de Imagen en Blanco y Negro con Atribución #}
     <div class="identity-image">
       <div style="display: inline-block; max-width: 100%; text-align: left;">
-        <img src="/img/Benedictus_XVI.jpg" alt="SS Benedicto XVI" class="img-fluid" style="display: block;">
+        <img src="/img/Benedictus_XVI.jpg" alt="SS Benedicto XVI por Sergey Kozhukhov" class="img-fluid" 
+             style="display: block; filter: grayscale(100%); -webkit-filter: grayscale(100%);">
         
-        {# Atribución (si la tuviera, si no puedes borrar este bloque <p>) #}
         <p style="font-size: 9px; opacity: 0.5; color: #fff; margin-top: 8px; line-height: 1.2; padding: 0 2px;">
-          Foto: Nombre del Autor / Fuente
+          Foto: Sergey Kozhukhov, <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" style="color: inherit; text-decoration: none;">CC BY-SA 3.0</a> via Wikimedia
         </p>
       </div>
     </div>
 
-    {# Columna de Texto #}
+    {# Columna de Texto con Cita y Link Secreto #}
     <div class="identity-text">
-      <h2>SS Benedicto XVI</h2>
+      <h2>Benedicto XVI</h2>
       <p class="text-main">
         La Hermandad es un conjunto de hermanos que, queriendo vivir el Evangelio con la certeza de ser parte viva de la Iglesia, se proponen poner en práctica el mandamiento del amor, que impulsa a abrir el corazón a los demás.
       </p>
       
-      {# Espacio por si quieres añadir una referencia o cita en el futuro #}
-      <p class="text-sub" style="font-style: italic;">
-        </p>
+      <p class="text-sub">
+        <a href="https://www.vatican.va/content/benedict-xvi/es/speeches/2007/november/documents/hf_ben-xvi_spe_20071110_confraternite.html" 
+           target="_blank" 
+           style="color: inherit; text-decoration: none; font-style: italic;">
+          (Cf. Discurso a las Cofradías de Italia, 10 de noviembre de 2007)
+        </a>
+      </p>
     </div>
 
   </div>
