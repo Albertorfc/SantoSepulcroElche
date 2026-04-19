@@ -226,6 +226,18 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
 .footer-location { color: #a0a0a0; margin-bottom: 20px; }
 .footer-location a { color: inherit; text-decoration: none; }
 
+.footer-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 40px auto; /* 40px arriba y abajo para equilibrar con la info de arriba */
+    width: 100%;
+}
+
+.footer-bottom {
+    opacity: 0.6; /* Esto aplica la opacidad a todo el bloque por igual */
+    transition: opacity 0.3s ease; /* Para que si añades un hover, sea suave */
+}
+
 /* Contenedor del emblema final */
 .footer-credit-emblem {
     margin-top: 20px; /* Espacio con el texto de copyright */
