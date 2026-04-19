@@ -6,27 +6,31 @@ bodyClass: page-light
 
 <article class="history-page">
   
-  {# Usa las clases estándar que ya funcionan en Historia o Patrimonio #}
+  {# --- CABECERA DE PÁGINA --- #}
   <header class="page-header wrap">
     <span class="pre-title">Vida Espiritual</span>
     <h1>Cultos y Actos</h1>
     <div class="header-line"></div>
   </header>
 
-<section class="history-section wrap">
-  <div class="history-grid"> 
-    <div class="history-text">
-      <h2>Oración y Devoción</h2>
-      <p>La <strong>Hermandad de Caballeros del Santo Sepulcro</strong> no se limita a la estación de penitencia del Viernes Santo.</p>
-      <p>A lo largo del año, la Hermandad celebra diversos actos para reforzar nuestra fe y la fraternidad cristiana.</p>
-      <p>Nuestra sede canónica, la <strong>Parroquia de San José</strong>, es el escenario principal de estos encuentros espirituales.</p>
+  {# --- SECCIÓN 1: INTRODUCCIÓN --- #}
+  <section class="history-section wrap">
+    {# Cambiamos history-grid por intro-grid para unificar el estilo de 'portada' #}
+    <div class="intro-grid"> 
+      <div class="history-text">
+        <h2>Oración y Devoción</h2>
+        <p>La <strong>Hermandad de Caballeros del Santo Sepulcro</strong> no se limita a la estación de penitencia del Viernes Santo.</p>
+        <p>A lo largo del año, la Hermandad celebra diversos actos para reforzar nuestra fe y la fraternidad cristiana.</p>
+        <p>Nuestra sede canónica, la <strong>Parroquia de San José</strong>, es el escenario principal de estos encuentros espirituales.</p>
+      </div>
+      
+      <div class="history-image">
+        <img src="/img/CapillaRosario.heic" alt="Interior San José" class="img-fluid">
+      </div>
     </div>
-    
-    <div class="history-image">
-      <img src="/img/CapillaRosario.heic" alt="Interior San José" class="img-fluid">
-    </div>
-  </div>
-</section>
+  </section>
+
+</article>
 
   {# Nueva sección de galería que tirará del CSS que has añadido al archivo global #}
   <section class="events-gallery wrap">
