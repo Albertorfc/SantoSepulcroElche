@@ -65,6 +65,29 @@
   color: #444;
 }
 
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Reparto equitativo 50/50 */
+    gap: 80px; /* Un hueco mayor para dar elegancia */
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.intro-grid .history-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px; /* Un ligero redondeado para suavizar */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra sutil para despegarla del fondo */
+}
+
+@media (max-width: 992px) {
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+}
+
 /* --- 3. SECCIÓN TIMELINE --- */
 .page-light .history-timeline {
   background: #f9f9f9;
