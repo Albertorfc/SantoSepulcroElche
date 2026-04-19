@@ -3,60 +3,55 @@ layout: layouts/base.njk
 title: Área de Miembros
 bodyClass: page-light
 ---
-<section class="section-hero">
+{# Usamos inline styles para no tocar el CSS y asegurar que se vea en blanco #}
+<section style="padding: 160px 20px 100px; text-align: center; background-color: #ffffff;">
   <div class="wrap">
-    <span class="pre-title">Privacidad y Seguridad</span>
-    <h1 class="section-title">Acceso Hermandad</h1>
-    <div class="hero-line"></div>
-  </div>
-</section>
-
-<section class="login-section">
-  <div class="wrap wrap--narrow"> <div id="logged-out-content">
-      <p class="login-intro">Introduzca sus credenciales para acceder al contenido exclusivo de hermanos.</p>
+    
+    <div id="logged-out-content" style="max-width: 400px; margin: 0 auto;">
+      <span style="color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: bold;">Privacidad</span>
+      <h1 style="color: #000; font-family: 'Playfair Display', serif; margin: 10px 0 30px; font-size: 32px;">Acceso Hermandad</h1>
       
-      <form id="login-form" class="modern-form">
-        <div class="form-group">
-          <input type="email" id="email" name="email" required placeholder=" ">
-          <label for="email">Correo Electrónico</label>
-          <div class="line"></div>
+      <form id="login-form" style="text-align: left;">
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; color: #666; font-size: 11px; text-transform: uppercase; margin-bottom: 5px;">Correo Electrónico</label>
+          <input type="email" id="email" name="email" required 
+                 style="width: 100%; padding: 12px; border: 1px solid #ddd; background: #fff; color: #000;">
         </div>
         
-        <div class="form-group">
-          <input type="password" id="password" name="password" required placeholder=" ">
-          <label for="password">Contraseña</label>
-          <div class="line"></div>
+        <div style="margin-bottom: 30px;">
+          <label style="display: block; color: #666; font-size: 11px; text-transform: uppercase; margin-bottom: 5px;">Contraseña</label>
+          <input type="password" id="password" name="password" required 
+                 style="width: 100%; padding: 12px; border: 1px solid #ddd; background: #fff; color: #000;">
         </div>
         
-        <div class="form-actions">
-          <button type="submit" class="btn-primary">Entrar</button>
-        </div>
+        {# Usamos tu clase btn-primary que ya existe en components.css #}
+        <button type="submit" class="btn-primary" style="width: 100%; cursor: pointer; border: none;">
+          Entrar
+        </button>
       </form>
     </div>
 
-    <div id="logged-in-content" style="display: none;" class="portal-content">
-      <h2 class="section-title">Bienvenido, Hermano</h2>
-      <p>Ya puedes acceder a los documentos internos.</p>
-      <br>
-      <button class="btn-secondary" onclick="netlifyIdentity.logout()">Cerrar Sesión</button>
+    <div id="logged-in-content" style="display: none;">
+      <h2 style="color: #000; font-family: 'Playfair Display', serif;">Bienvenido, Hermano</h2>
+      <p style="color: #666; margin-bottom: 20px;">Ya puedes acceder a los documentos internos.</p>
+      <button class="btn-primary" onclick="netlifyIdentity.logout()" style="background: #000; border-color: #000;">Cerrar Sesión</button>
     </div>
+
   </div>
 </section>
 
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
+  // El script se queda igual que lo tenías, es perfecto.
   const form = document.getElementById('login-form');
   if(form) {
     form.addEventListener('submit', e => {
       e.preventDefault();
-      const email = form.email.value;
-      const password = form.password.value;
-      netlifyIdentity.gotrue.login(email, password)
+      netlifyIdentity.gotrue.login(form.email.value, form.password.value)
         .then(() => window.location.reload())
         .catch(() => alert("Credenciales incorrectas."));
     });
   }
-
   netlifyIdentity.on('init', user => {
     if (user) {
       document.getElementById('logged-out-content').style.display = 'none';
