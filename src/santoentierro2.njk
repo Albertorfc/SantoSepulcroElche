@@ -7,53 +7,98 @@ bodyClass: page-light
 <article class="history-page">
   <header class="page-header wrap">
     <span class="pre-title">Viernes Santo</span>
-    <h1>Procesión General</h1>
+    <h1>Estación de Penitencia</h1>
     <div class="header-line"></div>
   </header>
 
-  <section class="map-section wrap">
+  {# --- SECCIÓN 1: HITOS DEL RECORRIDO (Estilo Timeline) --- #}
+  <section class="history-timeline">
+    <div class="wrap">
+      
+      <div class="timeline-item">
+        <span class="year">17:45 h</span>
+        <div class="timeline-content">
+          <h3>Salida y Exposición</h3>
+          <p>La jornada comienza en la <strong>Basílica de Santa María</strong>. Los Caballeros y Damas se reúnen para iniciar la Procesión General, custodiando la Sagrada Urna.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item has-image"> 
+        <div class="year">20:30 h</div>
+        <div class="timeline-content">
+          <div class="timeline-text">
+            <h3>Paso por Carrera Oficial</h3>
+            <p>El cortejo atraviesa el corazón de Elche. El silencio se apodera de la calle Corredora mientras el <strong>Santo Sepulcro</strong> avanza en penumbra, precedido por el aroma del incienso de los acólitos.</p>
+          </div>
+          <div class="timeline-image">
+            <img src="/img/image_baa381.jpg" alt="Procesión Santo Entierro Corredora">
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <span class="year">23:00 h</span>
+        <div class="timeline-content">
+          <h3>Trencá del Guió</h3>
+          <p>Uno de los momentos más solemnes de la Semana Santa ilicitana en la <strong>Plaça de Baix</strong>. Ante el Trono del Señor, se procede a la rotura del guión negro, simbolizando que la muerte no tiene la última palabra.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  {# --- SECCIÓN 2: MAPA INTERACTIVO (Satelital + Bocadillo) --- #}
+  <section class="map-section wrap" style="margin-top: 50px; margin-bottom: 80px;">
     <div class="intro-grid">
       <div class="history-text">
-        <h2>Itinerario</h2>
-        <p>Recorrido oficial de la Procesión General y Santo Entierro por las calles de Elche.</p>
+        <h2>Mapa del Itinerario</h2>
+        <p>Sigue el recorrido detallado por el casco histórico. La línea marca el paso de la Procesión General el Viernes Santo.</p>
         
-        <div class="itinerary-details">
-          <div class="itinerary-item"><strong>Salida:</strong> 17:45 h</div>
-          <div class="itinerary-item"><strong>Trencá del Guió:</strong> 23:00 h (aprox.) en Plaça de Baix</div>
-          <div class="itinerary-item"><strong>Orden:</strong> La Hermandad del Sepulcro ocupa el 11º lugar en el cortejo.</div>
+        <div class="itinerary-details" style="background: #fdfdfd; border-left: 4px solid #000; padding: 15px;">
+          <p style="font-size: 0.9rem; margin: 0;"><strong>Nota:</strong> El marcador indica el punto de la Trencá del Guió.</p>
         </div>
       </div>
 
       <div class="map-container-wrapper">
-        <div id="map-itinerario" style="height: 550px; width: 100%; border-radius: 12px; border: 1px solid #ccc;"></div>
+        <div id="map-itinerario" style="height: 550px; width: 100%; border-radius: 12px; border: 1px solid #ccc; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"></div>
       </div>
     </div>
   </section>
+
 </article>
 
-<!-- Leaflet Assets -->
+{# --- LEAFLET ASSETS --- #}
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // 1. Inicializar el mapa
-    var map = L.map('map-itinerario').setView([38.267, -0.698], 16);
+    // 1. Inicializar el mapa con tus coordenadas
+    var map = L.map('map-itinerario').setView([38.2665, -0.6975], 16);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '© OpenStreetMap'
+    // 2. Capa Satelital Híbrida (Google Maps)
+    L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains:['mt0','mt1','mt2','mt3'],
+        attribution: '© Google Maps'
     }).addTo(map);
 
-    // 2. Definición del Icono Personalizado (Cruz de Jerusalén)
-    // SUSTITUYE '/img/cruz-jerusalen.png' por la ruta real de tu imagen
-    var cruzIcon = L.icon({
-      iconUrl: '/img/sepulcro-n.png',
-      iconSize: [40, 40], 
-      iconAnchor: [20, 20], 
-      popupAnchor: [0, -20]
+    // 3. Icono tipo Bocadillo Blanco con CSS
+    var customHtmlIcon = L.divIcon({
+      html: `
+        <div class="marker-pin-wrapper">
+          <div class="marker-pin">
+            <img src="/img/sepulcro-n.png" alt="Cruz">
+          </div>
+        </div>
+      `,
+      className: 'custom-div-icon',
+      iconSize: [40, 52],
+      iconAnchor: [20, 52],
+      popupAnchor: [0, -45]
     });
 
-    // 3. Coordenadas del Recorrido (Siguiendo tu imagen)
+    // 4. Tus coordenadas actualizadas
     var puntosProcesion = [
       [38.267133, -0.697898], // Salida Santa María
       [38.267309, -0.697981], // Inicio plaza Congreso Eucarístico
@@ -69,23 +114,64 @@ bodyClass: page-light
       [38.267133, -0.697898]  // Regreso
     ];
 
-    // 4. Dibujar el camino
+    // 5. Dibujar el camino (Blanco para resaltar en satélite)
     var path = L.polyline(puntosProcesion, {
-      color: '#000000', // Negro por el luto del Santo Entierro
-      weight: 4,
-      opacity: 0.7
+      color: '#FFFFFF',
+      weight: 5,
+      opacity: 0.9,
+      dashArray: '8, 12'
     }).addTo(map);
 
-    // 5. Puntos de Interés (Markers)
-    // Plaza de Baix (Trencá del Guió)
-    L.marker([38.265242, -0.698799], {icon: cruzIcon}).addTo(map)
+    // 6. Marcadores
+    L.marker([38.265242, -0.698799], {icon: customHtmlIcon}).addTo(map)
       .bindPopup('<b>Plaça de Baix</b><br>Trencá del Guió (23:00h aprox.)');
 
-    // Basílica de Santa María
-    L.marker([38.2676, -0.6974]).addTo(map)
-      .bindPopup('<b>Basílica de Santa María</b><br>Salida y Exposición');
+    L.marker([38.267133, -0.697898]).addTo(map)
+      .bindPopup('<b>Basílica de Santa María</b><br>Salida y Regreso');
 
-    // Ajustar vista para que se vea todo el recorrido
     map.fitBounds(path.getBounds());
   });
 </script>
+
+<style>
+  /* CSS para el bocadillo blanco estilo chincheta */
+  .marker-pin-wrapper {
+    position: relative;
+    width: 40px;
+    height: 40px;
+  }
+
+  .marker-pin {
+    width: 40px;
+    height: 40px;
+    border-radius: 50% 50% 50% 0;
+    background: #ffffff;
+    position: absolute;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    border: 1px solid #ddd;
+  }
+
+  .marker-pin img {
+    width: 26px;
+    height: 26px;
+    transform: rotate(45deg);
+    object-fit: contain;
+  }
+
+  /* El rabillo de la chincheta */
+  .marker-pin::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    position: absolute;
+    bottom: -5px;
+    left: -1px;
+    transform: rotate(45deg);
+    /* Este pseudo-elemento ayuda a enfatizar la punta */
+  }
+</style>
