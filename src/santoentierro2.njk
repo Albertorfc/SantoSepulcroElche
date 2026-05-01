@@ -1,0 +1,86 @@
+---
+layout: layouts/base.njk
+title: Santo Entierro
+bodyClass: page-light
+---
+
+<article class="history-page">
+  <header class="page-header wrap">
+    <span class="pre-title">Viernes Santo</span>
+    <h1>Procesión General</h1>
+    <div class="header-line"></div>
+  </header>
+
+  <section class="map-section wrap">
+    <div class="intro-grid">
+      <div class="history-text">
+        <h2>Itinerario</h2>
+        <p>Recorrido oficial de la Procesión General y Santo Entierro por las calles de Elche.</p>
+        
+        <div class="itinerary-details">
+          <div class="itinerary-item"><strong>Salida:</strong> 17:45 h</div>
+          <div class="itinerary-item"><strong>Trencá del Guió:</strong> 23:00 h (aprox.) en Plaça de Baix</div>
+          <div class="itinerary-item"><strong>Orden:</strong> La Hermandad del Sepulcro ocupa el 11º lugar en el cortejo.</div>
+        </div>
+      </div>
+
+      <div class="map-container-wrapper">
+        <div id="map-itinerario" style="height: 550px; width: 100%; border-radius: 12px; border: 1px solid #ccc;"></div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- Leaflet Assets -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Inicializar el mapa
+    var map = L.map('map-itinerario').setView([38.267, -0.698], 16);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // 2. Definición del Icono Personalizado (Cruz de Jerusalén)
+    // SUSTITUYE '/img/cruz-jerusalen.png' por la ruta real de tu imagen
+    var cruzIcon = L.icon({
+      iconUrl: '/img/medalla.png', // He usado la de la medalla que ya tienes en tu carpeta /img/
+      iconSize: [40, 40], 
+      iconAnchor: [20, 20], 
+      popupAnchor: [0, -20]
+    });
+
+    // 3. Coordenadas del Recorrido (Siguiendo tu imagen)
+    var puntosProcesion = [
+      [38.2674, -0.6972], // Salida Santa María
+      [38.2662, -0.6988], // Plaça de Baix
+      [38.2655, -0.7001], // Corredora inicio
+      [38.2672, -0.7018], // Puente de la Virgen / Mayor de la Vila
+      [38.2688, -0.7018], // C/ Uberna entrada
+      [38.2687, -0.6986], // C/ Uberna / C/ Mayor
+      [38.2676, -0.6974]  // Regreso
+    ];
+
+    // 4. Dibujar el camino
+    var path = L.polyline(puntosProcesion, {
+      color: '#000000', // Negro por el luto del Santo Entierro
+      weight: 4,
+      opacity: 0.7
+    }).addTo(map);
+
+    // 5. Puntos de Interés (Markers)
+    // Plaza de Baix (Trencá del Guió)
+    L.marker([38.2663, -0.6989], {icon: cruzIcon}).addTo(map)
+      .bindPopup('<b>Plaça de Baix</b><br>Trencá del Guió (23:00h aprox.)');
+
+    // Basílica de Santa María
+    L.marker([38.2676, -0.6974]).addTo(map)
+      .bindPopup('<b>Basílica de Santa María</b><br>Salida y Exposición');
+
+    // Ajustar vista para que se vea todo el recorrido
+    map.fitBounds(path.getBounds());
+  });
+</script>
