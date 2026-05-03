@@ -91,19 +91,20 @@ bodyClass: page-light
         attribution: '© Google Maps'
     }).addTo(map);
 
-    // 3. Icono tipo Bocadillo Blanco con CSS
+    // 3. Icono tipo Chincheta Negra Aguda
     var customHtmlIcon = L.divIcon({
       html: `
         <div class="marker-pin-wrapper">
-          <div class="marker-pin">
+          <div class="marker-circle">
             <img src="/img/escudo.png" alt="Cruz">
           </div>
+          <div class="marker-tip"></div>
         </div>
       `,
       className: 'custom-div-icon',
-      iconSize: [40, 52],
-      iconAnchor: [20, 52],
-      popupAnchor: [0, -45]
+      iconSize: [32, 42],
+      iconAnchor: [16, 42], // La punta de la chincheta
+      popupAnchor: [0, -42]
     });
 
     // 4. Tus coordenadas actualizadas
@@ -153,7 +154,7 @@ bodyClass: page-light
   .marker-pin-wrapper {
     position: relative;
     width: 32px;
-    height: 42px; /* Más alto para dar sensación de chincheta estilizada */
+    height: 42px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -178,17 +179,17 @@ bodyClass: page-light
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 14px solid #000000; /* Crea el ángulo agudo hacia abajo */
-    margin-top: -5px; /* Une la punta con el círculo */
+    border-top: 14px solid #000000; /* Color negro igual que el círculo */
+    margin-top: -5px; 
     z-index: 1;
   }
 
   /* Imagen de la Hermandad */
   .marker-circle img {
-    width: 20px;
-    height: 20px;
+    width: 22px; /* Un poco más grande para que se vea bien */
+    height: 22px;
     object-fit: contain;
-    /* Si el logo es oscuro y quieres que resalte en blanco, usa la línea de abajo: */
+    /* Descomenta la línea de abajo si el escudo no se ve bien sobre el negro */
     /* filter: brightness(0) invert(1); */
   }
 </style>
