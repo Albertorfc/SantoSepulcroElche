@@ -138,44 +138,46 @@ bodyClass: page-light
 </script>
 
 <style>
-  /* CSS para el bocadillo blanco estilo chincheta */
+  /* Contenedor principal del marcador */
   .marker-pin-wrapper {
     position: relative;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 42px; /* Más alto para dar sensación de chincheta estilizada */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .marker-pin {
-    width: 40px;
-    height: 40px;
-    border-radius: 50% 50% 50% 0;
+  /* El cuerpo circular superior */
+  .marker-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
     background: #000000;
-    position: absolute;
-    transform: rotate(-45deg);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    border: 1px solid #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 2;
   }
 
-  .marker-pin img {
-    width: 26px;
-    height: 26px;
-    transform: rotate(45deg);
+  /* La punta aguda inferior */
+  .marker-tip {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 14px solid #000000; /* Crea el ángulo agudo hacia abajo */
+    margin-top: -5px; /* Une la punta con el círculo */
+    z-index: 1;
+  }
+
+  /* Imagen de la Hermandad */
+  .marker-circle img {
+    width: 20px;
+    height: 20px;
     object-fit: contain;
-  }
-
-  /* El rabillo de la chincheta */
-  .marker-pin::after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    background: #000000;
-    position: absolute;
-    bottom: -5px;
-    left: -1px;
-    /* transform: rotate(45deg); */
-    /* Este pseudo-elemento ayuda a enfatizar la punta */
+    /* Si el logo es oscuro y quieres que resalte en blanco, usa la línea de abajo: */
+    /* filter: brightness(0) invert(1); */
   }
 </style>
