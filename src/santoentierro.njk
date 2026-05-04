@@ -11,83 +11,46 @@ bodyClass: page-light
     <div class="header-line"></div>
   </header>
 
-{# --- LEAFLET ASSETS --- #}
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  {# --- SECCIÓN 1: MAPA INTERACTIVO (Ahora primero) --- #}
+  <section class="map-section wrap" style="margin-top: 50px; margin-bottom: 50px;">
+    <div class="intro-grid">
+      <div class="history-text">
+        <h2>Itinerario</h2>
+        <p>El recorrido de la Procesión General de Hermandades y Cofradías y Santo Entierro de Viernes Santo sigue el trazado de la antigua muralla medieval.</p>
+      </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // 1. Inicializar el mapa con tus coordenadas
-    var map = L.map('map-itinerario').setView([38.2665, -0.6975], 16);
+      <div class="map-container-wrapper">
+        <div id="map-itinerario" style="height: 550px; width: 100%; border-radius: 12px; border: 1px solid #ccc; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"></div>
+      </div>
+    </div>
+  </section>
 
-    // 2. Capa Satelital Híbrida (Google Maps)
-    L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-        maxZoom: 20,
-        subdomains:['mt0','mt1','mt2','mt3'],
-        attribution: '© Google Maps'
-    }).addTo(map);
-
-    // 3. Icono tipo Gota / Chincheta Estilizada
-    var customHtmlIcon = L.divIcon({
-      html: `
-        <div class="marker-pin">
-          <img src="/img/escudo.png" alt="Cruz">
+  {# --- SECCIÓN 2: CITA INSPIRACIONAL --- #}
+  <section class="quote-section wrap" style="margin-bottom: 80px;">
+    <blockquote class="quote-card">
+      <span class="quote-symbol">“</span>
+      <p class="quote-text">
+        El Sepulcro vacío nos habla de esperanza, una esperanza que no defrauda porque es don del Espíritu que da vida.
+      </p>
+      <hr class="quote-divider" />
+      <div class="quote-author-container">
+        <img class="quote-pfp" src="/img/Benedictus_XVI.jpg" alt="Benedicto XVI">
+        <div class="quote-name">
+          <a href="https://www.vatican.va/content/benedict-xvi/es/speeches/2009/may/documents/hf_ben-xvi_spe_20090515_santo-sepolcro.html" target="_blank" class="quote-link">
+            <span class="author-title">Benedicto XVI</span><br>
+            <span class="quote-detail">Discurso en el Santo Sepulcro, Jerusalén, 15 de mayo de 2009</span>
+          </a>
         </div>
-      `,
-      className: 'custom-div-icon',
-      iconSize: [36, 52],
-      iconAnchor: [18, 52], // Punta inferior exacta
-      popupAnchor: [0, -45]
-    });
+      </div>
+    </blockquote>
+  </section>
 
-    // 4. Tus coordenadas actualizadas
-    var puntosProcesion = [
-      [38.267133, -0.697898], // Salida Santa María
-      [38.267309, -0.697981], // Inicio plaza Congreso Eucarístico
-      [38.267331, -0.696541], // Final calle Uberna
-      [38.267228, -0.696279], // Plaça de la Mercè
-      [38.267194, -0.695216], // Puente Ortices
-      [38.266456, -0.695347], // Casa Palacio Jorge Juan
-      [38.266269, -0.695890], // Carrer Pere Ibarra
-      [38.266153, -0.696292], // Carrer Ample
-      [38.265908, -0.696838], // Carrer Bisbe Tormo
-      [38.265242, -0.698799], // Plaça Baix
-      [38.265133, -0.699353], // Puente de Canalejas
-      [38.265608, -0.699385],
-      [38.265817, -0.699281],
-      [38.265863, -0.699204],
-      [38.265898, -0.698990],
-      [38.265937, -0.698720], // Esquina con Major de la Vila
-      [38.266942, -0.698688], // Esquina con carrer la Fira
-      [38.266978, -0.698049],
-      [38.267118, -0.697891],
-      [38.267133, -0.697898]  // Regreso
-    ];
-
-    // 5. Dibujar el camino
-    var path = L.polyline(puntosProcesion, {
-      color:  '#000000',
-      weight: 5,
-      opacity: 0.9,
-    }).addTo(map);
-
-    // 6. Marcadores
-    L.marker([38.265242, -0.698799], {icon: customHtmlIcon}).addTo(map)
-      .bindPopup('<b>Plaça de Baix</b><br>Trencà del Guió (23:00h aprox.)');
-
-    L.marker([38.267133, -0.697898], {icon: customHtmlIcon}).addTo(map)
-      .bindPopup('<b>Basílica de Santa María</b><br>Salida y Regreso');
-
-    map.fitBounds(path.getBounds());
-  });
-</script>
-
-  {# --- SECCIÓN 1: HITOS DEL RECORRIDO (Estilo Timeline) --- #}
+  {# --- SECCIÓN 3: HITOS DEL RECORRIDO (Timeline al final) --- #}
   <section class="history-timeline">
     <div class="wrap">
       
       {# 1. SALIDA #}
-      <div class="timeline-item has image">
+      <div class="timeline-item has-image">
         <div class="year">20:00 h</div>
         <div class="timeline-content">
           <div class="timeline-text">
@@ -96,16 +59,16 @@ bodyClass: page-light
             <p>Al inicio de la estación, con el trono ya sobre los hombros de los pilares, es acompañado en su salida del templo por las voces del grupo de cámara Resonare.</p>
           </div>
           <div class="timeline-image">
-            <img src="/img/inicioestacion.jpg" 
-                 alt="Santo Sepulcro iniciando la estación de Penitencia">
-                 <p style="font-size: 9px; opacity: 0.6; color: #333; margin-top: 8px; line-height: 1.2; padding: 0 2px;">
-                 Foto: Juan Soler Campello. <a href="https://www.facebook.com/juan.solercampello/" target="_blank" style="color: inherit; text-decoration: none;">Juan Soler Fotógraf</a>
+            <img src="/img/inicioestacion.jpg" alt="Santo Sepulcro iniciando la estación de Penitencia">
+            <p style="font-size: 9px; opacity: 0.6; color: #333; margin-top: 8px; line-height: 1.2; padding: 0 2px;">
+              Foto: Juan Soler Campello. <a href="https://www.facebook.com/juan.solercampello/" target="_blank" style="color: inherit; text-decoration: none;">Juan Soler Fotógraf</a>
+            </p>
           </div>
         </div>
       </div>
 
       {# 2. PROCESIÓN GENERAL Y SANTO ENTIERRO #}
-      <div class="timeline-item has image"> 
+      <div class="timeline-item has-image"> 
         <div class="year">20:30 h</div>
         <div class="timeline-content">
           <div class="timeline-text">
@@ -114,9 +77,7 @@ bodyClass: page-light
               <p>Precedidos por el aroma del incienso, el silencio y la emoción se apoderan de los ilicitanos que, poniéndose en pie enmudecen ante al paso de la imagen de <strong>Cristo Yacente</strong>.</p>
             </div>
             <div class="timeline-image">
-              <img src="/img/image_baa381.jpg" 
-                   alt="Santo Sepulcro saliendo de Santa María" 
-                   style="aspect-ratio: 5/4; object-fit: cover; object-position: top; border-radius: 8px;">
+              <img src="/img/image_baa381.jpg" alt="Santo Sepulcro saliendo de Santa María" style="aspect-ratio: 5/4; object-fit: cover; object-position: top; border-radius: 8px;">
           </div>
         </div>
       </div>
@@ -139,8 +100,8 @@ bodyClass: page-light
         <div class="timeline-content">
           <div class="timeline-text">
             <h3>Trencà del Guió</h3>
-            <p>Uno de los momentos más emotivos de la <strong>Semana Santa ilicitana</strong>. Ante el trono de la <strong>Virgen de los Dolores</strong> y el trono del <strong>Santo Sepulcro</strong>, la tripleta elegida tradicionalmente entre los nobles, militares y licenciados de la ciudad, recibe el <strong>estandarte negro</strong>.
-            <p>En el acto, presidido por el Ilmo. alcalde de Elche, y en el que participan las principales autoridades civiles y religiosas de la ciudad, el <em>trencaor</em> tras bandearlo tres veces procura, con un golpe seco, la <em>trencà</em> del guión negro, representando al pueblo de Elche, con esta señal de luto.</p>
+            <p>Uno de los momentos más emotivos de la <strong>Semana Santa ilicitana</strong>. Ante el trono de la <strong>Virgen de los Dolores</strong> y el trono del <strong>Santo Sepulcro</strong>, la tripleta elegida tradicionalmente recibe el <strong>estandarte negro</strong>.</p>
+            <p>En el acto el <em>trencaor</em> tras bandearlo tres veces procura, con un golpe seco, la <em>trencà</em> del guión negro, representando al pueblo de Elche con esta señal de luto.</p>
           </div>
           <div class="timeline-image">
             <img src="/img/trencaor-2024_104.jpg" alt="Trencà del Guió" style="border-radius: 8px;">
@@ -154,55 +115,69 @@ bodyClass: page-light
         <div class="timeline-content">
           <div class="timeline-text">
             <h3>Regreso a Santa María</h3>
-            <p>Tras haber seguido el itinerario los pilares introducen el trono del <strong>Santo Sepulcro</strong> por la puerta mayor de la basílica mientras el coro de cámara entona piezas del <strong>Requiem de Mozart</strong> como el <em>Lacrimosa</em> o el <em>Dies Irae</em>.</p>
-            <p>Finalmente nuestro consiliario nos dirige unas palabras a los caballeros, damas, pilares y a todos los reunidos en la Basílica, elevando nuestra mirada hacia Dios que parece inerte en el Sepulcro.</p>
+            <p>Tras haber seguido el itinerario los pilares introducen el trono del <strong>Santo Sepulcro</strong> por la puerta mayor de la basílica mientras el coro de cámara entona piezas del <strong>Requiem de Mozart</strong>.</p>
+            <p>Finalmente nuestro consiliario nos dirige unas palabras elevando nuestra mirada hacia Dios que parece inerte en el Sepulcro.</p>
           </div>
           <div class="timeline-image">
             <img src="/img/TronoStaMaria.jpeg" alt="Entrada del Trono" style="border-radius: 8px;">
              <p style="font-size: 9px; opacity: 0.6; color: #333; margin-top: 8px; line-height: 1.2; padding: 0 2px;">
-             Foto: José García Domene. <a href="https://www.instagram.com/domenefotografo/" target="_blank" style="color: inherit; text-decoration: none;">Domene Fotógrafo</a>
+              Foto: José García Domene. <a href="https://www.instagram.com/domenefotografo/" target="_blank" style="color: inherit; text-decoration: none;">Domene Fotógrafo</a>
+            </p>
           </div>
         </div>
       </div>
 
     </div>
   </section>
-
-  {# --- SECCIÓN 2: MAPA INTERACTIVO (Satelital + Bocadillo) --- #}
-  <section class="map-section wrap" style="margin-top: 50px; margin-bottom: 80px;">
-    <div class="intro-grid">
-      <div class="history-text">
-        <h2>Itinerario</h2>
-        <p>El recorrido de la Procesión General de Hermandades y Cofradías y Santo Entierro de Viernes Santo sigue el trazado de la antigua muralla medieval.</p>
-                
-      </div>
-
-      <div class="map-container-wrapper">
-        <div id="map-itinerario" style="height: 550px; width: 100%; border-radius: 12px; border: 1px solid #ccc; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"></div>
-      </div>
-    </div>
-  </section>
-
 </article>
 
-    <section class="quote-section wrap">
-      <blockquote class="quote-card">
-        <span class="quote-symbol">“</span>
-        <p class="quote-text">
-          El Sepulcro vacío nos habla de esperanza, una esperanza que no defrauda porque es don del Espíritu que da vida.</p>
-        <hr class="quote-divider" />
-        <div class="quote-author-container">
-          <img class="quote-pfp" src="/img/Benedictus_XVI.jpg" alt="Benedicto XVI">
-        <div class="quote-name">
-          <a href="https://www.vatican.va/content/benedict-xvi/es/speeches/2009/may/documents/hf_ben-xvi_spe_20090515_santo-sepolcro.html" target="_blank" class="quote-link">
-          <span class="author-title">Benedicto XVI</span><br>
-          <span class="quote-detail">Discurso en el Santo Sepulcro, Jerusalén, 15 de mayo de 2009</span>
-        </a>
-      </div>
-    </div>
-  </blockquote>
-</section>
+{# --- LEAFLET ASSETS --- #}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var map = L.map('map-itinerario').setView([38.2665, -0.6975], 16);
+
+    L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains:['mt0','mt1','mt2','mt3'],
+        attribution: '© Google Maps'
+    }).addTo(map);
+
+    var customHtmlIcon = L.divIcon({
+      html: `<div class="marker-pin"><img src="/img/escudo.png" alt="Cruz"></div>`,
+      className: 'custom-div-icon',
+      iconSize: [36, 52],
+      iconAnchor: [18, 52],
+      popupAnchor: [0, -45]
+    });
+
+    var puntosProcesion = [
+      [38.267133, -0.697898], [38.267309, -0.697981], [38.267331, -0.696541],
+      [38.267228, -0.696279], [38.267194, -0.695216], [38.266456, -0.695347],
+      [38.266269, -0.695890], [38.266153, -0.696292], [38.265908, -0.696838],
+      [38.265242, -0.698799], [38.265133, -0.699353], [38.265608, -0.699385],
+      [38.265817, -0.699281], [38.265863, -0.699204], [38.265898, -0.698990],
+      [38.265937, -0.698720], [38.266942, -0.698688], [38.266978, -0.698049],
+      [38.267118, -0.697891], [38.267133, -0.697898]
+    ];
+
+    var path = L.polyline(puntosProcesion, {
+      color: '#000000',
+      weight: 5,
+      opacity: 0.9,
+    }).addTo(map);
+
+    L.marker([38.265242, -0.698799], {icon: customHtmlIcon}).addTo(map)
+      .bindPopup('<b>Plaça de Baix</b><br>Trencà del Guió (23:00h aprox.)');
+
+    L.marker([38.267133, -0.697898], {icon: customHtmlIcon}).addTo(map)
+      .bindPopup('<b>Basílica de Santa María</b><br>Salida y Regreso');
+
+    map.fitBounds(path.getBounds());
+  });
+</script>
 
 <style>
   .custom-div-icon {
@@ -214,11 +189,9 @@ bodyClass: page-light
   .marker-pin {
     width: 36px;
     height: 36px;
-    /* Redondeamos 3 esquinas y dejamos una en ángulo para la punta */
     border-radius: 50% 50% 50% 0;
     background: #000000;
     position: absolute;
-    /* Rotamos para que la esquina en ángulo mire hacia abajo */
     transform: rotate(-45deg);
     display: flex;
     align-items: center;
@@ -229,11 +202,7 @@ bodyClass: page-light
   .marker-pin img {
     width: 22px;
     height: 22px;
-    /* Rotamos la imagen en sentido inverso para que se vea derecha */
     transform: rotate(45deg);
     object-fit: contain;
-    /* Si el escudo es oscuro, activa el filtro para que se vea blanco: */
-    /* filter: brightness(0) invert(1); */
   }
-
-  </style>
+</style>
