@@ -11,6 +11,77 @@ bodyClass: page-light
     <div class="header-line"></div>
   </header>
 
+{# --- LEAFLET ASSETS --- #}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Inicializar el mapa con tus coordenadas
+    var map = L.map('map-itinerario').setView([38.2665, -0.6975], 16);
+
+    // 2. Capa Satelital Híbrida (Google Maps)
+    L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains:['mt0','mt1','mt2','mt3'],
+        attribution: '© Google Maps'
+    }).addTo(map);
+
+    // 3. Icono tipo Gota / Chincheta Estilizada
+    var customHtmlIcon = L.divIcon({
+      html: `
+        <div class="marker-pin">
+          <img src="/img/escudo.png" alt="Cruz">
+        </div>
+      `,
+      className: 'custom-div-icon',
+      iconSize: [36, 52],
+      iconAnchor: [18, 52], // Punta inferior exacta
+      popupAnchor: [0, -45]
+    });
+
+    // 4. Tus coordenadas actualizadas
+    var puntosProcesion = [
+      [38.267133, -0.697898], // Salida Santa María
+      [38.267309, -0.697981], // Inicio plaza Congreso Eucarístico
+      [38.267331, -0.696541], // Final calle Uberna
+      [38.267228, -0.696279], // Plaça de la Mercè
+      [38.267194, -0.695216], // Puente Ortices
+      [38.266456, -0.695347], // Casa Palacio Jorge Juan
+      [38.266269, -0.695890], // Carrer Pere Ibarra
+      [38.266153, -0.696292], // Carrer Ample
+      [38.265908, -0.696838], // Carrer Bisbe Tormo
+      [38.265242, -0.698799], // Plaça Baix
+      [38.265133, -0.699353], // Puente de Canalejas
+      [38.265608, -0.699385],
+      [38.265817, -0.699281],
+      [38.265863, -0.699204],
+      [38.265898, -0.698990],
+      [38.265937, -0.698720], // Esquina con Major de la Vila
+      [38.266942, -0.698688], // Esquina con carrer la Fira
+      [38.266978, -0.698049],
+      [38.267118, -0.697891],
+      [38.267133, -0.697898]  // Regreso
+    ];
+
+    // 5. Dibujar el camino
+    var path = L.polyline(puntosProcesion, {
+      color:  '#000000',
+      weight: 5,
+      opacity: 0.9,
+    }).addTo(map);
+
+    // 6. Marcadores
+    L.marker([38.265242, -0.698799], {icon: customHtmlIcon}).addTo(map)
+      .bindPopup('<b>Plaça de Baix</b><br>Trencà del Guió (23:00h aprox.)');
+
+    L.marker([38.267133, -0.697898], {icon: customHtmlIcon}).addTo(map)
+      .bindPopup('<b>Basílica de Santa María</b><br>Salida y Regreso');
+
+    map.fitBounds(path.getBounds());
+  });
+</script>
+
   {# --- SECCIÓN 1: HITOS DEL RECORRIDO (Estilo Timeline) --- #}
   <section class="history-timeline">
     <div class="wrap">
@@ -114,76 +185,24 @@ bodyClass: page-light
 
 </article>
 
-{# --- LEAFLET ASSETS --- #}
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <section class="quote-section wrap">
+      <blockquote class="quote-card">
+        <span class="quote-symbol">“</span>
+        <p class="quote-text">
+          El Sepulcro vacío nos habla de esperanza, una esperanza que no defrauda porque es don del Espíritu que da vida.</p>
+        <hr class="quote-divider" />
+        <div class="quote-author-container">
+          <img class="quote-pfp" src="/img/Benedictus_XVI.jpg" alt="Benedicto XVI">
+        <div class="quote-name">
+          <a href="https://www.vatican.va/content/benedict-xvi/es/speeches/2009/may/documents/hf_ben-xvi_spe_20090515_santo-sepolcro.html" target="_blank" class="quote-link">
+          <span class="author-title">Benedicto XVI</span><br>
+          <span class="quote-detail">Discurso en el Santo Sepulcro, Jerusalén, 15 de mayo de 2009</span>
+        </a>
+      </div>
+    </div>
+  </blockquote>
+</section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // 1. Inicializar el mapa con tus coordenadas
-    var map = L.map('map-itinerario').setView([38.2665, -0.6975], 16);
-
-    // 2. Capa Satelital Híbrida (Google Maps)
-    L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-        maxZoom: 20,
-        subdomains:['mt0','mt1','mt2','mt3'],
-        attribution: '© Google Maps'
-    }).addTo(map);
-
-    // 3. Icono tipo Gota / Chincheta Estilizada
-    var customHtmlIcon = L.divIcon({
-      html: `
-        <div class="marker-pin">
-          <img src="/img/escudo.png" alt="Cruz">
-        </div>
-      `,
-      className: 'custom-div-icon',
-      iconSize: [36, 52],
-      iconAnchor: [18, 52], // Punta inferior exacta
-      popupAnchor: [0, -45]
-    });
-
-    // 4. Tus coordenadas actualizadas
-    var puntosProcesion = [
-      [38.267133, -0.697898], // Salida Santa María
-      [38.267309, -0.697981], // Inicio plaza Congreso Eucarístico
-      [38.267331, -0.696541], // Final calle Uberna
-      [38.267228, -0.696279], // Plaça de la Mercè
-      [38.267194, -0.695216], // Puente Ortices
-      [38.266456, -0.695347], // Casa Palacio Jorge Juan
-      [38.266269, -0.695890], // Carrer Pere Ibarra
-      [38.266153, -0.696292], // Carrer Ample
-      [38.265908, -0.696838], // Carrer Bisbe Tormo
-      [38.265242, -0.698799], // Plaça Baix
-      [38.265133, -0.699353], // Puente de Canalejas
-      [38.265608, -0.699385],
-      [38.265817, -0.699281],
-      [38.265863, -0.699204],
-      [38.265898, -0.698990],
-      [38.265937, -0.698720], // Esquina con Major de la Vila
-      [38.266942, -0.698688], // Esquina con carrer la Fira
-      [38.266978, -0.698049],
-      [38.267118, -0.697891],
-      [38.267133, -0.697898]  // Regreso
-    ];
-
-    // 5. Dibujar el camino
-    var path = L.polyline(puntosProcesion, {
-      color:  '#000000',
-      weight: 5,
-      opacity: 0.9,
-    }).addTo(map);
-
-    // 6. Marcadores
-    L.marker([38.265242, -0.698799], {icon: customHtmlIcon}).addTo(map)
-      .bindPopup('<b>Plaça de Baix</b><br>Trencà del Guió (23:00h aprox.)');
-
-    L.marker([38.267133, -0.697898], {icon: customHtmlIcon}).addTo(map)
-      .bindPopup('<b>Basílica de Santa María</b><br>Salida y Regreso');
-
-    map.fitBounds(path.getBounds());
-  });
-</script>
 
 <style>
   .custom-div-icon {
