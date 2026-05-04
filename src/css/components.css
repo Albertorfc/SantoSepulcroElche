@@ -203,78 +203,102 @@
    6. TARJETA DE CITAS
    ========================================================================== */
 
+/* Sección de la Cita */
+.quote-section {
+  display: flex;
+  justify-content: center;
+  margin: 60px 0;
+  padding: 0 20px;
+}
+
 .quote-card {
-  max-width: 580px;
-  background-color: #ffffff; /* Blanco puro */
-  margin: 0;
-  border-radius: 15px;
+  max-width: 650px;
+  background-color: #1a1a1a; /* Negro suave / Carbono */
+  border: 1px solid #c5a059; /* Borde dorado suave */
+  border-radius: 12px;
   padding: 40px;
-  box-shadow: 10px 15px 30px rgba(0,0,0,0.1); /* Sombra más suave y profesional */
+  position: relative;
   box-sizing: border-box;
-  border: 1px solid #eee;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .quote-symbol {
-  font-family: "Libre Franklin", sans-serif;
-  font-size: 120px; /* Un poco más pequeño para no comerse el texto */
-  color: #333;
-  font-weight: 900;
-  display: block;
-  height: 60px;
-  line-height: 100px;
-  opacity: 0.2; /* Toque elegante */
+  font-family: serif;
+  font-size: 80px;
+  color: #c5a059; /* Dorado */
+  position: absolute;
+  top: 10px;
+  left: 25px;
+  opacity: 0.4;
+  line-height: 1;
 }
 
 .quote-text {
   font-family: "Libre Franklin", sans-serif;
   font-weight: 300;
-  font-size: 22px;
-  line-height: 1.5;
-  color: #222;
-  margin-top: 10px;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #ffffff; /* Texto en blanco para lectura fácil */
+  margin-top: 20px;
+  font-style: italic;
 }
 
 .quote-divider {
   border: 0;
-  border-top: 1px solid #eaeaea;
-  margin: 20px 0;
+  border-top: 1px solid rgba(197, 160, 89, 0.3); /* Línea dorada sutil */
+  margin: 25px 0;
 }
 
 .quote-author-container {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
 .quote-pfp {
-  width: 70px;
-  height: 70px;
+  width: 65px;
+  height: 65px;
   object-fit: cover;
   border-radius: 50%;
+  border: 2px solid #c5a059;
+  flex-shrink: 0; /* Evita que la foto se aplaste en móvil */
 }
 
-.quote-name {
-  font-family: "Libre Franklin", sans-serif;
-  font-weight: 600;
-  padding-left: 20px;
+.quote-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.author-title {
+  color: #c5a059; /* Nombre en Dorado */
+  font-weight: 700;
   font-size: 18px;
-  color: #333;
-}
-
-.quote-detail {
-  font-weight: 300;
-  font-size: 14px;
-  color: #666;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* Ajuste para móviles */
+.quote-detail {
+  color: #aaaaaa; /* Gris claro para el detalle */
+  font-size: 13px;
+  font-weight: 300;
+}
+
+/* Ajustes críticos para Móvil */
 @media (max-width: 600px) {
   .quote-card {
-    padding: 25px;
-    margin: 20px;
+    padding: 30px 20px;
+  }
+  .quote-symbol {
+    font-size: 60px;
+    top: 5px;
+    left: 15px;
   }
   .quote-text {
-    font-size: 18px;
+    font-size: 17px;
+    margin-top: 10px;
+  }
+  .author-title {
+    font-size: 16px;
   }
 }
