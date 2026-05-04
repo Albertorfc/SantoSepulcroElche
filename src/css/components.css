@@ -237,12 +237,11 @@
 .quote-text {
   font-family: "Libre Franklin", sans-serif;
   font-weight: 300;
-  font-size: 24px; /* Un poco más grande para facilitar lectura */
-  line-height: 1.4;
-  color: #ffffff; 
+  font-size: 20px;
+  line-height: 1.6;
+  color: #ffffff; /* Texto en blanco para lectura fácil */
   margin-top: 20px;
-  position: relative;
-  z-index: 2;
+  font-style: italic;
 }
 
 .quote-divider {
