@@ -203,7 +203,6 @@
    6. TARJETA DE CITAS
    ========================================================================== */
 
-/* Sección de la Cita */
 .quote-section {
   display: flex;
   justify-content: center;
@@ -213,40 +212,43 @@
 
 .quote-card {
   max-width: 650px;
-  background-color: #1a1a1a; /* Negro suave / Carbono */
-  border: 1px solid #c5a059; /* Borde dorado suave */
-  border-radius: 12px;
-  padding: 40px;
+  background-color: #1a1a1a; /* Negro sólido */
+  border: none; /* He quitado el borde dorado de aquí */
+  border-radius: 15px;
+  padding: 50px 40px 40px 40px; /* Más espacio arriba para las comillas */
   position: relative;
   box-sizing: border-box;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 15px 20px 40px rgba(0,0,0,0.6); /* Sombra profunda como en tu ejemplo */
 }
 
 .quote-symbol {
-  font-family: serif;
-  font-size: 80px;
+  /* Forzamos tipografía con remates para que la forma sea elegante */
+  font-family: "Playfair Display", "Georgia", serif; 
+  font-size: 160px; /* Tamaño grande como el original */
   color: #c5a059; /* Dorado */
   position: absolute;
-  top: 10px;
-  left: 25px;
-  opacity: 0.4;
+  top: -20px; /* Ajuste para que "vuelen" un poco */
+  left: 30px;
+  opacity: 0.9; /* Bien visibles y doradas */
   line-height: 1;
+  height: 80px;
 }
 
 .quote-text {
   font-family: "Libre Franklin", sans-serif;
   font-weight: 300;
-  font-size: 20px;
-  line-height: 1.6;
-  color: #ffffff; /* Texto en blanco para lectura fácil */
+  font-size: 24px; /* Un poco más grande para facilitar lectura */
+  line-height: 1.4;
+  color: #ffffff; 
   margin-top: 20px;
-  font-style: italic;
+  position: relative;
+  z-index: 2;
 }
 
 .quote-divider {
   border: 0;
-  border-top: 1px solid rgba(197, 160, 89, 0.3); /* Línea dorada sutil */
-  margin: 25px 0;
+  border-top: 0.5px solid rgba(197, 160, 89, 0.4);
+  margin: 30px 0 20px 0;
 }
 
 .quote-author-container {
@@ -256,49 +258,44 @@
 }
 
 .quote-pfp {
-  width: 65px;
-  height: 65px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid #c5a059;
-  flex-shrink: 0; /* Evita que la foto se aplaste en móvil */
+  border: 1px solid #c5a059; /* Borde dorado solo en la foto */
+  flex-shrink: 0;
 }
 
 .quote-link {
   text-decoration: none;
   color: inherit;
-  display: block;
 }
 
 .author-title {
-  color: #c5a059; /* Nombre en Dorado */
+  color: #c5a059; /* Dorado */
   font-weight: 700;
-  font-size: 18px;
+  font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .quote-detail {
-  color: #aaaaaa; /* Gris claro para el detalle */
-  font-size: 13px;
+  color: #888;
+  font-size: 14px;
   font-weight: 300;
 }
 
-/* Ajustes críticos para Móvil */
+/* Ajustes para Móvil */
 @media (max-width: 600px) {
   .quote-card {
-    padding: 30px 20px;
+    padding: 60px 25px 30px 25px;
   }
   .quote-symbol {
-    font-size: 60px;
-    top: 5px;
-    left: 15px;
+    font-size: 120px;
+    top: -10px;
+    left: 20px;
   }
   .quote-text {
-    font-size: 17px;
-    margin-top: 10px;
-  }
-  .author-title {
-    font-size: 16px;
+    font-size: 20px;
   }
 }
