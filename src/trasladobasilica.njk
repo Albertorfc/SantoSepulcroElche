@@ -180,11 +180,14 @@ bodyClass: page-light
     }).addTo(map);
 
     // 6. Marcadores
-    L.marker([38.265242, -0.698799], {icon: customHtmlIcon}).addTo(map)
-      .bindPopup('<b>Plaça de Baix</b><br>Trencà del Guió (23:00h aprox.)');
+    L.marker([38.259812, -0.701643], {icon: customHtmlIcon}).addTo(map)
+      .bindPopup('<b>Iglesia de San José</b><br>Salida (6:30h aprox.)');
+
+    L.marker([38.263393, -0.699923], {icon: customHtmlIcon}).addTo(map)
+      .bindPopup('<b>Puente de Santa Teresa</b><br>Oración ante la Virgen (6:45h aprox.)');
 
     L.marker([38.267133, -0.697898], {icon: customHtmlIcon}).addTo(map)
-      .bindPopup('<b>Basílica de Santa María</b><br>Salida y Regreso');
+      .bindPopup('<b>Basílica de Santa María</b><br>XIV Estación Vía Crucis');
 
     map.fitBounds(path.getBounds());
   });
