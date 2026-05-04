@@ -263,6 +263,12 @@
   border-radius: 50%;
   border: 1px solid #c5a059; /* Borde dorado solo en la foto */
   flex-shrink: 0;
+  filter: grayscale(100%);
+}
+
+.quote-pfp:hover {
+  filter: grayscale(0%);
+  transition: filter 0.3s ease;
 }
 
 .quote-link {
