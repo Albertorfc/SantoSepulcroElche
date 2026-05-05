@@ -13,7 +13,8 @@
   --text-main: #444444; /* Para párrafos en páginas claras */
   --text-light: #ffffff;
   
-  /* Animaciones (VITAL: la que faltaba en components) */
+  --font-serif: 'Ibarra Real Nova', 'Playfair Display', serif;
+    /* Animaciones (VITAL: la que faltaba en components) */
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
