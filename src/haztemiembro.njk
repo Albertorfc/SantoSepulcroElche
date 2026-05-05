@@ -53,37 +53,45 @@ bodyClass: page-light
   <section class="social-section">
   <div class="wrap">
     
+    {# Título de la sección (Ya hereda Playfair correctamente) #}
     <div class="section-title">
       <h2>Cómo formar parte</h2>
       <p>Sigue estos tres sencillos pasos para unirte a la Hermandad:</p>
     </div>
 
-    {# Reutilizamos .hero-actions para la disposición flexible (fila en PC / columna en móvil) #}
+    {# Contenedor flexible reaprovechado #}
     <div class="hero-actions" style="align-items: flex-start; gap: 40px; margin-bottom: 60px;">
 
       {# Paso I #}
       <div style="flex: 1; text-align: center;">
-        {# El h2 hereda automáticamente 'Playfair Display' de tus estilos de historia/social #}
-        <h2 style="color: var(--gold); font-size: 60px; margin-bottom: 10px; font-weight: normal;">1</h2>
+        <div class="section-title"> {# <--- Esta clase fuerza la herencia de Playfair y Dorado #}
+          <h2 style="font-size: 60px; margin-bottom: 10px; font-weight: normal;">I</h2>
+        </div>
         <span class="label">Descarga</span>
         <p style="color: #888; font-size: 14px; margin-top: 15px; line-height: 1.6;">Descarga e imprime la solicitud de nuevo ingreso en PDF.</p>
       </div>
 
       {# Paso II #}
       <div style="flex: 1; text-align: center;">
-        <h2 style="color: var(--gold); font-size: 60px; margin-bottom: 10px; font-weight: normal;">2</h2>
+        <div class="section-title">
+          <h2 style="font-size: 60px; margin-bottom: 10px; font-weight: normal;">II</h2>
+        </div>
         <span class="label">Rellena</span>
-        <p style="color: #888; font-size: 14px; margin-top: 15px; line-height: 1.6;">Completa con tus datos.</p>
+        <p style="color: #888; font-size: 14px; margin-top: 15px; line-height: 1.6;">Completa tus datos personales y de domiciliación bancaria.</p>
       </div>
 
       {# Paso III #}
       <div style="flex: 1; text-align: center;">
-        <h2 style="color: var(--gold); font-size: 60px; margin-bottom: 10px; font-weight: normal;">3</h2>
+        <div class="section-title">
+          <h2 style="font-size: 60px; margin-bottom: 10px; font-weight: normal;">III</h2>
+        </div>
         <span class="label">Entrega</span>
         <p style="color: #888; font-size: 14px; margin-top: 15px; line-height: 1.6;">Ponte en contacto con nosotros para gestionar la entrega.</p>
       </div>
+
     </div>
 
+    {# Botón primario reaprovechado #}
     <div class="hero-actions">
       <a href="/docs/formulario-alta-hermandad.pdf" target="_blank" class="btn-primary">
         Descargar Formulario
@@ -92,4 +100,5 @@ bodyClass: page-light
 
   </div>
 </section>
+
 </article>
