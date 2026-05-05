@@ -51,40 +51,47 @@ bodyClass: page-light
 
   {# --- PASOS DE INSCRIPCIÓN --- #}
   <section class="social-section">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>Cómo formar parte</h2>
-        <p>Sólo tienes que seguir estos pasos:</p>
-      </div>
-      
-      <div class="hero-actions" style="align-items: flex-start; gap: 40px; margin-bottom: 60px;">
-        
-        <div class="step-card" style="flex: 1;">
-          <span class="number" style="font-size: 2rem; min-width: 60px; margin: 0 auto 20px;">1</span>
-          <span class="label">Descarga</span>
-          <p style="color: #888; font-size: 14px; margin-top: 15px;">Descarga e imprime la solicitud en PDF.</p>
-        </div>
-
-        <div class="step-card" style="flex: 1;">
-          <span class="number" style="font-size: 2rem; min-width: 60px; margin: 0 auto 20px;">2</span>
-          <span class="label">Rellena</span>
-          <p style="color: #888; font-size: 14px; margin-top: 15px;">Completa tus datos y domiciliación bancaria.</p>
-        </div>
-
-        <div class="step-card" style="flex: 1;">
-          <span class="number" style="font-size: 2rem; min-width: 60px; margin: 0 auto 20px;">3</span>
-          <span class="label">Entrega</span>
-          <p style="color: #888; font-size: 14px; margin-top: 15px;">Ponte en contacto con nosotros para la entrega.</p>
-        </div>
-
-      </div>
-
-      <div class="hero-actions">
-        <a href="/docs/formulario-alta-hermandad.pdf" target="_blank" class="btn-primary">
-          Descargar Formulario
-        </a>
-      </div>
+  <div class="wrap">
+    
+    <div class="section-title">
+      <h2>Cómo formar parte</h2>
+      <p>Sigue estos tres sencillos pasos para unirte a la Hermandad:</p>
     </div>
-  </section>
 
+    {# Reutilizamos .hero-actions para la disposición flexible (fila en PC / columna en móvil) #}
+    <div class="hero-actions" style="align-items: flex-start; gap: 40px; margin-bottom: 60px;">
+
+      {# Paso I #}
+      <div style="flex: 1; text-align: center;">
+        {# El h2 hereda automáticamente 'Playfair Display' de tus estilos de historia/social #}
+        <h2 style="color: var(--gold); font-size: 60px; margin-bottom: 10px; font-weight: normal;">I</h2>
+        <span class="label">Descarga</span>
+        <p style="color: #888; font-size: 14px; margin-top: 15px; line-height: 1.6;">Descarga e imprime la solicitud de nuevo ingreso en PDF.</p>
+      </div>
+
+      {# Paso II #}
+      <div style="flex: 1; text-align: center;">
+        <h2 style="color: var(--gold); font-size: 60px; margin-bottom: 10px; font-weight: normal;">II</h2>
+        <span class="label">Rellena</span>
+        <p style="color: #888; font-size: 14px; margin-top: 15px; line-height: 1.6;">Completa tus datos personales y de domiciliación bancaria.</p>
+      </div>
+
+      {# Paso III #}
+      <div style="flex: 1; text-align: center;">
+        <h2 style="color: var(--gold); font-size: 60px; margin-bottom: 10px; font-weight: normal;">III</h2>
+        <span class="label">Entrega</span>
+        <p style="color: #888; font-size: 14px; margin-top: 15px; line-height: 1.6;">Ponte en contacto con nosotros para gestionar la entrega.</p>
+      </div>
+
+    </div>
+
+    {# Reutilizamos el botón primario definido en components.css #}
+    <div class="hero-actions">
+      <a href="/docs/formulario-alta-hermandad.pdf" target="_blank" class="btn-primary">
+        Descargar Formulario
+      </a>
+    </div>
+
+  </div>
+</section>
 </article>
