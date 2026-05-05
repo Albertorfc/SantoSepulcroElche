@@ -14,6 +14,7 @@
   --text-light: #ffffff;
   
   --font-serif: 'Ibarra Real Nova', 'Playfair Display', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
     /* Animaciones (VITAL: la que faltaba en components) */
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -32,7 +33,7 @@ html, body {
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: var(--sans-serif);
   background-color: var(--bg-dark);
   color: var(--text-light);
   line-height: 1.6;
