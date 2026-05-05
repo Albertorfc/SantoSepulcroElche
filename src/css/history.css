@@ -349,8 +349,18 @@
         justify-content: center;
         padding: 50px;
         background: #fff;
+        color: #333 !important;
     }
-}
+/* Aseguramos que los títulos y párrafos dentro de la destacada se vean */
+    .event-card.highlighted h3 {
+        color: #000 !important;
+        margin-bottom: 15px;
+    }
+
+    .event-card.highlighted p {
+        color: #444 !important;
+    }
+  }
 
 /* Espaciado general para escritorio */
 .history-grid {
