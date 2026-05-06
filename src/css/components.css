@@ -57,35 +57,46 @@
 }
 
 /* Estilos base para todos los botones */
-.btn-primary, .btn-secondary, .hero-actions a, .btn-acceso-mobile {
-    width: 100%;            
-    max-width: 280px;      
-    text-align: center;
-    padding: 15px 25px;
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 14px;
-    display: inline-block;
-    transition: var(--transition, 0.3s ease);
-    box-sizing: border-box; /* VITAL: evita que el padding rompa el ancho del 100% */
+/* =========================
+   BOTONES (NUEVO SISTEMA)
+   ========================= */
+
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  box-sizing: border-box;
 }
 
-.btn-primary, .btn-acceso-mobile {
-    background-color: var(--gold);
-    color: #000 !important; 
-    border: 1px solid var(--gold);
+/* Variantes */
+.btn--primary {
+  background: var(--gold);
+  color: #000;
+  border: 1px solid var(--gold);
 }
 
-.btn-primary {
-    margin-right: 0 !important; /* Recuperado: limpieza de márgenes */
+.btn--secondary {
+  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
 }
 
-.btn-secondary {
-    background-color: transparent;
-    color: #fff;
-    border: 1px solid #fff;
+/* Tamaños */
+.btn--small {
+  padding: 10px 20px;
+  font-size: 11px;
+}
+
+/* Bloque (para móvil o botones grandes) */
+.btn--block {
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
 }
 
 /* Botón "Acceso Hermanos" específico para el menú móvil */
