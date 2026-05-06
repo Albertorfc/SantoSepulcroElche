@@ -63,11 +63,11 @@
    ========================= */
 
 @media (max-width: 768px) {
-  .triptico {
+  .triptico-container {
     grid-template-columns: 1fr;
   }
 
-  .triptico__item {
+  .triptico-item {
     height: 350px;
   }
 }
