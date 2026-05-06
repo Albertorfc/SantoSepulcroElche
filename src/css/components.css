@@ -1,3 +1,47 @@
+/* =========================
+   SECCIONES (SISTEMA GLOBAL)
+   ========================= */
+
+.section {
+  padding: 100px 0;
+}
+
+.section--dark {
+  background: #000;
+}
+
+.section--darker {
+  background: #050505;
+}
+
+.section--light {
+  background: #0a0a0a;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-family: var(--font-serif);
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  color: #888;
+}
+
+.pre-title {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
 /* ==========================================================================
    1. BOTONES (Base, Hero y Navegación)
    ========================================================================== */
