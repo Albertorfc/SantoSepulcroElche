@@ -22,7 +22,7 @@
 }
 
 .page-light .page-header h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-serif);
   font-size: 50px;
   color: #000;
 }
@@ -53,7 +53,7 @@
 }
 
 .page-light .history-text h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-serif);
   margin-bottom: 20px;
   font-size: 32px;
   color: #000;
@@ -110,7 +110,7 @@
 }
 
 .page-light .timeline-item .year {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-serif);
   font-size: 20px;
   color: var(--gold);
   min-width: 160px;
@@ -128,7 +128,7 @@
 }
 
 .page-light .timeline-content h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-serif);
   margin-bottom: 10px;
   color: #000;
   font-size: 20px;
@@ -202,7 +202,7 @@
 }
 
 .page-light .identity-text h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-serif);
   color: var(--gold);
   margin-bottom: 20px;
   font-size: 32px;
