@@ -359,3 +359,23 @@
     font-size: 20px;
   }
 }
+
+/* =========================
+   GRUPO DE BOTONES
+   ========================= */
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.button-group--center {
+  justify-content: center;
+}
+
+.button-group--stack {
+  flex-direction: column;
+  align-items: center;
+}
