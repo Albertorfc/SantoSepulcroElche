@@ -113,7 +113,7 @@
 
 /* Recuperado: Estilos de los títulos de la sección social */
 .social-section .section-title h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-serif);
     font-size: 32px;
     color: var(--gold);
     margin-bottom: 10px;
@@ -223,7 +223,7 @@
 
 .quote-symbol {
   /* Forzamos tipografía con remates para que la forma sea elegante */
-  font-family: "Playfair Display", "Georgia", serif; 
+  font-family: var(--font-serif); 
   font-size: 160px; /* Tamaño grande como el original */
   color: #c5a059; /* Dorado */
   position: absolute;
@@ -235,7 +235,7 @@
 }
 
 .quote-text {
-  font-family: "Libre Franklin", sans-serif;
+  font-family: var(--font-sans);
   font-weight: 300;
   font-size: 20px;
   line-height: 1.6;
