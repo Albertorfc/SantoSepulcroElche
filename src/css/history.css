@@ -196,7 +196,7 @@
   /* Ajustes específicos del marco premium para móvil */
   outline-offset: -10px; /* Acercamos un milímetro el marco al borde exterior del móvil */
   border-radius: 12px; /* Suavizamos un pelín menos el radio para pantallas de móvil pequeñas */
-  width: 88%; /* Hará que no ocupe el 100% de la pantalla */
+  width: 93%; /* Hará que no ocupe el 100% de la pantalla */
   margin: 0 auto; /* La centra perfectamente dejando margen a los lados */
 }
 
