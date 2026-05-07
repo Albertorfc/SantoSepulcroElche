@@ -289,7 +289,7 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
         display: flex !important; 
     }
     
-    .menu-toggle.active { position: fixed; right: 20px; top: 18px; }
+    .menu-toggle.active { position: relative; z-index: 100001; }
     .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .menu-toggle.active span:nth-child(2) { opacity: 0; transform: translateX(10px); }
     .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
