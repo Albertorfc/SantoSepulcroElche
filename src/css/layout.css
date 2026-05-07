@@ -236,6 +236,7 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
 .footer-bottom {
     opacity: 0.6; /* Esto aplica la opacidad a todo el bloque por igual */
     transition: opacity 0.3s ease; /* Para que si añades un hover, sea suave */
+    font-style: italic;
 }
 
 /* Contenedor del emblema final */

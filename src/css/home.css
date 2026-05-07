@@ -1,0 +1,75 @@
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('/img/image_baa381.jpg') center/cover no-repeat;
+}
+
+.hero__text h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 8vw, 80px);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero__text p {
+  max-width: 500px;
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+/* =========================
+   TRÍPTICO
+   ========================= */
+
+.triptico-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 20px;
+}
+
+.triptico-item {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.triptico-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  padding: 20px 0;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 768px) {
+  .triptico-container {
+    grid-template-columns: 1fr;
+  }
+
+  .triptico-item {
+    height: 350px;
+  }
+}

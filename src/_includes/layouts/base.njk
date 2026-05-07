@@ -13,11 +13,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/css/variables.css">
+<link rel="stylesheet" href="/css/variables.css">
   <link rel="stylesheet" href="/css/layout.css">
   <link rel="stylesheet" href="/css/components.css">
   <link rel="stylesheet" href="/css/history.css">
-  <link rel="stylesheet" href="/css/styles.css"> 
+  
+  {% if bodyClass == 'home' %}
+  <link rel="stylesheet" href="/css/home.css">
+  {% endif %}
+  
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body class="{{ bodyClass }}">

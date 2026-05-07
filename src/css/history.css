@@ -418,12 +418,6 @@
     margin-top: 40px;
 }
 
-.history-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 .history-grid .history-image img {
     width: 100%;       /* Ocupa todo el ancho de su columna */
     max-width: 450px;  /* Aumentamos el límite de 300px a 450px */

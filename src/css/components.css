@@ -1,47 +1,100 @@
+/* =========================
+   SECCIONES (SISTEMA GLOBAL)
+   ========================= */
+
+.section {
+  padding: 100px 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 70px 0;
+  }
+}
+
+.section--dark {
+  background: #000;
+}
+
+.section--darker {
+  background: #050505;
+}
+
+.section--light {
+  background: #0a0a0a;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 40px);
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  color: #888;
+}
+
+.pre-title {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
 /* ==========================================================================
    1. BOTONES (Base, Hero y Navegación)
    ========================================================================== */
 
-/* Contenedor de los botones */
-.hero-actions, .hero-buttons { 
-    display: flex;
-    flex-direction: column; 
-    gap: 15px;
-    align-items: center;
-    margin-top: 30px;
-    padding: 0 20px; /* Recuperado: evita que toquen los bordes en móvil */
-}
+
 
 /* Estilos base para todos los botones */
-.btn-primary, .btn-secondary, .hero-actions a, .btn-acceso-mobile {
-    width: 100%;            
-    max-width: 280px;      
-    text-align: center;
-    padding: 15px 25px;
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 14px;
-    display: inline-block;
-    transition: var(--transition, 0.3s ease);
-    box-sizing: border-box; /* VITAL: evita que el padding rompa el ancho del 100% */
+/* =========================
+   BOTONES (NUEVO SISTEMA)
+   ========================= */
+
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  box-sizing: border-box;
 }
 
-.btn-primary, .btn-acceso-mobile {
-    background-color: var(--gold);
-    color: #000 !important; 
-    border: 1px solid var(--gold);
+/* Variantes */
+.btn--primary {
+  background: var(--gold);
+  color: #000;
+  border: 1px solid var(--gold);
 }
 
-.btn-primary {
-    margin-right: 0 !important; /* Recuperado: limpieza de márgenes */
+.btn--secondary {
+  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
 }
 
-.btn-secondary {
-    background-color: transparent;
-    color: #fff;
-    border: 1px solid #fff;
+/* Tamaños */
+.btn--small {
+  padding: 10px 20px;
+  font-size: 11px;
+}
+
+/* Bloque (para móvil o botones grandes) */
+.btn--block {
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
 }
 
 /* Botón "Acceso Hermanos" específico para el menú móvil */
@@ -65,6 +118,10 @@
     letter-spacing: 1px;
     border-radius: 2px;
     text-decoration: none;
+}
+
+.btn:hover {
+  opacity: 0.85;
 }
 
 /* ==========================================================================
@@ -91,6 +148,7 @@
     position: relative;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     border: 1px solid rgba(255,255,255,0.1);
+    text-align: center; /* ✨ ¡AÑADE ESTA LÍNEA! */
 }
 
 .label {
@@ -99,32 +157,15 @@
     text-transform: uppercase;
     color: var(--gold);
     margin-top: 10px;
+    text-align: center; /* ✨ ¡AÑADE ESTA LÍNEA! */
+
 }
 
 /* ==========================================================================
    3. SECCIÓN SOCIAL (INSTAGRAM)
    ========================================================================== */
 
-.social-section {
-    padding: 80px 0;
-    background-color: #000;
-    text-align: center;
-}
-
 /* Recuperado: Estilos de los títulos de la sección social */
-.social-section .section-title h2 {
-    font-family: var(--font-serif);
-    font-size: 32px;
-    color: var(--gold);
-    margin-bottom: 10px;
-}
-
-.social-section .section-title p {
-    color: #888;
-    margin-bottom: 40px;
-    letter-spacing: 1px;
-}
-
 .instagram-container {
     width: 100%;
     max-width: 1000px;
@@ -163,9 +204,6 @@
    ========================================================================== */
 
 @media (max-width: 768px) {
-    .hero-actions, .hero-buttons { 
-        flex-direction: column; 
-    }
 
     .countdown-container {
         display: grid;
@@ -186,18 +224,6 @@
         letter-spacing: 1px;
     }
 }
-
-@media (min-width: 768px) {
-    .hero-actions, .hero-buttons { 
-        flex-direction: row; 
-        justify-content: center; 
-        gap: 20px; /* Recuperado */
-    }
-    .btn-primary, .btn-secondary { 
-        width: auto; 
-    }
-}
-
 
 /* ==========================================================================
    6. TARJETA DE CITAS
@@ -302,5 +328,37 @@
   }
   .quote-text {
     font-size: 20px;
+  }
+}
+
+/* =========================
+   GRUPO DE BOTONES
+   ========================= */
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.button-group--center {
+  justify-content: center;
+}
+
+.button-group--stack {
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .button-group--stack {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .btn--block {
+    width: auto;
+    max-width: none;
   }
 }
