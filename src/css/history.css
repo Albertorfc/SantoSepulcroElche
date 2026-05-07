@@ -179,26 +179,38 @@
 
 /* --- 4. IDENTITY BOX (EL BOX DE LA MEDALLA) --- */
 /* Restaurada la versión moderna de rejilla */
+/* --- 4. IDENTITY BOX (EL BOX DE LA MEDALLA / ORACIÓN) --- */
 .page-light .identity-box {
   display: grid;
   grid-template-columns: 1fr 1fr; 
   gap: 60px;
   align-items: center;
-  background: #000;
+  background: #050505; /* Un negro apenas más suave para dar textura */
   color: #fff;
   padding: 60px;
-  border-radius: 4px;
-  text-align: left; /* Volvemos a alineación izquierda para la rejilla */
+  text-align: left;
+
+  /* ✨ LOS NUEVOS TOQUES PREMIUM ✨ */
+  max-width: 1000px; /* Lo hacemos un poco más pequeño para que respire por los lados */
+  margin: 0 auto; /* Lo centramos perfectamente */
+  border-radius: 16px; /* Puntas más redondeadas y modernas */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15); /* Sombra suave y profunda que lo levanta del fondo */
+  border: 1px solid rgba(197, 160, 89, 0.3); /* Borde exterior dorado muy fino */
+  
+  /* El pequeño margen dorado interior (estilo enmarcado) */
+  outline: 1px solid rgba(197, 160, 89, 0.15);
+  outline-offset: -12px; /* Esto empuja la línea hacia adentro */
 }
 
+/* Redondeamos ligeramente la foto para que acompañe el diseño de la caja */
 .page-light .identity-image img {
   max-height: 450px;
   width: auto;
   max-width: 100%; 
   margin: 0 auto;
   display: block;
-  border-radius: 2px;
   object-fit: contain; 
+  border-radius: 8px; /* ✨ Suavizamos las esquinas de la imagen */
 }
 
 .page-light .identity-text h2 {
