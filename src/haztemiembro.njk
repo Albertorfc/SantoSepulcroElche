@@ -49,56 +49,41 @@ bodyClass: page-light
     </blockquote>
   </section>
 
-  {# --- PASOS DE INSCRIPCIÓN --- #}
-  <section class="social-section">
-  <div class="wrap">
-    
-    {# Título de la sección (Ya hereda Playfair correctamente) #}
-    <div class="section-title">
-      <h2>Cómo formar parte</h2>
-      <p>Sigue estos tres sencillos pasos para unirte a la Hermandad:</p>
-    </div>
-
-    {# Contenedor flexible reaprovechado #}
-    <div class="hero-actions" style="align-items: flex-start; gap: 40px; margin-bottom: 60px;">
-
-      {# Paso 1 #}
-      <div style="flex: 1; text-align: center;">
-        <div class="section-title"> {# <--- Esta clase fuerza la herencia de Playfair y Dorado #}
-          <h2 style="font-size: 60px; margin-bottom: 10px; font-weight: normal;">1</h2>
-        </div>
-        <span class="label">Descarga</span>
-        <p style="color: #888; font-size: 14px; margin-top: 15px; line-height: 1.6;">Descarga e imprime la solicitud de nuevo ingreso en PDF.</p>
+  {# --- PASOS DE INSCRIPCIÓN (ESTILO PREMIUM) --- #}
+  <section class="section wrap" style="padding-bottom: 100px;">
+    <div class="steps-box">
+      
+      <div class="steps-header">
+        <h2>Cómo formar parte</h2>
+        <p>Sigue estos tres sencillos pasos para unirte a la Hermandad:</p>
       </div>
 
-      {# Paso 2 #}
-      <div style="flex: 1; text-align: center;">
-        <div class="section-title">
-          <h2 style="font-size: 60px; margin-bottom: 10px; font-weight: normal;">2</h2>
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <span class="step-label">Descarga</span>
+          <p class="step-desc">Descarga e imprime la solicitud de nuevo ingreso en PDF.</p>
         </div>
-        <span class="label">Rellena</span>
-        <p style="color: #888; font-size: 14px; margin-top: 15px; line-height: 1.6;">Completa tus datos personales y de domiciliación bancaria.</p>
+        
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <span class="step-label">Rellena</span>
+          <p class="step-desc">Completa tus datos personales y de domiciliación bancaria.</p>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <span class="step-label">Entrega</span>
+          <p class="step-desc">Ponte en contacto con nosotros para gestionar la entrega.</p>
+        </div>
       </div>
 
-      {# Paso 3 #}
-      <div style="flex: 1; text-align: center;">
-        <div class="section-title">
-          <h2 style="font-size: 60px; margin-bottom: 10px; font-weight: normal;">3</h2>
-        </div>
-        <span class="label">Entrega</span>
-        <p style="color: #888; font-size: 14px; margin-top: 15px; line-height: 1.6;">Ponte en contacto con nosotros para gestionar la entrega.</p>
+      <div class="steps-action">
+        <a href="/docs/formulario-alta-hermandad.pdf" target="_blank" class="btn btn--primary">
+          Descargar Formulario
+        </a>
       </div>
 
     </div>
-
-    {# Botón primario reaprovechado #}
-    <div class="hero-actions">
-      <a href="/docs/formulario-alta-hermandad.pdf" target="_blank" class="btn-primary">
-        Descargar Formulario
-      </a>
-    </div>
-
-  </div>
-</section>
-
+  </section>
 </article>
