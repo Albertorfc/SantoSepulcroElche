@@ -177,57 +177,63 @@
   }
 }
 
-/* --- 4. IDENTITY BOX (EL BOX DE LA MEDALLA / ORACIÓN) --- */
-.page-light .identity-box {
-  display: grid;
-  grid-template-columns: 1fr 1fr; 
-  gap: 60px;
-  align-items: center;
-  background: #050505; /* Un negro apenas más suave para dar textura */
-  color: #fff;
+/* --- 4. CAJAS PREMIUM (Identidad y Pasos) --- */
+
+/* Regla compartida: El "Marco" de la caja */
+.page-light .identity-box,
+.page-light .steps-box {
+  background: #050505;
+  color: var(--text-light); /* Usamos tu variable */
+  max-width: 900px;
+  margin: 40px auto; 
   padding: 60px;
-  text-align: left;
-  max-width: 900px; /* Lo hacemos un poco más pequeño para que respire por los lados */
-  margin: 0 auto; /* Lo centramos perfectamente */
-  border-radius: 16px; /* Puntas más redondeadas y modernas */
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35), 0 5px 15px rgba(0, 0, 0, 0.15); 
-  border: 1px solid rgba(197, 160, 89, 0.7); /* Subimos la opacidad exterior al 70% */
-  outline: 1px solid rgba(197, 160, 89, 0.4); /* Subimos la opacidad interior al 40% */
-  /* Ajustes específicos del marco premium para móvil */
-  outline-offset: -10px; /* Acercamos un milímetro el marco al borde exterior del móvil */
-  border-radius: 12px; /* Suavizamos un pelín menos el radio para pantallas de móvil pequeñas */
-  width: 93%; /* Hará que no ocupe el 100% de la pantalla */
-  margin: 0 auto; /* La centra perfectamente dejando margen a los lados */
+  border-radius: 16px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35), 0 5px 15px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(197, 160, 89, 0.7);
+  outline: 1px solid rgba(197, 160, 89, 0.4);
+  outline-offset: -12px;
+  box-sizing: border-box;
+  position: relative;
 }
 
-/* Redondeamos ligeramente la foto para que acompañe el diseño de la caja */
+/* Diferencias de Layout */
+.page-light .identity-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  text-align: left;
+}
+
+.page-light .steps-box {
+  text-align: center; /* Los pasos van centrados */
+}
+
+/* Estilos de imagen e hijos (se mantienen igual) */
 .page-light .identity-image img {
   max-height: 450px;
   width: auto;
-  max-width: 100%; 
+  max-width: 100%;
   margin: 0 auto;
   display: block;
-  object-fit: contain; 
-  border-radius: 8px; /* ✨ Suavizamos las esquinas de la imagen */
+  object-fit: contain;
+  border-radius: 8px;
 }
 
-.page-light .identity-text h2 {
-  font-family: var(--font-serif);
-  color: var(--gold);
-  margin-bottom: 20px;
-  font-size: 32px;
-}
+/* --- 6. RESPONSIVE (Añade esto dentro de tu @media max-width: 768px) --- */
+@media (max-width: 768px) {
+  .page-light .identity-box,
+  .page-light .steps-box {
+    width: 93%;
+    padding: 40px 20px;
+    outline-offset: -10px;
+    border-radius: 12px;
+  }
 
-.page-light .identity-text .text-main {
-  font-size: 17px;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 15px;
-}
-
-.page-light .identity-text .text-sub {
-  font-size: 15px;
-  color: rgba(255,255,255,0.7);
+  .page-light .identity-box {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 }
 
 /* --- 5. MAPA --- */
