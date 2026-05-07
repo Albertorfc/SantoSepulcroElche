@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. Efecto de transparencia en el header al hacer scroll
-    window.addEventListener('scroll', () => {
+    // (DE MOMENTO LO QUITAMOS)
+    /* window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             header.style.padding = '10px 0';
             header.style.background = document.body.classList.contains('page-light') 
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             header.style.padding = '20px 0';
         }
-    });
+    }); */
 
     // 3. EXPERIENCIA DE USUARIO: Cambiar texto si está logueado
     // Lo ponemos al final para que se ejecute una vez cargado todo lo anterior
