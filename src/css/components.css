@@ -296,8 +296,7 @@
 }
 
 .author-title {
-  color: var(--gold); /* Dorado */
-  font-family: var(--font-serif);
+  color: var(--gold); 
   font-weight: 700;
   font-size: 20px;
   text-transform: uppercase;
