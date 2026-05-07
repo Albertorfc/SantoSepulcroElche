@@ -244,7 +244,7 @@
   /* Forzamos tipografía con remates para que la forma sea elegante */
   font-family: var(--font-serif); 
   font-size: 160px; /* Tamaño grande como el original */
-  color: #c5a059; /* Dorado */
+  color: var(--gold); /* Dorado */
   position: absolute;
   top: -20px; /* Ajuste para que "vuelen" un poco */
   left: 30px;
@@ -280,7 +280,7 @@
   height: 80px;
   object-fit: cover;
   border-radius: 50%;
-  border: 1px solid #c5a059; /* Borde dorado solo en la foto */
+  border: 1px solid var(--gold); /* Borde dorado solo en la foto */
   flex-shrink: 0;
   filter: grayscale(100%);
 }
@@ -296,7 +296,8 @@
 }
 
 .author-title {
-  color: #c5a059; /* Dorado */
+  color: var(--gold); /* Dorado */
+  font-family: var(--font-serif);
   font-weight: 700;
   font-size: 20px;
   text-transform: uppercase;
