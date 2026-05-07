@@ -56,7 +56,8 @@
   color: var(--gold);
   background: linear-gradient(transparent, rgba(0,0,0,0.8));
   padding: 20px 0;
-  text-transform: uppercase
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 /* =========================
