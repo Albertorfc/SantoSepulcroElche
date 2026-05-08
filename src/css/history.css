@@ -182,7 +182,7 @@
 /* Regla compartida: El "Marco" de la caja */
 .page-light .identity-box,
 .page-light .steps-box {
-  background: #050505;
+  background: var(--bg-dark);
   color: var(--text-light); /* Usamos tu variable */
   max-width: 900px;
   margin: 40px auto; 
@@ -218,6 +218,15 @@
   display: block;
   object-fit: contain;
   border-radius: 8px;
+}
+
+.page-light .identity-text h2,
+.page-light .steps-header h2 {
+  font-family: var(--font-serif); 
+  color: var(--gold);
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 
 /* --- 6. RESPONSIVE (Añade esto dentro de tu @media max-width: 768px) --- */
