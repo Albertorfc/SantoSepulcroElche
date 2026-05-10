@@ -469,17 +469,17 @@ input:-webkit-autofill {
     font-size: 1.5rem; /* Aumentamos de 1.2 a 1.5 */
     margin-bottom: 20px; /* Más separación del texto */
     font-weight: 800; /* Un poco de cuerpo */
-    text-transform: uppercase; /* Mayúsculas para dar autoridad */
     letter-spacing: 2px; /* Espaciado entre letras elegante */
 }
 
 .route-list {
     font-family: var(--font-sans); /* Plus Jakarta Sans para el listado */
-    font-size: 12px; /* Un pelín más pequeño para que el título destaque más */
+    font-size: 10px; /* Un pelín más pequeño para que el título destaque más */
     line-height: 2; /* Más espacio entre líneas para que sea fácil de leer */
     color: var(--text-main);
     letter-spacing: 0.5px;
     text-align: justify; /* Que quede como un bloque limpio */
+    font-style: italic;
 }
 
 /* El toque para los símbolos de la cruz */
