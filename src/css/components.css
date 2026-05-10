@@ -92,6 +92,7 @@
 
 /* Botón "Acceso Miembros" específico para el menú móvil */
 .btn-acceso-mobile {
+    font-weight: normal;
     padding: 10px 20px; 
     font-size: 12px;
     margin-top: 10px;
