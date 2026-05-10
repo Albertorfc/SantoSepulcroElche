@@ -456,9 +456,8 @@ input:-webkit-autofill {
     background: #ffffff;
     border: 1px solid rgba(0,0,0,0.06);
     border-left: 4px solid var(--gold); /* Un poco más gruesa la línea */
-    padding: 35px; /* Más espacio interior para que respire */
-    margin: 40px 0;
-    border-radius: 4px;
+    margin: 20px 0;
+    border-radius: 8px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.04);
 }
 
