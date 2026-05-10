@@ -454,44 +454,45 @@ input:-webkit-autofill {
 
 .route-box {
     background: #ffffff;
-    border: 1px solid #eee; /* Un gris aún más suave */
-    padding: 35px;
+    /* Borde dorado fino y elegante */
+    border: 1px solid var(--gold); 
+    padding: 30px;
     margin: 40px 0;
-    border-radius: 12px; /* Puntas redondeadas */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.02); /* Sombra muy sutil */
+    border-radius: 15px; /* Puntas redondeadas */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05); /* Sombra un poco más visible */
     max-width: 100%;
+    text-align: center;
+}
+
+.route-label-inline {
+    display: block; /* La ponemos arriba para que mande */
+    font-family: var(--font-serif);
+    color: var(--gold);
+    font-size: 16px; /* Tamaño normal/destacado */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+    margin-bottom: 15px;
 }
 
 .route-list {
     font-family: var(--font-sans);
-    font-size: 16px; /* Tamaño mayor para las calles (antes era 12.5) */
+    font-size: 12px; /* Tamaño reducido al 75% */
     line-height: 2.2;
-    color: #444; /* Un gris oscuro para mejor lectura */
+    color: #666; /* Gris suave para que sea discreto */
     text-align: center;
     font-style: italic;
-    max-width: 850px;
+    max-width: 800px;
     margin: 0 auto;
+    letter-spacing: 0.5px;
 }
 
-/* La etiqueta "Calles:" dentro del párrafo */
-.route-label-inline {
-    font-family: var(--font-serif);
-    color: var(--gold);
-    font-size: 12px; /* Tamaño pequeño (antes era el del listado) */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
-    font-style: normal; /* Recta para que destaque */
-    margin-right: 10px;
-    opacity: 0.8;
-}
-
-/* El separador (la cruz) */
+/* Símbolos de la cruz (en dorado y tamaño normal) */
 .route-list span.separator {
     color: var(--gold);
-    margin: 0 12px;
+    margin: 0 8px;
     font-style: normal;
     font-size: 14px;
     display: inline-block;
-    opacity: 0.6;
+    opacity: 0.9;
 }
