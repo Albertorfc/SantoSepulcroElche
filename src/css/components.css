@@ -474,7 +474,7 @@ input:-webkit-autofill {
 
 .route-list {
     font-family: var(--font-sans);
-    font-size: 10px !important; /* Un pelín más pequeño para que el título destaque más */
+    font-size: 12px !important; /* Un pelín más pequeño para que el título destaque más */
     color: var(--text-main);
     text-align: justify; /* Que quede como un bloque limpio */
     font-style: italic;
