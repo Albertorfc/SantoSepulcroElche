@@ -473,11 +473,9 @@ input:-webkit-autofill {
 }
 
 .route-list {
-    font-family: var(--font-sans); /* Plus Jakarta Sans para el listado */
-    font-size: 10px; /* Un pelín más pequeño para que el título destaque más */
-    line-height: 2; /* Más espacio entre líneas para que sea fácil de leer */
+    font-family: var(--font-sans);
+    font-size: 10px !important; /* Un pelín más pequeño para que el título destaque más */
     color: var(--text-main);
-    letter-spacing: 0.5px;
     text-align: justify; /* Que quede como un bloque limpio */
     font-style: italic;
 }
