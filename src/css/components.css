@@ -452,35 +452,48 @@ input:-webkit-autofill {
 /* ==========================================================================
    CAJA DE ITINERARIO (Estilo Placa Museo)
    ========================================================================== */
+/* ==========================================================================
+   CAJA DE ITINERARIO (Premium & Minimal)
+   ========================================================================== */
 .route-box {
     background: #ffffff;
-    border: 1px solid rgba(0,0,0,0.06);
-    border-left: 4px solid var(--gold); /* Un poco más gruesa la línea */
-    margin: 20px 0;
-    border-radius: 7px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+    /* Borde fino en todo el perímetro en lugar de barra lateral */
+    border: 1px solid #e0e0e0; 
+    padding: 30px;
+    margin: 40px 0;
+    border-radius: 2px; /* Esquinas casi rectas para un look más arquitectónico */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03); /* Sombra casi imperceptible */
+    max-width: 100%;
 }
 
 .route-label {
     display: block;
-    font-family: var(--font-serif); /* Ibarra Real */
+    font-family: var(--font-serif);
     color: var(--gold);
-    font-size: 1.5rem; /* Aumentamos de 1.2 a 1.5 */
-    margin-bottom: 20px; /* Más separación del texto */
-    font-weight: 800; /* Un poco de cuerpo */
+    font-size: 1.1rem; /* Tamaño contenido, no grita */
+    margin-bottom: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: center; /* Centrado queda más institucional */
 }
 
 .route-list {
     font-family: var(--font-sans);
-    font-size: 15px !important; /* Un pelín más pequeño para que el título destaque más */
-    color: var(--text-main);
-    text-align: justify; /* Que quede como un bloque limpio */
-    font-style: italic;
+    font-size: 12.5px; /* Ese 75% que buscabas */
+    line-height: 2;
+    color: #555;
+    text-align: center; /* A juego con el título */
+    font-style: italic; /* Como pediste */
+    max-width: 800px;
+    margin: 0 auto; /* Centra el bloque de texto */
 }
 
-/* El toque para los símbolos de la cruz */
+/* El separador (la cruz) */
 .route-list span {
     color: var(--gold);
+    margin: 0 10px;
+    font-style: normal; /* La cruz recta para que contraste con la cursiva */
+    font-size: 14px;
     display: inline-block;
-    vertical-align: middle;
 }
