@@ -449,29 +449,44 @@ input:-webkit-autofill {
 }
 
 
+/* ==========================================================================
+   CAJA DE ITINERARIO (Estilo Placa Museo)
+   ========================================================================== */
 .route-box {
     background: #ffffff;
-    border: 1px solid rgba(0,0,0,0.05);
-    border-left: 3px solid var(--gold);
-    padding: 25px;
-    margin-top: 30px;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-left: 4px solid var(--gold); /* Un poco más gruesa la línea */
+    padding: 35px; /* Más espacio interior para que respire */
+    margin: 40px 0;
     border-radius: 4px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    position: relative;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.04);
 }
 
 .route-label {
     display: block;
-    font-family: var(--font-serif);
+    font-family: var(--font-serif); /* Ibarra Real */
     color: var(--gold);
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    font-style: italic;
+    font-size: 1.5rem; /* Aumentamos de 1.2 a 1.5 */
+    margin-bottom: 20px; /* Más separación del texto */
+    font-weight: 800; /* Un poco de cuerpo */
+    text-transform: uppercase; /* Mayúsculas para dar autoridad */
+    letter-spacing: 2px; /* Espaciado entre letras elegante */
 }
 
 .route-list {
-    font-size: 15px;
-    line-height: 1.8;
+    font-family: var(--font-sans); /* Plus Jakarta Sans para el listado */
+    font-size: 12px; /* Un pelín más pequeño para que el título destaque más */
+    line-height: 2; /* Más espacio entre líneas para que sea fácil de leer */
     color: var(--text-main);
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
+    text-align: justify; /* Que quede como un bloque limpio */
+}
+
+/* El toque para los símbolos de la cruz */
+.route-list span {
+    color: var(--gold);
+    margin: 0 8px;
+    font-size: 1.2rem;
+    display: inline-block;
+    vertical-align: middle;
 }
