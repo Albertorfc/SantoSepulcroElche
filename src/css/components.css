@@ -49,73 +49,79 @@
 }
 
 /* ==========================================================================
-   1. BOTONES (Base, Hero y Navegación)
+   1. BOTONES (Sistema Unificado)
    ========================================================================== */
 
+/* Base común para todos los botones */
 .btn {
-  display: inline-block;
-  padding: 15px 30px;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: var(--transition);
-  box-sizing: border-box;
-}
-
-/* Variantes */
-.btn--primary {
-  background: var(--gold);
-  color: #000;
-  border: 1px solid var(--gold);
-}
-
-.btn--secondary {
-  border: 1px solid #fff;
-  color: #fff;
-  background: transparent;
-}
-
-/* Tamaños */
-.btn--small {
-  padding: 10px 20px;
-  font-size: 11px;
-}
-
-/* Bloque (para móvil o botones grandes) */
-.btn--block {
-  width: 100%;
-  max-width: 280px;
-  text-align: center;
-}
-
-/* Botón "Acceso Miembros" específico para el menú móvil */
-.btn-acceso-mobile {
-    font-weight: normal !important;
-    padding: 10px 20px; 
+    display: inline-block;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    font-family: var(--font-sans); /* Plus Jakarta Sans */
     font-size: 12px;
-    margin-top: 10px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 500; /* Peso moderno y limpio, evita que se vea "tosco" */
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
 }
 
-/* El botón mini discreto que tenías antes (opcional si prefieres el anterior) */
+/* Variantes de Color */
+.btn--primary, .btn-primary { 
+    background: var(--gold);
+    color: #000 !important;
+    border: 1px solid var(--gold);
+}
+
+.btn--secondary, .btn-secondary {
+    border: 1px solid #fff;
+    color: #fff;
+    background: transparent;
+}
+
+/* Variantes de Tamaño y Forma */
+.btn--small {
+    padding: 10px 20px;
+    font-size: 11px;
+}
+
+.btn--block {
+    width: 100%;
+    max-width: 280px;
+}
+
+/* Botón Acceso Miembros (Menú Móvil) 
+   Aquí forzamos que sea ligero para que no compita con el resto del menú */
+.btn-acceso-mobile {
+    font-weight: 400 !important; 
+    font-size: 13px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    letter-spacing: 2px;
+}
+
+/* Estado Hover global */
+.btn:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+/* El botón mini que tenías, lo mantenemos por si lo usas */
 .mobile-nav-button {
     display: block;
-    width: fit-content;    
-    margin: 15px auto;     
+    width: fit-content;
+    margin: 15px auto;
     background-color: var(--gold) !important;
     color: white !important;
-    padding: 6px 14px !important; 
+    padding: 6px 14px !important;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 2px;
-    text-decoration: none;
-}
-
-.btn:hover {
-  opacity: 0.85;
 }
 
 /* ==========================================================================
