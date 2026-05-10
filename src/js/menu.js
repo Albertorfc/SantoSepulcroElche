@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.scrollY > 50) {
             header.style.padding = '10px 0';
             header.style.background = document.body.classList.contains('page-light') 
-                ? 'rgba(255, 255, 255, 0.98)' 
-                : 'rgba(0, 0, 0, 0.95)';
+                ? 'var(--bg-light-glass)' 
+                : 'var(--bg-dark-glass)';
         } else {
             header.style.padding = '20px 0';
         }

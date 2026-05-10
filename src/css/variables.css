@@ -17,6 +17,9 @@
   --font-sans: 'Plus Jakarta Sans', sans-serif;
     /* Animaciones (VITAL: la que faltaba en components) */
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Capas de cristal (Glassmorphism) */
+  --bg-dark-glass: rgba(0, 0, 0, 0.95);
+  --bg-light-glass: rgba(255, 255, 255, 0.95);
 }
 
 /* --- 2. RESET Y BASE --- */

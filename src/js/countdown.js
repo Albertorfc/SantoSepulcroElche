@@ -57,7 +57,7 @@ function updateCountdown() {
     if (diff <= 0 && diff > -10800000) {
         const container = document.querySelector('.countdown-container');
         if (container) {
-            container.innerHTML = "<h3 style='color:var(--gold); font-family:\"Playfair Display\", serif; font-size: 24px; width: 100%; text-align: center;'>La Estación de Penitencia ha comenzado</h3>";
+            container.innerHTML = "<h3 style='color:var(--gold); font-family:var(--font-serif); font-size: 24px; width: 100%; text-align: center;'>La Estación de Penitencia ha comenzado</h3>";
         }
         return;
     }
