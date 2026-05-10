@@ -469,12 +469,11 @@ input:-webkit-autofill {
     font-size: 1.5rem; /* Aumentamos de 1.2 a 1.5 */
     margin-bottom: 20px; /* Más separación del texto */
     font-weight: 800; /* Un poco de cuerpo */
-    letter-spacing: 2px; /* Espaciado entre letras elegante */
 }
 
 .route-list {
     font-family: var(--font-sans);
-    font-size: 12px !important; /* Un pelín más pequeño para que el título destaque más */
+    font-size: 15px !important; /* Un pelín más pequeño para que el título destaque más */
     color: var(--text-main);
     text-align: justify; /* Que quede como un bloque limpio */
     font-style: italic;
@@ -483,8 +482,6 @@ input:-webkit-autofill {
 /* El toque para los símbolos de la cruz */
 .route-list span {
     color: var(--gold);
-    margin: 0 8px;
-    font-size: 1.2rem;
     display: inline-block;
     vertical-align: middle;
 }
