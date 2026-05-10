@@ -145,34 +145,34 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
 }
 
+/* --- 4. MENÚ MÓVIL --- */
 .mobile-menu {
     position: fixed;
     top: 0; 
-    right: 0; /* Lo dejamos fijo a la derecha */
+    right: 0; 
     width: 100%; 
     height: 100vh;
     z-index: 99999;
     display: flex;
     flex-direction: column;
     padding: 120px 40px; 
-    background: rgba(0, 0, 0, 0.94);
+    background: var(--bg-dark-glass); /* Usamos tu variable */
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
 
-    /* ESTADO CERRADO: Lo movemos fuera y lo hacemos invisible */
+    /* ESTADO CERRADO */
     transform: translateX(100%); 
     opacity: 0;
     visibility: hidden;
-
-    /* Sincronizamos todo: movimiento, opacidad y visibilidad */
     transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), 
-                opacity 0.5s ease, 
+                opacity 0.4s ease, 
                 visibility 0.5s;
 }
 
+/* REINCORPORADO: El estilo para páginas claras */
 .page-light .mobile-menu { 
-    background: var(--bg-light-glass); 
-    color: #000; 
+    background: var(--bg-light-glass); /* Tu variable blanca con transparencia */
+    color: var(--text-dark); /* Usamos tu variable oscura */
 }
 
 .mobile-menu.active { 
@@ -190,7 +190,19 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
     text-decoration: none;
     transition: 0.3s;
 }
-.page-light .mobile-nav a { color: #000 !important; }
+.page-light .mobile-nav a { 
+    color: var(--text-dark) !important; 
+}
+
+/* FIX: El botón de acceso (Sin negrita y con peso ligero) */
+.mobile-menu .btn-acceso-mobile,
+.mobile-menu .nav-button-alt {
+    font-weight: 400 !important; /* Aquí matamos la negrita */
+    letter-spacing: 2px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 280px;
+}
 
 /* Redes sociales dentro del menú móvil */
 .mobile-menu .header-actions {
