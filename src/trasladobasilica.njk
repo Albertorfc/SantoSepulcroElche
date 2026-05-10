@@ -116,9 +116,8 @@ bodyClass: page-light
     ];
 
     var path = L.polyline(puntosTraslado, {
-      color: '#c5a059', // Usamos el color oro para el camino del traslado
+      color: '#000000', // Usamos el color oro para el camino del traslado
       weight: 5,
-      opacity: 0.9,
     }).addTo(map);
 
     L.marker([38.259812, -0.701643], {icon: customHtmlIcon}).addTo(map)
@@ -149,6 +148,5 @@ bodyClass: page-light
     width: 20px; height: 20px;
     transform: rotate(45deg);
     object-fit: contain;
-    filter: brightness(0) invert(1); /* Escudo en blanco */
   }
 </style>
