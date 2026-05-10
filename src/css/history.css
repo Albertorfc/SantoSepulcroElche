@@ -177,47 +177,72 @@
   }
 }
 
-/* --- 4. IDENTITY BOX (EL BOX DE LA MEDALLA) --- */
-/* Restaurada la versión moderna de rejilla */
-.page-light .identity-box {
-  display: grid;
-  grid-template-columns: 1fr 1fr; 
-  gap: 60px;
-  align-items: center;
-  background: #000;
-  color: #fff;
+/* --- 4. CAJAS PREMIUM (Identidad y Pasos) --- */
+
+/* Regla compartida: El "Marco" de la caja */
+.page-light .identity-box,
+.page-light .steps-box {
+  background: var(--bg-dark);
+  color: var(--text-light); /* Usamos tu variable */
+  max-width: 900px;
+  margin: 40px auto; 
   padding: 60px;
-  border-radius: 4px;
-  text-align: left; /* Volvemos a alineación izquierda para la rejilla */
+  border-radius: 16px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35), 0 5px 15px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(197, 160, 89, 0.7);
+  outline: 1px solid rgba(197, 160, 89, 0.4);
+  outline-offset: -12px;
+  box-sizing: border-box;
+  position: relative;
 }
 
+/* Diferencias de Layout */
+.page-light .identity-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  text-align: left;
+}
+
+.page-light .steps-box {
+  text-align: center; /* Los pasos van centrados */
+}
+
+/* Estilos de imagen e hijos (se mantienen igual) */
 .page-light .identity-image img {
   max-height: 450px;
   width: auto;
-  max-width: 100%; 
+  max-width: 100%;
   margin: 0 auto;
   display: block;
-  border-radius: 2px;
-  object-fit: contain; 
+  object-fit: contain;
+  border-radius: 8px;
 }
 
-.page-light .identity-text h2 {
-  font-family: var(--font-serif);
+.page-light .identity-text h2,
+.page-light .steps-header h2 {
+  font-family: var(--font-serif); 
   color: var(--gold);
+  font-size: 36px;
+  font-weight: 600;
   margin-bottom: 20px;
-  font-size: 32px;
 }
 
-.page-light .identity-text .text-main {
-  font-size: 17px;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 15px;
-}
+/* --- 6. RESPONSIVE (Añade esto dentro de tu @media max-width: 768px) --- */
+@media (max-width: 768px) {
+  .page-light .identity-box,
+  .page-light .steps-box {
+    width: 93%;
+    padding: 40px 20px;
+    outline-offset: -10px;
+    border-radius: 12px;
+  }
 
-.page-light .identity-text .text-sub {
-  font-size: 15px;
-  color: rgba(255,255,255,0.7);
+  .page-light .identity-box {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 }
 
 /* --- 5. MAPA --- */
@@ -494,4 +519,29 @@
         text-align: left;    /* El texto de la lista se lee mejor a la izquierda */
         display: inline-block; 
     }
+}
+
+/* --- GRID DE PASOS --- */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.step-number {
+  font-family: var(--font-serif);
+  font-size: 65px;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 15px;
+}
+
+.step-desc {
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .steps-grid { grid-template-columns: 1fr; }
 }

@@ -6,14 +6,14 @@ bodyClass: page-light
 
 <article class="history-page">
 
-  {# --- CABECERA (Reusando estilos de historia) --- #}
+  {# --- CABECERA --- #}
   <header class="page-header wrap">
     <span class="pre-title">Únete a nuestra familia</span>
     <h1>Hazte miembro</h1>
     <div class="header-line"></div>
   </header>
 
-  {# --- INTRODUCCIÓN (Reusando el intro-grid que unificamos antes) --- #}
+  {# --- INTRODUCCIÓN --- #}
   <section class="history-section wrap">
     <div class="intro-grid">
       <div class="history-text">
@@ -23,12 +23,12 @@ bodyClass: page-light
         <p>Como pilar bajo el trono, con el tambor, alumbrando como mantilla o simplemente acompañándoLe. <strong>Aquí tienes tu sitio.</strong></p>
       </div>
       <div class="history-image">
-        <img src="/img/hazte-hermano-intro.jpg" alt="Pilares del Santo Sepulcro" class="img-fluid">
+        <img src="/img/hazte-hermano-intro.jpg" alt="Pilares del Santo Sepulcro">
       </div>
     </div>
   </section>
 
-  {# --- SECCIÓN DE CITA (Fuera del timeline) --- #}
+  {# --- SECCIÓN DE CITA --- #}
   <section class="quote-section wrap">
     <blockquote class="quote-card">
       <span class="quote-symbol">“</span>
@@ -50,55 +50,41 @@ bodyClass: page-light
   </section>
 
   {# --- PASOS DE INSCRIPCIÓN --- #}
-  <section class="social-section">
-  <div class="wrap">
-    
-    {# Título de la sección (Ya hereda Playfair correctamente) #}
-    <div class="section-title">
-      <h2>Cómo formar parte</h2>
-      <p>Sigue estos tres sencillos pasos para unirte a la Hermandad:</p>
-    </div>
-
-    {# Contenedor flexible reaprovechado #}
-    <div class="hero-actions" style="align-items: flex-start; gap: 40px; margin-bottom: 60px;">
-
-      {# Paso 1 #}
-      <div style="flex: 1; text-align: center;">
-        <div class="section-title"> {# <--- Esta clase fuerza la herencia de Playfair y Dorado #}
-          <h2 style="font-size: 60px; margin-bottom: 10px; font-weight: normal;">1</h2>
-        </div>
-        <span class="label">Descarga</span>
-        <p style="color: #888; font-size: 14px; margin-top: 15px; line-height: 1.6;">Descarga e imprime la solicitud de nuevo ingreso en PDF.</p>
+  <section class="section wrap">
+    <div class="steps-box">
+      
+      <div class="section-title">
+        <h2 style="color: var(--gold);">Cómo formar parte</h2>
+        <p style="color: rgba(255,255,255,0.7);">Sigue estos tres sencillos pasos para unirte a la Hermandad:</p>
       </div>
 
-      {# Paso 2 #}
-      <div style="flex: 1; text-align: center;">
-        <div class="section-title">
-          <h2 style="font-size: 60px; margin-bottom: 10px; font-weight: normal;">2</h2>
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <span class="label">Descarga</span>
+          <p class="step-desc">Descarga e imprime la solicitud de nuevo ingreso en PDF.</p>
         </div>
-        <span class="label">Rellena</span>
-        <p style="color: #888; font-size: 14px; margin-top: 15px; line-height: 1.6;">Completa tus datos personales y de domiciliación bancaria.</p>
+        
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <span class="label">Rellena</span>
+          <p class="step-desc">Completa tus datos personales.</p>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <span class="label">Entrega</span>
+          <p class="step-desc">Ponte en contacto con nosotros para gestionar la entrega.</p>
+        </div>
       </div>
 
-      {# Paso 3 #}
-      <div style="flex: 1; text-align: center;">
-        <div class="section-title">
-          <h2 style="font-size: 60px; margin-bottom: 10px; font-weight: normal;">3</h2>
-        </div>
-        <span class="label">Entrega</span>
-        <p style="color: #888; font-size: 14px; margin-top: 15px; line-height: 1.6;">Ponte en contacto con nosotros para gestionar la entrega.</p>
+      <div class="button-group button-group--center">
+        <a href="/docs/formulario-alta-hermandad.pdf" target="_blank" class="btn btn--primary">
+          Descargar Formulario
+        </a>
       </div>
 
     </div>
-
-    {# Botón primario reaprovechado #}
-    <div class="hero-actions">
-      <a href="/docs/formulario-alta-hermandad.pdf" target="_blank" class="btn-primary">
-        Descargar Formulario
-      </a>
-    </div>
-
-  </div>
-</section>
+  </section>
 
 </article>
