@@ -11,7 +11,25 @@ bodyClass: page-light
     <div class="header-line"></div>
   </header>
 
-  {# --- SECCIÓN 1: HITOS DEL TRASLADO (Vía Crucis) --- #}
+
+  {# --- SECCIÓN 1: MAPA INTERACTIVO (Satelital) --- #}
+  <section class="map-section wrap" style="margin-top: 50px; margin-bottom: 80px;">
+    <div class="intro-grid">
+      <div class="history-text">
+        <h2>Itinerario del Traslado</h2>
+        <p>El recorrido parte desde el <em>Plà de Sant Josep</em>, cruzando el río por el puente más antiguo de la ciudad hasta alcanzar entrar en la antigua <em>Vila Murada</em> por la antigua <Plaça de d'alt</em>, hoy plaza de la Fruta.</p>
+        <div style="margin-top: 20px; padding: 15px; border-left: 3px solid var(--gold); background: #f9f9f9;">
+            <p style="font-size: 14px; margin-bottom: 0;"><strong>Recorrido:</strong> San José, Plaza de los Reyes Católicos, Calle de Santa Anna, Puente de Santa Teresa, Porta Oriola, Alfonso XII, Plaza Menéndez y Pelayo, Plaça de la Fruita, Major de la Vila, Fira, Basílica de Santa María.</p>
+        </div>
+      </div>
+
+      <div class="map-container-wrapper">
+        <div id="map-itinerario" style="height: 550px; width: 100%; border-radius: 12px; border: 1px solid #ccc; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"></div>
+      </div>
+    </div>
+  </section>
+
+{# --- SECCIÓN 2: HITOS DEL TRASLADO (Vía Crucis) --- #}
   <section class="history-timeline">
     <div class="wrap">
       
@@ -63,22 +81,6 @@ bodyClass: page-light
     </div>
   </section>
 
-  {# --- SECCIÓN 2: MAPA INTERACTIVO (Satelital) --- #}
-  <section class="map-section wrap" style="margin-top: 50px; margin-bottom: 80px;">
-    <div class="intro-grid">
-      <div class="history-text">
-        <h2>Itinerario del Traslado</h2>
-        <p>El recorrido parte desde el corazón del Raval, cruzando el río por el puente más antiguo de la ciudad hasta alcanzar la ciudad monumental.</p>
-        <div style="margin-top: 20px; padding: 15px; border-left: 3px solid var(--gold); background: #f9f9f9;">
-            <p style="font-size: 14px; margin-bottom: 0;"><strong>Recorrido:</strong> San José, Plaza de los Reyes Católicos, Puente de Santa Teresa, Plaza del Puente, Bisbe Tormo, Plaza de Santa Isabel, Alfonso XII, Puente de Canalejas, Plaça Baix, Major de la Vila, Plaza del Congreso Eucarístico, Basílica de Santa María.</p>
-        </div>
-      </div>
-
-      <div class="map-container-wrapper">
-        <div id="map-itinerario" style="height: 550px; width: 100%; border-radius: 12px; border: 1px solid #ccc; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"></div>
-      </div>
-    </div>
-  </section>
 </article>
 
 {# --- LEAFLET ASSETS --- #}
@@ -133,20 +135,3 @@ bodyClass: page-light
   });
 </script>
 
-<style>
-  .custom-div-icon { display: flex; justify-content: center; align-items: center; }
-  .marker-pin {
-    width: 36px; height: 36px;
-    border-radius: 50% 50% 50% 0;
-    background: #000;
-    position: absolute;
-    transform: rotate(-45deg);
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
-  }
-  .marker-pin img {
-    width: 20px; height: 20px;
-    transform: rotate(45deg);
-    object-fit: contain;
-  }
-</style>
