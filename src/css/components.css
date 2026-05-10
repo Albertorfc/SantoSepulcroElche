@@ -416,3 +416,38 @@ input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px var(--bg-light) inset !important;
   -webkit-text-fill-color: var(--gold) !important;
 }
+
+
+/* ==========================================================================
+   8. PIN MAPA
+   ========================================================================== */
+/* ==========================================================================
+   8. MAP COMPONENTS (Leaflet Custom Markers)
+   ========================================================================== */
+
+.custom-div-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.marker-pin {
+    width: 36px;
+    height: 36px;
+    border-radius: 50% 50% 50% 0;
+    background: #000000;
+    position: absolute;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    border: 1px solid var(--gold); /* Un sutil borde dorado para que resalte */
+}
+
+.marker-pin img {
+    width: 22px;
+    height: 22px;
+    transform: rotate(45deg); /* Contrarresta la rotación del pin */
+    object-fit: contain;
+}
