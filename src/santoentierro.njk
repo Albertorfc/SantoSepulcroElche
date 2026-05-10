@@ -136,77 +136,229 @@ bodyClass: page-light
 </article>
 
 {# --- LEAFLET ASSETS --- #}
+
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+
+
 <script>
+
   document.addEventListener('DOMContentLoaded', function() {
+
+    // 1. Inicializar el mapa con tus coordenadas
+
     var map = L.map('map-itinerario').setView([38.2665, -0.6975], 16);
 
+
+
+    // 2. Capa Satelital Híbrida (Google Maps)
+
     L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+
         maxZoom: 20,
+
         subdomains:['mt0','mt1','mt2','mt3'],
+
         attribution: '© Google Maps'
+
     }).addTo(map);
+
+
+
+    // 3. Icono tipo Gota / Chincheta Estilizada
 
     var customHtmlIcon = L.divIcon({
-      html: `<div class="marker-pin"><img src="/img/escudo.png" alt="Cruz"></div>`,
+
+      html: `
+
+        <div class="marker-pin">
+
+          <img src="/img/escudo.png" alt="Cruz">
+
+        </div>
+
+      `,
+
       className: 'custom-div-icon',
+
       iconSize: [36, 52],
-      iconAnchor: [18, 52],
+
+      iconAnchor: [18, 52], // Punta inferior exacta
+
       popupAnchor: [0, -45]
+
     });
 
+
+
+    // 4. Tus coordenadas actualizadas
+
     var puntosProcesion = [
-      [38.267133, -0.697898], [38.267309, -0.697981], [38.267331, -0.696541],
-      [38.267228, -0.696279], [38.267194, -0.695216], [38.266456, -0.695347],
-      [38.266269, -0.695890], [38.266153, -0.696292], [38.265908, -0.696838],
-      [38.265242, -0.698799], [38.265133, -0.699353], [38.265608, -0.699385],
-      [38.265817, -0.699281], [38.265863, -0.699204], [38.265898, -0.698990],
-      [38.265937, -0.698720], [38.266942, -0.698688], [38.266978, -0.698049],
-      [38.267118, -0.697891], [38.267133, -0.697898]
+
+      [38.259812, -0.701641], // Salida de San José
+
+      [38.259886, -0.701574], // Plaza Reyes Católicos
+
+      [38.260264, -0.701477], // 
+
+      [38.260610, -0.701373], // 
+
+      [38.260998, -0.701189], // 
+
+      [38.261324, -0.701090], // 
+
+      [38.261595, -0.700976], // Santa Ana
+
+      [38.261878, -0.700841], // 
+
+      [38.262360, -0.700654], // Carrer Bisbe Tormo
+
+      [38.262862, -0.700475], // Santa Ana
+
+      [38.262983, -0.700453], // 
+
+      [38.263089, -0.700443],
+
+      [38.263153, -0.700456],
+
+      [38.263273, -0.700501], // Puente de Santa Teresa
+
+      [38.263525, -0.699137], // Puerta Orihuela
+
+      [38.263732, -0.699147], // Alfonso XII
+
+      [38.265006, -0.699352], // Alfonso XII
+
+      [38.265133, -0.699353], // Puente de Canalejas
+
+      [38.265608, -0.699385],
+
+      [38.265817, -0.699281],
+
+      [38.265863, -0.699204],
+
+      [38.265898, -0.698990],
+
+      [38.265937, -0.698720], // Esquina con Major de la Vila
+
+      [38.266942, -0.698688], // Esquina con carrer la Fira
+
+      [38.266978, -0.698049],
+
+      [38.267118, -0.697891],
+
+      [38.267133, -0.697898]  // Regreso
+
     ];
 
+
+
+    // 5. Dibujar el camino
+
     var path = L.polyline(puntosProcesion, {
-      color: '#000000',
+
+      color:  '#000000',
+
       weight: 5,
+
       opacity: 0.9,
+
     }).addTo(map);
 
-    L.marker([38.265242, -0.698799], {icon: customHtmlIcon}).addTo(map)
-      .bindPopup('<b>Plaça de Baix</b><br>Trencà del Guió (23:00h aprox.)');
+
+
+    // 6. Marcadores
+
+    L.marker([38.259812, -0.701643], {icon: customHtmlIcon}).addTo(map)
+
+      .bindPopup('<b>Iglesia de San José</b><br>Salida (6:30h aprox.)');
+
+
+
+    L.marker([38.263393, -0.699923], {icon: customHtmlIcon}).addTo(map)
+
+      .bindPopup('<b>Puente de Santa Teresa</b><br>Oración ante la Virgen (6:45h aprox.)');
+
+
 
     L.marker([38.267133, -0.697898], {icon: customHtmlIcon}).addTo(map)
-      .bindPopup('<b>Basílica de Santa María</b><br>Salida y Regreso');
+
+      .bindPopup('<b>Basílica de Santa María</b><br>XIV Estación Vía Crucis');
+
+
 
     map.fitBounds(path.getBounds());
+
   });
+
 </script>
 
+
+
 <style>
+
   .custom-div-icon {
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
   }
+
+
 
   .marker-pin {
+
     width: 36px;
+
     height: 36px;
+
+    /* Redondeamos 3 esquinas y dejamos una en ángulo para la punta */
+
     border-radius: 50% 50% 50% 0;
+
     background: #000000;
+
     position: absolute;
+
+    /* Rotamos para que la esquina en ángulo mire hacia abajo */
+
     transform: rotate(-45deg);
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+
   }
 
+
+
   .marker-pin img {
+
     width: 22px;
+
     height: 22px;
+
+    /* Rotamos la imagen en sentido inverso para que se vea derecha */
+
     transform: rotate(45deg);
+
     object-fit: contain;
+
+    /* Si el escudo es oscuro, activa el filtro para que se vea blanco: */
+
+    /* filter: brightness(0) invert(1); */
+
   }
-</style>
+
+
+
+  </style>
