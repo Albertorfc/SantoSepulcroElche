@@ -456,43 +456,33 @@ input:-webkit-autofill {
     background: #ffffff;
     /* Borde dorado fino y elegante */
     border: 1px solid var(--gold); 
-    padding: 30px;
-    margin: 40px 0;
+    padding: 15px 20px;
+    margin: 20px 0;
     border-radius: 15px; /* Puntas redondeadas */
     box-shadow: 0 8px 20px rgba(0,0,0,0.05); /* Sombra un poco más visible */
-    max-width: 100%;
-    text-align: center;
 }
 
 .route-label-inline {
-    display: block; /* La ponemos arriba para que mande */
     font-family: var(--font-serif);
     color: var(--gold);
-    font-size: 16px; /* Tamaño normal/destacado */
-    text-transform: uppercase;
-    letter-spacing: 3px;
+    font-size: 15px; /* Tamaño normal/destacado */
     font-weight: 600;
-    margin-bottom: 15px;
 }
 
 .route-list {
     font-family: var(--font-sans);
     font-size: 12px; /* Tamaño reducido al 75% */
-    line-height: 2.2;
-    color: #666; /* Gris suave para que sea discreto */
+    line-height: 1.6;
+    color: #555; /* Gris suave para que sea discreto */
     text-align: center;
     font-style: italic;
-    max-width: 800px;
-    margin: 0 auto;
-    letter-spacing: 0.5px;
+    margin: 0;    
 }
 
 /* Símbolos de la cruz (en dorado y tamaño normal) */
 .route-list span.separator {
     color: var(--gold);
-    margin: 0 8px;
+    margin: 0 5px;
     font-style: normal;
-    font-size: 14px;
-    display: inline-block;
-    opacity: 0.9;
+    font-size: 12px;
 }
