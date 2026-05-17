@@ -454,7 +454,6 @@ input:-webkit-autofill {
 
 .route-box {
     background: #ffffff;
-    /* Borde dorado fino y elegante */
     border: 1px solid var(--gold); 
     padding: 15px 20px;
     margin: 20px 0;
@@ -463,11 +462,13 @@ input:-webkit-autofill {
 }
 
 .route-label-inline {
+    display: block;
     font-family: var(--font-serif);
     color: var(--gold);
     font-size: 20px; /* Tamaño normal/destacado */
     text-align: center;
-    font-style: uppercase;
+    font-style: normal;
+    text-transform: uppercase;
     font-weight: 800;
 }
 
