@@ -1,0 +1,100 @@
+---
+layout: layouts/base.njk
+title: La Talla del Cristo Yacente
+bodyClass: page-light
+---
+
+<article class="history-page">
+  <header class="page-header wrap">
+    <span class="pre-title">Patrimonio e Iconografía</span>
+    <h1>El Cristo Yacente</h1>
+    <div class="header-line"></div>
+  </header>
+
+  {# --- INTRODUCCIÓN --- #}
+  <section class="history-grid wrap">
+    <div class="history-text">
+      <h2>Evolución de una Devoción</h2>
+      <p>La imagen de Cristo Yacente es el epicentro espiritual de nuestra Hermandad. A lo largo de los siglos, tres tallas distintas han representado el misterio del Santo Entierro en Elche, cada una marcada por el contexto histórico y la profunda fe de los ilicitanos.</p>
+      <p>Desde las antiguas procesiones en la parroquia del Salvador hasta la actual imagen tallada tras la contienda civil, la iconografía del Sepulcro ha sido un reflejo de la identidad de la ciudad.</p>
+    </div>
+    <div class="history-image">
+      <img src="/img/talla-actual-detalle.jpg" alt="Detalle del Cristo Yacente actual">
+    </div>
+  </section>
+
+  {# --- 1. LA TALLA ORIGINAL (Iglesia del Salvador) --- #}
+  <section class="history-grid wrap invert-mobile">
+    <div class="history-image">
+      <img src="/img/iglesia-salvador-antigua.jpg" alt="Iglesia del Salvador">
+    </div>
+    <div class="history-text">
+      <span class="pre-title">Siglo XVIII - XIX</span>
+      <h2>La Talla Primigenia</h2>
+      <p>Los orígenes de la procesión del Santo Entierro en Elche se vinculan a la **Parroquia de El Salvador**. Allí se veneraba una imagen antigua de Cristo Yacente, de autoría anónima, que procesionaba bajo la custodia de los gremios locales.</p>
+      <p>Era una talla de dimensiones contenidas pero de gran impacto devocional, que sentó las bases de la sobriedad y el silencio que hoy caracterizan a nuestra Hermandad.</p>
+    </div>
+  </section>
+
+  {# --- 2. LA SEGUNDA TALLA (Consolidación de la Hermandad) --- #}
+  <section class="history-grid wrap">
+    <div class="history-text">
+      <span class="pre-title">Inicios del Siglo XX</span>
+      <h2>El Encargo de la Hermandad</h2>
+      <p>Tras la fundación oficial de la Hermandad de Caballeros del Santo Sepulcro en 1867, surgió la necesidad de poseer una imagen propia que estuviera a la altura de la creciente relevancia de la institución.</p>
+      <p>Se solicitó una nueva talla que enfatizara el realismo del sacrificio. Esta imagen procesionó durante las primeras décadas del siglo XX, convirtiéndose en el símbolo de la nobleza y el rigor de la Hermandad, hasta su desaparición en los trágicos sucesos de la Guerra Civil.</p>
+    </div>
+    <div class="history-image">
+      <img src="/img/talla-antigua-sepulcro.jpg" alt="Segunda talla de la Hermandad">
+    </div>
+  </section>
+
+  {# --- 3. LA TALLA ACTUAL (Tras la Guerra Civil) --- #}
+  <section class="identity-section">
+    <div class="wrap">
+      <div class="identity-box">
+        <div class="identity-text">
+          <span class="pre-title">Desde 1941</span>
+          <h2>La Obra de Benlliure</h2>
+          <p>La actual imagen es una obra maestra del reconocido escultor **José Capuz Mamano** (o el taller de la época según archivos a confirmar), creada para restaurar el patrimonio perdido. Fue bendecida en 1941, devolviendo a Elche su procesión más solemne.</p>
+          <p>La talla destaca por su anatomía perfecta, el rigor mortis suavizado por la serenidad del rostro y una policromía que invita a la meditación. Representa el cuerpo inerte de Cristo con una majestad que trasciende la muerte.</p>
+        </div>
+        <div class="identity-image">
+          <img src="/img/cristo-yacente-actual.png" alt="Cristo Yacente actual">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# --- DETALLES TÉCNICOS --- #}
+  <section class="steps-box wrap">
+    <div class="steps-header">
+      <h2>Ficha Artística</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-number">01</div>
+        <p class="step-desc"><strong>Material:</strong> Madera de cedro policromada con técnicas tradicionales de la escuela valenciana.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-number">02</div>
+        <p class="step-desc"><strong>Iconografía:</strong> Cristo tras el descendimiento, con las llagas de la pasión visibles pero tratadas con elegancia.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-number">03</div>
+        <p class="step-desc"><strong>Restauración:</strong> La imagen se mantiene en perfecto estado gracias a cuidados constantes de conservación.</p>
+      </div>
+    </div>
+  </section>
+
+  {# --- CAJA DE CURIOSIDAD / ITINERARIO ESTÉTICO --- #}
+  <div class="wrap" style="max-width: 800px;">
+    <div class="route-box">
+        <span class="route-label-inline">Iconografía</span>
+        <p class="route-list">
+            Rigidez cadavérica <span>☩</span> Expresión de paz <span>☩</span> Policromía mate <span>☩</span> Sudario de lino <span>☩</span> Cabeza ligeramente inclinada.
+        </p>
+    </div>
+  </div>
+
+</article>
