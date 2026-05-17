@@ -104,7 +104,7 @@ bodyClass: page-light
     // Centrado en el puente para ver el recorrido completo
     var map = L.map('map-itinerario').setView([38.2635, -0.6995], 16);
 
-    L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+    L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
         maxZoom: 20,
         subdomains:['mt0','mt1','mt2','mt3'],
         attribution: '© Google Maps'
