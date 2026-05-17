@@ -465,8 +465,10 @@ input:-webkit-autofill {
 .route-label-inline {
     font-family: var(--font-serif);
     color: var(--gold);
-    font-size: 15px; /* Tamaño normal/destacado */
-    font-weight: 600;
+    font-size: 20px; /* Tamaño normal/destacado */
+    text-align: center;
+    font-style: uppercase;
+    font-weight: 800;
 }
 
 .route-list {
