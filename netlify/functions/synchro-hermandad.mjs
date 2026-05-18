@@ -1,72 +1,72 @@
-import { NetlifyAPI } from 'netlify';
 import axios from 'axios';
 
 export const handler = async (event, context) => {
-  // Tus credenciales (estas se quedan igual)
+  // Configuración del Excel
   const SHEET_ID = '1hp_36PFo3y0draB20sSoBxgNFiyoFSr5QL7uyb2PzXE';
   const TAB_NAME = 'Miembros'; 
   const API_KEY = 'AIzaSyAl2JwBaQIWFvbanCMmFEUhKFEJsw5Df0c'; 
   
+  // Configuración de Netlify (SITE_ID lo pone Netlify solo)
+  const NETLIFY_TOKEN = process.env.NETLIFY_AUTH_TOKEN;
+  const SITE_ID = process.env.SITE_ID;
+
   try {
-    // Construimos la URL
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TAB_NAME}?key=${API_KEY}`;
-    
-    const response = await axios.get(url);
-    const filas = response.data.values; 
+    // 1. Leer datos de Google Sheets
+    const googleUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TAB_NAME}?key=${API_KEY}`;
+    const googleRes = await axios.get(googleUrl);
+    const filas = googleRes.data.values; 
 
-    if (!filas) throw new Error("No hay datos en el Excel");
+    if (!filas) throw new Error("No se encontraron filas en el Excel");
 
-    // SITE_ID lo pilla Netlify automáticamente del entorno
-    const client = new NetlifyAPI(process.env.NETLIFY_AUTH_TOKEN);
-    const siteId = process.env.SITE_ID; 
+    // 2. Obtener lista de usuarios de Netlify Identity
+    // Usamos axios directamente para evitar errores de la librería oficial
+    const identityUrl = `https://api.netlify.com/api/v1/sites/${SITE_ID}/identity/users`;
+    const identityRes = await axios.get(identityUrl, {
+      headers: { Authorization: `Bearer ${NETLIFY_TOKEN}` }
+    });
+    const usuariosNetlify = identityRes.data.users;
 
-    // Listamos los usuarios una sola vez para no saturar la API
-    const users = await client.listUsersForSite({ site_id: siteId });
+    let actualizados = 0;
 
+    // 3. Sincronizar (empezamos en fila 1 para saltar cabeceras)
     for (let i = 1; i < filas.length; i++) {
-      const fila = filas[i];
-      const email = fila[0];
-      const nombre = fila[2];
-      const apellidos = fila[3];
-      const tipo = fila[5];
-      const alta = fila[6];
+      const [email, dni, nombre, apellidos, tel, tipo, alta, c2023, c2024, c2025, c2026] = filas[i];
 
       if (!email) continue;
 
-      // Cálculo de deuda (Columnas 7 a 10)
-      let deudaCount = 0;
-      [fila[7], fila[8], fila[9], fila[10]].forEach(valor => {
-        if (valor && valor.toUpperCase() === 'NO') deudaCount++;
-      });
+      // Calcular deuda
+      const deudaCount = [c2023, c2024, c2025, c2026].filter(v => v && v.toUpperCase() === 'NO').length;
 
-      // Buscamos al hermano
-      const user = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+      // Buscar si el usuario existe en Netlify
+      const usuario = usuariosNetlify.find(u => u.email.toLowerCase() === email.toLowerCase());
 
-      if (user) {
-        await client.updateUser({
-          site_id: siteId,
-          user_id: user.id,
-          body: {
-            user_metadata: {
-              full_name: `${nombre} ${apellidos}`,
-              tipo: tipo,
-              alta: alta,
-              deuda: deudaCount
-            }
+      if (usuario) {
+        // Actualizar metadatos en Netlify vía API
+        const updateUrl = `https://api.netlify.com/api/v1/sites/${SITE_ID}/identity/users/${usuario.id}`;
+        await axios.put(updateUrl, {
+          user_metadata: {
+            full_name: `${nombre} ${apellidos}`,
+            tipo: tipo,
+            alta: alta,
+            deuda: deudaCount
           }
+        }, {
+          headers: { Authorization: `Bearer ${NETLIFY_TOKEN}` }
         });
+        actualizados++;
       }
     }
 
     return { 
       statusCode: 200, 
-      body: JSON.stringify({ message: "Sincronización realizada con éxito" }) 
+      body: JSON.stringify({ message: `Éxito. Hermanos actualizados: ${actualizados}` }) 
     };
 
   } catch (error) {
+    console.error(error);
     return { 
       statusCode: 500, 
-      body: JSON.stringify({ error: error.message }) 
+      body: JSON.stringify({ error: error.message, detail: error.response?.data || "Sin detalles" }) 
     };
   }
 };
