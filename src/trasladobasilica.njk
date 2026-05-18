@@ -21,7 +21,7 @@ bodyClass: page-light
 
         <div class="route-box">            
           <p class="route-list">
-            <span class="route-label-inline">Calles:</span> 
+            <span class="route-label-inline">Calles</span> 
               San José <span class="separator">☩</span> 
               Plaza de los Reyes Católicos <span class="separator">☩</span> 
               Calle de Santa Anna <span class="separator">☩</span>
@@ -102,6 +102,7 @@ bodyClass: page-light
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    var isMobile = L.Browser.mobile;
     var map = L.map('map-itinerario').setView([38.2635, -0.6995], 16);
 
     L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
