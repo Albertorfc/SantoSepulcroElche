@@ -124,6 +124,23 @@
     border-radius: 2px;
 }
 
+/* --- Enlace "Saber más" reutilizable --- */
+.read-more {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-block; /* Mejor que block para que no ocupe todo el ancho si no es necesario */
+    margin-top: 15px;
+    text-decoration: none;
+    transition: var(--transition);
+    text-transform: none; /* Por si hereda mayúsculas de algún sitio */
+}
+
+.read-more:hover {
+    color: var(--gold-dark);
+    transform: translateX(5px); /* Efecto sutil de movimiento hacia la derecha */
+}
+
 /* ==========================================================================
    2. CONTADOR (COUNTDOWN)
    ========================================================================== */
