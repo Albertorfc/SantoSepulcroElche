@@ -164,6 +164,13 @@ bodyClass: page-light
         attribution: '© Google Maps'
     }).addTo(map);
 
+// Si es móvil, informamos al usuario o permitimos que use dos dedos
+    if (isMobile) {
+        map.dragging.disable(); // Forzamos desactivar arrastre con un dedo
+        // Leaflet por defecto permite mover con dos dedos si el dragging está off en algunos navegadores,
+        // pero lo más limpio es habilitar el 'worldCopyJump' o simplemente dejar que el usuario haga scroll por la página.
+    }
+
     var customHtmlIcon = L.divIcon({
       html: `<div class="marker-pin"><img src="/img/escudo.png" alt="Cruz"></div>`,
       className: 'custom-div-icon',
@@ -198,30 +205,3 @@ bodyClass: page-light
   });
 </script>
 
-<style>
-  .custom-div-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .marker-pin {
-    width: 36px;
-    height: 36px;
-    border-radius: 50% 50% 50% 0;
-    background: #000000;
-    position: absolute;
-    transform: rotate(-45deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
-  }
-
-  .marker-pin img {
-    width: 22px;
-    height: 22px;
-    transform: rotate(45deg);
-    object-fit: contain;
-  }
-</style>
