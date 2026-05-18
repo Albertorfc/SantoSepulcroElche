@@ -101,6 +101,7 @@ bodyClass: page-light
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    var isMobile = L.Browser.mobile;
     // Centrado en el puente para ver el recorrido completo
     var map = L.map('map-itinerario').setView([38.2635, -0.6995], 16);
 
