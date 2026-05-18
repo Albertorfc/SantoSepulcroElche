@@ -489,3 +489,15 @@ input:-webkit-autofill {
     font-style: normal;
     font-size: 12px;
 }
+
+#map-itinerario {
+    /* Esto ayuda a que el scroll vertical de la página gane al mapa en móviles */
+    touch-action: pan-y; 
+}
+
+/* Opcional: Para que el usuario sepa que puede interactuar si hace clic */
+.leaflet-container.leaflet-touch-drag {
+    /* Indica al sistema que use el comportamiento de dos dedos */
+    ms-touch-action: none;
+    touch-action: none;
+}
