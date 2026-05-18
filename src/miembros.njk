@@ -9,6 +9,7 @@ bodyClass: page-light
     
     <div class="login-box">
       
+      {# --- ESTADO 1: ACCESO (Tu diseño original de login) --- #}
       <div id="logged-out-content">
         <header class="page-header">
           <span class="pre-title">Privacidad</span>
@@ -34,13 +35,39 @@ bodyClass: page-light
         </form>
       </div>
 
+      {# --- ESTADO 2: ÁREA PRIVADA (Aparece tras hacer Login) --- #}
       <div id="logged-in-content" style="display: none;">
         <header class="page-header">
-          <h1>Bienvenido, Hermano</h1>
-          <p style="color: var(--text-main); margin-bottom: 40px;">Ya puede acceder a los documentos internos.</p>
+          <span class="pre-title" id="user-tipo-pre">Miembro de la Hermandad</span>
+          <h1 id="user-name">Bienvenido, Hermano</h1>
+          <p style="color: var(--text-main); margin-bottom: 30px;">Información actualizada de su ficha:</p>
         </header>
+
+        {# Bloque con estilo de "Itinerario" #}
+        <div class="route-box" style="margin-top: 20px; padding: 30px; border: 1px solid var(--gold); border-radius: 15px;">
+           <h2 class="pre-title" style="text-align: center; margin-bottom: 20px; font-size: 14px;">Estado de Ficha</h2>
+           
+           <p style="font-family: var(--font-serif); font-style: italic; text-align: center; font-size: 1.1rem; line-height: 2; margin: 0;">
+              <span style="color: var(--gold); font-style: normal; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 800;">Desde:</span> 
+              <span id="user-fecha">--/--/----</span>
+              
+              <span style="margin: 0 15px; color: var(--gold); font-style: normal;">⊹</span>
+              
+              <span style="color: var(--gold); font-style: normal; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 800;">Tesorería:</span> 
+              <span id="user-status">Verificando...</span>
+           </p>
+        </div>
+
+        {# Sección de Documentos #}
+        <div style="margin-top: 50px; text-align: center;">
+            <p class="pre-title" style="margin-bottom: 20px;">Documentación Interna</p>
+            <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+                <a href="/static/docs/estatutos.pdf" target="_blank" class="btn-link" style="text-decoration: none;">→ Estatutos de la Hermandad</a>
+                <a href="/static/docs/reglamento.pdf" target="_blank" class="btn-link" style="text-decoration: none;">→ Reglamento de Régimen Interno</a>
+            </div>
+        </div>
         
-        <div class="button-group button-group--center">
+        <div class="button-group button-group--center" style="margin-top: 60px;">
           <button onclick="netlifyIdentity.logout()" class="btn btn--secondary" style="border-color: #000; color: #000;">
             Cerrar Sesión
           </button>
@@ -48,25 +75,67 @@ bodyClass: page-light
       </div>
 
     </div>
-
   </section>
 </article>
 
+{# --- SCRIPTS DE IDENTIDAD Y LÓGICA --- #}
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
+  // Manejo del formulario de Login manual
   const form = document.getElementById('login-form');
   if(form) {
     form.addEventListener('submit', e => {
       e.preventDefault();
       netlifyIdentity.gotrue.login(form.email.value, form.password.value)
-        .then(() => window.location.reload())
-        .catch(() => alert("Credenciales incorrectas."));
+        .then(() => {
+           // Forzamos recarga para que el evento 'init' o 'login' pinte los datos
+           window.location.reload();
+        })
+        .catch(() => alert("Credenciales incorrectas. Verifique su email y contraseña."));
     });
   }
+
+  // Función para rellenar los datos del usuario en el HTML
+  const populateUserData = (user) => {
+    if (!user) return;
+    
+    // Extraemos los datos del Metadata de Netlify Identity
+    const meta = user.user_metadata;
+    
+    document.getElementById('user-name').innerText = "Bienvenido, " + (meta.full_name || "Hermano");
+    document.getElementById('user-tipo-pre').innerText = meta.tipo || "Miembro de la Hermandad";
+    document.getElementById('user-fecha').innerText = meta.alta || "No disponible";
+    
+    const statusElement = document.getElementById('user-status');
+    const deuda = parseInt(meta.deuda) || 0;
+    
+    if (deuda === 0) {
+      statusElement.innerText = "Al corriente";
+      statusElement.style.color = "#2e7d32"; // Verde sutil
+    } else {
+      statusElement.innerText = "Pendiente (" + deuda + " años)";
+      statusElement.style.color = "#c62828"; // Rojo elegante
+    }
+  };
+
+  // Evento al inicializar la librería
   netlifyIdentity.on('init', user => {
     if (user) {
       document.getElementById('logged-out-content').style.display = 'none';
       document.getElementById('logged-in-content').style.display = 'block';
+      populateUserData(user);
     }
+  });
+
+  // Evento justo al loguearse
+  netlifyIdentity.on('login', user => {
+    document.getElementById('logged-out-content').style.display = 'none';
+    document.getElementById('logged-in-content').style.display = 'block';
+    populateUserData(user);
+  });
+
+  // Evento al cerrar sesión
+  netlifyIdentity.on('logout', () => {
+    window.location.reload();
   });
 </script>
