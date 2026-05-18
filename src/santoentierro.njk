@@ -189,10 +189,9 @@ bodyClass: page-light
       [38.267118, -0.697891], [38.267133, -0.697898]
     ];
 
-    var path = L.polyline(puntosProcesion, {
+    var path = L.polyline(puntosTraslado, {
       color: '#000000',
       weight: 5,
-      opacity: 0.9,
     }).addTo(map);
 
     L.marker([38.265242, -0.698799], {icon: customHtmlIcon}).addTo(map)
@@ -204,4 +203,3 @@ bodyClass: page-light
     map.fitBounds(path.getBounds());
   });
 </script>
-
