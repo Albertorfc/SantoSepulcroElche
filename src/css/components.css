@@ -124,6 +124,23 @@
     border-radius: 2px;
 }
 
+/* --- Enlace "Saber más" reutilizable --- */
+.read-more {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-block; /* Mejor que block para que no ocupe todo el ancho si no es necesario */
+    margin-top: 15px;
+    text-decoration: none;
+    transition: var(--transition);
+    text-transform: none; /* Por si hereda mayúsculas de algún sitio */
+}
+
+.read-more:hover {
+    color: var(--gold-dark);
+    transform: translateX(5px); /* Efecto sutil de movimiento hacia la derecha */
+}
+
 /* ==========================================================================
    2. CONTADOR (COUNTDOWN)
    ========================================================================== */
@@ -448,39 +465,56 @@ input:-webkit-autofill {
     object-fit: contain;
 }
 
-
 /* ==========================================================================
-   CAJA DE ITINERARIO (Estilo Placa Museo)
+   CAJA DE ITINERARIO 
    ========================================================================== */
+
 .route-box {
     background: #ffffff;
-    border: 1px solid rgba(0,0,0,0.06);
-    border-left: 4px solid var(--gold); /* Un poco más gruesa la línea */
+    border: 1px solid var(--gold); 
+    padding: 15px 20px;
     margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+    border-radius: 15px; /* Puntas redondeadas */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05); /* Sombra un poco más visible */
 }
 
-.route-label {
+.route-label-inline {
     display: block;
-    font-family: var(--font-serif); /* Ibarra Real */
+    font-family: var(--font-serif);
     color: var(--gold);
-    font-size: 1.5rem; /* Aumentamos de 1.2 a 1.5 */
-    margin-bottom: 20px; /* Más separación del texto */
-    font-weight: 800; /* Un poco de cuerpo */
+    font-size: 20px; /* Tamaño normal/destacado */
+    text-align: center;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: 800;
 }
 
 .route-list {
     font-family: var(--font-sans);
-    font-size: 15px !important; /* Un pelín más pequeño para que el título destaque más */
-    color: var(--text-main);
-    text-align: justify; /* Que quede como un bloque limpio */
+    font-size: 12px; /* Tamaño reducido al 75% */
+    line-height: 1.6;
+    color: #555; /* Gris suave para que sea discreto */
+    text-align: center;
     font-style: italic;
+    margin: 0;    
 }
 
-/* El toque para los símbolos de la cruz */
-.route-list span {
+/* Símbolos de la cruz (en dorado y tamaño normal) */
+.route-list span.separator {
     color: var(--gold);
-    display: inline-block;
-    vertical-align: middle;
+    margin: 0 5px;
+    font-style: normal;
+    font-size: 12px;
+}
+
+#map-itinerario {
+    /* Esto ayuda a que el scroll vertical de la página gane al mapa en móviles */
+    touch-action: pan-y; 
+}
+
+/* Opcional: Para que el usuario sepa que puede interactuar si hace clic */
+.leaflet-container.leaflet-touch-drag {
+    /* Indica al sistema que use el comportamiento de dos dedos */
+    ms-touch-action: none;
+    touch-action: none;
 }

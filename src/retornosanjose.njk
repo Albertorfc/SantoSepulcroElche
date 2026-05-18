@@ -1,0 +1,151 @@
+---
+layout: layouts/base.njk
+title: Retorno a San José
+bodyClass: page-light
+---
+
+<article class="history-page">
+  <header class="page-header wrap">
+    <span class="pre-title">Sábado Santo · Madrugada</span>
+    <h1>Retorno a San José</h1>
+    <div class="header-line"></div>
+  </header>
+
+  {# --- SECCIÓN 1: MAPA INTERACTIVO (Satelital) --- #}
+  <section class="map-section wrap" style="margin-top: 50px; margin-bottom: 80px;">
+    <div class="intro-grid">
+      <div class="history-text">
+        <h2>Itinerario</h2>
+        <p>Finalizada la Estación de Penitencia en la noche de Viernes Santo, la Hermandad de Caballeros emprende el camino de regreso desde la Basílica hasta el barrio del Plà, cruzando de nuevo el río hacia la Iglesia de San José.</p>
+
+        <div class="route-box">            
+          <p class="route-list">
+            <span class="route-label-inline">Calles</span> 
+              Basílica de Santa María <span class="separator">☩</span> 
+              Fira <span class="separator">☩</span> 
+              Major de la Vila <span class="separator">☩</span>
+              Plaça de la Fruita <span class="separator">☩</span> 
+              Plaça Baix <span class="separator">☩</span> 
+              Alfonso XII <span class="separator">☩</span>
+              Porta Oriola <span class="separator">☩</span>
+              Puente de la Virgen <span class="separator">☩</span> 
+              Plaça del Di de la Sang <span class="separator">☩</span> 
+              Santa Anna <span class="separator">☩</span>
+              Plaça de Reis Catòlics <span class="separator">☩</span> 
+              Iglesia de San José.
+          </p>
+        </div>
+      </div>
+      <div class="map-container-wrapper">
+        <div id="map-itinerario" style="height: 550px; width: 100%; border-radius: 12px; border: 1px solid #ccc; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"></div>
+      </div>
+    </div>
+  </section>
+
+  {# --- SECCIÓN 2: HITOS DEL RETORNO --- #}
+  <section class="history-timeline">
+    <div class="wrap">
+      
+      {# 1. SALIDA BASÍLICA #}
+      <div class="timeline-item has-image">
+        <div class="year">00:30 h</div>
+        <div class="timeline-content">
+          <div class="timeline-text">
+            <h3>Salida de la Basílica</h3>
+            <p>Tras la finalización del Santo Entierro y los actos en el interior del templo, la Hermandad inicia su retorno. Es un momento de recogimiento íntimo donde los caballeros y pilares inician el camino a casa bajo el cielo estrellado del Sábado Santo.</p>
+            <p>El silencio se hace dueño del casco antiguo mientras el Trono atraviesa el casco antiguo hacia el puente de la Virgen.</p>
+          </div>
+          <div class="timeline-image">
+            <img src="/img/angelstamaria.jpg" alt="Salida de Santa María">
+          </div>
+        </div>
+      </div>
+
+      {# 2. PASO POR EL RÍO #}
+      <div class="timeline-item has-image"> 
+        <div class="year">01:15 h</div>
+        <div class="timeline-content">
+          <div class="timeline-text">
+            <h3>Puente de Santa Teresa</h3>
+            <p>La Hermandad abandona la Vila Murada para adentrarse de nuevo en el barrio del Plà. El paso por el puente marca la transición hacia su sede canónica.</p>
+            <p>Sobre el puente de origen medieval, la Hermandad de Caballeros, vuelve a encomendar a la patrona de la Ciudad, en presencia de la imagen de su Hijo Yacente, sus intenciones y las de todos los que llevan en su corazón.</p>
+          </div>
+          <div class="timeline-image">
+            <img src="/img/traslado-puente.jpg" alt="Regreso por el puente">
+          </div>
+        </div>
+      </div>
+
+      {# 3. LLEGADA A SAN JOSÉ #}
+      <div class="timeline-item has-image"> 
+        <div class="year">02:00 h</div>
+        <div class="timeline-content">
+          <div class="timeline-text">
+            <h3>Recogida en San José</h3>
+            <p>Con la llegada a la <strong>Parroquia de San José</strong>, se pone fin a la Estación de Penitencia. El Trono entra en su sede canónica entre el respeto de los fieles que han acompañado el regreso.</p>
+            <p>Cristo descansa de nuevo en el corazón del antiguamente llamado <em>Raval de Santa Teresa</em>, cerrando un ciclo de devoción que comenzó al amanecer del viernes, pero que se alarga al año entero.</p>
+          </div>
+          <div class="timeline-image">
+            <img src="/img/traslado-salida.jpg" alt="Entrada en San José">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</article>
+
+{# --- LEAFLET ASSETS --- #}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var isMobile = L.Browser.mobile;
+    // Centrado en el puente para ver el recorrido completo
+    var map = L.map('map-itinerario').setView([38.2635, -0.6995], 16);
+
+    L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains:['mt0','mt1','mt2','mt3'],
+        attribution: '© Google Maps'
+    }).addTo(map);
+
+    var customHtmlIcon = L.divIcon({
+      html: `<div class="marker-pin"><img src="/img/escudo.png" alt="Escudo"></div>`,
+      className: 'custom-div-icon',
+      iconSize: [36, 52],
+      iconAnchor: [18, 52],
+      popupAnchor: [0, -45]
+    });
+
+    // Puntos del recorrido de vuelta (Orden inverso al traslado)
+    var puntosRetorno = [
+      [38.267133, -0.697898], [38.267118, -0.697891], [38.266978, -0.698049],
+      [38.266942, -0.698688], [38.265937, -0.698720], [38.265898, -0.698990],
+      [38.265863, -0.699204], [38.265817, -0.699281], [38.265608, -0.699385],
+      [38.265133, -0.699353], [38.265006, -0.699352], [38.263732, -0.699147],
+      [38.263525, -0.699137], [38.263273, -0.700501], [38.263153, -0.700456],
+      [38.263089, -0.700443], [38.262983, -0.700453], [38.262862, -0.700475],
+      [38.262360, -0.700654], [38.261878, -0.700841], [38.261595, -0.700976],
+      [38.261324, -0.701090], [38.260998, -0.701189], [38.260610, -0.701373],
+      [38.260264, -0.701477], [38.259886, -0.701574], [38.259812, -0.701641]
+    ];
+
+    var path = L.polyline(puntosRetorno, {
+      color: '#000000', 
+      weight: 5,
+    }).addTo(map);
+
+    L.marker([38.267133, -0.697898], {icon: customHtmlIcon}).addTo(map)
+      .bindPopup('<b>Basílica de Santa María</b><br>Inicio del Retorno (00:30h)');
+
+    L.marker([38.263273, -0.700501], {icon: customHtmlIcon}).addTo(map)
+      .bindPopup('<b>Puente de Santa Teresa</b><br>Paso hacia el <em>Raval de Santa Teresa</em>');
+
+    L.marker([38.259812, -0.701641], {icon: customHtmlIcon}).addTo(map)
+      .bindPopup('<b>Iglesia de San José</b><br>Recogida de la Hermandad (02:00h)');
+
+    map.fitBounds(path.getBounds());
+  });
+</script>

@@ -16,18 +16,25 @@ bodyClass: page-light
   <section class="map-section wrap" style="margin-top: 50px; margin-bottom: 80px;">
     <div class="intro-grid">
       <div class="history-text">
-        <h2>Itinerario del recorrido</h2>
+        <h2>Itinerario</h2>
         <p>El recorrido parte desde la iglesia de San José, cruzando el Vinalopó por el puente más antiguo de la ciudad hasta alcanzar la antigua <em>Vila Murada</em> por la plaza de la Fruta.</p>
         <div class="route-box">            
-            <p class="route-list">
-                <span>Calles:</span> San José <span>☩</span> Plaza de los Reyes Católicos <span>☩</span> Calle de Santa Anna <span>☩</span>
-                Puente de Santa Teresa <span>☩</span> Porta Oriola ☩ Alfonso XII <span>☩</span>
-                Plaza Menéndez y Pelayo <span>☩</span> Plaça de la Fruita <span>☩</span> Major de la Vila <span>☩</span>
-                Carrer de la Fira <span>☩</span> Basílica de Santa María.
-            </p>
+          <p class="route-list">
+            <span class="route-label-inline">Calles</span> 
+              San José <span class="separator">☩</span> 
+              Plaza de los Reyes Católicos <span class="separator">☩</span> 
+              Calle de Santa Anna <span class="separator">☩</span>
+              Puente de Santa Teresa <span class="separator">☩</span> 
+              Porta Oriola <span class="separator">☩</span> 
+              Alfonso XII <span class="separator">☩</span>
+              Plaza Menéndez y Pelayo <span class="separator">☩</span> 
+              Plaça de la Fruita <span class="separator">☩</span> 
+              Major de la Vila <span class="separator">☩</span>
+              Carrer de la Fira <span class="separator">☩</span> 
+              Basílica de Santa María.
+          </p>
+          </div>
         </div>
-      </div>
-
       <div class="map-container-wrapper">
         <div id="map-itinerario" style="height: 550px; width: 100%; border-radius: 12px; border: 1px solid #ccc; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"></div>
       </div>
@@ -59,8 +66,8 @@ bodyClass: page-light
         <div class="timeline-content">
           <div class="timeline-text">
             <h3>Oración en el Puente</h3>
-            <p>Uno de los puntos más emblemáticos del recorrido es el paso por el <strong>Puente de Santa Teresa</strong>. Sobre las aguas del río Vinalopó y ante la hornacina de la Virgen, la Hermandad realiza una de las estaciones del Vía Crucis.</p>
-            <p>Es un momento de especial belleza visual, donde el rachear de los pilares y el sonido de la flauta son los únicos protagonistas.</p>
+            <p>Uno de los puntos emblemáticos del recorrido es el paso por el <strong>Puente de Santa Teresa</strong>. Sobre las aguas del río Vinalopó y ante la hornacina de la patrona de la ciudad, la Hermandad realiza un momento de oración.</p>
+            <p>Es un momento de especial belleza visual, en el que la Hermandad de Caballeros se va preparando para la llegada a la Basílica.</p>
           </div>
           <div class="timeline-image">
             <img src="/img/traslado-puente.jpg" alt="Paso por el Puente de Santa Teresa">
@@ -74,7 +81,7 @@ bodyClass: page-light
         <div class="timeline-content">
           <div class="timeline-text">
             <h3>Llegada y XIV Estación</h3>
-            <p>El traslado culmina con la entrada del Trono por la Puerta del Sol de la <strong>Basílica de Santa María</strong>. En el interior del templo, se reza la última estación del Vía Crucis.</p>
+            <p>El traslado culmina con la entrada del Trono por la Puerta Mayor de la <strong>Basílica de Santa María</strong>. En el interior del templo, se reza la XIV estación del Vía Crucis.</p>
             <p>Cristo Yacente queda custodiado en la Basílica, aguardando la solemne Procesión del Santo Entierro que tendrá lugar al caer la noche.</p>
           </div>
           <div class="timeline-image">
@@ -94,9 +101,10 @@ bodyClass: page-light
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    var isMobile = L.Browser.mobile;
     var map = L.map('map-itinerario').setView([38.2635, -0.6995], 16);
 
-    L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+    L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
         maxZoom: 20,
         subdomains:['mt0','mt1','mt2','mt3'],
         attribution: '© Google Maps'

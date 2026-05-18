@@ -11,15 +11,30 @@ bodyClass: page-light
     <div class="header-line"></div>
   </header>
 
-  {# --- SECCIÓN 1: MAPA INTERACTIVO (Ahora primero) --- #}
-  <section class="map-section wrap" style="margin-top: 50px; margin-bottom: 50px;">
+  {# --- SECCIÓN 1: MAPA INTERACTIVO (Satelital) --- #}
+  <section class="map-section wrap" style="margin-top: 50px; margin-bottom: 80px;">
     <div class="intro-grid">
       <div class="history-text">
         <h2>Itinerario</h2>
           <p>El itinerario de la <strong>Procesión General de Cofradías y Hermandades y Santo Entierro</strong> de Viernes Santo recorre el trazado de la antigua muralla medieval de Elche.</p>
-          <p>Se trata de un recorrido circular con inicio y llegada en la Basílica de Santa María, con una estación principal en la Plaça de Baix, donde tiene lugar el solemne acto de la <em>trencà del guió</em>.</p>
+          <p>Se trata de un recorrido circular con inicio y llegada en la Basílica de Santa María, con una estación principal en la Plaça de Baix, donde tiene lugar la <em>trencà del guió</em>.</p>
+        <div class="route-box">            
+          <p class="route-list">
+            <span class="route-label-inline">Calles</span> 
+              Basílica de Santa María <span class="separator">☩</span> 
+              Plaza del Congreso Eucarístico <span class="separator">☩</span> 
+              Calle Uberna <span class="separator">☩</span>
+              Plaza de la Merced <span class="separator">☩</span> 
+              Calle del Capitán Lagier <span class="separator">☩</span> 
+              Calle de la Corredera <span class="separator">☩</span>
+              Plaza de Baix <span class="separator">☩</span> 
+              Plaça de la Fruita <span class="separator">☩</span> 
+              Major de la Vila <span class="separator">☩</span>
+              Carrer de la Fira <span class="separator">☩</span> 
+              Basílica de Santa María.
+          </p>
+          </div>
         </div>
-
       <div class="map-container-wrapper">
         <div id="map-itinerario" style="height: 550px; width: 100%; border-radius: 12px; border: 1px solid #ccc; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"></div>
       </div>
@@ -141,14 +156,26 @@ bodyClass: page-light
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var map = L.map('map-itinerario').setView([38.2665, -0.6975], 16);
+    // 1. Definimos si es móvil (IMPORTANTE: Esto faltaba)
+    var isMobile = L.Browser.mobile;
 
-    L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+    // 2. Inicializamos el mapa con opciones de interacción
+    var map = L.map('map-itinerario', {
+        center: [38.2665, -0.6975],
+        zoom: 16,
+        dragging: !isMobile,      // Desactiva arrastre con 1 dedo en móvil
+        tap: !isMobile,           // Evita clics accidentales
+        scrollWheelZoom: false    // Evita zoom accidental con ratón
+    });
+
+    // 3. Capa Satélite limpia (lyrs=s)
+    L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
         maxZoom: 20,
         subdomains:['mt0','mt1','mt2','mt3'],
         attribution: '© Google Maps'
     }).addTo(map);
 
+    // 4. Icono (El mismo de la página de traslado)
     var customHtmlIcon = L.divIcon({
       html: `<div class="marker-pin"><img src="/img/escudo.png" alt="Cruz"></div>`,
       className: 'custom-div-icon',
@@ -157,6 +184,7 @@ bodyClass: page-light
       popupAnchor: [0, -45]
     });
 
+    // 5. Coordenadas (Circular)
     var puntosProcesion = [
       [38.267133, -0.697898], [38.267309, -0.697981], [38.267331, -0.696541],
       [38.267228, -0.696279], [38.267194, -0.695216], [38.266456, -0.695347],
@@ -167,12 +195,14 @@ bodyClass: page-light
       [38.267118, -0.697891], [38.267133, -0.697898]
     ];
 
+    // 6. Dibujar el camino (CORREGIDO: puntosProcesion)
     var path = L.polyline(puntosProcesion, {
       color: '#000000',
       weight: 5,
-      opacity: 0.9,
+      opacity: 0.8
     }).addTo(map);
 
+    // 7. Marcadores
     L.marker([38.265242, -0.698799], {icon: customHtmlIcon}).addTo(map)
       .bindPopup('<b>Plaça de Baix</b><br>Trencà del Guió (23:00h aprox.)');
 
@@ -182,31 +212,3 @@ bodyClass: page-light
     map.fitBounds(path.getBounds());
   });
 </script>
-
-<style>
-  .custom-div-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .marker-pin {
-    width: 36px;
-    height: 36px;
-    border-radius: 50% 50% 50% 0;
-    background: #000000;
-    position: absolute;
-    transform: rotate(-45deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
-  }
-
-  .marker-pin img {
-    width: 22px;
-    height: 22px;
-    transform: rotate(45deg);
-    object-fit: contain;
-  }
-</style>
