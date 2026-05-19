@@ -4,24 +4,21 @@ export const handler = async (event, context) => {
   const SHEET_ID = '1hp_36PFo3y0draB20sSoBxgNFiyoFSr5QL7uyb2PzXE';
   const TAB_NAME = 'Miembros'; 
   const API_KEY = 'AIzaSyAl2JwBaQIWFvbanCMmFEUhKFEJsw5Df0c'; 
-  
-  // Nombre de tu sitio (lo que va antes de .netlify.app)
   const SITE_NAME = 'santosepulcroelche'; 
-  const NETLIFY_TOKEN = process.env.NETLIFY_AUTH_TOKEN;
+
+  // PEGA AQUÍ TU TOKEN PERSONAL DE NETLIFY (El que generaste en User Settings)
+  // Al ponerlo aquí entre comillas, no dependemos de las variables de Netlify
+  const TOKEN_DIRECTO = 'nfp_dFGWM6JELLP6YHdJTP6nsaRSJRFMa3uu2af6'; 
 
   try {
-    // 1. Google Sheets
     const googleRes = await axios.get(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TAB_NAME}?key=${API_KEY}`);
     const filas = googleRes.data.values; 
 
-    if (!filas) throw new Error("Excel vacío");
-
-    // 2. Obtener usuarios usando el dominio del sitio
-    // Esta ruta es la administrativa de Identity y suele ser más robusta
+    // Usamos el endpoint administrativo
     const identityUrl = `https://${SITE_NAME}.netlify.app/.netlify/identity/admin/users`;
 
     const identityRes = await axios.get(identityUrl, {
-      headers: { Authorization: `Bearer ${NETLIFY_TOKEN}` }
+      headers: { Authorization: `Bearer ${TOKEN_DIRECTO}` }
     });
     
     const usuariosNetlify = identityRes.data.users || identityRes.data;
@@ -44,7 +41,7 @@ export const handler = async (event, context) => {
             deuda: deudaCount
           }
         }, {
-          headers: { Authorization: `Bearer ${NETLIFY_TOKEN}` }
+          headers: { Authorization: `Bearer ${TOKEN_DIRECTO}` }
         });
         actualizados++;
       }
@@ -52,7 +49,7 @@ export const handler = async (event, context) => {
 
     return { 
       statusCode: 200, 
-      body: JSON.stringify({ message: "OK", actualizados: actualizados }) 
+      body: JSON.stringify({ message: "¡POR FIN!", actualizados: actualizados }) 
     };
 
   } catch (error) {
@@ -60,8 +57,7 @@ export const handler = async (event, context) => {
       statusCode: 500, 
       body: JSON.stringify({ 
         error: error.message,
-        url_fallida: error.config?.url,
-        respuesta_server: error.response?.data 
+        detalle: error.response?.data 
       }) 
     };
   }
