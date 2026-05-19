@@ -4,21 +4,21 @@ export const handler = async (event, context) => {
   const SHEET_ID = '1hp_36PFo3y0draB20sSoBxgNFiyoFSr5QL7uyb2PzXE';
   const TAB_NAME = 'Miembros'; 
   const API_KEY = 'AIzaSyAl2JwBaQIWFvbanCMmFEUhKFEJsw5Df0c'; 
-  
-  // USA EL API ID (EL DE LOS GUIONES)
   const SITE_ID = '3176efe9-7499-4bd0-9bcc-8e0a53e5f12c'; 
-  const TOKEN_DIRECTO = 'nfp_dFGWM6JELLP6YHdJTP6nsaRSJRFMa3uu2af6'; 
+  
+  // Tu token nfp_ (limpio de espacios)
+  const TOKEN = 'nfp_dFGWM6JELLP6YHdJTP6nsaRSJRFMa3uu2af6'.trim(); 
 
   try {
     // 1. Google Sheets
     const googleRes = await axios.get(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TAB_NAME}?key=${API_KEY}`);
     const filas = googleRes.data.values; 
 
-    // 2. API CENTRAL DE NETLIFY (La única que acepta tokens nfp_)
+    // 2. API OFICIAL DE NETLIFY (Esta sí acepta tokens nfp_)
     const identityUrl = `https://api.netlify.com/api/v1/sites/${SITE_ID}/identity/users`;
 
     const identityRes = await axios.get(identityUrl, {
-      headers: { 'Authorization': `Bearer ${TOKEN_DIRECTO.trim()}` }
+      headers: { 'Authorization': `Bearer ${TOKEN}` }
     });
     
     const usuariosNetlify = identityRes.data.users || identityRes.data;
@@ -32,7 +32,6 @@ export const handler = async (event, context) => {
       const usuario = usuariosNetlify.find(u => u.email.toLowerCase() === email.trim().toLowerCase());
 
       if (usuario) {
-        // 3. Actualizar vía API Central
         const updateUrl = `https://api.netlify.com/api/v1/sites/${SITE_ID}/identity/users/${usuario.id}`;
         await axios.put(updateUrl, {
           user_metadata: {
@@ -42,7 +41,7 @@ export const handler = async (event, context) => {
             deuda: deudaCount
           }
         }, {
-          headers: { 'Authorization': `Bearer ${TOKEN_DIRECTO.trim()}` }
+          headers: { 'Authorization': `Bearer ${TOKEN}` }
         });
         actualizados++;
       }
@@ -50,7 +49,7 @@ export const handler = async (event, context) => {
 
     return { 
       statusCode: 200, 
-      body: JSON.stringify({ message: "Sincronización OK", actualizados: actualizados }) 
+      body: JSON.stringify({ message: "Sincronización finalizada", actualizados }) 
     };
 
   } catch (error) {
@@ -58,7 +57,8 @@ export const handler = async (event, context) => {
       statusCode: 500, 
       body: JSON.stringify({ 
         error: error.message,
-        servidor_dijo: error.response?.data
+        servidor_dijo: error.response?.data,
+        url_fallida: error.config?.url
       }) 
     };
   }
