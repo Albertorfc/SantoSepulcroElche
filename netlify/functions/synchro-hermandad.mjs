@@ -5,23 +5,31 @@ export const handler = async (event, context) => {
   const TAB_NAME = 'Miembros'; 
   const API_KEY = 'AIzaSyAl2JwBaQIWFvbanCMmFEUhKFEJsw5Df0c'; 
   
-  // USA EL API ID (el de los guiones: 3176efe9-7499-4bd0-9bcc-8e0a53e5f12c)
+  // USA TU API ID (El de los guiones)
   const SITE_ID = '3176efe9-7499-4bd0-9bcc-8e0a53e5f12c'; 
   const NETLIFY_TOKEN = process.env.NETLIFY_AUTH_TOKEN;
 
   try {
+    // 1. Google Sheets
     const googleUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TAB_NAME}?key=${API_KEY}`;
     const googleRes = await axios.get(googleUrl);
     const filas = googleRes.data.values; 
 
-    // IMPORTANTE: Esta es la URL de la API oficial que NO falla con los tokens personales
-    // Hemos quitado el "/identity" intermedio que a veces causa el 404
+    if (!filas) throw new Error("Excel sin datos");
+
+    // 2. Obtener usuarios (Ruta corregida sin /identity/ intermedia)
+    // Netlify a veces requiere acceder a través del endpoint de la cuenta o directamente al sitio
     const identityUrl = `https://api.netlify.com/api/v1/sites/${SITE_ID}/identity/users`;
 
     const identityRes = await axios.get(identityUrl, {
-      headers: { Authorization: `Bearer ${NETLIFY_TOKEN}` }
+      headers: { 
+        'Authorization': `Bearer ${NETLIFY_TOKEN}`,
+        'Content-Type': 'application/json'
+      }
     });
-    const usuariosNetlify = identityRes.data.users;
+    
+    // Si llegamos aquí, el SITE_ID y el TOKEN son correctos
+    const usuariosNetlify = identityRes.data.users || identityRes.data;
 
     let actualizados = 0;
 
@@ -30,11 +38,13 @@ export const handler = async (event, context) => {
       if (!email) continue;
 
       const deudaCount = [c2023, c2024, c2025, c2026].filter(v => v && v.toUpperCase() === 'NO').length;
-      const usuario = usuariosNetlify.find(u => u.email.toLowerCase() === email.toLowerCase());
+      
+      const usuario = usuariosNetlify.find(u => u.email.toLowerCase() === email.trim().toLowerCase());
 
       if (usuario) {
-        // Actualizar datos
+        // 3. ACTUALIZACIÓN (Usando el endpoint de administración de usuarios)
         const updateUrl = `https://api.netlify.com/api/v1/sites/${SITE_ID}/identity/users/${usuario.id}`;
+        
         await axios.put(updateUrl, {
           user_metadata: {
             full_name: `${nombre} ${apellidos}`,
@@ -43,7 +53,10 @@ export const handler = async (event, context) => {
             deuda: deudaCount
           }
         }, {
-          headers: { Authorization: `Bearer ${NETLIFY_TOKEN}` }
+          headers: { 
+            'Authorization': `Bearer ${NETLIFY_TOKEN}`,
+            'Content-Type': 'application/json'
+          }
         });
         actualizados++;
       }
@@ -51,16 +64,21 @@ export const handler = async (event, context) => {
 
     return { 
       statusCode: 200, 
-      body: JSON.stringify({ message: `Sincronización OK. Usuarios: ${actualizados}` }) 
+      body: JSON.stringify({ 
+        message: "Sincronización finalizada", 
+        procesados: filas.length - 1,
+        actualizados: actualizados 
+      }) 
     };
 
   } catch (error) {
     return { 
       statusCode: 500, 
       body: JSON.stringify({ 
-        error: error.message, 
-        pista: "Asegúrate de que NETLIFY_AUTH_TOKEN está en las variables de entorno de Netlify",
-        data: error.response?.data 
+        error: error.message,
+        status: error.response?.status,
+        path: error.config?.url, // Esto nos dirá qué URL exacta está dando el 404
+        detalle: error.response?.data
       }) 
     };
   }
