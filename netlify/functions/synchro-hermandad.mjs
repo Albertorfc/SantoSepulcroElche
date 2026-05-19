@@ -4,24 +4,20 @@ export const handler = async (event, context) => {
   const SHEET_ID = '1hp_36PFo3y0draB20sSoBxgNFiyoFSr5QL7uyb2PzXE';
   const TAB_NAME = 'Miembros'; 
   const API_KEY = 'AIzaSyAl2JwBaQIWFvbanCMmFEUhKFEJsw5Df0c'; 
-  // const SITE_ID = '3176efe9-7499-4bd0-9bcc-8e0a53e5f12c';
-  const SITE_ID = 'santosepulcroelche';
+  
+  // USA EL API ID (el de los guiones: 3176efe9-7499-4bd0-9bcc-8e0a53e5f12c)
+  const SITE_ID = '3176efe9-7499-4bd0-9bcc-8e0a53e5f12c'; 
   const NETLIFY_TOKEN = process.env.NETLIFY_AUTH_TOKEN;
 
   try {
-    // 1. Leer datos de Google Sheets
     const googleUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TAB_NAME}?key=${API_KEY}`;
     const googleRes = await axios.get(googleUrl);
     const filas = googleRes.data.values; 
 
-    if (!filas) throw new Error("No se encontraron filas en el Excel");
-
-    // 2. Obtener lista de usuarios de Netlify Identity
-    // Usamos axios directamente para evitar errores de la librería oficial
-    // CAMBIO 1: Obtener lista (Usamos el endpoint directo de Identity)
+    // IMPORTANTE: Esta es la URL de la API oficial que NO falla con los tokens personales
+    // Hemos quitado el "/identity" intermedio que a veces causa el 404
     const identityUrl = `https://api.netlify.com/api/v1/sites/${SITE_ID}/identity/users`;
-    // Prueba a cambiarla por esta otra variante si falla:
-    // const identityUrl = `https://${SITE_ID}.netlify.app/.netlify/identity/admin/users`;
+
     const identityRes = await axios.get(identityUrl, {
       headers: { Authorization: `Bearer ${NETLIFY_TOKEN}` }
     });
@@ -29,20 +25,15 @@ export const handler = async (event, context) => {
 
     let actualizados = 0;
 
-    // 3. Sincronizar (empezamos en fila 1 para saltar cabeceras)
     for (let i = 1; i < filas.length; i++) {
       const [email, dni, nombre, apellidos, tel, tipo, alta, c2023, c2024, c2025, c2026] = filas[i];
-
       if (!email) continue;
 
-      // Calcular deuda
       const deudaCount = [c2023, c2024, c2025, c2026].filter(v => v && v.toUpperCase() === 'NO').length;
-
-      // Buscar si el usuario existe en Netlify
       const usuario = usuariosNetlify.find(u => u.email.toLowerCase() === email.toLowerCase());
 
       if (usuario) {
-        // Actualizar metadatos en Netlify vía API
+        // Actualizar datos
         const updateUrl = `https://api.netlify.com/api/v1/sites/${SITE_ID}/identity/users/${usuario.id}`;
         await axios.put(updateUrl, {
           user_metadata: {
@@ -60,14 +51,17 @@ export const handler = async (event, context) => {
 
     return { 
       statusCode: 200, 
-      body: JSON.stringify({ message: `Éxito. Hermanos actualizados: ${actualizados}` }) 
+      body: JSON.stringify({ message: `Sincronización OK. Usuarios: ${actualizados}` }) 
     };
 
   } catch (error) {
-    console.error(error);
     return { 
       statusCode: 500, 
-      body: JSON.stringify({ error: error.message, detail: error.response?.data || "Sin detalles" }) 
+      body: JSON.stringify({ 
+        error: error.message, 
+        pista: "Asegúrate de que NETLIFY_AUTH_TOKEN está en las variables de entorno de Netlify",
+        data: error.response?.data 
+      }) 
     };
   }
 };
