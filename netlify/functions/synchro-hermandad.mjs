@@ -1,14 +1,11 @@
 import axios from 'axios';
 
 export const handler = async (event, context) => {
-  // Configuración del Excel
   const SHEET_ID = '1hp_36PFo3y0draB20sSoBxgNFiyoFSr5QL7uyb2PzXE';
   const TAB_NAME = 'Miembros'; 
   const API_KEY = 'AIzaSyAl2JwBaQIWFvbanCMmFEUhKFEJsw5Df0c'; 
-  
-  // Configuración de Netlify (SITE_ID lo pone Netlify solo)
-  const NETLIFY_TOKEN = process.env.NETLIFY_AUTH_TOKEN;
   const SITE_ID = '3176efe9-7499-4bd0-9bcc-8e0a53e5f12c';
+  const NETLIFY_TOKEN = process.env.NETLIFY_AUTH_TOKEN;
 
   try {
     // 1. Leer datos de Google Sheets
