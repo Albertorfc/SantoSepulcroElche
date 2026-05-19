@@ -77,7 +77,7 @@ export const handler = async (event, context) => {
       body: JSON.stringify({ 
         error: error.message,
         status: error.response?.status,
-        path: error.config?.url, // Esto nos dirá qué URL exacta está dando el 404
+        path: error.config?.url, // Esto nos dirá  qué URL exacta está dando el 404
         detalle: error.response?.data
       }) 
     };
