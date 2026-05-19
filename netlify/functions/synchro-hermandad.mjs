@@ -4,7 +4,8 @@ export const handler = async (event, context) => {
   const SHEET_ID = '1hp_36PFo3y0draB20sSoBxgNFiyoFSr5QL7uyb2PzXE';
   const TAB_NAME = 'Miembros'; 
   const API_KEY = 'AIzaSyAl2JwBaQIWFvbanCMmFEUhKFEJsw5Df0c'; 
-  const SITE_ID = '3176efe9-7499-4bd0-9bcc-8e0a53e5f12c';
+  // const SITE_ID = '3176efe9-7499-4bd0-9bcc-8e0a53e5f12c';
+  const SITE_ID = 'santosepulcroelche';
   const NETLIFY_TOKEN = process.env.NETLIFY_AUTH_TOKEN;
 
   try {
@@ -17,7 +18,10 @@ export const handler = async (event, context) => {
 
     // 2. Obtener lista de usuarios de Netlify Identity
     // Usamos axios directamente para evitar errores de la librería oficial
+    // CAMBIO 1: Obtener lista (Usamos el endpoint directo de Identity)
     const identityUrl = `https://api.netlify.com/api/v1/sites/${SITE_ID}/identity/users`;
+    // Prueba a cambiarla por esta otra variante si falla:
+    // const identityUrl = `https://${SITE_ID}.netlify.app/.netlify/identity/admin/users`;
     const identityRes = await axios.get(identityUrl, {
       headers: { Authorization: `Bearer ${NETLIFY_TOKEN}` }
     });
