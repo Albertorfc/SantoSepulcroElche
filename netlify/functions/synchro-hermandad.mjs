@@ -15,7 +15,8 @@ export const handler = async (event, context) => {
     const filas = googleRes.data.values; 
 
     // 2. API OFICIAL DE NETLIFY (Esta sí acepta tokens nfp_)
-    const identityUrl = `https://api.netlify.com/api/v1/sites/${SITE_ID}/identity/users`;
+const identityUrl =
+ 'https://santosepulcroelche.netlify.app/.netlify/identity/admin/users';
 
     const identityRes = await axios.get(identityUrl, {
       headers: { 'Authorization': `Bearer ${TOKEN}` }
