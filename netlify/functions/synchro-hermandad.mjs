@@ -8,7 +8,7 @@ export const handler = async (event, context) => {
   
   // Configuración de Netlify (SITE_ID lo pone Netlify solo)
   const NETLIFY_TOKEN = process.env.NETLIFY_AUTH_TOKEN;
-  const SITE_ID = process.env.SITE_ID;
+  const SITE_ID = '3176efe9-7499-4bd0-9bcc-8e0a53e5f12c';
 
   try {
     // 1. Leer datos de Google Sheets
