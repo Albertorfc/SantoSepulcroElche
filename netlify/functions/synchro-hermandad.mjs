@@ -30,50 +30,45 @@ export const handler = async (event, context) => {
 
 const filas = googleRes.data.values; 
 
-    // 2. API OFICIAL DE NETLIFY (Esta sí acepta tokens nfp_)
-const identityUrl =
-  `https://api.netlify.com/api/v1/${SITE_ID}/identity/users`;
-    const identityRes = await axios.get(identityUrl, {
-      headers: { 'Authorization': `Bearer ${TOKEN}` }
-    });
-    
-    const usuariosNetlify = identityRes.data.users || identityRes.data;
-    let actualizados = 0;
+const miembros = [];
 
-    for (let i = 1; i < filas.length; i++) {
-      const [email, dni, nombre, apellidos, tel, tipo, alta, c2023, c2024, c2025, c2026] = filas[i];
-      if (!email) continue;
+for (let i = 1; i < filas.length; i++) {
+  const [
+    email,
+    dni,
+    nombre,
+    apellidos,
+    tel,
+    tipo,
+    alta,
+    c2023,
+    c2024,
+    c2025,
+    c2026
+  ] = filas[i];
 
-      const deudaCount = [c2023, c2024, c2025, c2026].filter(v => v && v.toUpperCase() === 'NO').length;
-      const usuario = usuariosNetlify.find(u => u.email.toLowerCase() === email.trim().toLowerCase());
+  if (!email) continue;
 
-      if (usuario) {
-        const updateUrl =
-  `https://api.netlify.com/api/v1/${SITE_ID}/identity/users/${usuario.id}`;
-await axios.put(
-  updateUrl,
-  {
-    user_metadata: {
-      full_name: `${nombre} ${apellidos}`,
-      tipo,
-      alta,
-      deuda: deudaCount
-    }
-  },
-  {
-    headers: {
-      Authorization: `Bearer ${TOKEN}`,
-      'Content-Type': 'application/json'
-    }
-  }
-);
-        actualizados++;
-      }
-    }
+  const deudaCount = [c2023, c2024, c2025, c2026]
+    .filter(v => v && v.toUpperCase() === 'NO')
+    .length;
 
-    return { 
-      statusCode: 200, 
-      body: JSON.stringify({ message: "Sincronización finalizada", actualizados }) 
+  miembros.push({
+    email,
+    dni,
+    nombre,
+    apellidos,
+    tel,
+    tipo,
+    alta,
+    deuda: deudaCount
+  });
+}
+      body: JSON.stringify({
+  ok: true,
+  total: miembros.length,
+  miembros
+})
     };
 
   } catch (error) {
