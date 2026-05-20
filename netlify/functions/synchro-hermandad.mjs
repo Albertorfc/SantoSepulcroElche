@@ -64,13 +64,16 @@ for (let i = 1; i < filas.length; i++) {
     deuda: deudaCount
   });
 }
-      body: JSON.stringify({
-  ok: true,
-  total: miembros.length,
-  miembros
-})
-    };
-
+    
+return {
+  statusCode: 200,
+  body: JSON.stringify({
+    ok: true,
+    total: miembros.length,
+    miembros
+  })
+};
+    
   } catch (error) {
     return { 
       statusCode: 500, 
