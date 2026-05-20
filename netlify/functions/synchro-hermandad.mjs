@@ -2,6 +2,17 @@ import axios from 'axios';
 import { google } from 'googleapis';
 
 export const handler = async (event, context) => {
+
+  const auth = new google.auth.GoogleAuth({
+    credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT),
+    scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly']
+  });
+
+  const sheets = google.sheets({
+    version: 'v4',
+    auth
+  });
+  
   const SHEET_ID = '1hp_36PFo3y0draB20sSoBxgNFiyoFSr5QL7uyb2PzXE';
   const TAB_NAME = 'Miembros'; 
   const API_KEY = 'AIzaSyAl2JwBaQIWFvbanCMmFEUhKFEJsw5Df0c'; 
