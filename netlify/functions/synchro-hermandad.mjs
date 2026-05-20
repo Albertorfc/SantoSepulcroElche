@@ -23,8 +23,12 @@ export const handler = async (event, context) => {
 
   try {
     // 1. Google Sheets
-    const googleRes = await axios.get(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TAB_NAME}?key=${API_KEY}`);
-    const filas = googleRes.data.values; 
+    const googleRes = await sheets.spreadsheets.values.get({
+  spreadsheetId: SHEET_ID,
+  range: TAB_NAME
+});
+
+const filas = googleRes.data.values; 
 
     // 2. API OFICIAL DE NETLIFY (Esta sí acepta tokens nfp_)
 const identityUrl =
