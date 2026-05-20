@@ -7,7 +7,7 @@ export const handler = async (event, context) => {
   const SITE_ID = '3176efe9-7499-4bd0-9bcc-8e0a53e5f12c'; 
   
   // Tu token nfp_ (limpio de espacios)
-  const TOKEN = 'nfp_dFGWM6JELLP6YHdJTP6nsaRSJRFMa3uu2af6'.trim(); 
+  const TOKEN = 'TOKENTOKENTOKEN'.trim(); 
 
   try {
     // 1. Google Sheets
