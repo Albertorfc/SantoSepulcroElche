@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { google } from 'googleapis';
 
 export const handler = async (event, context) => {
@@ -15,18 +14,13 @@ export const handler = async (event, context) => {
   
   const SHEET_ID = '1hp_36PFo3y0draB20sSoBxgNFiyoFSr5QL7uyb2PzXE';
   const TAB_NAME = 'Miembros'; 
-  const API_KEY = 'AIzaSyAl2JwBaQIWFvbanCMmFEUhKFEJsw5Df0c'; 
-  const SITE_ID = '3176efe9-7499-4bd0-9bcc-8e0a53e5f12c'; 
-  
-  // Tu token nfp_ (limpio de espacios)
-  const TOKEN = 'TOKENTOKENTOKEN'.trim(); 
 
   try {
     // 1. Google Sheets
-    const googleRes = await sheets.spreadsheets.values.get({
-  spreadsheetId: SHEET_ID,
-  range: TAB_NAME
-});
+  const googleRes = await sheets.spreadsheets.values.get({
+    spreadsheetId: SHEET_ID,
+    range: TAB_NAME
+  });
 
 const filas = googleRes.data.values; 
 
@@ -79,8 +73,6 @@ return {
       statusCode: 500, 
       body: JSON.stringify({ 
         error: error.message,
-        servidor_dijo: error.response?.data,
-        url_fallida: error.config?.url
       }) 
     };
   }
