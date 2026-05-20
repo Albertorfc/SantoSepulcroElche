@@ -33,17 +33,25 @@ const identityUrl =
       const usuario = usuariosNetlify.find(u => u.email.toLowerCase() === email.trim().toLowerCase());
 
       if (usuario) {
-        const updateUrl = `https://api.netlify.com/api/v1/sites/${SITE_ID}/identity/users/${usuario.id}`;
-        await axios.put(updateUrl, {
-          user_metadata: {
-            full_name: `${nombre} ${apellidos}`,
-            tipo: tipo,
-            alta: alta,
-            deuda: deudaCount
-          }
-        }, {
-          headers: { 'Authorization': `Bearer ${TOKEN}` }
-        });
+        const updateUrl =
+  `https://santosepulcroelche.netlify.app/.netlify/identity/admin/users/${usuario.id}`;
+await axios.put(
+  updateUrl,
+  {
+    user_metadata: {
+      full_name: `${nombre} ${apellidos}`,
+      tipo,
+      alta,
+      deuda: deudaCount
+    }
+  },
+  {
+    headers: {
+      Authorization: `Bearer ${TOKEN}`,
+      'Content-Type': 'application/json'
+    }
+  }
+);
         actualizados++;
       }
     }
