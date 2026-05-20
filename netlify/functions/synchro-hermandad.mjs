@@ -16,8 +16,7 @@ export const handler = async (event, context) => {
 
     // 2. API OFICIAL DE NETLIFY (Esta sí acepta tokens nfp_)
 const identityUrl =
- 'https://santosepulcroelche.netlify.app/.netlify/identity/admin/users';
-
+  `https://api.netlify.com/api/v1/${SITE_ID}/identity/users`;
     const identityRes = await axios.get(identityUrl, {
       headers: { 'Authorization': `Bearer ${TOKEN}` }
     });
@@ -34,7 +33,7 @@ const identityUrl =
 
       if (usuario) {
         const updateUrl =
-  `https://santosepulcroelche.netlify.app/.netlify/identity/admin/users/${usuario.id}`;
+  `https://api.netlify.com/api/v1/${SITE_ID}/identity/users/${usuario.id}`;
 await axios.put(
   updateUrl,
   {
