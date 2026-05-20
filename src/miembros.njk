@@ -95,28 +95,60 @@ bodyClass: page-light
     });
   }
 
-  // Función para rellenar los datos del usuario en el HTML
-  const populateUserData = (user) => {
-    if (!user) return;
-    
-    // Extraemos los datos del Metadata de Netlify Identity
-    const meta = user.user_metadata;
-    
-    document.getElementById('user-name').innerText = "Bienvenido, " + (meta.full_name || "Hermano");
-    document.getElementById('user-tipo-pre').innerText = meta.tipo || "Miembro de la Hermandad";
-    document.getElementById('user-fecha').innerText = meta.alta || "No disponible";
-    
-    const statusElement = document.getElementById('user-status');
-    const deuda = parseInt(meta.deuda) || 0;
-    
-    if (deuda === 0) {
-      statusElement.innerText = "Al corriente";
-      statusElement.style.color = "#2e7d32"; // Verde sutil
-    } else {
-      statusElement.innerText = "Pendiente (" + deuda + " años)";
-      statusElement.style.color = "#c62828"; // Rojo elegante
+const populateUserData = async () => {
+
+  try {
+
+    const token = await netlifyIdentity.currentUser().jwt();
+
+    const response = await fetch('/.netlify/functions/my-profile', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    const data = await response.json();
+
+    if (!data.ok) {
+      alert("No se pudo cargar el perfil.");
+      return;
     }
-  };
+
+    const perfil = data.perfil;
+
+    document.getElementById('user-name').innerText =
+      "Bienvenido, " + perfil.nombre;
+
+    document.getElementById('user-tipo-pre').innerText =
+      perfil.tipo || "Miembro de la Hermandad";
+
+    document.getElementById('user-fecha').innerText =
+      perfil.alta || "No disponible";
+
+    const statusElement = document.getElementById('user-status');
+
+    if (perfil.deuda === 0) {
+
+      statusElement.innerText = "Al corriente";
+      statusElement.style.color = "#2e7d32";
+
+    } else {
+
+      statusElement.innerText =
+        "Pendiente (" + perfil.deuda + " años)";
+
+      statusElement.style.color = "#c62828";
+
+    }
+
+  } catch (error) {
+
+    console.error(error);
+    alert("Error cargando perfil.");
+
+  }
+
+};
 
   // Evento al inicializar la librería
   netlifyIdentity.on('init', user => {
