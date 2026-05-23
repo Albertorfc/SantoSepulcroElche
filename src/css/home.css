@@ -8,7 +8,7 @@
   align-items: center;
   background:
     linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url('/img/image_baa381.jpg') center/cover no-repeat;
+    url('/img/image_baa381.webp') center/cover no-repeat;
 }
 
 .hero__text h1 {
