@@ -393,3 +393,30 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
 .page-light .mobile-socials .social-link img {
     filter: invert(0);
 }
+
+//Fijador de ancho para el móvil
+
+/* 1. Asegurar que nada sea más ancho que la pantalla */
+html, body {
+  overflow-x: hidden; /* Evita el scroll horizontal */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Ajustar el contenedor principal (wrap) */
+.wrap {
+  width: 100%;
+  max-width: 1200px; /* O el ancho que tengas */
+  margin: 0 auto;
+  padding-left: 20px;  /* Espacio de seguridad lateral */
+  padding-right: 20px;
+  box-sizing: border-box; /* Vital: incluye el padding en el ancho total */
+}
+
+/* 3. Imágenes que no se desborden */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
