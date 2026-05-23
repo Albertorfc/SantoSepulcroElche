@@ -80,31 +80,31 @@ bodyClass: page-light
 
 {# --- SCRIPTS DE IDENTIDAD Y LÓGICA --- #}
 <script type="module">
-  // Importamos las herramientas de Firebase
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-  // 1. Configuración de tu Firebase (Saca esto de la consola de Firebase -> Project Settings)
-  const firebaseConfig = {
-    apiKey: "TU_API_KEY_PUBLICA",
-    authDomain: "santo-sepulcro-elche.firebaseapp.com",
-    projectId: "santo-sepulcro-elche",
-    storageBucket: "santo-sepulcro-elche.appspot.com",
-    messagingSenderId: "XXXXX",
-    appId: "XXXXX"
-  };
+// Tu configuración
+const firebaseConfig = {
+  apiKey: "AIzaSyCgaiqCOnMuLUX1zFD6Guj5TJI_bHMRx9E",
+  authDomain: "santosepulcroelche-c4160.firebaseapp.com",
+  projectId: "santosepulcroelche-c4160",
+  storageBucket: "santosepulcroelche-c4160.firebasestorage.app",
+  messagingSenderId: "786691964355",
+  appId: "1:786691964355:web:39e649b96d154da9df9176",
+  measurementId: "G-KBCQ5VQ6QX"
+};
 
-  // Inicializar
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-  const loggedOutContent = document.getElementById('logged-out-content');
-  const loggedInContent = document.getElementById('logged-in-content');
+const loggedOutContent = document.getElementById('logged-out-content');
+const loggedInContent = document.getElementById('logged-in-content');
 
-  // --- LÓGICA DE LOGIN ---
-  const form = document.getElementById('login-form');
+// --- LOGIN ---
+const form = document.getElementById('login-form');
+if (form) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = form.email.value;
@@ -112,45 +112,50 @@ bodyClass: page-light
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      // No hace falta recargar, onAuthStateChanged lo hará por nosotros
     } catch (error) {
-      alert("Error al acceder: Verifique su email y contraseña.");
+      console.error(error);
+      alert("Error: Usuario o contraseña incorrectos.");
     }
   });
+}
 
-  // --- LÓGICA DE CIERRE DE SESIÓN ---
-  // Cambiamos el onclick del botón en el HTML por esto:
-  window.logoutHermandad = () => {
-    signOut(auth).then(() => window.location.reload());
-  };
+// --- LOGOUT ---
+window.logoutHermandad = () => {
+  signOut(auth).then(() => window.location.reload());
+};
 
-  // --- ESCUCHAR ESTADO DEL USUARIO ---
-  onAuthStateChanged(auth, async (user) => {
-    if (user) {
-      loggedOutContent.style.display = 'none';
-      loggedInContent.style.display = 'block';
-      
-      // Buscamos los datos en Firestore que subimos con el Excel
-      const docRef = doc(db, "hermanos", user.email.toLowerCase().trim());
-      const docSnap = await getDoc(docRef);
+// --- CONTROL DE ESTADO ---
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    loggedOutContent.style.display = 'none';
+    loggedInContent.style.display = 'block';
+    
+    // Buscar datos en Firestore (la colección se llama 'hermanos')
+    const docRef = doc(db, "hermanos", user.email.toLowerCase().trim());
+    const docSnap = await getDoc(docRef);
 
-      if (docSnap.exists()) {
-        const perfil = docSnap.data();
-        document.getElementById('user-name').innerText = "Bienvenido, " + (perfil.nombre_completo || "Hermano");
-        document.getElementById('user-tipo-pre').innerText = perfil.tipo || "Miembro";
-        document.getElementById('user-fecha').innerText = perfil.alta || "--/--/----";
+    if (docSnap.exists()) {
+      const perfil = docSnap.data();
+      document.getElementById('user-name').innerText = "Bienvenido, " + (perfil.nombre_completo || "Hermano");
+      document.getElementById('user-tipo-pre').innerText = perfil.tipo || "Miembro de la Hermandad";
+      document.getElementById('user-fecha').innerText = perfil.alta || "--/--/----";
 
-        const statusElement = document.getElementById('user-status');
-        if (perfil.deuda === 0) {
-          statusElement.innerText = "Al corriente";
-          statusElement.style.color = "#2e7d32";
-        } else {
-          statusElement.innerText = "Pendiente (" + perfil.deuda + " años)";
-          statusElement.style.color = "#c62828";
-        }
+      const statusElement = document.getElementById('user-status');
+      if (perfil.deuda === 0) {
+        statusElement.innerText = "Al corriente";
+        statusElement.style.color = "#2e7d32";
+      } else {
+        statusElement.innerText = "Pendiente (" + perfil.deuda + " años)";
+        statusElement.style.color = "#c62828";
       }
     } else {
-      loggedOutContent.style.display = 'block';
-      loggedInContent.style.display = 'none';
+      document.getElementById('user-name').innerText = "Bienvenido (Ficha no encontrada)";
+      document.getElementById('user-status').innerText = "Email no registrado en Excel";
     }
-  });
+  } else {
+    loggedOutContent.style.display = 'block';
+    loggedInContent.style.display = 'none';
+  }
+});
 </script>
