@@ -2,11 +2,16 @@ import admin from 'firebase-admin';
 import axios from 'axios';
 
 if (!admin.apps.length) {
+  // Limpiamos la clave por si acaso Vercel la guardó con comillas extra
+  const privateKey = process.env.FIREBASE_PRIVATE_KEY 
+    ? process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n').replace(/"/g, '') 
+    : undefined;
+
   admin.initializeApp({
     credential: admin.credential.cert({
       projectId: process.env.FIREBASE_PROJECT_ID,
       clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+      privateKey: privateKey,
     })
   });
 }
