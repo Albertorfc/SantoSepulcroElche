@@ -40,11 +40,13 @@
           </a>
         </div>
       </div>
-
-      {# Botón de Acceso en Desktop (Añadida clase desktop-only) #}
-      <a href="/miembros/" class="nav-button-alt desktop-only {% if page.url == '/miembros/' %}active{% endif %}">
-        Acceso Miembros
-      </a>
+      
+      {# Contenedor dinámico de Acceso #}
+      <div id="auth-status-container" class="desktop-only">
+        <a href="/miembros/" class="nav-button-alt {% if page.url == '/miembros/' %}active{% endif %}">
+          Acceso Miembros
+        </a>
+      </div>
 
       {# Botón Menú Móvil (Hamburguesa) #}
       <button class="menu-toggle" type="button" aria-label="Abrir menú">
@@ -84,9 +86,11 @@
         <a href="/contacto/" class="{% if page.url == '/contacto/' %}active{% endif %}">Contacto</a>
         
         {# Botón Acceso Miembros dentro del menú móvil #}
-        <a href="/miembros/" class="mobile-nav-button {% if page.url == '/miembros/' %}active{% endif %}">
-          Acceso Miembros
-        </a>
+        <div id="auth-status-mobile">
+          <a href="/miembros/" class="mobile-nav-button {% if page.url == '/miembros/' %}active{% endif %}">
+            Acceso Miembros
+          </a>
+        </div>
       </div>
 
       <div class="mobile-socials">
