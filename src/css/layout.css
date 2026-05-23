@@ -274,14 +274,15 @@ body:not(.page-light) .nav-button-alt { background-color: transparent; }
 .footer-credit-emblem {
     margin-top: 20px; /* Espacio con el texto de copyright */
     display: flex;
-    justify-content: center; /* Centra la imagen */
+    justify-content: center; /* <--- ESTA LÍNEA es la que centra la cruz */
+    width: 100%;             /* <--- ESTA asegura que el contenedor ocupe todo el ancho */
 }
 
 /* Estilos para la imagen del emblema */
 .footer-credit-emblem img {
     height: 60px; /* Ajusta esta altura a tu gusto */
     width: auto; /* Mantiene la proporción */
-    
+    margin: 0 auto;          /* <--- ESTA es el refuerzo final de centrado */
     /* Opcional: Un efecto sutil para que no brille tanto en el fondo negro */
     opacity: 0.6; 
     transition: opacity 0.3s ease;
