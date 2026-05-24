@@ -1,8 +1,28 @@
 /* --- 1. CONTENEDORES MAESTROS --- */
+/* 1. Esto evita que el padding engorde los elementos más del 100% de su tamaño */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+/* 2. Forzamos a que el contenedor principal SIEMPRE tenga respiración lateral */
 .wrap {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+main {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Y por precaución, asegurarnos de que ninguna imagen dentro del main cause desbordamientos */
+main img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* --- 2. CABECERA (HEADER) --- */

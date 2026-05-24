@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/variables.css">
   <link rel="stylesheet" href="/css/layout.css">
   <link rel="stylesheet" href="/css/components.css">
   <link rel="stylesheet" href="/css/history.css">
@@ -21,12 +21,11 @@
   {% if bodyClass == 'home' %}
   <link rel="stylesheet" href="/css/home.css">
   {% endif %}
-  
-  <link rel="stylesheet" href="/css/styles.css">
-</head>
 
-// Archivo para la autenticación de miembros
-<script type="module" src="/js/firebase-auth.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/js/map-utils.js"></script>
+</head>
 
 <body class="{{ bodyClass }}">
 
@@ -46,43 +45,56 @@
 
   <script src="/js/menu.js"></script>
   <script src="/js/countdown.js"></script>
-
   <script type="module" src="/js/firebase-auth.js"></script>
 
   <script>
-   // Este script debe ir al final, antes del </body>
-(function() {
-  const preloader = document.getElementById('preloader');
-  if (!preloader) return;
+    (function() {
+      const preloader = document.getElementById('preloader');
+      if (!preloader) return;
 
-  // Verificamos si es la Home
-  const isHome = document.body.classList.contains('home');
+      const isHome = document.body.classList.contains('home');
 
-  if (isHome) {
-    // Lo hacemos visible inmediatamente
-    preloader.classList.add('active');
-
-    // 1. Pausa mínima casi imperceptible (100ms)
-    setTimeout(() => {
-      // 2. Inicia el viaje a la esquina
-      preloader.classList.add('shrink-logo');
-      
-      // 3. Empezamos a desvanecer el fondo muy rápido
-      setTimeout(() => {
-        preloader.classList.add('fade-out');
-        
+      if (isHome) {
+        preloader.classList.add('active');
         setTimeout(() => {
-          preloader.style.display = 'none';
-        }, 400);
-      }, 300); // El fondo empieza a irse antes de que termine el viaje
-      
-    }, 500); 
-  } else {
-    // En cualquier otra página, nos aseguramos de que no exista
-    preloader.remove(); 
-  }
-})();
+          preloader.classList.add('shrink-logo');
+          setTimeout(() => {
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+              preloader.style.display = 'none';
+            }, 400);
+          }, 300);
+        }, 500); 
+      } else {
+        preloader.remove(); 
+      }
+    })();
   </script>
 
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const isMobile = window.innerWidth <= 768;
+        
+        if (typeof map !== 'undefined' && isMobile) {
+          map.dragging.disable();
+          map.tap.disable();
+
+          // Creamos un aviso pequeño y elegante que aparece sobre el mapa
+          const mapContainer = document.querySelector('.map-section'); // Asegúrate que tu contenedor tiene esta clase
+          if (mapContainer) {
+            const toast = document.createElement('div');
+            toast.innerText = "Usa dos dedos para mover el mapa";
+            toast.style.cssText = "position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: white; padding: 8px 16px; border-radius: 20px; font-size: 12px; z-index: 1000; pointer-events: none; opacity: 0.8;";
+            mapContainer.style.position = 'relative'; // Necesario para que el toast se posicione bien
+            mapContainer.appendChild(toast);
+
+            // Hacer que desaparezca a los 3 segundos
+            setTimeout(() => toast.remove(), 3000);
+          }
+        }
+      }, 500); 
+    });
+  </script>
 </body>
 </html>
