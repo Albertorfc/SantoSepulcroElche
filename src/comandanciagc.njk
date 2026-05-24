@@ -2,50 +2,70 @@
 layout: layouts/base.njk
 title: Guardia Civil · Hermano Mayor de Honor
 description: Vínculo institucional y devoción compartida entre la Benemérita y el Santo Sepulcro de Elche.
+bodyClass: page-light
 ---
 
-<article class="page-colaboracion">
-  
-  <header class="hero-section">
-    <h1>{{ title }}</h1>
-    <p class="subtitle">Una unión forjada en la fe, el servicio y el respeto institucional</p>
+<article class="history-page">
+  <header class="page-header wrap">
+    <span class="pre-title">Vínculo Institucional</span>
+    <h1>Hermano Mayor de Honor</h1>
+    <div class="header-line"></div>
   </header>
 
-  <div class="content-container">
-    
-    <section class="intro-text">
-      <p>La <strong>Hermandad de Caballeros del Santo Sepulcro de Elche</strong> tiene el honor de mantener un vínculo histórico y espiritual con la <strong>Guardia Civil</strong>. Esta relación hunde sus raíces en los valores compartidos de ambas instituciones: el sacrificio, la disciplina y la entrega a los demás.</p>
-    </section>
+  {# --- INTRODUCCIÓN --- #}
+  <section class="history-grid wrap">
+    <div class="history-text">
+      <h2>Unión de Fe y Servicio</h2>
+      <p>La <strong>Hermandad de Caballeros del Santo Sepulcro de Elche</strong> tiene el honor de mantener un vínculo histórico con la <strong>Guardia Civil</strong>. Esta relación hunde sus raíces en los valores compartidos de ambas instituciones: el sacrificio, la disciplina y la entrega por los demás.</p>
+      <p>Desde hace décadas, la Comandancia de la Guardia Civil de Alicante ostenta el título de <strong>Hermano Mayor Honorario</strong> de nuestra Hermandad. Este nombramiento deriva de la escolta de honor y el respeto que la Benemérita presta a la imagen del Señor en su lecho de muerte, reconociendo en ella un aliado fiel en la custodia de nuestras tradiciones.</p>
+    </div>
+    <div class="history-image">
+      <img src="/img/guardiacivilescudo.webp" alt="Comandancia de la Guardia Civil de Alicante">
+    </div>
+  </section>
 
-    <section class="info-block">
-      <h2>Hermano Mayor de Honor</h2>
-      <p>Desde hace décadas, la Comandancia de la Guardia Civil de Alicante ostenta el título de <strong>Hermano Mayor Honorario</strong> de nuestra Hermandad. Este nombramiento deriva de la escolta y el respeto que la Benemérita presta a la imagen del Señor en su lecho de muerte, reconociendo en ella un aliado fiel en la custodia de nuestras tradiciones.</p>
-    </section>
+  {# --- LA ESCOLTA DE HONOR --- #}
+  <section class="history-grid wrap invert-mobile">
+    <div class="history-image">
+      <img src="/img/guardiacivilstoentierro.webp" alt="Escolta de gala de la Guardia Civil el Viernes Santo">
+    </div>
+    <div class="history-text">
+      <span class="pre-title">Viernes Santo</span>
+      <h2>La Escolta de Honor</h2>
+      <p>La hermandad con el cuerpo de la Benemérita se vive especialmente cada <strong>Viernes Santo</strong>. Una escuadra de voluntarios de la Guardia Civil, vistiendo su uniforme de gala, realiza la escolta de honor al Trono del Santo Sepulcro.</p>
+      <p>El Viernes Santo, la presencia y el paso marcial de los agentes en la Procesión del Santo Entierro de la Semana Santa ilicitana, es una muestra de la devoción, también dentro de nuestras Fuerzas Armadas, a Quien dio la Vida por nuestra Redención.</p>
+    </div>
+  </section>
 
-    <section class="destacado-visual">
-      <div class="texto">
-        <h2>La Escolta de Honor del Viernes Santo</h2>
-        <p>Esta colaboración se vive especialmente cada <strong>Viernes Santo</strong>. Una escuadra de gastadores y mandos de la Guardia Civil, vistiendo su uniforme de gala, realiza la escolta de honor al Trono del Santo Sepulcro.</p>
-        <p>La presencia y el paso marcial de los agentes en la Procesión del Santo Entierro son, hoy en día, una estampa clásica de la Semana Santa ilicitana.</p>
-      </div>
-      <aside class="nota-foto">
-        <p><em>[Sugerencia: Insertar aquí imagen de la escolta de gala durante la procesión]</em></p>
-      </aside>
-    </section>
-
-    <section class="otros-actos">
+  {# --- PRESENCIA EN LA VIDA DE LA HERMANDAD --- #}
+  <section class="steps-box wrap">
+    <div class="steps-header">
       <h2>Presencia en la Vida de la Hermandad</h2>
-      <ul>
-        <li><strong>Festividad del Pilar:</strong> La Junta Directiva de la Hermandad asiste anualmente a los actos oficiales en honor a la Patrona del Cuerpo, estrechando lazos con los mandos de la Comandancia.</li>
-        <li><strong>Cultos Cuaresmales:</strong> Representantes de la Guardia Civil participan activamente en el Solemne Quinario y en los actos de imposición de medallas a los nuevos caballeros.</li>
-      </ul>
-    </section>
+    </div>
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-number">01</div>
+        <p class="step-desc"><strong>Festividad del Pilar:</strong> La Junta Directiva de la Hermandad asiste anualmente a los actos oficiales en honor a la Patrona del Cuerpo, estrechando lazos con los mandos de la Comandancia.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-number">02</div>
+        <p class="step-desc"><strong>Cultos Cuaresmales:</strong> Representantes de la Guardia Civil participan activamente en el Solemne Quinario y en los actos de imposición de medallas a los nuevos caballeros.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-number">03</div>
+        <p class="step-desc"><strong>Actos Oficiales:</strong> Cooperación y representación mutua en recepciones oficiales, manteniendo vivo el espíritu fundacional del nombramiento honorífico.</p>
+      </div>
+    </div>
+  </section>
 
-    <footer class="agradecimiento">
-      <blockquote>
-        "Honor, Lealtad y Devoción: Valores que nos unen bajo el sudario del Santo Sepulcro."
-      </blockquote>
-    </footer>
-
+  {# --- CAJA DE VALORES (ESTILO ITINERARIO) --- #}
+  <div class="wrap" style="max-width: 800px;">
+    <div class="route-box">
+        <span class="route-label-inline">Valores</span>
+        <p class="route-list">
+            Honor <span>☩</span> Lealtad <span>☩</span> Devoción <span>☩</span> Sacrificio <span>☩</span> Respeto Institucional.
+        </p>
+    </div>
   </div>
+
 </article>
