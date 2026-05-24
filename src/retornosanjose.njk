@@ -100,10 +100,12 @@ bodyClass: page-light
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
+  // 1. Declaramos la variable global aquí
+  var map;
+
   document.addEventListener('DOMContentLoaded', function() {
-    var isMobile = L.Browser.mobile;
-    // Centrado en el puente para ver el recorrido completo
-    var map = L.map('map-itinerario').setView([38.2635, -0.6995], 16);
+    // 2. Quitamos el 'var' de aquí para usar la variable global
+    map = L.map('map-itinerario').setView([38.2635, -0.6995], 16);
 
     L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
         maxZoom: 20,
