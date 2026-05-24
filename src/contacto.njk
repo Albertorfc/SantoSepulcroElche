@@ -7,19 +7,19 @@ bodyClass: page-light
 <article class="history-page">
   
   {# --- CABECERA --- #}
-  <header class="page-header wrap">
+  <header class="page-header wrap" style="text-align: center;">
     <span class="pre-title">Atención al Hermano</span>
-    <h1>Contacto</h1>
-    <div class="header-line"></div>
+    <h1 style="font-size: clamp(2rem, 8vw, 3rem);">Contacto</h1>
+    <div class="header-line" style="margin: 0 auto;"></div>
   </header>
 
-  <section class="history-section wrap">
+  <section class="history-section wrap" style="padding-left: 15px; padding-right: 15px;">
     <div class="history-grid">
       
       {# Bloque de Información #}
       <div class="history-text">
         <h2>Sede y Secretaría</h2>
-        <p>Para cualquier gestión, solicitud de alta de nuevos miembros o información sobre la Hermandad, puede ponerse en contacto con nosotros a través de nuestro correo electrónico.</p>
+        <p>Para cualquier gestión, solicitud de alta de nuevos miembros o información sobre la Hermandad, puede ponerse en contacto con nosotros.</p>
         
         <div style="margin-top: 30px;">
           <p><strong>Sede Canónica:</strong><br>
@@ -27,26 +27,30 @@ bodyClass: page-light
           Plaza Reyes Católicos, s/n</p>
 
           <p><strong>Correo Electrónico:</strong><br>
-          <a href="mailto:secretaria.santo.sepulcro.elche@gmail.com" style="color: var(--gold); text-decoration: none;">secretaria.santo.sepulcro.elche@gmail.com</a></p>
+          {# El estilo 'word-break' evita que el email largo desborde la pantalla #}
+          <a href="mailto:secretaria.santo.sepulcro.elche@gmail.com" 
+             style="color: var(--gold); text-decoration: none; word-break: break-all; font-weight: bold;">
+             secretaria.santo.sepulcro.elche@gmail.com
+          </a></p>
         </div>
       </div>
 
-      {# Formulario Estilizado #}
-      <div class="contact-form-container" style="background: #f9f9f9; padding: 40px; border-radius: 4px; border: 1px solid #eee;">
+      {# Formulario Estilizado corregido para móvil #}
+      <div class="contact-form-container" style="background: #f9f9f9; padding: 25px 15px; border-radius: 4px; border: 1px solid #eee; width: 100%; box-sizing: border-box; margin-top: 40px;">
         <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
-          <div>
-            <label style="display: block; font-size: 12px; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px;">Nombre Completo</label>
-            <input type="text" name="name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 2px;">
+          <div style="width: 100%;">
+            <label style="display: block; font-size: 11px; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px;">Nombre Completo</label>
+            <input type="text" name="name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 2px; box-sizing: border-box;">
           </div>
-          <div>
-            <label style="display: block; font-size: 12px; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px;">Correo Electrónico</label>
-            <input type="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 2px;">
+          <div style="width: 100%;">
+            <label style="display: block; font-size: 11px; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px;">Correo Electrónico</label>
+            <input type="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 2px; box-sizing: border-box;">
           </div>
-          <div>
-            <label style="display: block; font-size: 12px; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px;">Mensaje / Consulta</label>
-            <textarea name="message" rows="5" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 2px; resize: vertical;"></textarea>
+          <div style="width: 100%;">
+            <label style="display: block; font-size: 11px; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px;">Mensaje / Consulta</label>
+            <textarea name="message" rows="5" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 2px; resize: vertical; box-sizing: border-box;"></textarea>
           </div>
-          <button type="submit" style="background: var(--gold); color: #000; border: none; padding: 15px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s;">
+          <button type="submit" style="background: var(--gold); color: #000; border: none; padding: 15px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s; width: 100%;">
             Enviar Mensaje
           </button>
         </form>
@@ -55,18 +59,18 @@ bodyClass: page-light
     </div>
   </section>
 
-  {# --- MAPA (OPCIONAL) --- #}
-  <section class="history-section wrap">
-  <div class="map-container">
-    <iframe 
-     src="https://www.google.com/maps?q=Parroquia+de+San+José+Elche+Plaza+Reyes+Católicos&output=embed" 
-     width="100%" 
-     height="100%" 
-     style="border:0;" 
-     allowfullscreen="" 
-     loading="lazy">
-    </iframe>
-  </div>
-</section>
+  {# --- MAPA --- #}
+  <section class="wrap" style="padding: 0 15px 60px 15px;">
+    <div class="map-container" style="width: 100%; height: 300px; border-radius: 4px; overflow: hidden; border: 1px solid #eee;">
+      <iframe 
+       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.568461413813!2d-0.704207!3d38.254645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b0a23274291d%3A0x6b107e35b7e80d44!2sParroquia%20de%20San%20Jos%C3%A9!5e0!3m2!1ses!2ses!4v1710000000000!5m2!1ses!2ses" 
+       width="100%" 
+       height="100%" 
+       style="border:0;" 
+       allowfullscreen="" 
+       loading="lazy">
+      </iframe>
+    </div>
+  </section>
 
 </article>
