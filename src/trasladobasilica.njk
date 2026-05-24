@@ -95,32 +95,13 @@ bodyClass: page-light
 
 </article>
 
-{# --- LEAFLET ASSETS --- #}
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
-  // 1. Declaramos la variable global aquí
-  var map;
-
   document.addEventListener('DOMContentLoaded', function() {
-    // 2. Quitamos el 'var' de aquí para usar la variable global
-    map = L.map('map-itinerario').setView([38.2635, -0.6995], 16);
-
-    L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-        maxZoom: 20,
-        subdomains:['mt0','mt1','mt2','mt3'],
-        attribution: '© Google Maps'
-    }).addTo(map);
-
-
-    var customHtmlIcon = L.divIcon({
-      html: `<div class="marker-pin"><img src="/img/escudo.webp" alt="Escudo"></div>`,
-      className: 'custom-div-icon',
-      iconSize: [36, 52],
-      iconAnchor: [18, 52],
-      popupAnchor: [0, -45]
-    });
+    // 1. Inicializamos usando la función global (esto define la variable 'map' global)
+    initMap('map-itinerario', [38.2635, -0.6995]);
+    
+    // 2. Usamos la función global para obtener el icono
+    var icon = getCustomIcon();
 
     var puntosTraslado = [
       [38.259812, -0.701641], [38.259886, -0.701574], [38.260264, -0.701477],
@@ -135,17 +116,18 @@ bodyClass: page-light
     ];
 
     var path = L.polyline(puntosTraslado, {
-      color: '#000000', // Usamos el color oro para el camino del traslado
+      color: '#000000',
       weight: 5,
     }).addTo(map);
 
-    L.marker([38.259812, -0.701643], {icon: customHtmlIcon}).addTo(map)
+    // 3. CAMBIO IMPORTANTE: Usamos la variable 'icon' que creaste arriba
+    L.marker([38.259812, -0.701643], {icon: icon}).addTo(map)
       .bindPopup('<b>Iglesia de San José</b><br>Inicio del Vía Crucis (06:30h)');
 
-    L.marker([38.263273, -0.700501], {icon: customHtmlIcon}).addTo(map)
+    L.marker([38.263273, -0.700501], {icon: icon}).addTo(map)
       .bindPopup('<b>Puente de Santa Teresa</b><br>Estación de oración (06:45h)');
 
-    L.marker([38.267133, -0.697898], {icon: customHtmlIcon}).addTo(map)
+    L.marker([38.267133, -0.697898], {icon: icon}).addTo(map)
       .bindPopup('<b>Basílica de Santa María</b><br>Finalización del Traslado (07:45h)');
 
     map.fitBounds(path.getBounds());
