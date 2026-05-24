@@ -4,12 +4,6 @@
   box-sizing: border-box !important;
 }
 
-/* .wrap { 
-   max-width: 1200px; 
-  margin: 0 auto;
-  padding: 0 20px;
-} */
-
 /* 2. Forzamos a que el contenedor principal SIEMPRE tenga respiración lateral */
 .wrap {
   width: 100%;
