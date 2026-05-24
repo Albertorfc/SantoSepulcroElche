@@ -1,8 +1,22 @@
 /* --- 1. CONTENEDORES MAESTROS --- */
-.wrap {
-  max-width: 1200px;
+/* 1. Esto evita que el padding engorde los elementos más del 100% de su tamaño */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+/* .wrap { 
+   max-width: 1200px; 
   margin: 0 auto;
   padding: 0 20px;
+} */
+
+/* 2. Forzamos a que el contenedor principal SIEMPRE tenga respiración lateral */
+.wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
 }
 
 main {
