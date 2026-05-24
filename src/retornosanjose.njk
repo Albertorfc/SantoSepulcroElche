@@ -100,28 +100,13 @@ bodyClass: page-light
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-  // 1. Declaramos la variable global aquí
-  var map;
-
   document.addEventListener('DOMContentLoaded', function() {
-    // 2. Quitamos el 'var' de aquí para usar la variable global
-    map = L.map('map-itinerario').setView([38.2635, -0.6995], 16);
-
-    L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-        maxZoom: 20,
-        subdomains:['mt0','mt1','mt2','mt3'],
-        attribution: '© Google Maps'
-    }).addTo(map);
-
-    var customHtmlIcon = L.divIcon({
-      html: `<div class="marker-pin"><img src="/img/escudo.webp" alt="Escudo"></div>`,
-      className: 'custom-div-icon',
-      iconSize: [36, 52],
-      iconAnchor: [18, 52],
-      popupAnchor: [0, -45]
-    });
-
-    // Puntos del recorrido de vuelta (Orden inverso al traslado)
+    // 1. Inicializamos usando la función global (esto define la variable 'map' global)
+    initMap('map-itinerario', [38.2635, -0.6995]);
+    
+    // 2. Usamos la función global para obtener el icono
+    var icon = getCustomIcon();
+    
     var puntosRetorno = [
       [38.267133, -0.697898], [38.267118, -0.697891], [38.266978, -0.698049],
       [38.266942, -0.698688], [38.265937, -0.698720], [38.265898, -0.698990],
@@ -139,13 +124,13 @@ bodyClass: page-light
       weight: 5,
     }).addTo(map);
 
-    L.marker([38.267133, -0.697898], {icon: customHtmlIcon}).addTo(map)
+    L.marker([38.267133, -0.697898], {icon: icon}).addTo(map)
       .bindPopup('<b>Basílica de Santa María</b><br>Inicio del Retorno (00:30h)');
 
-    L.marker([38.263273, -0.700501], {icon: customHtmlIcon}).addTo(map)
+    L.marker([38.263273, -0.700501], {icon: icon}).addTo(map)
       .bindPopup('<b>Puente de Santa Teresa</b><br>Paso hacia el <em>Raval de Santa Teresa</em>');
 
-    L.marker([38.259812, -0.701641], {icon: customHtmlIcon}).addTo(map)
+    L.marker([38.259812, -0.701641], {icon: icon}).addTo(map)
       .bindPopup('<b>Iglesia de San José</b><br>Recogida de la Hermandad (02:00h)');
 
     map.fitBounds(path.getBounds());
