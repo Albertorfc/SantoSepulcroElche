@@ -151,40 +151,15 @@ bodyClass: page-light
 </article>
 
 {# --- LEAFLET ASSETS --- #}
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // 1. Definimos si es móvil (IMPORTANTE: Esto faltaba)
-    var isMobile = L.Browser.mobile;
-
-    // 2. Inicializamos el mapa con opciones de interacción
-    var map = L.map('map-itinerario', {
-        center: [38.2665, -0.6975],
-        zoom: 16,
-        dragging: !isMobile,      // Desactiva arrastre con 1 dedo en móvil
-        tap: !isMobile,           // Evita clics accidentales
-        scrollWheelZoom: false    // Evita zoom accidental con ratón
-    });
-
-    // 3. Capa Satélite limpia (lyrs=s)
-    L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-        maxZoom: 20,
-        subdomains:['mt0','mt1','mt2','mt3'],
-        attribution: '© Google Maps'
-    }).addTo(map);
-
-    // 4. Icono (El mismo de la página de traslado)
-    var customHtmlIcon = L.divIcon({
-      html: `<div class="marker-pin"><img src="/img/escudo.webp" alt="Cruz"></div>`,
-      className: 'custom-div-icon',
-      iconSize: [36, 52],
-      iconAnchor: [18, 52],
-      popupAnchor: [0, -45]
-    });
-
-    // 5. Coordenadas (Circular)
+    // 1. Inicializamos usando la función global (esto define la variable 'map' global)
+    initMap('map-itinerario', [38.2635, -0.6995]);
+    
+    // 2. Usamos la función global para obtener el icono
+    var icon = getCustomIcon();
+    
     var puntosProcesion = [
       [38.267133, -0.697898], [38.267309, -0.697981], [38.267331, -0.696541],
       [38.267228, -0.696279], [38.267194, -0.695216], [38.266456, -0.695347],
