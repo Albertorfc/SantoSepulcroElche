@@ -280,7 +280,7 @@
 .quote-text {
   font-family: var(--font-sans);
   font-weight: 300;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
   color: #ffffff; /* Texto en blanco para lectura fácil */
   margin-top: 20px;
